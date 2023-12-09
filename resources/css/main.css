@@ -1,0 +1,89 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+*.hidden {
+  display: none !important;
+}
+
+body {
+  font-family: "Noto Sans Mende Kikakui", sans-serif;
+  --width-page:80%;
+  --width-page-large:90%;
+  --dark:#2f2f2f;
+  --white: #ececec;
+}
+@media all and (min-width: 1400px) {
+  body {
+    --width-page:50%;
+  }
+}
+@media all and (max-width: 600px) {
+  body {
+    --width-page:95%;
+  }
+}
+body main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  font-size: 1.2em;
+}
+body main header {
+  width: 100%;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 2em 0 1em;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 9999;
+}
+body main .content {
+  width: var(--width-page);
+  margin: 0 0 5vh 0;
+}
+body main .content h1#h1-top {
+  margin: 5vh auto 5vh;
+}
+body main .btn-main {
+  width: 100%;
+  appearance: none;
+  background-color: var(--w);
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 6px;
+  box-shadow: rgba(226, 226, 226, 0.04) 0 1px 0, rgba(226, 226, 226, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: var(--b);
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 1em;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+body main .btn-main.no-click {
+  cursor: default;
+}
+
+/*# sourceMappingURL=main.css.map */
