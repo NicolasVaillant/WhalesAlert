@@ -20,6 +20,7 @@ body{
 
   --width-page:80%;
   --width-page-large:90%;
+  --active-color:#073863;
   --dark:#2f2f2f;
   --white: #ececec;
 
@@ -33,22 +34,98 @@ body{
     width: 100%;
     @include centerFlex;
     flex-direction: column;
-    font-size: 1.2em;
 
     header{
       width: 100%;
       border-bottom: 1px solid #e2e2e2;
-      padding: 2em 0 1em;
+      padding: 1em 0;
       position: sticky;
       top: 0;
       background: white;
       z-index: 9999;
+      .wrapper-header{
+        @include centerFlex;
+        padding: 0 1em;
+        width: 100%;
+        .brand-container{
+          @include centerFlex;
+          flex-direction: row;
+          gap: 1em;
+          img{max-width: 1.5em}
+        }
+        label.search-bar{
+          margin-left: auto;
+          display: flex;
+          input{
+            font-size: 15px;
+            padding: .3em .8em;
+            border: 1px solid #e2e2e2;
+            border-radius: 1000px;
+            outline: none;
+            width: 100%;
+          }
+        }
+        @media all and (max-width: 550px) {
+          flex-direction: column;
+          gap: 1em;
+          label{width: 100%}
+        }
+      }
     }
-    .content{
+    .wrapper-content{
       width: var(--width-page);
-      margin: 0 0 5vh 0;
-      h1#h1-top{margin: 5vh auto 5vh}
+      margin: 1em 0 5vh;
+
+      .top-content{
+        @include centerFlex;
+        gap: 1em;
+        flex-direction: column;
+        .trending-content{
+          @include centerFlex;
+          justify-content: flex-start;
+          width: 100%;
+          background: red;
+        }
+        .gain-lose-content{
+          @include centerFlex;
+          @media all and (max-width: 550px) {
+            flex-direction: column;
+          }
+          gap: 1em;
+          width: 100%;
+          .col{
+            width: 100%;
+            background: blue;
+          }
+        }
+      }
+      .array-content{
+        margin-top: 1em;
+        width: 100%;
+        min-height: 40vh;
+        background: green;
+      }
     }
+
+    footer{
+      @include centerFlex;
+      flex-direction: row;
+      padding: 1em;
+      background: var(--white);
+      width: 100%;
+      gap: 1em;
+      .brand-container{
+        @include centerFlex;
+        flex-direction: row;
+        gap: .5em;
+        img{max-width: 1em}
+      }
+      a{
+        text-decoration: none;
+        color: var(--active-color);
+      }
+    }
+
     .btn-main {
       &.no-click{cursor: default}
       width: 100%;

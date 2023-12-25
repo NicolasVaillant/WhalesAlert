@@ -23,12 +23,51 @@
 </head>
 <body>
 <main>
-    <header></header>
+    <header>
+        <div class="wrapper-header">
+            <div class="brand-container">
+                <img src="resources/img/logo.png" alt="Website's logo">
+                <h3>WhalesAlert</h3>
+            </div>
+            <label for="search-bar-input" class="search-bar">
+                <input type="text" id="search-bar-input" placeholder="Search for stocks">
+            </label>
+        </div>
+    </header>
     <div class="wrapper-content">
-        <div class="top-content"></div>
+        <div class="top-content">
+            <div class="trending-content">
+                <h2 class="Title">
+                    Trending
+                    <i class="fa-solid fa-fire"></i>
+                </h2>
+                <div class="line-content-trend"></div>
+            </div>
+            <div class="gain-lose-content">
+                <div class="col">
+                    <h3>Gainers
+                        <i class="fa-solid fa-circle-arrow-up"></i>
+                    </h3>
+                    <div class="card-content-gainers"></div>
+                </div>
+                <div class="col">
+                    <h3>Losers
+                        <i class="fa-solid fa-circle-arrow-down"></i>
+                    </h3>
+                    <div class="card-content-gainers"></div>
+                </div>
+            </div>
+        </div>
         <div class="array-content"></div>
     </div>
-    <footer></footer>
+    <footer>
+        <div class="brand-container">
+            <img src="resources/img/logo.png" alt="Website's logo">
+            <p>WhalesAlert</p>
+        </div>
+        <p>© 2023</p>
+        <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a></p>
+    </footer>
 </main>
 </body>
 </html>

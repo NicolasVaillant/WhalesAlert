@@ -1,0 +1,20 @@
+[
+    {
+        "urlPart": "flare",
+        "title": " FLR ",
+        "changeValue": "16,20% ",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "immutable-x",
+        "title": " IMX ",
+        "changeValue": "1,03% ",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "onbeam",
+        "title": " BEAM ",
+        "changeValue": "9,01% ",
+        "changeDirection": "down"
+    }
+]
