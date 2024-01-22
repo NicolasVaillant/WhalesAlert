@@ -39,6 +39,11 @@ body{
     flex-direction: column;
     background-color: var(--active-color);
 
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+
     header{
       height: var(--height-header);
       display: flex;  
@@ -57,6 +62,7 @@ body{
           @include centerFlex;
           flex-direction: row;
           gap: 1em;
+          a{font-size: 1.2em}
           img{max-width: 1.5em}
         }
         label.search-bar{

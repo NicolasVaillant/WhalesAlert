@@ -135,9 +135,9 @@ const fEdit_GL = (data, loc) => {
 
         // console.log(element);
 
-        const line = document.createElement('div')
+        const line = document.createElement('a')
         line.classList.add('line')
-        
+        line.href = `crypto.html?q=${urlPart}`
         const first_col = document.createElement('div')
         first_col.classList.add('left')
         const name = document.createElement('p')

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- JS FILE(S) -->
     <script src="parameters/parameters.js" defer></script>
-    <script src="resources/js/index.js" defer></script>
+    <script src="resources/js/crypto.js" defer></script>
     <!-- CSS FILE(S) -->
     <link rel="stylesheet" href="css/main.css">
     <!-- css style used to correctly display data tables -->
@@ -29,7 +29,7 @@
     <!-- <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js" defer></script> -->
     <!-- <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js" defer></script> -->
     <!-- //cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css -->
-    <title>Home | WhalesAlert</title>
+    <title>crypto | WhalesAlert</title>
 </head>
 <body>
 <main>
@@ -45,80 +45,7 @@
         </div>
     </header>
     <div class="wrapper-content top">
-        <div class="top-content">
-            <div class="trending-content">
-                <h2 class="title-container max">
-                    Trending
-                    <i class="fa-solid fa-fire"></i>
-                </h2>
-                <div class="line-content-trend">
-                    <div class="container-overflow"></div>
-                </div>
-            </div>
-            <div class="gain-lose-content">
-                <div class="col">
-                    <h3 class="title-container">
-                        Gainers
-                        <i class="fa-solid fa-circle-arrow-up"></i>
-                    </h3>
-                    <div class="card-content-gainers"></div>
-                </div>
-                <div class="col">
-                    <h3 class="title-container">
-                        Losers
-                        <i class="fa-solid fa-circle-arrow-down"></i>
-                    </h3>
-                    <div class="card-content-losers"></div>
-                </div>
-            </div>
-        </div>
-        <h2 class="title-container max">Discover all transactions</h2>
-    </div>
-    <div class="settings-container">
-        <div class="settings-bar-table">
-            <div class="col-left-sc"></div>
-            <div class="col-right-sc">
-                <select name="select_table" id="select_table">
-                    <option value="1000">All</option>
-                </select>
-                <button class="type-table-toggle btn-main">
-                    <!-- <i class="fa-solid fa-list"></i> -->
-                    <i class="fa-solid fa-table-cells-large"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper-content">
-        <div class="array-content">
-            <table id="table_crypto" class="table table-bordered order-column" style="width:100%">
-                <thead>
-                <tr class="row_table_def">
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>1h</th>
-                    <th>24h</th>
-                    <th>7d</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                <tr class="row_table_def">
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>1h</th>
-                    <th>24h</th>
-                    <th>7d</th>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="grid_crypto hidden"></div>
+        <h2 class="title-container max name-crypto">Crypto</h2>
     </div>
     <footer>
         <div class="footer-container">

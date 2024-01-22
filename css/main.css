@@ -41,6 +41,10 @@ body main {
   flex-direction: column;
   background-color: var(--active-color);
 }
+body main a {
+  text-decoration: none;
+  color: inherit;
+}
 body main header {
   height: var(--height-header);
   display: flex;
@@ -67,6 +71,9 @@ body main header .wrapper-header .brand-container {
   align-content: center;
   flex-direction: row;
   gap: 1em;
+}
+body main header .wrapper-header .brand-container a {
+  font-size: 1.2em;
 }
 body main header .wrapper-header .brand-container img {
   max-width: 1.5em;
