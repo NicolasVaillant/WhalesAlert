@@ -61,8 +61,9 @@ body main header .wrapper-header {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 0 1em;
-  width: 100%;
+  width: var(--width-page);
+  margin: auto;
+  padding: 0;
 }
 body main header .wrapper-header .brand-container {
   display: flex;
@@ -81,6 +82,7 @@ body main header .wrapper-header .brand-container img {
 body main header .wrapper-header label.search-bar {
   margin-left: auto;
   display: flex;
+  visibility: hidden;
 }
 body main header .wrapper-header label.search-bar input {
   font-size: 15px;
@@ -146,19 +148,25 @@ body main .title-container {
 }
 body main .title-container.max {
   margin-top: 2vh;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
 }
 body main .wrapper-content {
   width: var(--width-page);
-  margin: 1em 0;
+  margin: 3em 0;
   display: flex;
   flex-direction: column;
+}
+body main .wrapper-content.top {
+  margin-bottom: 0;
 }
 body main .wrapper-content .top-content {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 1em;
+  gap: 2em;
   flex-direction: column;
   margin-bottom: 1em;
 }
@@ -168,7 +176,7 @@ body main .wrapper-content .top-content .trending-content {
   align-items: center;
   align-content: center;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
   align-items: flex-start;
   width: 100%;
 }
@@ -184,7 +192,6 @@ body main .wrapper-content .top-content .trending-content .line-content-trend {
   display: flex;
   border: 1px solid;
   flex-direction: row;
-  gap: 1em;
   overflow: hidden;
   border-radius: 8px;
   color: var(--white);
@@ -193,7 +200,7 @@ body main .wrapper-content .top-content .trending-content .line-content-trend .c
   overflow-y: auto;
   display: inline-flex;
   gap: 2em;
-  padding: 1em;
+  padding: 0.5em;
 }
 body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e {
   display: flex;
@@ -203,6 +210,8 @@ body main .wrapper-content .top-content .trending-content .line-content-trend .t
   white-space: nowrap;
   gap: 0.5em;
   border: 1px solid transparent;
+  padding: 0.2em 0.5em;
+  border-radius: 1000px;
 }
 @media (pointer: fine) {
   body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e:hover {
@@ -228,7 +237,7 @@ body main .wrapper-content .top-content .gain-lose-content .col {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1em;
 }
 body main .wrapper-content .top-content .gain-lose-content .col i.fa-circle-arrow-up {
   color: #179228;
@@ -240,6 +249,7 @@ body main .wrapper-content .top-content .gain-lose-content .col .card-content-ga
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers {
   --padd: 5px;
   --br: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: var(--padd);
   border-radius: calc(var(--padd) + var(--br));
   background: var(--hf-color-op);
@@ -288,8 +298,7 @@ body main .wrapper-content .top-content .gain-lose-content .col .card-content-lo
 @media (pointer: fine) {
   body main .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line:hover,
   body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line:hover {
-    background: rgba(12, 90, 158, 0.3019607843);
-    border: 1px solid #0C5A9E;
+    background: #fff;
     cursor: pointer;
   }
 }
@@ -305,6 +314,16 @@ body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scro
   background: var(--hf-color-op);
   margin: 1em 0;
   border-radius: 10px;
+}
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr {
+  background-color: transparent;
+  cursor: pointer;
+}
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr:hover {
+  background: #fff;
+}
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll td.sorting_1 {
+  text-align: center;
 }
 body main .wrapper-content .array-content .dataTables_length,
 body main .wrapper-content .array-content #table_crypto_filter,

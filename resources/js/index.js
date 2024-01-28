@@ -61,7 +61,6 @@ const fEdit_main = (data) => {
             [10, 25, 50],
         ],
         columns: [
-            // { data: 'name'},
             { data: 'Rank'},
             { data: 'Name' },
             { data: 'Symbol' },
@@ -97,7 +96,7 @@ const fEdit_Trend = (data) => {
     const location = document.querySelector('.container-overflow')
     data.cryptocurrencies.forEach(e => {
         const {Name} = e 
-        const element = document.createElement('div')
+        const element = document.createElement('a')
         element.classList.add('trends-e')
         const status = document.createElement('div')
         const status_dir = document.createElement('i')
@@ -114,6 +113,7 @@ const fEdit_Trend = (data) => {
         status.appendChild(status_val)
         const text = document.createElement('p')
         text.innerHTML = Name
+        element.href = `crypto.html?q=${Name}`
         element.appendChild(status)
         element.appendChild(text)
         location.appendChild(element)

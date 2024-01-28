@@ -18,6 +18,7 @@
     <script src="parameters/parameters.js" defer></script>
     <script src="resources/js/index.js" defer></script>
     <!-- CSS FILE(S) -->
+    <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- css style used to correctly display data tables -->
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css"> -->
@@ -48,8 +49,8 @@
         <div class="top-content">
             <div class="trending-content">
                 <h2 class="title-container max">
-                    Trending
                     <i class="fa-solid fa-fire"></i>
+                    Trending
                 </h2>
                 <div class="line-content-trend">
                     <div class="container-overflow"></div>
@@ -72,7 +73,11 @@
                 </div>
             </div>
         </div>
-        <h2 class="title-container max">Discover all transactions</h2>
+    </div>
+    <div class="wrapper-content">
+        <h2 class="title-container max">
+            <i class="fa-regular fa-circle-check"></i>
+            Discover all transactions</h2>
     </div>
     <div class="settings-container">
         <div class="settings-bar-table">
@@ -90,7 +95,7 @@
     </div>
     <div class="wrapper-content">
         <div class="array-content">
-            <table id="table_crypto" class="table table-bordered order-column" style="width:100%">
+            <table id="table_crypto" class="table table-bordered order-column cell-border" style="width:100%">
                 <thead>
                 <tr class="row_table_def">
                     <th>Rank</th>

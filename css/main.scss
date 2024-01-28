@@ -56,8 +56,10 @@ body{
       z-index: 9999;
       .wrapper-header{
         @include centerFlex;
-        padding: 0 1em;
-        width: 100%;
+        width: var(--width-page);
+        margin: auto;
+        padding: 0;
+        // width: 100%;
         .brand-container{
           @include centerFlex;
           flex-direction: row;
@@ -68,7 +70,7 @@ body{
         label.search-bar{
           margin-left: auto;
           display: flex;
-          // visibility: hidden;
+          visibility: hidden;
           input{
             font-size: 15px;
             padding: .3em .8em;
@@ -126,25 +128,28 @@ body{
     .title-container{
       &.max{
         margin-top: 2vh;
+        display: flex;
+        align-items: baseline;
+        gap: 0.5em;
       }
       color: var(--white);
     }
 
     .wrapper-content{
       width: var(--width-page);
-      // &:not(.top){margin: 2vh}
-      margin: 1em 0;
+      &.top{margin-bottom: 0}
+      margin: 3em 0;
       display: flex;
       flex-direction: column;
       .top-content{
         @include centerFlex;
-        gap: 1em;
+        gap: 2em;
         flex-direction: column;
         margin-bottom: 1em;
         .trending-content{
           @include centerFlex;
           flex-direction: column;
-          gap: .5em;
+          gap: 1em;
           align-items: flex-start;
           width: 100%;
           i.fa-fire{color: #FBE5A2}
@@ -154,7 +159,6 @@ body{
             display: flex;
             border: 1px solid;
             flex-direction: row;
-            gap: 1em;
             overflow: hidden;
             border-radius: 8px;
             color: var(--white);
@@ -162,13 +166,15 @@ body{
               overflow-y: auto;
               display: inline-flex;
               gap: 2em;
-              padding: 1em;
+              padding: .5em;
             }
             .trends-e{
               @include centerFlex;
               white-space: nowrap;
               gap: .5em;
               border: 1px solid transparent;
+              padding: .2em .5em;
+              border-radius: 1000px;
               @media (pointer: fine) {
                 &:hover{
                   background: #0c5a9e4d;
@@ -190,13 +196,14 @@ body{
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0.5em;
+            gap: 1em;
             i.fa-circle-arrow-up{color: #179228}
             i.fa-circle-arrow-down{color: #EB3223}
             .card-content-gainers,
             .card-content-losers{
               --padd: 5px;
               --br: 5px;
+              box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
               padding: var(--padd);
               border-radius: calc(var(--padd) + var(--br));
               background: var(--hf-color-op);
@@ -223,8 +230,7 @@ body{
                 }
                 @media (pointer: fine) {
                   &:hover{
-                    background: #0c5a9e4d;
-                    border: 1px solid #0C5A9E;
+                    background: #fff;
                     cursor: pointer;
                   }
                 }
@@ -243,6 +249,17 @@ body{
             background: var(--hf-color-op);
             margin: 1em 0;
             border-radius: 10px;
+
+            table.dataTable tbody tr {
+              background-color: transparent;
+              cursor: pointer;
+              &:hover{
+                background: #fff;
+              }
+            }
+            td.sorting_1 {
+              text-align: center;
+            }
           }
         }
         .dataTables_length,
