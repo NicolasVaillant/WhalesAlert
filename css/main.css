@@ -135,6 +135,23 @@ body main .settings-container .settings-bar-table .col-left-sc .card-sh {
   border: 1px solid #eff1f4;
   border-radius: 1000px;
   padding: 0.2em 0.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.2em;
+  padding-right: 0.5em !important;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+body main .settings-container .settings-bar-table .col-left-sc .card-sh span {
+  background: #fff;
+  border-radius: 10000px;
+  aspect-ratio: 1;
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (pointer: fine) {
   body main .settings-container .settings-bar-table .col-left-sc .card-sh:hover {

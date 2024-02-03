@@ -43,13 +43,15 @@ const fEdit_main = (data) => {
 
     const result = data.cryptocurrencies.filter(obj => obj.Rank === 1 || obj.Rank === 2 || obj.Rank === 3);
 
-    // console.log(result);
     const location = document.querySelector('.col-left-sc')
-    result.forEach(e => {
+    result.forEach((e, i) => {
         const element = document.createElement('div')
         const text = document.createElement('p')
+        const value = document.createElement('span')
         element.classList.add('card-sh')
         text.innerHTML = e.Name
+        value.innerHTML = (i+1).toString()
+        element.appendChild(value)
         element.appendChild(text)
         location.appendChild(element)
     })
