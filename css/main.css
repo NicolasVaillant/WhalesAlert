@@ -128,6 +128,7 @@ body main .settings-container .settings-bar-table .col-left-sc {
   justify-content: center;
   align-items: center;
   align-content: center;
+  flex-wrap: wrap;
   gap: 1em;
 }
 body main .settings-container .settings-bar-table .col-left-sc .card-sh {
@@ -285,6 +286,7 @@ body main .wrapper-content .top-content .gain-lose-content .col .card-content-lo
   border: 1px solid transparent;
   border-radius: var(--br);
   padding: 6px 14px;
+  position: relative;
 }
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line .stock-title,
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line .stock-title {
@@ -293,6 +295,12 @@ body main .wrapper-content .top-content .gain-lose-content .col .card-content-lo
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line .right,
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line .right {
   margin-left: auto;
+  position: absolute;
+  background: #c6cfd9;
+  padding: 0.2em;
+  border-radius: 4px;
+  right: 2px;
+  height: 100%;
 }
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line .right.up,
 body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line .right.up {
@@ -317,6 +325,10 @@ body main .wrapper-content .top-content .gain-lose-content .col .card-content-lo
   body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line:hover {
     background: #fff;
     cursor: pointer;
+  }
+  body main .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line:hover .right,
+  body main .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line:hover .right {
+    background: #fff;
   }
 }
 body main .wrapper-content .array-content {
@@ -374,6 +386,11 @@ body main footer .footer-container {
   flex-direction: row;
   width: var(--width-page);
   gap: 1em;
+}
+@media all and (max-width: 450px) {
+  body main footer .footer-container {
+    flex-direction: column;
+  }
 }
 body main footer .footer-container .col-left-footer {
   display: flex;

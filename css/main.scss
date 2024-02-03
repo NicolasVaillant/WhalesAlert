@@ -107,6 +107,7 @@ body{
         }
         .col-left-sc{
           @include centerFlex;
+          flex-wrap: wrap;
           gap: 1em;
           .card-sh{
             background: #eff1f4;
@@ -234,9 +235,16 @@ body{
                 border: 1px solid transparent;
                 border-radius: var(--br);
                 padding: 6px 14px;
+                position: relative;
                 .stock-title{color: #939393}
                 & .right{
                   margin-left: auto;
+                  position: absolute;
+                  background: #c6cfd9;
+                  padding: 0.2em;
+                  border-radius: 4px;
+                  right: 2px;
+                  height: 100%;
                   &.up{color: #179228}
                   &.down{color: #EB3223}
                 }
@@ -249,6 +257,9 @@ body{
                   &:hover{
                     background: #fff;
                     cursor: pointer;
+                    & .right{
+                      background: #fff;
+                    }
                   }
                 }
               }
@@ -307,6 +318,10 @@ body{
         @include centerFlex;
         justify-content: space-between;
         flex-direction: row;
+        @media all and (max-width: 450px) {
+          flex-direction: column;
+        }
+
         width: var(--width-page);
         gap: 1em;
         .col-left-footer{
