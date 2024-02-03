@@ -270,7 +270,8 @@ body{
       .array-content{
         width: 100%;
         min-height: 60vh;
-        #table_crypto_wrapper{
+        #table_crypto_wrapper,
+        #table_crypto_unique_wrapper{
           display: flex;
           flex-direction: column;
           .dataTables_scroll{

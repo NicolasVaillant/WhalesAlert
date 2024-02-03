@@ -335,23 +335,28 @@ body main .wrapper-content .array-content {
   width: 100%;
   min-height: 60vh;
 }
-body main .wrapper-content .array-content #table_crypto_wrapper {
+body main .wrapper-content .array-content #table_crypto_wrapper,
+body main .wrapper-content .array-content #table_crypto_unique_wrapper {
   display: flex;
   flex-direction: column;
 }
-body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll {
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll,
+body main .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll {
   background: var(--hf-color-op);
   margin: 1em 0;
   border-radius: 10px;
 }
-body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr {
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr,
+body main .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr {
   background-color: transparent;
   cursor: pointer;
 }
-body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr:hover {
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr:hover,
+body main .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr:hover {
   background: #fff;
 }
-body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll td.sorting_1 {
+body main .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll td.sorting_1,
+body main .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll td.sorting_1 {
   text-align: center;
 }
 body main .wrapper-content .array-content .dataTables_length,
