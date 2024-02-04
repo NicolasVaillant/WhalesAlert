@@ -190,6 +190,12 @@ body main .title-container.max {
   align-items: baseline;
   gap: 0.5em;
 }
+body main .title-container.logo {
+  align-items: center;
+}
+body main .title-container.logo img {
+  width: 1.4em;
+}
 body main .wrapper-content {
   width: var(--width-page);
   margin: 3em 0;
