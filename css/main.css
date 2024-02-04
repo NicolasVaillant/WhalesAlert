@@ -502,6 +502,7 @@ body #modal .container-header .close-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 body #modal .container-content {
   flex-direction: column;
@@ -511,6 +512,8 @@ body #modal .container-content {
 body #modal .container-content button {
   cursor: pointer;
   justify-content: center;
+  background: var(--active-color);
+  color: var(--w);
 }
 body #modal .btn-main {
   width: 100%;

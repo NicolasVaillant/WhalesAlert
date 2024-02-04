@@ -417,6 +417,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
       }
     }
     .container-content{
@@ -426,6 +427,8 @@ body{
       button{
         cursor: pointer;
         justify-content: center;
+        background: var(--active-color);
+        color: var(--w);
       }
     }
     .btn-main {
