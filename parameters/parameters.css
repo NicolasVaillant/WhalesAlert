@@ -1,0 +1,18 @@
+:root {
+    /*Adapt the colors of the website*/
+    --bg-color: #073863;
+
+    --tinted-main-light-color: 255 255 255;
+    --tinted-main-dark-color: 36 41 46;
+    --tinted-second-light-color: 244 245 247;
+    /* --topbar-dark-color: 48 55 64; */
+    --active-light-color: 0 123 255;
+    /* --active-dark-color: 111 123 255; */
+    --border-of-elements-light-color: 27 31 35;
+    /* --border-of-elements-dark-color: 255 255 255; */
+
+    /*Adapt the size of the website*/
+    --width-page: 80%;
+    --width-page-large: 90%;
+    --height-header: 10vh;
+}

@@ -1,33 +1,3 @@
-window.onload = function () {
-    copyrightDate()
-
-    fLoad_main()
-        .then(r => {
-            const data = (typeof r === 'object') ? r : "error reading data main"
-            fEdit_main(data)
-            fEdit_Trend(data)
-        })
-    
-    fLoad_gainers()
-        .then(r => {
-            const data = (typeof r === 'object') ? r : "error reading data gainers"
-            fEdit_GL(data, "card-content-gainers")
-        })
-        
-    fLoad_losers()
-        .then(r => {
-            const data = (typeof r === 'object') ? r : "error reading data losers"
-            // fEdit_losers(data)
-            fEdit_GL(data, "card-content-losers")
-        })
-}
-
-const copyrightDate = () => {
-    const element = document.querySelector('.copyright-date')
-    const date = new Date().getFullYear()
-    element.innerText = `© ${date}`
-}
-
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
@@ -78,23 +48,45 @@ const fEdit_main = (data) => {
         }],
         order: [[0, 'asc']],
         scrollX: "300px",
-        // "paging": pagingAllow,
-        // "lengthChange": lengthChangeAllow,
         "searching": true,
         "ordering": true,
-        // "info": pagingAllow,
         "autoWidth": false,
-        "responsive": false,
-        // "language": translation[languageSelect].dataTable,
-        // "initComplete": function() {
-        //     initComplete_leaderboard = true
-        //     changeImageTable(player.players, this[0].querySelector('tbody'))
-        // }
+        "responsive": false
     });
+
+    $('#table_crypto tbody').on('click', 'tr', function (e) {
+        const crypto = $(this)[0].querySelectorAll('td')[1].innerText
+        const cryptoDef = crypto.includes(' ') ? crypto.replace(/ /g, '_').toLowerCase() : crypto.toLowerCase()
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            leaderboard_table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+        contextMenuCreation(cryptoDef, e.clientX, e.clientY)
+    })
 }
 
+const contextMenuCreation = (text, x, y) => {
+    const modal = document.getElementById('modal');
+    const actionButton = document.getElementById('open_crypto_from_table');
+    const text_modal = document.querySelector('.text_modal');
+    modal.style.top = y + 'px';
+    modal.style.left = x + 'px';
+    actionButton.innerText = `Open ${text}`
+    modal.style.display = 'flex';
+    actionButton.addEventListener('click', function() {
+        window.open(`crypto.html?q=${text}`, "_self")
+        modal.style.display = 'none';
+    });
+}
+const close_btn = document.querySelector('.close-btn');
+close_btn.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
 const fEdit_Trend = (data) => {
-    console.log(data)
+    // console.log(data)
     const location = document.querySelector('.container-overflow')
     data.cryptocurrencies.forEach(e => {
         const {Name} = e 
@@ -208,3 +200,23 @@ toggle_table.addEventListener('click', () => {
         toggle_table.querySelector('i').classList.replace('fa-table-cells-large', 'fa-list')
     }
 })
+
+fLoad_main()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error reading data main"
+        fEdit_main(data)
+        fEdit_Trend(data)
+    })
+
+fLoad_gainers()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error reading data gainers"
+        fEdit_GL(data, "card-content-gainers")
+    })
+    
+fLoad_losers()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error reading data losers"
+        // fEdit_losers(data)
+        fEdit_GL(data, "card-content-losers")
+    })

@@ -8,14 +8,19 @@
     <link type="image/png" sizes="16x16" rel="icon" href="resources/ico/def_16.png">
     <link type="image/png" sizes="32x32" rel="icon" href="resources/ico/def_32.png">
     <link type="image/png" sizes="96x96" rel="icon" href="resources/ico/def_96.png">
+    <!-- Toast with sweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&display=swap" rel="stylesheet">
     <!-- icon from fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!-- JS FILE(S) -->
+    <!-- Parameters files -->
+    <link rel="stylesheet" href="parameters/parameters.css">
     <script src="parameters/parameters.js" defer></script>
+    <!-- JS FILE(S) -->
+    <script src="resources/js/shared.js" defer></script>
     <script src="resources/js/crypto.js" defer></script>
     <!-- CSS FILE(S) -->
     <link rel="stylesheet" href="css/root.css">
@@ -36,10 +41,10 @@
 <main>
     <header>
         <div class="wrapper-header">
-            <div class="brand-container">
+            <a class="brand-container" href="index.html">
                 <img src="resources/img/logo.png" alt="Website's logo">
-                <a href="index.html">WhalesAlert</a>
-            </div>
+                <h2>WhalesAlert</h2>
+            </a>
             <label for="search-bar-input" class="search-bar">
                 <input type="text" id="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
             </label>

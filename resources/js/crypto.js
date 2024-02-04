@@ -37,17 +37,9 @@ const fLoad_table = async(r) => {
         }],
         order: [[0, 'asc']],
         scrollX: "300px",
-        // "paging": pagingAllow,
-        // "lengthChange": lengthChangeAllow,
-        "searching": true,
+        "searching": false,
         "ordering": true,
-        // "info": pagingAllow,
         "autoWidth": false,
         "responsive": false,
-        // "language": translation[languageSelect].dataTable,
-        // "initComplete": function() {
-        //     initComplete_leaderboard = true
-        //     changeImageTable(player.players, this[0].querySelector('tbody'))
-        // }
     });
 }
