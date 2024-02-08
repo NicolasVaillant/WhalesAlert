@@ -222,9 +222,9 @@ def run_threaded(job_func):
 # schedule.every(30).minutes.do(all_price_xeggex)
 
 # Scrap CoinMarketCap
-schedule.every(1).minutes.do(gainer_j)
-schedule.every(1).minutes.do(loser_j)
-schedule.every(1).minutes.do(trend_j)
+schedule.every(30).minutes.do(gainer_j)
+schedule.every(30).minutes.do(loser_j)
+schedule.every(30).minutes.do(trend_j)
 
 # listener_thread = threading.Thread(target=command_listener, daemon=True)
 # listener_thread.start()
