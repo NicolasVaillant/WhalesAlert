@@ -57,10 +57,10 @@ class ScraperG:
                 change_direction = change_element.attrs['data-change']
 
             return {
-                'url_part': url_part,
+                'urlPart': url_part,
                 'title': title,
-                'change_value': change_value,
-                'change_direction': change_direction
+                'changeValue': change_value,
+                'changeDirection': change_direction
             }
 
         except Exception as e:
@@ -81,3 +81,4 @@ async def main():
 
     with open(f"./resources/data/gainers.json", "w") as f:
         json.dump(globals_data, f, indent=4)
+
