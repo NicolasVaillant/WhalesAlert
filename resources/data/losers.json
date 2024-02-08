@@ -1,20 +1,20 @@
 [
     {
-        "urlPart": "flare",
-        "title": " FLR ",
-        "changeValue": "16,20% ",
-        "changeDirection": "down"
+        "url_part": "jupiter-ag",
+        "title": "JUP",
+        "change_value": "6,52%",
+        "change_direction": "down"
     },
     {
-        "urlPart": "immutable-x",
-        "title": " IMX ",
-        "changeValue": "1,03% ",
-        "changeDirection": "down"
+        "url_part": "pendle",
+        "title": "PENDLE",
+        "change_value": "5,17%",
+        "change_direction": "down"
     },
     {
-        "urlPart": "onbeam",
-        "title": " BEAM ",
-        "changeValue": "9,01% ",
-        "changeDirection": "down"
+        "url_part": "wemix",
+        "title": "WEMIX",
+        "change_value": "2,83%",
+        "change_direction": "down"
     }
 ]

@@ -1,1 +1,20 @@
-[{'url_part': 'ethereum-name-service', 'title': 'ENS', 'change_value': '9,92%', 'change_direction': 'up'}, {'url_part': 'gnosis-gno', 'title': 'GNO', 'change_value': '5,67%', 'change_direction': 'up'}, {'url_part': 'immutable-x', 'title': 'IMX', 'change_value': '5,81%', 'change_direction': 'up'}]
+[
+    {
+        "url_part": "dymension",
+        "title": "DYM",
+        "change_value": "21,22%",
+        "change_direction": "up"
+    },
+    {
+        "url_part": "heroes-of-mavia",
+        "title": "MAVIA",
+        "change_value": "13,30%",
+        "change_direction": "down"
+    },
+    {
+        "url_part": "doginphire",
+        "title": "FIRE",
+        "change_value": "33,71%",
+        "change_direction": "up"
+    }
+]
