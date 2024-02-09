@@ -1,0 +1,35 @@
+[
+    {
+        "id": "icp-internet-computer",
+        "name": "Internet Computer",
+        "symbol": "ICP",
+        "rank": 18,
+        "circulating_supply": 457815912,
+        "total_supply": 514143138,
+        "max_supply": 469213710,
+        "beta_value": 4.61412e-05,
+        "first_data_at": "2021-05-12T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:21Z",
+        "quotes": {
+            "USD": {
+                "price": 12.642118367545724,
+                "volume_24h": 103851643.50010282,
+                "volume_24h_change_24h": -10.28,
+                "market_cap": 5787762950,
+                "market_cap_change_24h": 3.34,
+                "percent_change_15m": 0.08,
+                "percent_change_30m": 0.6,
+                "percent_change_1h": 0.31,
+                "percent_change_6h": -0.32,
+                "percent_change_12h": 0.66,
+                "percent_change_24h": 3.33,
+                "percent_change_7d": -0.37,
+                "percent_change_30d": -6.26,
+                "percent_change_1y": 143.46,
+                "ath_price": 342.22936936,
+                "ath_date": "2021-05-13T05:35:00Z",
+                "percent_from_price_ath": -96.31
+            }
+        }
+    }
+]

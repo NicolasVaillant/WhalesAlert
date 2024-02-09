@@ -1,0 +1,35 @@
+[
+    {
+        "id": "avax-avalanche",
+        "name": "Avalanche",
+        "symbol": "AVAX",
+        "rank": 10,
+        "circulating_supply": 367464637,
+        "total_supply": 435497534,
+        "max_supply": 0,
+        "beta_value": 1.58847e-05,
+        "first_data_at": "2020-08-07T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:21Z",
+        "quotes": {
+            "USD": {
+                "price": 37.78259915562261,
+                "volume_24h": 456519939.8298019,
+                "volume_24h_change_24h": 9.67,
+                "market_cap": 13883769084,
+                "market_cap_change_24h": 6.03,
+                "percent_change_15m": 1.37,
+                "percent_change_30m": 2.26,
+                "percent_change_1h": 2.15,
+                "percent_change_6h": 4.23,
+                "percent_change_12h": 5.04,
+                "percent_change_24h": 6.02,
+                "percent_change_7d": 3.8,
+                "percent_change_30d": -10.98,
+                "percent_change_1y": 104.35,
+                "ath_price": 145.66521638316073,
+                "ath_date": "2021-11-21T14:15:00Z",
+                "percent_from_price_ath": -74.21
+            }
+        }
+    }
+]

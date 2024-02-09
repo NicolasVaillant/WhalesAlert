@@ -1,0 +1,35 @@
+[
+    {
+        "id": "shib-shiba-inu",
+        "name": "Shiba Inu",
+        "symbol": "SHIB",
+        "rank": 19,
+        "circulating_supply": 589384328243061,
+        "total_supply": 1000000000000000,
+        "max_supply": 1000000000000000,
+        "beta_value": 6.95008e-06,
+        "first_data_at": "2021-05-10T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:21Z",
+        "quotes": {
+            "USD": {
+                "price": 9.34846269045451e-06,
+                "volume_24h": 114988507.60168824,
+                "volume_24h_change_24h": -18.38,
+                "market_cap": 5509837403,
+                "market_cap_change_24h": 1.43,
+                "percent_change_15m": 0.18,
+                "percent_change_30m": 0.45,
+                "percent_change_1h": 0.3,
+                "percent_change_6h": -0.19,
+                "percent_change_12h": 0.09,
+                "percent_change_24h": 1.43,
+                "percent_change_7d": 2.95,
+                "percent_change_30d": -10.59,
+                "percent_change_1y": -25.1,
+                "ath_price": 8.837036322547004e-05,
+                "ath_date": "2021-10-28T03:25:00Z",
+                "percent_from_price_ath": -89.43
+            }
+        }
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "id": "matic-polygon",
+        "name": "Polygon",
+        "symbol": "MATIC",
+        "rank": 16,
+        "circulating_supply": 9610749134,
+        "total_supply": 10000000000,
+        "max_supply": 0,
+        "beta_value": -1.85056e-05,
+        "first_data_at": "2019-04-29T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:21Z",
+        "quotes": {
+            "USD": {
+                "price": 0.845054601890808,
+                "volume_24h": 302185645.024457,
+                "volume_24h_change_24h": 10.39,
+                "market_cap": 8121607783,
+                "market_cap_change_24h": 1.88,
+                "percent_change_15m": 0.23,
+                "percent_change_30m": 0.5,
+                "percent_change_1h": 0.46,
+                "percent_change_6h": -0.01,
+                "percent_change_12h": 0.76,
+                "percent_change_24h": 1.88,
+                "percent_change_7d": 5.11,
+                "percent_change_30d": -11.6,
+                "percent_change_1y": -35.07,
+                "ath_price": 2.914598854193165,
+                "ath_date": "2021-12-27T02:05:00Z",
+                "percent_from_price_ath": -71.04
+            }
+        }
+    }
+]

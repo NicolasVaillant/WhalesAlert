@@ -1,0 +1,35 @@
+[
+    {
+        "id": "xrp-xrp",
+        "name": "XRP",
+        "symbol": "XRP",
+        "rank": 6,
+        "circulating_supply": 54436190886,
+        "total_supply": 99987935982,
+        "max_supply": 100000000000,
+        "beta_value": 1.94466e-05,
+        "first_data_at": "2013-08-04T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:20Z",
+        "quotes": {
+            "USD": {
+                "price": 0.522218544344556,
+                "volume_24h": 907052586.9504466,
+                "volume_24h_change_24h": -3.71,
+                "market_cap": 28427588364,
+                "market_cap_change_24h": 1.47,
+                "percent_change_15m": 0.08,
+                "percent_change_30m": 0.24,
+                "percent_change_1h": 0.28,
+                "percent_change_6h": -0.14,
+                "percent_change_12h": 0.61,
+                "percent_change_24h": 1.47,
+                "percent_change_7d": 3.87,
+                "percent_change_30d": -15.58,
+                "percent_change_1y": 35.65,
+                "ath_price": 3.84194,
+                "ath_date": "2018-01-04T07:14:00Z",
+                "percent_from_price_ath": -86.41
+            }
+        }
+    }
+]

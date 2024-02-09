@@ -9,8 +9,9 @@ import threading
 import logging
 from pathlib import Path
 
-#-----------------------------
-# Coins
+#----------------------------------------------------
+# Coins Tx
+#----------------------------------------------------
 
 # from dynex import dynex
 # from kylacoin import kylacoin
@@ -24,13 +25,19 @@ from pathlib import Path
 # from Bitnet import Bitnet
 # from nexa import nexa
 
-#------------------------------------
+#----------------------------------------------------
 # Scrap CoinMarketCap
-
+#----------------------------------------------------
 from resources.python import gainers, losers, trending
 
 #----------------------------------------------------
+# Scrap Coins Data
+#----------------------------------------------------
+from resources.python import coins_data
+
+#----------------------------------------------------
 # Logging
+#----------------------------------------------------
 
 logger_fonction = logging.getLogger('scraping')
 logger_fonction.setLevel(logging.INFO)
@@ -39,10 +46,10 @@ handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger_fonction.addHandler(handler)
 
-clear, back_slash = "clear", "/"
-if name == "nt":
-    clear, back_slash = "cls", "\\"
-system(clear)
+# clear, back_slash = "clear", "/"
+# if name == "nt":
+#     clear, back_slash = "cls", "\\"
+# system(clear)
 
 print("Start")
 
@@ -101,6 +108,10 @@ def loser_j():
 def trend_j():
     asyncio.run(trending.main())
     logger_fonction.info("Trendings scrap")
+
+def coins_data_j():
+    coins_data.sauvegarder_infos_coins()
+    logger_fonction.info("Infos coins")
 
 # def display_prices():
 #     config_path = "./config/"
@@ -222,9 +233,12 @@ def run_threaded(job_func):
 # schedule.every(30).minutes.do(all_price_xeggex)
 
 # Scrap CoinMarketCap
-schedule.every(30).minutes.do(gainer_j)
-schedule.every(30).minutes.do(loser_j)
-schedule.every(30).minutes.do(trend_j)
+schedule.every(60).minutes.do(gainer_j)
+schedule.every(60).minutes.do(loser_j)
+schedule.every(60).minutes.do(trend_j)
+
+# Scrap Coins Data
+schedule.every(30).minutes.do(coins_data_j)
 
 # listener_thread = threading.Thread(target=command_listener, daemon=True)
 # listener_thread.start()

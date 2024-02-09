@@ -1,0 +1,35 @@
+[
+    {
+        "id": "wbtc-wrapped-bitcoin",
+        "name": "Wrapped Bitcoin",
+        "symbol": "WBTC",
+        "rank": 17,
+        "circulating_supply": 157804,
+        "total_supply": 157804,
+        "max_supply": 0,
+        "beta_value": -7.34392e-07,
+        "first_data_at": "2019-01-31T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:21Z",
+        "quotes": {
+            "USD": {
+                "price": 47115.13641466453,
+                "volume_24h": 241007094.1875588,
+                "volume_24h_change_24h": 5.23,
+                "market_cap": 7434956987,
+                "market_cap_change_24h": 4.5,
+                "percent_change_15m": 0.13,
+                "percent_change_30m": 0.6,
+                "percent_change_1h": 0.41,
+                "percent_change_6h": 1.52,
+                "percent_change_12h": 2.7,
+                "percent_change_24h": 4.5,
+                "percent_change_7d": 9.55,
+                "percent_change_30d": -3.39,
+                "percent_change_1y": 114.72,
+                "ath_price": 68705.96605512351,
+                "ath_date": "2021-11-10T16:10:00Z",
+                "percent_from_price_ath": -31.49
+            }
+        }
+    }
+]

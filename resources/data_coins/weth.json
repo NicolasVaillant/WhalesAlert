@@ -1,0 +1,35 @@
+[
+    {
+        "id": "weth-weth",
+        "name": "WETH",
+        "symbol": "WETH",
+        "rank": 15,
+        "circulating_supply": 3765896,
+        "total_supply": 3765896,
+        "max_supply": 0,
+        "beta_value": 1.20446e-06,
+        "first_data_at": "2018-01-14T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:20Z",
+        "quotes": {
+            "USD": {
+                "price": 2496.908337825522,
+                "volume_24h": 873630935.050802,
+                "volume_24h_change_24h": -3.44,
+                "market_cap": 9403097122,
+                "market_cap_change_24h": 2.57,
+                "percent_change_15m": 0.14,
+                "percent_change_30m": 0.42,
+                "percent_change_1h": 0.04,
+                "percent_change_6h": 1.09,
+                "percent_change_12h": 1.92,
+                "percent_change_24h": 2.57,
+                "percent_change_7d": 8.33,
+                "percent_change_30d": -6.43,
+                "percent_change_1y": 61.44,
+                "ath_price": 4858.354917512657,
+                "ath_date": "2021-11-10T16:00:00Z",
+                "percent_from_price_ath": -48.64
+            }
+        }
+    }
+]

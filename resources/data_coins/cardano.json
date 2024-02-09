@@ -1,0 +1,35 @@
+[
+    {
+        "id": "ada-cardano",
+        "name": "Cardano",
+        "symbol": "ADA",
+        "rank": 9,
+        "circulating_supply": 35442044854,
+        "total_supply": 36599737146,
+        "max_supply": 45000000000,
+        "beta_value": 1.22341e-05,
+        "first_data_at": "2017-10-01T00:00:00Z",
+        "last_updated": "2024-02-09T15:48:20Z",
+        "quotes": {
+            "USD": {
+                "price": 0.543780290656935,
+                "volume_24h": 528367282.0347084,
+                "volume_24h_change_24h": -22.86,
+                "market_cap": 19272685452,
+                "market_cap_change_24h": 3.31,
+                "percent_change_15m": 0.21,
+                "percent_change_30m": 0.88,
+                "percent_change_1h": 0.85,
+                "percent_change_6h": 0.91,
+                "percent_change_12h": 1.69,
+                "percent_change_24h": 3.3,
+                "percent_change_7d": 5.27,
+                "percent_change_30d": -10.56,
+                "percent_change_1y": 48.31,
+                "ath_price": 3.0950278974839334,
+                "ath_date": "2021-09-02T06:00:00Z",
+                "percent_from_price_ath": -82.46
+            }
+        }
+    }
+]
