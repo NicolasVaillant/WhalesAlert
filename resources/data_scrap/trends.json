@@ -1,0 +1,20 @@
+[
+    {
+        "urlPart": "dymension",
+        "title": "DYM",
+        "changeValue": "6,30%",
+        "changeDirection": "up"
+    },
+    {
+        "urlPart": "jupiter-ag",
+        "title": "JUP",
+        "changeValue": "6,05%",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "meme-ai-token",
+        "title": "MEMEAI",
+        "changeValue": "16,07%",
+        "changeDirection": "up"
+    }
+]

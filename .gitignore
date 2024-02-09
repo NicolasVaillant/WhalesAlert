@@ -3807,3 +3807,4 @@ cython_debug/
 config/
 Test/
 *.drawio
+python_old/
