@@ -47,11 +47,13 @@ body {
 }
 body main {
   width: 100%;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   flex-direction: column;
+  justify-content: space-between;
   background-color: var(--bg-color);
 }
 body main a {
@@ -264,6 +266,7 @@ body main .wrapper-content.top {
 }
 body main .wrapper-content.array {
   margin-top: 1em;
+  margin-bottom: auto;
 }
 body main .wrapper-content .top-content {
   display: flex;
