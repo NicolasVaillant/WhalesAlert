@@ -30,6 +30,7 @@ body{
   --hf-color-op:rgba(var(--tinted-second-light-color) / 80%);
   --w: rgba(var(--rgb) / 100%);
   --b: rgba(var(--rgb_alt) / 100%);
+  --error: rgba(var(--error-color) / 100%);
   --dark:#2f2f2f;
   --white: #ececec;
   --rgb_border_nc: 27 31 35;
@@ -76,7 +77,7 @@ body{
           border-radius: 8px;
           &:hover{background: var(--w)}
           a{font-size: 1.2em}
-          img{max-width: 1.5em}
+          img{max-width: 2em}
         }
         label.search-bar{
           margin-left: auto;
@@ -166,7 +167,10 @@ body{
       }
       &.logo{
         align-items: center;
-        img{width: 1.4em;}
+        img{
+          width: 1.4em;
+          border-radius: 8px;
+        }
       }
       color: var(--white);
     }
@@ -174,6 +178,7 @@ body{
     .wrapper-content{
       width: var(--width-page);
       &.top{margin-bottom: 0}
+      &.array{margin-top: 1em}
       margin: 3em 0;
       display: flex;
       flex-direction: column;
@@ -294,9 +299,20 @@ body{
           }
         }
       }
+
+      .container-error{
+        @include centerFlex;
+        gap:1em;
+        background: var(--w);
+        padding: 1em;
+        border-radius: 8px;
+        color: var(--error);
+      }
+
       .array-content{
         width: 100%;
         min-height: 60vh;
+
         #table_crypto_wrapper{
           td:first-child {text-align: center}
         }

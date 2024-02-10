@@ -3,3 +3,9 @@ const LINK_TO_DATA__gainers = "resources/data_scrap/gainers.json"
 const LINK_TO_DATA__losers = "resources/data_scrap/losers.json"
 const LINK_TO_DATA__trends = "resources/data_scrap/trends.json"
 const LINK_TO_DATA__coin = "resources/data_tx/tx___COIN__.json"
+
+const settings = {
+    error:{
+        'error-loading-data-text':'No data loaded'
+    }
+}

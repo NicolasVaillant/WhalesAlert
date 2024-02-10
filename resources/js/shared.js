@@ -12,6 +12,20 @@ window.onscroll = function () {
 }
 window.onload = function () {
     copyrightDate()
+    setTextFromParameters()
+}
+
+const setTextFromParameters = () => {
+    Object.entries(settings).forEach(([topKey, topValue]) => {
+    const keys = Object.keys(topValue);
+    keys.forEach(key => {
+        const value = topValue[key];
+        const elements = document.querySelectorAll(`.${key}`);
+        elements.forEach(element => {
+        element.innerHTML = value;
+        })
+    })
+    })
 }
 
 function setToast(type, text, timer){
