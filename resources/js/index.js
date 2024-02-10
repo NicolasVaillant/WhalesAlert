@@ -7,8 +7,16 @@ const fLoad_main = async() => {
     }
 }
 
+const fLoad_trends = async() => {
+    try {
+        const response = await fetch(LINK_TO_DATA__trends);
+        return await response.json()
+    } catch (error) {
+        return error.message
+    }
+}
+
 const fEdit_main = (data) => {
-    // console.log(data)
     const cryptocurrencies = data.cryptocurrencies
 
     const result = data.cryptocurrencies.filter(obj => obj.Rank === 1 || obj.Rank === 2 || obj.Rank === 3);
@@ -86,28 +94,30 @@ close_btn.addEventListener('click', function() {
 });
 
 const fEdit_Trend = (data) => {
-    // console.log(data)
+    console.log(data)
     const location = document.querySelector('.container-overflow')
-    data.cryptocurrencies.forEach(e => {
-        const {Name} = e 
+    data.forEach(e => {
+        const {urlPart, changeValue, changeDirection} = e 
         const element = document.createElement('a')
         element.classList.add('trends-e')
         const status = document.createElement('div')
+        status.classList.add('col')
         const status_dir = document.createElement('i')
         status_dir.classList.add('fa-solid', 'fa-caret-up')
-        // if(changeDirection === 'down'){
-        //     dir.classList.add('fa-caret-down')
-        //     sec_col.classList.add('down')
-        // }else{
-        //     sec_col.classList.add('up')
-        //     dir.classList.add('fa-caret-up')
-        // }
+        if(changeDirection === 'down'){
+            status_dir.classList.add('fa-caret-down')
+            status.classList.add('down')
+        }else{
+            status.classList.add('up')
+            status_dir.classList.add('fa-caret-up')
+        }
         const status_val = document.createElement('p')
+        status_val.innerHTML = changeValue
         status.appendChild(status_dir)
         status.appendChild(status_val)
         const text = document.createElement('p')
-        text.innerHTML = Name
-        element.href = `crypto.html?q=${Name}`
+        text.innerHTML = urlPart
+        element.href = `crypto.html?q=${urlPart}`
         element.appendChild(status)
         element.appendChild(text)
         location.appendChild(element)
@@ -205,6 +215,11 @@ fLoad_main()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error reading data main"
         fEdit_main(data)
+    })
+
+fLoad_trends()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error reading data main"
         fEdit_Trend(data)
     })
 

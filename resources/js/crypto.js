@@ -5,7 +5,9 @@ name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 
 const fLoad_crypto = async() => {
     try {
-        const response = await fetch(`resources/data/${query}.json`);
+        const response = await fetch(
+            LINK_TO_DATA__coin.replace('__COIN__', query)
+        );
         return await response.json()
     } catch (error) {
         return error.message

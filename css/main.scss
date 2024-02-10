@@ -209,8 +209,17 @@ body{
               white-space: nowrap;
               gap: .5em;
               border: 1px solid transparent;
-              padding: .2em .5em;
+              padding: .2em;
               border-radius: 1000px;
+              .col{
+                @include centerFlex;
+                white-space: nowrap;
+                gap: .5em;
+                padding: .2em .5em;
+                border-radius: 1000px;
+                &.up{background: #179228!important}
+                &.down{background: #EB3223!important}
+              }
               @media (pointer: fine) {
                 &:hover{
                   background: var(--active-color);

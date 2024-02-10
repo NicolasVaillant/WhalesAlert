@@ -94,7 +94,7 @@ body main header .wrapper-header .brand-container a {
   font-size: 1.2em;
 }
 body main header .wrapper-header .brand-container img {
-  max-width: 4em;
+  max-width: 1.5em;
 }
 body main header .wrapper-header label.search-bar {
   margin-left: auto;
@@ -254,8 +254,24 @@ body main .wrapper-content .top-content .trending-content .line-content-trend .t
   white-space: nowrap;
   gap: 0.5em;
   border: 1px solid transparent;
+  padding: 0.2em;
+  border-radius: 1000px;
+}
+body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  white-space: nowrap;
+  gap: 0.5em;
   padding: 0.2em 0.5em;
   border-radius: 1000px;
+}
+body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e .col.up {
+  background: #179228 !important;
+}
+body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e .col.down {
+  background: #EB3223 !important;
 }
 @media (pointer: fine) {
   body main .wrapper-content .top-content .trending-content .line-content-trend .trends-e:hover {
