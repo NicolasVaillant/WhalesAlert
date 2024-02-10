@@ -94,7 +94,6 @@ close_btn.addEventListener('click', function() {
 });
 
 const fEdit_Trend = (data) => {
-    console.log(data)
     const location = document.querySelector('.container-overflow')
     data.forEach(e => {
         const {urlPart, changeValue, changeDirection} = e 

@@ -1,3 +1,6 @@
+const toggle_hamburger = document.querySelector('.info-more')
+const hb_container = document.querySelector('.hb-container')
+
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
 
@@ -9,6 +12,8 @@ const copyrightDate = () => {
 window.onscroll = function () {
     if(exact_type === "index")
         modal.style.display = 'none';
+
+    hb_container.classList.add('hidden')
 }
 window.onload = function () {
     copyrightDate()
@@ -83,3 +88,11 @@ function setToast(type, text, timer){
     //     }
     // })
 }
+
+toggle_hamburger.addEventListener('click', () => {
+    if(hb_container.classList.contains('hidden')){
+        hb_container.classList.remove('hidden')
+    }else{
+        hb_container.classList.add('hidden')
+    }
+})

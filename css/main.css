@@ -69,6 +69,52 @@ body main header {
   background: var(--hf-color);
   z-index: 9999;
 }
+body main header .hamburger-menu {
+  position: relative;
+}
+body main header .hamburger-menu .info-more {
+  width: 2em;
+  cursor: pointer;
+  border-radius: 1000px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-main-bg);
+}
+@media (pointer: fine) {
+  body main header .hamburger-menu .info-more:hover {
+    outline: 2px solid var(--active-color);
+    outline-offset: 2px;
+  }
+}
+body main header .hamburger-menu .hb-container {
+  position: absolute;
+  background: var(--w);
+  padding: 0.2em;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  right: 0;
+  list-style: none;
+  z-index: 9999;
+  min-width: 20vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+body main header .hamburger-menu .hb-container li {
+  padding: 0.5em;
+  white-space: nowrap;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1em;
+}
+@media (pointer: fine) {
+  body main header .hamburger-menu .hb-container li:hover {
+    background: var(--hf-color);
+  }
+}
 body main header .wrapper-header {
   display: flex;
   justify-content: center;
@@ -77,6 +123,7 @@ body main header .wrapper-header {
   width: var(--width-page);
   margin: auto;
   padding: 0;
+  justify-content: space-between;
 }
 body main header .wrapper-header .brand-container {
   display: flex;
@@ -88,8 +135,10 @@ body main header .wrapper-header .brand-container {
   padding: 0.2em;
   border-radius: 8px;
 }
-body main header .wrapper-header .brand-container:hover {
-  background: var(--w);
+@media (pointer: fine) {
+  body main header .wrapper-header .brand-container:hover {
+    background: var(--w);
+  }
 }
 body main header .wrapper-header .brand-container a {
   font-size: 1.2em;
@@ -102,6 +151,11 @@ body main header .wrapper-header label.search-bar {
   display: flex;
   visibility: hidden;
 }
+@media all and (max-width: 550px) {
+  body main header .wrapper-header label.search-bar {
+    display: none;
+  }
+}
 body main header .wrapper-header label.search-bar input {
   font-size: 15px;
   padding: 0.3em 0.8em;
@@ -111,17 +165,13 @@ body main header .wrapper-header label.search-bar input {
   width: 100%;
 }
 @media all and (max-width: 550px) {
-  body main header .wrapper-header {
-    flex-direction: column;
-    gap: 1em;
-  }
   body main header .wrapper-header label {
     width: 100%;
   }
 }
 body main .settings-container {
   position: sticky;
-  z-index: 9999;
+  z-index: 9998;
   top: calc(var(--height-header) - 1px);
   display: flex;
   justify-content: center;
@@ -133,6 +183,12 @@ body main .settings-container .settings-bar-table {
   display: flex;
   justify-content: space-between;
   width: var(--width-page);
+  overflow-x: auto;
+}
+@media all and (max-width: 450px) {
+  body main .settings-container .settings-bar-table {
+    padding-bottom: 0.5em;
+  }
 }
 body main .settings-container .settings-bar-table #select_table {
   display: none;
@@ -146,7 +202,6 @@ body main .settings-container .settings-bar-table .col-left-sc {
   justify-content: center;
   align-items: center;
   align-content: center;
-  flex-wrap: wrap;
   gap: 1em;
 }
 body main .settings-container .settings-bar-table .col-left-sc .card-sh {

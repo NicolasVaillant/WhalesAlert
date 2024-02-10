@@ -7,5 +7,8 @@ const LINK_TO_DATA__coin = "resources/data_tx/tx___COIN__.json"
 const settings = {
     error:{
         'error-loading-data-text':'No data loaded'
+    },
+    hamburger:{
+        'menu-2':'Force refresh',
     }
 }

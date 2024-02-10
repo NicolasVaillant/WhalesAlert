@@ -40,8 +40,7 @@ fLoad_cryptoIMG()
 
 
 const fLoad_table = async(r) => {
-    console.log(r, typeof r);
-
+    
     if(typeof r !== 'object'){
         const cont = document.querySelector('.container-error')
         cont.classList.remove('hidden')

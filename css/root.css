@@ -1,12 +1,18 @@
+.settings-bar-table::-webkit-scrollbar,
 .container-overflow::-webkit-scrollbar {
     height: .4em;
 }
+.settings-bar-table::-webkit-scrollbar-track,
 .container-overflow::-webkit-scrollbar-track {
     background: transparent;
     padding: 1em;
 }
+.settings-bar-table::-webkit-scrollbar-thumb,
 .container-overflow::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: var(--w);
     border-radius: 1000px;
     cursor: pointer;
+}
+.settings-bar-table::-webkit-scrollbar-thumb{
+    background-color: var(--bg-color);
 }

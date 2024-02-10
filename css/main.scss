@@ -8,6 +8,10 @@
 }
 
 *.hidden{display: none!important;}
+@mixin outline{
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
 .swal2-container{z-index: 99999}
 .swal2-popup{top: var(--height-header);}
 
@@ -63,11 +67,56 @@ body{
       top: 0;
       background: var(--hf-color);
       z-index: 9999;
+
+      .hamburger-menu{
+        position: relative;
+        .info-more{
+          width: 2em;
+          cursor: pointer;
+          border-radius: 1000px;
+          aspect-ratio: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--btn-main-bg);
+          @media (pointer: fine) {
+            &:hover{@include outline}
+          }
+        }
+        .hb-container{
+          position: absolute;
+          background: var(--w);
+          padding: .2em;
+          border-radius: 8px;
+          margin-top: .5em;
+          right: 0;
+          list-style: none;
+          z-index: 9999;
+          min-width: 20vw;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          li{
+            padding: .5em;
+            white-space: nowrap;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 1em;
+            @media (pointer: fine) {
+              &:hover{
+                background: var(--hf-color);
+              }
+            }
+          }
+        }
+      }
       .wrapper-header{
         @include centerFlex;
         width: var(--width-page);
         margin: auto;
         padding: 0;
+        justify-content: space-between;
         // width: 100%;
         .brand-container{
           @include centerFlex;
@@ -75,7 +124,9 @@ body{
           gap: 1em;
           padding: 0.2em;
           border-radius: 8px;
-          &:hover{background: var(--w)}
+          @media (pointer: fine) {
+            &:hover{background: var(--w)}
+          }
           a{font-size: 1.2em}
           img{max-width: 2em}
         }
@@ -83,6 +134,9 @@ body{
           margin-left: auto;
           display: flex;
           visibility: hidden;
+          @media all and (max-width: 550px) {
+            display: none;
+          }
           input{
             font-size: 15px;
             padding: .3em .8em;
@@ -93,15 +147,13 @@ body{
           }
         }
         @media all and (max-width: 550px) {
-          flex-direction: column;
-          gap: 1em;
           label{width: 100%}
         }
       }
     }
     .settings-container{
       position: sticky;
-      z-index: 9999;
+      z-index: 9998;
       top: calc(var(--height-header) - 1px);
       display: flex;
       justify-content: center;
@@ -112,6 +164,11 @@ body{
         display: flex;
         justify-content: space-between;
         width: var(--width-page);
+        overflow-x: auto;
+        @media all and (max-width: 450px) {
+          padding-bottom: .5em;
+        }
+
         #select_table{display: none}
         .type-table-toggle{
           display: none;
@@ -119,7 +176,6 @@ body{
         }
         .col-left-sc{
           @include centerFlex;
-          flex-wrap: wrap;
           gap: 1em;
           .card-sh{
             background: #eff1f4;
