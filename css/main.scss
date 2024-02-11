@@ -333,7 +333,7 @@ body{
                 & .right{
                   margin-left: auto;
                   position: absolute;
-                  background: #c6cfd9;
+                  background: var(--card-g-l);
                   padding: 0.2em;
                   border-radius: 4px;
                   right: 2px;
