@@ -12,3 +12,5 @@ const settings = {
         'menu-2':'Force refresh',
     }
 }
+
+const label__darkMode = 'dark-mode-WhalesAlert'

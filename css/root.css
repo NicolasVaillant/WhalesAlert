@@ -16,3 +16,32 @@
 .settings-bar-table::-webkit-scrollbar-thumb{
     background-color: var(--bg-color);
 }
+
+:root{
+    /* USED EVERYWHERE */
+    --rgb: var(--tinted-main-light-color);
+    --rgb_alt: var(--tinted-main-dark-color);
+    --rgb_active: var(--active-light-color);
+    /* HEADER */
+    --hf-color: rgba(var(--tinted-second-light-color) / 98%);
+    --active-color: rgba(var(--rgb_active) / 100%);
+    --hf-color-op:rgba(var(--tinted-second-light-color) / 80%);
+    /* --- */
+    --w: rgba(var(--rgb) / 100%);
+    --b: rgba(var(--rgb_alt) / 100%);
+    --error: rgba(var(--error-color) / 100%);
+    --dark:#2f2f2f;
+    --white: #ececec;
+    --rgb_border_nc: 27 31 35;
+    --rgb_border: rgba(var(--border-of-elements-dark-color) / 100%); 
+    --btn-main-bg: rgba(var(--rgb) / 100%);
+}
+
+.toggle_dark_mode{
+    --rgb: var(--tinted-main-dark-color);
+    --rgb_alt: var(--tinted-main-light-color);
+    --hf-color: rgba(var(--tinted-second-dark-color) / 98%);
+    --hf-color-op:rgba(var(--tinted-second-dark-color) / 80%);
+    --rgb_active: var(--active-dark-color);
+    --rgb_border: rgba(var(--border-of-elements-light-color) / 100%); 
+}

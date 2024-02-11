@@ -1,8 +1,37 @@
 const toggle_hamburger = document.querySelector('.info-more')
 const hb_container = document.querySelector('.hb-container')
-
+const darkM = document.querySelector("#darkMode-input")
+const tog_dm_icon = document.querySelectorAll(".tog_dm_icon")
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
+
+darkM.addEventListener('change', (e) => {
+    /**
+     * Function: /
+     * Description: Modification of dark mode
+     * If button darkM is checked we add class 'toggle_dark_mode' to document.documentElement
+     * Then, we locally store state to manage cross page
+     * return: none
+     * */
+    if(e.target.checked){
+        //Dark Mode
+        document.documentElement.classList.add('toggle_dark_mode');
+        sessionStorage.setItem(label__darkMode, 'true')
+    }else{
+        //Light Mode
+        document.documentElement.classList.remove('toggle_dark_mode');
+        sessionStorage.setItem(label__darkMode, 'false')
+    }
+    //rotation of dark mode icon
+    tog_dm_icon.forEach(e => {
+        e.classList.toggle('rotate180')
+    })
+})
+const ss_dm = sessionStorage.getItem(label__darkMode)
+if(ss_dm === 'true' || settings.force_darkMode){
+    document.documentElement.classList.add('toggle_dark_mode')
+    darkM.checked = true
+}
 
 const copyrightDate = () => {
     const element = document.querySelector('.copyright-date')

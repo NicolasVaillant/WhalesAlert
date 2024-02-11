@@ -21,19 +21,6 @@
 
 body {
   font-family: "Noto Sans Mende Kikakui", sans-serif;
-  --rgb: var(--tinted-main-light-color);
-  --rgb_alt: var(--tinted-main-dark-color);
-  --rgb_active: var(--active-light-color);
-  --hf-color: rgba(var(--tinted-second-light-color) / 98%);
-  --active-color: rgba(var(--rgb_active) / 100%);
-  --hf-color-op:rgba(var(--tinted-second-light-color) / 80%);
-  --w: rgba(var(--rgb) / 100%);
-  --b: rgba(var(--rgb_alt) / 100%);
-  --error: rgba(var(--error-color) / 100%);
-  --dark:#2f2f2f;
-  --white: #ececec;
-  --rgb_border_nc: 27 31 35;
-  --btn-main-bg: rgba(var(--rgb) / 100%);
 }
 @media all and (min-width: 1400px) {
   body {
@@ -64,8 +51,9 @@ body main header {
   height: var(--height-header);
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid var(--rgb_border);
   padding: 1em 0;
+  color: var(--b);
   position: sticky;
   top: 0;
   background: var(--hf-color);
@@ -102,7 +90,8 @@ body main header .hamburger-menu .hb-container {
   min-width: 20vw;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-body main header .hamburger-menu .hb-container li {
+body main header .hamburger-menu .hb-container li,
+body main header .hamburger-menu .hb-container label {
   padding: 0.5em;
   white-space: nowrap;
   border-radius: 5px;
@@ -112,8 +101,21 @@ body main header .hamburger-menu .hb-container li {
   flex-direction: row;
   gap: 1em;
 }
+body main header .hamburger-menu .hb-container li input,
+body main header .hamburger-menu .hb-container label input {
+  display: none;
+}
+body main header .hamburger-menu .hb-container li .tog_dm_icon,
+body main header .hamburger-menu .hb-container label .tog_dm_icon {
+  transition: 0.5s;
+}
+body main header .hamburger-menu .hb-container li .tog_dm_icon.rotate180,
+body main header .hamburger-menu .hb-container label .tog_dm_icon.rotate180 {
+  rotate: 180deg;
+}
 @media (pointer: fine) {
-  body main header .hamburger-menu .hb-container li:hover {
+  body main header .hamburger-menu .hb-container li:hover,
+  body main header .hamburger-menu .hb-container label:hover {
     background: var(--hf-color);
   }
 }
@@ -176,6 +178,7 @@ body main .settings-container {
   z-index: 9998;
   top: calc(var(--height-header) - 1px);
   display: flex;
+  color: var(--b);
   justify-content: center;
   width: 100%;
   background: var(--w);
@@ -207,7 +210,7 @@ body main .settings-container .settings-bar-table .col-left-sc {
   gap: 1em;
 }
 body main .settings-container .settings-bar-table .col-left-sc .card-sh {
-  background: #eff1f4;
+  background: var(--hf-color);
   border: 1px solid #eff1f4;
   border-radius: 1000px;
   padding: 0.2em 0.5em;
@@ -257,9 +260,17 @@ body main .title-container.logo img {
 }
 body main .wrapper-content {
   width: var(--width-page);
+  gap: 1em;
+  color: var(--b);
   margin: 3em 0;
   display: flex;
   flex-direction: column;
+}
+body main .wrapper-content .new {
+  background: red;
+  border-radius: 8px;
+  padding: 1em;
+  max-width: 30vw;
 }
 body main .wrapper-content.top {
   margin-bottom: 0;
@@ -497,6 +508,7 @@ body main .wrapper-content .grid_crypto.hidden {
 }
 body main footer {
   width: 100%;
+  color: var(--b);
   background: var(--hf-color);
   display: flex;
   justify-content: center;
@@ -574,9 +586,10 @@ body #modal {
   gap: 1em;
   position: fixed;
   border-radius: 8px;
+  color: var(--b);
   padding: 0.5em;
-  background: var(--w);
-  border: 1px solid #e2e2e2;
+  background: var(--hf-color);
+  border: 1px solid var(--rgb_border);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 body #modal .container-header,
@@ -591,7 +604,7 @@ body #modal .container-header {
   white-space: nowrap;
 }
 body #modal .container-header .close-btn {
-  background: var(--white);
+  background: var(--btn-main-bg);
   border-radius: 1000px;
   aspect-ratio: 1;
   width: 1.6em;
