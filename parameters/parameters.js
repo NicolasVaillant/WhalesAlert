@@ -17,7 +17,8 @@ const settings = {
         'intro-banner': 'Get to know us and stay informed by subscribing to the following links.',
         'top-trend-user': 'Top user trends',
         'backToTop-Text': 'Back to Top',
-        'latest-top': 'Top transactions'
+        'latest-top': 'Top transactions',
+        'privacy-aside':'Summary'
     }
 }
 

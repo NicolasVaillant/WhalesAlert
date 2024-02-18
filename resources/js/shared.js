@@ -1,4 +1,5 @@
 const toggle_hamburger = document.querySelector('.info-more')
+const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
 const hb_container = document.querySelector('.hb-container')
 const darkM = document.querySelector("#darkMode-input")
@@ -45,20 +46,74 @@ const copyrightDate = () => {
     element.innerText = `© ${date}`
 }
 window.onscroll = function () {
-    if(exact_type === "index"){
+    if(exact_type == "index")
         modal.style.display = 'none';
+    
+    if(exact_type !== "crypto"){
         if(window.scrollY > 200){
             backToTop.classList.remove('hidden')
         } else{
             backToTop.classList.add('hidden')
         }
     }
-
+    
     hb_container.classList.add('hidden')
 }
 window.onload = function () {
     copyrightDate()
     setTextFromParameters()
+    storeDataUsers()
+
+    if(exact_type == "privacy")
+        setSummary()
+}
+
+const storeDataUsers = () => {
+    console.log('storage');
+}
+
+const setSummary = () => {
+    const location = document.querySelector('.summary')
+    const paragraph = document.querySelectorAll('.privacy-content .text-paragraph')
+    paragraph.forEach(e => {
+        const container = document.createElement('div')
+        container.classList.add('container')
+
+        const h2 = e.querySelectorAll('h2')
+        const h3 = e.querySelectorAll('h3')
+
+        h2.forEach(a => {
+            a.id = a.textContent.toLowerCase().replaceAll(' ', '_')
+            const clone = a.cloneNode(true)
+            const h4 = document.createElement('a')
+            h4.classList.add('h4')
+            h4.href = `#${a.textContent.toLowerCase().replaceAll(' ', '_')}`
+            h4.innerText = clone.textContent
+            h4.onclick = function(e){
+                document.querySelectorAll('.summary .h4').forEach(u => {u.classList.remove('clicked')})
+                document.querySelectorAll('.summary .h5').forEach(u => {u.classList.remove('clicked')})
+                e.target.classList.add('clicked')
+            }
+            container.appendChild(h4)
+        })
+        h3.forEach(a => {
+            a.id = a.textContent.toLowerCase().replaceAll(' ', '_')
+            const clone = a.cloneNode(true)
+            h5 = document.createElement('a')
+            h5.classList.add('h5')
+            h5.href = `#${a.textContent.toLowerCase().replaceAll(' ', '_')}`
+            h5.innerText = clone.textContent
+            h5.onclick = function(e){
+                document.querySelectorAll('.summary .h4').forEach(u => {u.classList.remove('clicked')})
+                document.querySelectorAll('.summary .h5').forEach(u => {u.classList.remove('clicked')})
+                e.target.classList.add('clicked')
+            }
+            container.appendChild(h5)
+        })
+
+
+        location.appendChild(container)
+    })
 }
 
 const setTextFromParameters = () => {

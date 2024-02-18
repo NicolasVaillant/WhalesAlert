@@ -193,7 +193,6 @@ body{
     }
 
     .container-split{
-      --margin-from-header: 3em;
       --gap-side-bar:2em;
       margin-top: 3em;
       &.crypto{
@@ -224,6 +223,7 @@ body{
           display: flex;
           gap: 1em;
           flex-direction: column;
+          margin-bottom: 3em;
           .w_bg{
             padding: .5em;
             color: var(--b);
@@ -232,14 +232,51 @@ body{
             display: flex;
             flex-direction: column;
             gap: 1em;
+            max-height: 70vh;
+            .summary{
+              @include centerFlex;
+              flex-direction: column;
+              align-items: flex-start;
+              overflow-y: auto;
+              justify-content: flex-start;
+              padding-right: .5em;
+              gap: 1em;
+              .container{
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                .h4{font-size: 1.1em}
+                .h5{
+                  font-size: .9em;
+                  margin: .5em 1em 0;
+                }
+                .h4,
+                .h5{
+                  border-radius: calc(var(--br)/2);
+                  padding: 0.2em;
+                  &.clicked{
+                    text-decoration: underline;
+                  }
+                  @media (pointer: fine) {
+                    &:hover{
+                      background: var(--hf-color);
+                    }
+                  }
+                }
+              }
+            }
             .crypto-info{
               min-height: 40vh;
             }
             h3{
               display: flex;
               align-items: center;
-              gap: 0.5em;
-              color: var(--text-aside);
+              gap: .5em;
+              // color: var(--text-aside);
+              background: var(--bg-color);
+              border-radius: 4px;
+              color: var(--white);
+              padding: 0.5em;
             }
             .user-trends{
               overflow-y: auto;
@@ -255,7 +292,7 @@ body{
                 aspect-ratio: 1;
                 cursor: pointer;
                 background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-                border-radius: 4px;          
+                border-radius: 6px;          
                 overflow: hidden;
                 display: flex;
                 align-items: flex-end;
@@ -275,13 +312,11 @@ body{
                 }
                 .user-trend-card-container{
                   @include centerFlex();
-                  height: 100%;
                   align-items: flex-start;
                   justify-content: flex-end;
                   flex-direction: column;
                   margin: .5em;
                   color: var(--w);
-                  // gap: .5em;
                   .user-trend-card-name{
                     font-size: 1.8em;
                   }
@@ -366,6 +401,52 @@ body{
       .col-content{
         width: 100%;
         height: 100%;
+        .privacy-content{
+          color: var(--white);
+          margin-bottom: 3em;
+          text-align: justify;
+          h1, h2, h3, h4, h5, h6, li, p {
+            margin: 0 0 1em;
+          }
+          h2, h3{
+            border-radius: var(--br);
+            position: relative;
+            &::before{
+              position: absolute;
+              content: "";
+              top: 50%;
+              left: -.5em;
+              width: 10%;
+              max-width: 8px;
+              aspect-ratio: 1;
+              border-radius: 1000px;
+              translate: -0.5em -50%;
+            }
+            &:target {
+              margin-left: 1em;
+              &::before{background: var(--active-color)}
+            }
+          }
+          ul{margin: 2em 3em}
+          span{
+            background: #86d1eb45;
+            border-radius: calc(var(--br)/2);
+            padding: 0 0.2em;
+          }
+          .header-privacy{
+            @include centerFlex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            *{margin: 0;}
+            .date{
+              background: var(--hf-color-op);
+              padding: 0.5em;
+              border-radius: var(--br);
+              color: var(--b);
+            }
+          }
+        }
+
         .title-container{
           &.max{
             margin-top: 0;
@@ -606,7 +687,6 @@ body{
             @include centerFlex();
             flex-direction: row;
             flex-wrap: wrap;
-            margin: 1em 0 0;
             gap: 1em;
             .telegram,
             .x-com{
@@ -620,6 +700,7 @@ body{
             gap: 1em;
           }
         }
+
 
         width: var(--width-page);
         gap: 1em;

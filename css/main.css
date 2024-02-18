@@ -226,7 +226,6 @@ body main .new .buttons .x-com {
   background: var(--hf-color-op);
 }
 body main .container-split {
-  --margin-from-header: 3em;
   --gap-side-bar:2em;
   margin-top: 3em;
   display: grid;
@@ -257,6 +256,7 @@ body main .container-split .col-more-info .content-displayed {
   display: flex;
   gap: 1em;
   flex-direction: column;
+  margin-bottom: 3em;
 }
 body main .container-split .col-more-info .content-displayed .w_bg {
   padding: 0.5em;
@@ -266,6 +266,46 @@ body main .container-split .col-more-info .content-displayed .w_bg {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  max-height: 70vh;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: auto;
+  justify-content: flex-start;
+  padding-right: 0.5em;
+  gap: 1em;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h4 {
+  font-size: 1.1em;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h5 {
+  font-size: 0.9em;
+  margin: 0.5em 1em 0;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h4,
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h5 {
+  border-radius: calc(var(--br) / 2);
+  padding: 0.2em;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h4.clicked,
+body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h5.clicked {
+  text-decoration: underline;
+}
+@media (pointer: fine) {
+  body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h4:hover,
+  body main .container-split .col-more-info .content-displayed .w_bg .summary .container .h5:hover {
+    background: var(--hf-color);
+  }
 }
 body main .container-split .col-more-info .content-displayed .w_bg .crypto-info {
   min-height: 40vh;
@@ -274,7 +314,10 @@ body main .container-split .col-more-info .content-displayed .w_bg h3 {
   display: flex;
   align-items: center;
   gap: 0.5em;
-  color: var(--text-aside);
+  background: var(--bg-color);
+  border-radius: 4px;
+  color: var(--white);
+  padding: 0.5em;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends {
   overflow-y: auto;
@@ -290,7 +333,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   aspect-ratio: 1;
   cursor: pointer;
   background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -317,7 +360,6 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 100%;
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
@@ -409,6 +451,60 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
 body main .container-split .col-content {
   width: 100%;
   height: 100%;
+}
+body main .container-split .col-content .privacy-content {
+  color: var(--white);
+  margin-bottom: 3em;
+  text-align: justify;
+}
+body main .container-split .col-content .privacy-content h1, body main .container-split .col-content .privacy-content h2, body main .container-split .col-content .privacy-content h3, body main .container-split .col-content .privacy-content h4, body main .container-split .col-content .privacy-content h5, body main .container-split .col-content .privacy-content h6, body main .container-split .col-content .privacy-content li, body main .container-split .col-content .privacy-content p {
+  margin: 0 0 1em;
+}
+body main .container-split .col-content .privacy-content h2, body main .container-split .col-content .privacy-content h3 {
+  border-radius: var(--br);
+  position: relative;
+}
+body main .container-split .col-content .privacy-content h2::before, body main .container-split .col-content .privacy-content h3::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: -0.5em;
+  width: 10%;
+  max-width: 8px;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  translate: -0.5em -50%;
+}
+body main .container-split .col-content .privacy-content h2:target, body main .container-split .col-content .privacy-content h3:target {
+  margin-left: 1em;
+}
+body main .container-split .col-content .privacy-content h2:target::before, body main .container-split .col-content .privacy-content h3:target::before {
+  background: var(--active-color);
+}
+body main .container-split .col-content .privacy-content ul {
+  margin: 2em 3em;
+}
+body main .container-split .col-content .privacy-content span {
+  background: rgba(134, 209, 235, 0.2705882353);
+  border-radius: calc(var(--br) / 2);
+  padding: 0 0.2em;
+}
+body main .container-split .col-content .privacy-content .header-privacy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+body main .container-split .col-content .privacy-content .header-privacy * {
+  margin: 0;
+}
+body main .container-split .col-content .privacy-content .header-privacy .date {
+  background: var(--hf-color-op);
+  padding: 0.5em;
+  border-radius: var(--br);
+  color: var(--b);
 }
 body main .container-split .col-content .title-container {
   color: var(--white);
@@ -714,7 +810,6 @@ body main footer .footer-container .bottom-line .buttons {
   align-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 1em 0 0;
   gap: 1em;
 }
 body main footer .footer-container .top-line .buttons .telegram,
