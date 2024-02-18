@@ -12,8 +12,13 @@
     --border-of-elements-dark-color: 255 255 255;
     --error-color: 255 87 87;
 
+    --up: #179228;
+    --down: #EB3223;
+
     /* Adapt the size of the website */
-    --width-page: 80%;
-    --width-page-large: 90%;
+    --width-page: 90%;
+    --width-page-large: 95%;
     --height-header: 10vh;
+
+    --width-left-column:30%;
 }

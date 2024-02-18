@@ -53,9 +53,9 @@
                     <i class="fa-solid fa-bars"></i>
                 </span>
                 <ul class="hb-container hidden">
-                    <li>
+                    <li class="refreshRate">
                         <i class="fa-solid fa-clock"></i>
-                        <text class="menu-1">30s</text>
+                        <text class="menu-1">Default</text>
                     </li>
                     <li>
                         <i class="fa-solid fa-rotate-right"></i>
@@ -70,50 +70,96 @@
             </div>
         </div>
     </header>
-    <div class="wrapper-content top">
-        <h2 class="title-container max logo">
-            <img src="https://placehold.co/20" alt="crypto logo" class="logo_crypto">
-            <text class="name-crypto"></text>
-        </h2>
-    </div>
-    <div class="wrapper-content array">
-        <div class="array-content">
-            <table id="table_crypto_unique" class="table table-bordered order-column cell-border" style="width:100%">
-                <thead>
-                <tr class="row_table_def">
-                    <th>amount</th>
-                    <th>value</th>
-                    <th>porcentage_supply</th>
-                    <th>url</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                <tr class="row_table_def">
-                    <th>amount</th>
-                    <th>value</th>
-                    <th>porcentage_supply</th>
-                    <th>url</th>
-                </tr>
-                </tfoot>
-            </table>
+    <div class="new">
+        <div class="top-line">
+            <h3 class="intro-banner"></h3>
+            <div class="close-banner">
+                <i class="fa-solid fa-times"></i>
+            </div>
         </div>
-        <div class="grid_crypto hidden"></div>
-        <div class="container-error hidden">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <p class="error-loading-data-text"></p>
+        <div class="buttons">
+            <a href="https://t.me/Whales_Alert_info" class="telegram btn-main">
+                <i class="fa-brands fa-telegram"></i>
+                <text>Telegram channel</text>
+            </a>
+            <a href="https://linktr.ee/whales_alert" class="x-com btn-main">
+                <i class="fa-solid fa-paperclip"></i>
+                <text>Linktr.ee</text>
+            </a>
         </div>
     </div>
+    <div class="container-split crypto">
+        <div class="col-more-info">
+            <div class="content-displayed">
+                <div class="w_bg">
+                    <div class="crypto-info">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, doloribus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-content">
+            <div class="wrapper-content top">
+                <h2 class="title-container max logo">
+                    <img src="https://placehold.co/20" alt="crypto logo" class="logo_crypto">
+                    <text class="name-crypto"></text>
+                </h2>
+            </div>
+            <div class="wrapper-content array">
+                <div class="array-content">
+                    <table id="table_crypto_unique" class="table table-bordered order-column cell-border" style="width:100%">
+                        <thead>
+                        <tr class="row_table_def">
+                            <th>amount</th>
+                            <th>value</th>
+                            <th>porcentage_supply</th>
+                            <th>url</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        <tr class="row_table_def">
+                            <th>amount</th>
+                            <th>value</th>
+                            <th>porcentage_supply</th>
+                            <th>url</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="grid_crypto hidden"></div>
+                <div class="container-error hidden">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <p class="error-loading-data-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <footer>
         <div class="footer-container">
-            <div class="col-left-footer">
-                <div class="brand-container">
-                    <img src="resources/img/logo.png" alt="Website's logo">
-                    <p>WhalesAlert</p>
+            <div class="top-line">
+                <div class="col-left-footer">
+                    <div class="brand-container">
+                        <img src="resources/img/logo.png" alt="Website's logo">
+                        <p>WhalesAlert</p>
+                    </div>
+                    <p class="copyright-date"></p>
                 </div>
-                <p class="copyright-date"></p>
+                <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a></p>
             </div>
-            <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a></p>
+            <div class="bottom-line">
+                <div class="buttons">
+                    <div class="telegram btn-main">
+                        <i class="fa-brands fa-telegram"></i>
+                        <a href="https://t.me/Whales_Alert_info">Telegram channel</a>
+                    </div>
+                    <div class="x-com btn-main">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <a href="https://linktr.ee/whales_alert">Linktr.ee</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </main>

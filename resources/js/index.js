@@ -1,3 +1,7 @@
+backToTop.addEventListener('click', () => {
+    window.scrollTo(0, 0)
+})
+
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
@@ -16,6 +20,15 @@ const fLoad_trends = async() => {
     }
 }
 
+const fLoad_trends_user = async() => {
+    try {
+        const response = await fetch(LINK_TO_DATA__trends_user);
+        return await response.json()
+    } catch (error) {
+        return error.message
+    }
+}
+
 const fEdit_main = (data) => {
     const cryptocurrencies = data.cryptocurrencies
 
@@ -23,11 +36,12 @@ const fEdit_main = (data) => {
 
     const location = document.querySelector('.col-left-sc')
     result.forEach((e, i) => {
-        const element = document.createElement('div')
+        const element = document.createElement('a')
         const text = document.createElement('p')
         const value = document.createElement('span')
         element.classList.add('card-sh')
         text.innerHTML = e.Name
+        element.href = `crypto.html?q=${e.Name}`
         value.innerHTML = (i+1).toString()
         element.appendChild(value)
         element.appendChild(text)
@@ -58,8 +72,8 @@ const fEdit_main = (data) => {
         scrollX: "300px",
         "searching": true,
         "ordering": true,
-        "autoWidth": false,
-        "responsive": false
+        "autoWidth": true,
+        "responsive": true
     });
 
     $('#table_crypto tbody').on('click', 'tr', function (e) {
@@ -92,6 +106,22 @@ const close_btn = document.querySelector('.close-btn');
 close_btn.addEventListener('click', function() {
     modal.style.display = 'none';
 });
+
+const fEdit_Trend_user = (data) => {
+    if(data !== 'error'){
+        data.forEach((e, i) => {
+            const init = document.querySelector('.user-trend-card[data-value="init"]')
+            const element = init.cloneNode(true)
+            element.setAttribute('data-value', false)
+            element.href = `crypto.html?q=${e.urlPart}`
+            element.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
+            element.querySelector('.user-trend-card-name').innerText = e.title
+            element.querySelector('.user-trend-card-value').innerText = e.changeValue
+            element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
+            document.querySelector('.user-trends').appendChild(element)
+        })
+    }
+}
 
 const fEdit_Trend = (data) => {
     const location = document.querySelector('.container-overflow')
@@ -212,25 +242,31 @@ toggle_table.addEventListener('click', () => {
 
 fLoad_main()
     .then(r => {
-        const data = (typeof r === 'object') ? r : "error reading data main"
+        const data = (typeof r === 'object') ? r : "error"
         fEdit_main(data)
     })
 
 fLoad_trends()
     .then(r => {
-        const data = (typeof r === 'object') ? r : "error reading data main"
+        const data = (typeof r === 'object') ? r : "error"
         fEdit_Trend(data)
+    })
+
+fLoad_trends_user()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error"
+        fEdit_Trend_user(data)
     })
 
 fLoad_gainers()
     .then(r => {
-        const data = (typeof r === 'object') ? r : "error reading data gainers"
+        const data = (typeof r === 'object') ? r : "error"
         fEdit_GL(data, "card-content-gainers")
     })
     
 fLoad_losers()
     .then(r => {
-        const data = (typeof r === 'object') ? r : "error reading data losers"
+        const data = (typeof r === 'object') ? r : "error"
         // fEdit_losers(data)
         fEdit_GL(data, "card-content-losers")
     })

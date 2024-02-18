@@ -1,0 +1,20 @@
+[
+    {
+        "urlPart": "thorchain",
+        "title": "RUNE",
+        "changeValue": "18,91%",
+        "changeDirection": "up"
+    },
+    {
+        "urlPart": "akash-network",
+        "title": "AKT",
+        "changeValue": "4,37%",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "onbeam",
+        "title": "BEAM",
+        "changeValue": "12,11%",
+        "changeDirection": "up"
+    }
+]

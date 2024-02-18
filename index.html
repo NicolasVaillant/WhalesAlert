@@ -53,9 +53,9 @@
                     <i class="fa-solid fa-bars"></i>
                 </span>
                 <ul class="hb-container hidden">
-                    <li>
+                    <li class="refreshRate">
                         <i class="fa-solid fa-clock"></i>
-                        <text class="menu-1">30s</text>
+                        <text class="menu-1">Default</text>
                     </li>
                     <li>
                         <i class="fa-solid fa-rotate-right"></i>
@@ -70,101 +70,165 @@
             </div>
         </div>
     </header>
-    <div class="wrapper-content top">
-        <div class="new hidden">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, vitae.
-        </div>
-        <div class="top-content">
-            <div class="trending-content">
-                <h2 class="title-container max">
-                    <i class="fa-solid fa-fire"></i>
-                    Trending
-                </h2>
-                <div class="line-content-trend">
-                    <div class="container-overflow"></div>
-                </div>
-            </div>
-            <div class="gain-lose-content">
-                <div class="col">
-                    <h3 class="title-container">
-                        Gainers
-                        <i class="fa-solid fa-circle-arrow-up"></i>
-                    </h3>
-                    <div class="card-content-gainers"></div>
-                </div>
-                <div class="col">
-                    <h3 class="title-container">
-                        Losers
-                        <i class="fa-solid fa-circle-arrow-down"></i>
-                    </h3>
-                    <div class="card-content-losers"></div>
-                </div>
+    <div class="new">
+        <div class="top-line">
+            <h3 class="intro-banner"></h3>
+            <div class="close-banner">
+                <i class="fa-solid fa-times"></i>
             </div>
         </div>
+        <div class="buttons">
+            <a href="https://t.me/Whales_Alert_info" class="telegram btn-main">
+                <i class="fa-brands fa-telegram"></i>
+                <text>Telegram channel</text>
+            </a>
+            <a href="https://linktr.ee/whales_alert" class="x-com btn-main">
+                <i class="fa-solid fa-paperclip"></i>
+                <text>Linktr.ee</text>
+            </a>
+        </div>
     </div>
-    <div class="wrapper-content">
-        <h2 class="title-container max">
-            <i class="fa-regular fa-circle-check"></i>
-            Discover all transactions</h2>
-    </div>
-    <div class="settings-container">
-        <div class="settings-bar-table">
-            <div class="col-left-sc"></div>
-            <div class="col-right-sc">
-                <select name="select_table" id="select_table">
-                    <option value="1000">All</option>
-                </select>
-                <button class="type-table-toggle btn-main">
-                    <!-- <i class="fa-solid fa-list"></i> -->
-                    <i class="fa-solid fa-table-cells-large"></i>
+    <div class="container-split">
+        <div class="col-more-info">
+            <div class="content-displayed">
+                <div class="w_bg">
+                    <h3>
+                        <i class="fa-solid fa-star"></i>
+                        <text class="top-trend-user"></text>
+                    </h3>
+                    <div class="user-trends">
+                        <a class="user-trend-card" data-value="init">
+                            <span class="user-trend-card-nb"></span>
+                            <div class="user-trend-card-container">
+                                <div class="user-trend-card-name"></div>
+                                <div class="user-trend-card-value"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <h3 style="margin-top: 1em">
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <text class="latest-top"></text>
+                    </h3>
+                    <div class="settings-bar-table">
+                        <div class="col-left-sc"></div>
+                        <div class="col-right-sc">
+                            <select name="select_table" id="select_table">
+                                <option value="1000">All</option>
+                            </select>
+                            <button class="type-table-toggle btn-main">
+                                <!-- <i class="fa-solid fa-list"></i> -->
+                                <i class="fa-solid fa-table-cells-large"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-main backToTop hidden">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <text class="backToTop-Text"></text>
                 </button>
             </div>
         </div>
-    </div>
-    <div class="wrapper-content">
-        <div class="array-content">
-            <table id="table_crypto" class="table table-bordered order-column cell-border" style="width:100%">
-                <thead>
-                <tr class="row_table_def">
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>1h</th>
-                    <th>24h</th>
-                    <th>7d</th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                <tr class="row_table_def">
-                    <th>Rank</th>
-                    <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>1h</th>
-                    <th>24h</th>
-                    <th>7d</th>
-                </tr>
-                </tfoot>
-            </table>
+        <div class="col-content">
+            <div class="wrapper-content top">
+                <div class="top-content">
+                    <div class="trending-content">
+                        <h2 class="title-container max">
+                            <i class="fa-solid fa-fire"></i>
+                            Trending
+                        </h2>
+                        <div class="line-content-trend">
+                            <div class="container-overflow"></div>
+                        </div>
+                    </div>
+                    <div class="gain-lose-content">
+                        <div class="col">
+                            <h3 class="title-container">
+                                <i class="fa-solid fa-circle-arrow-up"></i>
+                                Gainers
+                            </h3>
+                            <div class="card-content-gainers"></div>
+                        </div>
+                        <div class="col">
+                            <h3 class="title-container">
+                                <i class="fa-solid fa-circle-arrow-down"></i>
+                                Losers
+                            </h3>
+                            <div class="card-content-losers"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-content title">
+                <h2 class="title-container max">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <text class="home-h2-transactions"></text>
+                </h2>
+            </div>
+            <div class="settings-container">
+                
+            </div>
+            <div class="wrapper-content table">
+                <div class="array-content">
+                    <table id="table_crypto" class="table table-bordered order-column cell-border" style="width:100%">
+                        <thead>
+                        <tr class="row_table_def">
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Symbol</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>1h</th>
+                            <th>24h</th>
+                            <th>7d</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        <tr class="row_table_def">
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Symbol</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>1h</th>
+                            <th>24h</th>
+                            <th>7d</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="grid_crypto hidden"></div>
+            </div>
         </div>
-        <div class="grid_crypto hidden"></div>
     </div>
+
     <footer>
         <div class="footer-container">
-            <div class="col-left-footer">
-                <div class="brand-container">
-                    <img src="resources/img/logo.png" alt="Website's logo">
-                    <p>WhalesAlert</p>
+            <div class="top-line">
+                <div class="col-left-footer">
+                    <div class="brand-container">
+                        <img src="resources/img/logo.png" alt="Website's logo">
+                        <p>WhalesAlert</p>
+                    </div>
+                    <p class="copyright-date"></p>
                 </div>
-                <p class="copyright-date"></p>
+                <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a></p>
             </div>
-            <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a></p>
+            <div class="bottom-line">
+                <div class="buttons">
+                    <div class="telegram btn-main">
+                        <i class="fa-brands fa-telegram"></i>
+                        <a href="https://t.me/Whales_Alert_info">Telegram channel</a>
+                    </div>
+                    <div class="x-com btn-main">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <a href="https://linktr.ee/whales_alert">Linktr.ee</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
+
     <div id="modal" style="display: none;">
         <div class="container-header">
             <p>Open Crypto</p>

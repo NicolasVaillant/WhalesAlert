@@ -1,9 +1,15 @@
 const toggle_hamburger = document.querySelector('.info-more')
+const backToTop = document.querySelector('.backToTop')
 const hb_container = document.querySelector('.hb-container')
 const darkM = document.querySelector("#darkMode-input")
 const tog_dm_icon = document.querySelectorAll(".tog_dm_icon")
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
+let refreshRateUserSelect = 'default'
+const closer_banner = document.querySelector('.close-banner')
+closer_banner.addEventListener('click', () => {
+    closer_banner.closest('.new').classList.add('hidden')
+})
 
 darkM.addEventListener('change', (e) => {
     /**
@@ -39,8 +45,14 @@ const copyrightDate = () => {
     element.innerText = `© ${date}`
 }
 window.onscroll = function () {
-    if(exact_type === "index")
+    if(exact_type === "index"){
         modal.style.display = 'none';
+        if(window.scrollY > 200){
+            backToTop.classList.remove('hidden')
+        } else{
+            backToTop.classList.add('hidden')
+        }
+    }
 
     hb_container.classList.add('hidden')
 }
@@ -125,3 +137,12 @@ toggle_hamburger.addEventListener('click', () => {
         hb_container.classList.add('hidden')
     }
 })
+
+let currentIndex = 0;
+const refreshRate = document.querySelector('.refreshRate');
+refreshRate.addEventListener('click', () => {
+  const duration = variables.refreshRate[currentIndex];
+  refreshRate.querySelector('text').innerHTML = duration
+  refreshRateUserSelect = duration
+  currentIndex = (currentIndex + 1) % variables.refreshRate.length;
+});
