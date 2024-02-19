@@ -1,7 +1,3 @@
-backToTop.addEventListener('click', () => {
-    window.scrollTo(0, 0)
-})
-
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
