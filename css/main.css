@@ -567,7 +567,7 @@ body main .container-split .col-content .wrapper-content .top-content {
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends {
   display: none;
-  width: var(--width-page);
+  width: 100%;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends h2 {
   display: flex;
