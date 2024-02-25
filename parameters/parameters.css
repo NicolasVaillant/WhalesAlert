@@ -21,4 +21,9 @@
     --height-header: 10vh;
 
     --width-left-column:30%;
+
+    --card-aside-user-trends:160px;
+    @media all and (max-width: 500px) {
+        --card-aside-user-trends:200px;
+    }
 }

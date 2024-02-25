@@ -242,6 +242,11 @@ body main .container-split.crypto {
   margin-bottom: 3em;
 }
 @media all and (max-width: 700px) {
+  body main .container-split.crypto {
+    margin-bottom: auto;
+  }
+}
+@media all and (max-width: 700px) {
   body main .container-split {
     grid-template-columns: 100%;
   }
@@ -335,7 +340,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card {
   position: relative;
   font-weight: bold;
-  min-width: 160px;
+  min-width: var(--card-aside-user-trends);
   aspect-ratio: 1;
   cursor: pointer;
   background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
@@ -559,6 +564,93 @@ body main .container-split .col-content .wrapper-content .top-content {
   gap: 2em;
   flex-direction: column;
   margin-bottom: 1em;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends {
+  display: none;
+  width: var(--width-page);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--white);
+  margin-bottom: 0.5em;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding-bottom: 0.5em;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card {
+  position: relative;
+  font-weight: bold;
+  min-width: var(--card-aside-user-trends);
+  aspect-ratio: 1;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card[data-value=init] {
+  display: none;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-nb {
+  position: absolute;
+  background: var(--w);
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -30px;
+  right: -30px;
+  font-size: 5em;
+  opacity: 0.2;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin: 0.5em;
+  color: var(--w);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-name {
+  font-size: 1.8em;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-value {
+  font-size: 1.2em;
+  margin-left: 0.8em;
+  position: relative;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-value::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  translate: -0.5em -50%;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-value.up::before {
+  background: var(--up);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-value.down::before {
+  background: var(--down);
+}
+@media all and (max-width: 500px) {
+  body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends {
+    display: block;
+  }
 }
 body main .container-split .col-content .wrapper-content .top-content .trending-content {
   display: flex;

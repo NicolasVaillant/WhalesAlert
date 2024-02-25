@@ -1,13 +1,16 @@
 .settings-bar-table::-webkit-scrollbar,
 .user-trends::-webkit-scrollbar,
 .summary::-webkit-scrollbar,
+.user-trends-dup::-webkit-scrollbar,
 .container-overflow::-webkit-scrollbar {
     height: .4em;
 }
+
 .summary::-webkit-scrollbar{
     width: .3em;
 }
 
+.user-trends-dup::-webkit-scrollbar-track,
 .settings-bar-table::-webkit-scrollbar-track,
 .user-trends::-webkit-scrollbar-track,
 .summary::-webkit-scrollbar-track,
@@ -15,6 +18,7 @@
     background: transparent;
     padding: 1em;
 }
+.user-trends-dup::-webkit-scrollbar-thumb,
 .summary::-webkit-scrollbar-thumb,
 .settings-bar-table::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb,

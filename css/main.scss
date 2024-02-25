@@ -201,6 +201,10 @@ body{
       margin-top: 3em;
       &.crypto{
         margin-bottom: 3em;
+        @media all and (max-width: 700px) {
+          margin-bottom: auto;
+        }
+
       }
 
       display: grid;
@@ -293,7 +297,7 @@ body{
                 &[data-value="init"]{display: none}
                 position: relative;
                 font-weight: bold;
-                min-width: 160px;
+                min-width: var(--card-aside-user-trends);
                 aspect-ratio: 1;
                 cursor: pointer;
                 background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
@@ -495,6 +499,83 @@ body{
             gap: 2em;
             flex-direction: column;
             margin-bottom: 1em;
+            .duplicated-user-trends{
+              display: none;
+              width: var(--width-page);
+              h2{
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+                color: var(--white);
+                margin-bottom: .5em;
+              }
+              .user-trends-dup{
+                overflow-y: auto;
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                padding-bottom: .5em;
+                .user-trend-card{
+                  &[data-value="init"]{display: none}
+                  position: relative;
+                  font-weight: bold;
+                  min-width: var(--card-aside-user-trends);
+                  aspect-ratio: 1;
+                  cursor: pointer;
+                  background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
+                  border-radius: 6px;          
+                  overflow: hidden;
+                  display: flex;
+                  align-items: flex-end;
+                  .user-trend-card-nb{
+                    position: absolute;
+                    background: var(--w);
+                    aspect-ratio: 1;
+                    width: 100%;
+                    border-radius: 1000px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    top: -30px;
+                    right: -30px;
+                    font-size: 5em;
+                    opacity: .2;
+                  }
+                  .user-trend-card-container{
+                    @include centerFlex();
+                    align-items: flex-start;
+                    justify-content: flex-end;
+                    flex-direction: column;
+                    margin: .5em;
+                    color: var(--w);
+                    .user-trend-card-name{
+                      font-size: 1.8em;
+                    }
+                    .user-trend-card-value{
+                      font-size: 1.2em;
+                      margin-left: 0.8em;
+                      position: relative;
+                      &::before{
+                        position: absolute;
+                        content: "";
+                        top: 50%;
+                        left: 0;
+                        width: 10%;
+                        aspect-ratio: 1;
+                        border-radius: 1000px;
+                        translate: -0.5em -50%;
+                      }
+                      &.up{&::before{background: var(--up)}}
+                      &.down{&::before{background: var(--down)}}
+                    }
+                  }
+                }
+              }
+              @media all and (max-width: 500px) {
+                display: block;
+              }
+
+            }
             .trending-content{
               @include centerFlex;
               flex-direction: column;

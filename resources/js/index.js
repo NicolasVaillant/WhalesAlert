@@ -109,6 +109,7 @@ close_btn.addEventListener('click', function() {
 });
 
 const fEdit_Trend_user = (data) => {
+    const user_trends = document.querySelector('.user-trends')
     if(data !== 'error'){
         data.forEach((e, i) => {
             const init = document.querySelector('.user-trend-card[data-value="init"]')
@@ -119,8 +120,12 @@ const fEdit_Trend_user = (data) => {
             element.querySelector('.user-trend-card-name').innerText = e.title
             element.querySelector('.user-trend-card-value').innerText = e.changeValue
             element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
-            document.querySelector('.user-trends').appendChild(element)
+            user_trends.appendChild(element)
         })
+        const dup = document.querySelector('.duplicated-user-trends')
+        const user_trends_node = user_trends.cloneNode(true)
+        user_trends_node.classList.replace('user-trends', 'user-trends-dup')
+        dup.appendChild(user_trends_node)
     }
 }
 
