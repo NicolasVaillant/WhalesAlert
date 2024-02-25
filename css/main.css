@@ -60,6 +60,12 @@ body main header {
   background: var(--hf-color);
   z-index: 9999;
 }
+@media all and (max-width: 500px) {
+  body main header {
+    --height-header: auto;
+    font-size: 0.8em;
+  }
+}
 body main header .hamburger-menu {
   position: relative;
 }

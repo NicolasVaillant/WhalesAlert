@@ -57,6 +57,11 @@ body{
       top: 0;
       background: var(--hf-color);
       z-index: 9999;
+      @media all and (max-width: 500px) {
+        --height-header: auto;
+        font-size: 0.8em;
+      }
+
 
       .hamburger-menu{
         position: relative;

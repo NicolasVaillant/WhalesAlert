@@ -33,9 +33,7 @@ fLoad_cryptoIMG()
         const data = (r.type === 'image/png') ? r : "null"
         if(r.type == 'image/png'){
             logo_crypto.src = `resources/logos/${query}.png`
-        }else{
-            console.log("no");
-        }
+        }else{}
     })
 
 
