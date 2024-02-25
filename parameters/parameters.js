@@ -18,7 +18,8 @@ const settings = {
         'top-trend-user': 'Top user trends',
         'backToTop-Text': 'Back to Top',
         'latest-top': 'Top transactions',
-        'privacy-aside':'Summary'
+        'privacy-aside':'Summary',
+        'modal-text':'Open Crypto'
     }
 }
 

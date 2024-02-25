@@ -15,13 +15,17 @@
     background: transparent;
     padding: 1em;
 }
+.summary::-webkit-scrollbar-thumb,
 .settings-bar-table::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb,
-.summary::-webkit-scrollbar-thumb,
 .container-overflow::-webkit-scrollbar-thumb {
     background-color: var(--w);
     border-radius: 1000px;
     cursor: pointer;
+}
+.settings-bar-table::-webkit-scrollbar-thumb,
+.user-trends::-webkit-scrollbar-thumb{
+    background-color: var(--card-g-l);
 }
 
 :root{

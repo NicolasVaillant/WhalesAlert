@@ -35,7 +35,7 @@ const fEdit_main = (data) => {
         const element = document.createElement('a')
         const text = document.createElement('p')
         const value = document.createElement('span')
-        element.classList.add('card-sh')
+        element.classList.add('btn-main', 'card-sh')
         text.innerHTML = e.Name
         element.href = `crypto.html?q=${e.Name}`
         value.innerHTML = (i+1).toString()
@@ -75,13 +75,17 @@ const fEdit_main = (data) => {
     $('#table_crypto tbody').on('click', 'tr', function (e) {
         const crypto = $(this)[0].querySelectorAll('td')[1].innerText
         const cryptoDef = crypto.includes(' ') ? crypto.replace(/ /g, '_').toLowerCase() : crypto.toLowerCase()
+        
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
+            modal.style.display = 'none';
+            console.log('removeClass');
         } else {
             leaderboard_table.$('tr.selected').removeClass('selected');
+            contextMenuCreation(cryptoDef, e.clientX, e.clientY)
+            console.log('addClass');
             $(this).addClass('selected');
         }
-        contextMenuCreation(cryptoDef, e.clientX, e.clientY)
     })
 }
 
@@ -101,6 +105,7 @@ const contextMenuCreation = (text, x, y) => {
 const close_btn = document.querySelector('.close-btn');
 close_btn.addEventListener('click', function() {
     modal.style.display = 'none';
+    $('#table_crypto tbody tr').removeClass('selected');
 });
 
 const fEdit_Trend_user = (data) => {

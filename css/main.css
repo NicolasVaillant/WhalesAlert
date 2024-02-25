@@ -179,7 +179,7 @@ body main .new {
   background-repeat: no-repeat;
   background-position: center center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  border: 1px solid var(--hf-color-op);
+  border: 1px solid var(--btn-main-bg);
   border-radius: var(--br);
   padding: 1em;
   width: var(--width-page);
@@ -223,7 +223,6 @@ body main .new .buttons {
 body main .new .buttons .telegram,
 body main .new .buttons .x-com {
   width: fit-content;
-  background: var(--hf-color-op);
 }
 body main .container-split {
   --gap-side-bar:2em;
@@ -261,12 +260,13 @@ body main .container-split .col-more-info .content-displayed {
 body main .container-split .col-more-info .content-displayed .w_bg {
   padding: 0.5em;
   color: var(--b);
-  background: var(--hf-color-op);
+  background: var(--w);
   border-radius: var(--br);
   display: flex;
   flex-direction: column;
   gap: 1em;
   max-height: 70vh;
+  border: 1px solid var(--btn-main-bg);
 }
 body main .container-split .col-more-info .content-displayed .w_bg .summary {
   display: flex;
@@ -416,8 +416,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
   gap: 1em;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table .col-left-sc .card-sh {
-  background: var(--hf-color);
-  border: 1px solid #eff1f4;
+  border: 1px solid var(--bg-color);
   border-radius: 1000px;
   padding: 0.2em 0.5em;
   display: flex;
@@ -440,12 +439,8 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
 }
 @media (pointer: fine) {
   body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table .col-left-sc .card-sh:hover {
-    background: var(--active-color);
-    border: 1px solid var(--active-color);
+    background: var(--w);
     cursor: pointer;
-  }
-  body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table .col-left-sc .card-sh:hover span {
-    background: rgb(92, 170, 255);
   }
 }
 body main .container-split .col-content {
@@ -482,7 +477,7 @@ body main .container-split .col-content .privacy-content h2:target::before, body
   background: var(--active-color);
 }
 body main .container-split .col-content .privacy-content ul {
-  margin: 2em 3em;
+  margin: 2em 1em 2em 3em;
 }
 body main .container-split .col-content .privacy-content span {
   background: rgba(134, 209, 235, 0.2705882353);
@@ -495,7 +490,11 @@ body main .container-split .col-content .privacy-content .header-privacy {
   align-items: center;
   align-content: center;
   justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
   margin-bottom: 1em;
+  gap: 1em;
 }
 body main .container-split .col-content .privacy-content .header-privacy * {
   margin: 0;
@@ -580,6 +579,7 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
   overflow: hidden;
   border-radius: var(--br);
   background: var(--card-g-l);
+  border: 1px solid var(--btn-main-bg);
   color: var(--b);
 }
 body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .container-overflow {
@@ -618,8 +618,7 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
 }
 @media (pointer: fine) {
   body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .trends-e:hover {
-    background: var(--active-color);
-    border: 1px solid var(--active-color);
+    background: var(--w);
     cursor: pointer;
   }
 }
@@ -654,6 +653,7 @@ body main .container-split .col-content .wrapper-content .top-content .gain-lose
   --br: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   padding: var(--padd);
+  border: 1px solid var(--btn-main-bg);
   border-radius: calc(var(--padd) + var(--br));
   background: var(--hf-color-op);
   display: flex;
@@ -744,6 +744,12 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   background: var(--hf-color-op);
   margin: 1em 0;
   border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--btn-main-bg);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll .row_table_def,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll .row_table_def {
+  background: var(--w);
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr {
@@ -779,6 +785,7 @@ body main footer {
   width: 100%;
   color: var(--b);
   background: var(--hf-color);
+  border-top: 1px solid var(--btn-main-bg);
   display: flex;
   justify-content: center;
   padding: 1em 0;
@@ -817,7 +824,6 @@ body main footer .footer-container .top-line .buttons .x-com,
 body main footer .footer-container .bottom-line .buttons .telegram,
 body main footer .footer-container .bottom-line .buttons .x-com {
   width: fit-content;
-  background: var(--hf-color-op);
 }
 @media all and (max-width: 450px) {
   body main footer .footer-container .top-line,
@@ -850,7 +856,7 @@ body main .btn-main {
   width: 100%;
   appearance: none;
   background-color: var(--w);
-  border: 1px solid rgb(226, 226, 226);
+  border: 1px solid var(--btn-main-bg);
   border-radius: 6px;
   box-shadow: rgba(226, 226, 226, 0.04) 0 1px 0, rgba(226, 226, 226, 0.25) 0 1px 0 inset;
   box-sizing: border-box;

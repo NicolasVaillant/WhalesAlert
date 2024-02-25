@@ -153,7 +153,7 @@ body{
       background-repeat: no-repeat;
       background-position: center center;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-      border: 1px solid var(--hf-color-op);
+      border: 1px solid var(--btn-main-bg);
       border-radius: var(--br);
       padding: 1em;
       width: var(--width-page);
@@ -187,7 +187,6 @@ body{
         .telegram,
         .x-com{
           width: fit-content;
-          background: var(--hf-color-op);
         }
       }
     }
@@ -227,12 +226,13 @@ body{
           .w_bg{
             padding: .5em;
             color: var(--b);
-            background: var(--hf-color-op);
+            background: var(--w);
             border-radius: var(--br);
             display: flex;
             flex-direction: column;
             gap: 1em;
             max-height: 70vh;
+            border: 1px solid var(--btn-main-bg);
             .summary{
               @include centerFlex;
               flex-direction: column;
@@ -360,8 +360,9 @@ body{
                 @include centerFlex;
                 gap: 1em;
                 .card-sh{
-                  background: var(--hf-color);
-                  border: 1px solid #eff1f4;
+                  // background: var(--hf-color);
+                  // border: 1px solid #eff1f4;
+                  border: 1px solid var(--bg-color);
                   border-radius: 1000px;
                   padding: .2em .5em;
                   display: flex;
@@ -383,12 +384,12 @@ body{
                   }
                   @media (pointer: fine) {
                     &:hover{
-                      background: var(--active-color);
-                      border: 1px solid var(--active-color);
+                      background: var(--w);
+                      // border: 1px solid var(--active-color);
                       cursor: pointer;
-                      span{
-                        background: rgb(92 170 255);
-                      }
+                      // span{
+                      //   background: rgb(92 170 255);
+                      // }
                     }
                   }
                 }
@@ -427,7 +428,7 @@ body{
               &::before{background: var(--active-color)}
             }
           }
-          ul{margin: 2em 3em}
+          ul{margin: 2em 1em 2em 3em}
           span{
             background: #86d1eb45;
             border-radius: calc(var(--br)/2);
@@ -436,7 +437,11 @@ body{
           .header-privacy{
             @include centerFlex;
             justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+            flex-wrap: wrap;
             margin-bottom: 1em;
+            gap: 1em;
             *{margin: 0;}
             .date{
               background: var(--hf-color-op);
@@ -501,6 +506,7 @@ body{
                 overflow: hidden;
                 border-radius: var(--br);
                 background: var(--card-g-l);
+                border: 1px solid var(--btn-main-bg);
                 color: var(--b);
                 .container-overflow{
                   overflow-y: auto;
@@ -527,8 +533,8 @@ body{
                   }
                   @media (pointer: fine) {
                     &:hover{
-                      background: var(--active-color);
-                      border: 1px solid var(--active-color);
+                      background: var(--w);
+                      // border: 1px solid var(--active-color);
                       cursor: pointer;
                     }
                   }
@@ -561,6 +567,7 @@ body{
                   --br: 5px;
                   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
                   padding: var(--padd);
+                  border: 1px solid var(--btn-main-bg);
                   border-radius: calc(var(--padd) + var(--br));
                   background: var(--hf-color-op);
                   display: flex;
@@ -630,7 +637,11 @@ body{
                 background: var(--hf-color-op);
                 margin: 1em 0;
                 border-radius: 10px;
-    
+                overflow: hidden;
+                border: 1px solid var(--btn-main-bg);
+                .row_table_def{
+                  background: var(--w);
+                }
                 table.dataTable tbody tr {
                   background-color: transparent;
                   cursor: pointer;
@@ -669,6 +680,7 @@ body{
       width: 100%;
       color: var(--b);
       background: var(--hf-color);
+      border-top: 1px solid var(--btn-main-bg);
       display: flex;
       justify-content: center;
       padding: 1em 0;
@@ -691,7 +703,6 @@ body{
             .telegram,
             .x-com{
               width: fit-content;
-              background: var(--hf-color-op);
             }
           }
 
@@ -727,7 +738,8 @@ body{
       width: 100%;
       appearance: none;
       background-color: var(--w);
-      border: 1px solid rgba(226 226 226 / 100%);
+      // border: 1px solid rgba(226 226 226 / 100%);
+      border: 1px solid var(--btn-main-bg);
       border-radius: 6px;
       box-shadow: rgba(226 226 226 / 4%) 0 1px 0, rgba(226 226 226 / 25%) 0 1px 0 inset;
       box-sizing: border-box;
