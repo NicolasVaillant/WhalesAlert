@@ -904,6 +904,8 @@ body main footer .footer-container .bottom-line {
   justify-content: center;
   align-items: center;
   align-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
   justify-content: space-between;
   width: 100%;
 }

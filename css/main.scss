@@ -778,6 +778,8 @@ body{
         .top-line,
         .bottom-line{
           @include centerFlex;
+          flex-wrap: wrap;
+          gap: 1em;
           justify-content: space-between;
           width: 100%;
 
