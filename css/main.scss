@@ -59,9 +59,9 @@ body{
       z-index: 9999;
       @media all and (max-width: 500px) {
         --height-header: auto;
-        font-size: 0.8em;
+        .hamburger-menu{font-size: 0.9em}
+        .brand-container{font-size: 0.8em}
       }
-
 
       .hamburger-menu{
         position: relative;
@@ -482,6 +482,7 @@ body{
           color: var(--b);
           &.top{margin: 0}
           &.array{
+            p{color: var(--white)}
             margin-top: 1em;
             margin-bottom: auto;
           }

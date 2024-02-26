@@ -207,3 +207,27 @@ refreshRate.addEventListener('click', () => {
   refreshRateUserSelect = duration
   currentIndex = (currentIndex + 1) % variables.refreshRate.length;
 });
+
+const contextMenuCreation = (text, x, y, url = false) => {
+    const modal = document.getElementById('modal');
+    const actionButton = document.getElementById('open_crypto_from_table');
+    const text_modal = document.querySelector('.text_modal');
+    modal.style.top = y + 'px';
+    modal.style.left = x + 'px';
+    modal.style.display = 'flex';
+    actionButton.innerText = (url) ? `Open URL` : `Open ${text}`
+    actionButton.addEventListener('click', function() {
+        if(url){
+            window.open(text, "_self")
+        }else{
+            window.open(`crypto.html?q=${text}`, "_self")
+        }
+        modal.style.display = 'none';
+    });
+}
+const close_btn = document.querySelector('.close-btn');
+close_btn.addEventListener('click', function() {
+    modal.style.display = 'none';
+    $('#table_crypto tbody tr').removeClass('selected');
+    $('#table_crypto_unique tbody tr').removeClass('selected');
+});

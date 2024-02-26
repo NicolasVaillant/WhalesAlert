@@ -79,34 +79,13 @@ const fEdit_main = (data) => {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
             modal.style.display = 'none';
-            console.log('removeClass');
         } else {
             leaderboard_table.$('tr.selected').removeClass('selected');
             contextMenuCreation(cryptoDef, e.clientX, e.clientY)
-            console.log('addClass');
             $(this).addClass('selected');
         }
     })
 }
-
-const contextMenuCreation = (text, x, y) => {
-    const modal = document.getElementById('modal');
-    const actionButton = document.getElementById('open_crypto_from_table');
-    const text_modal = document.querySelector('.text_modal');
-    modal.style.top = y + 'px';
-    modal.style.left = x + 'px';
-    actionButton.innerText = `Open ${text}`
-    modal.style.display = 'flex';
-    actionButton.addEventListener('click', function() {
-        window.open(`crypto.html?q=${text}`, "_self")
-        modal.style.display = 'none';
-    });
-}
-const close_btn = document.querySelector('.close-btn');
-close_btn.addEventListener('click', function() {
-    modal.style.display = 'none';
-    $('#table_crypto tbody tr').removeClass('selected');
-});
 
 const fEdit_Trend_user = (data) => {
     const user_trends = document.querySelector('.user-trends')

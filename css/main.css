@@ -63,6 +63,11 @@ body main header {
 @media all and (max-width: 500px) {
   body main header {
     --height-header: auto;
+  }
+  body main header .hamburger-menu {
+    font-size: 0.9em;
+  }
+  body main header .brand-container {
     font-size: 0.8em;
   }
 }
@@ -545,6 +550,9 @@ body main .container-split .col-content .wrapper-content.top {
 body main .container-split .col-content .wrapper-content.array {
   margin-top: 1em;
   margin-bottom: auto;
+}
+body main .container-split .col-content .wrapper-content.array p {
+  color: var(--white);
 }
 body main .container-split .col-content .wrapper-content.title {
   border-top: 1px solid var(--w);

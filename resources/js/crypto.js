@@ -61,11 +61,22 @@ const fLoad_table = async(r) => {
             "defaultContent": "-",
             "targets": "_all"
         }],
-        order: [[0, 'asc']],
         scrollX: "300px",
         "searching": false,
-        "ordering": true,
+        "ordering": false,
         "autoWidth": false,
         "responsive": false,
     });
+
+    $('#table_crypto_unique tbody').on('click', 'tr', function (e) {
+        const url = $(this)[0].querySelectorAll('td')[3].innerText
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+            modal.style.display = 'none';
+        } else {
+            leaderboard_table.$('tr.selected').removeClass('selected');
+            contextMenuCreation(url, e.clientX, e.clientY, true)
+            console.log('addClass');
+        }
+    })
 }

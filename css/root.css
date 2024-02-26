@@ -2,6 +2,7 @@
 .user-trends::-webkit-scrollbar,
 .summary::-webkit-scrollbar,
 .user-trends-dup::-webkit-scrollbar,
+.dataTables_scrollBody::-webkit-scrollbar,
 .container-overflow::-webkit-scrollbar {
     height: .4em;
 }
@@ -21,6 +22,7 @@
 .user-trends-dup::-webkit-scrollbar-thumb,
 .summary::-webkit-scrollbar-thumb,
 .settings-bar-table::-webkit-scrollbar-thumb,
+.dataTables_scrollBody::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb,
 .container-overflow::-webkit-scrollbar-thumb {
     background-color: var(--w);

@@ -19,7 +19,8 @@ const settings = {
         'backToTop-Text': 'Back to Top',
         'latest-top': 'Top transactions',
         'privacy-aside':'Summary',
-        'modal-text':'Open Crypto'
+        'modal-text':'Open Crypto',
+        'description-array-crypto': 'The latest transactions appear on top.'
     }
 }
 
