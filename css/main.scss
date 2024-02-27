@@ -482,7 +482,7 @@ body{
           color: var(--b);
           &.top{margin: 0}
           &.array{
-            p{color: var(--white)}
+            p:not(.error-loading-data-text){color: var(--white)}
             margin-top: 1em;
             margin-bottom: auto;
           }

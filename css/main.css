@@ -551,7 +551,7 @@ body main .container-split .col-content .wrapper-content.array {
   margin-top: 1em;
   margin-bottom: auto;
 }
-body main .container-split .col-content .wrapper-content.array p {
+body main .container-split .col-content .wrapper-content.array p:not(.error-loading-data-text) {
   color: var(--white);
 }
 body main .container-split .col-content .wrapper-content.title {
