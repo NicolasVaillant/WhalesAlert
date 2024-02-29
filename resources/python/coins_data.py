@@ -2,35 +2,45 @@ import requests
 import os
 import json
 
-# Définir le chemin de base pour l'enregistrement des informations des coins
-chemin_base = 'D:\\Crypto\\Bot\\WhalesAlert\\resources\\data_coins'
+# Définir le chemin de base pour l'enregistrement des informations des cryptomonnaies
+chemin_base = 'resources/data_coins'
 
 # S'assurer que le chemin de base existe
 if not os.path.exists(chemin_base):
     os.makedirs(chemin_base)
 
-def sauvegarder_infos_coins():
-    # Récupérer la liste des tickers (coins) depuis l'API Coinpaprika
-    url_tickers = 'https://api.coinpaprika.com/v1/tickers/'
-    response = requests.get(url_tickers)
-    
-    if response.status_code == 200:
-        tickers = response.json()
-        
-        # Parcourir chaque ticker et sauvegarder ses informations dans un fichier JSON dédié
-        for ticker in tickers[:20]:  # Limiter le nombre pour cet exemple
-            nom_coin = ticker['name'].replace(' ', '_').lower()  # Utiliser le nom du coin, en minuscules et avec des underscores
-            
-            # Définir le chemin complet du fichier JSON pour le coin
-            chemin_fichier = os.path.join(chemin_base, f'{nom_coin}.json')
-            
-            # Préparer les données à sauvegarder dans le format spécifié
-            data_to_save = [ticker]
-            
-            # Sauvegarder les informations du coin dans un fichier JSON
-            with open(chemin_fichier, 'w') as fichier:
-                json.dump(data_to_save, fichier, indent=4)
-            
-            print(f'Informations sauvegardées pour : {nom_coin}')
-    else:
-        print('Erreur lors de la récupération des informations des coins depuis Coinpaprika')
+def fetch_coin_details(symbol, name):
+    """
+    Fonction pour récupérer les détails d'une cryptomonnaie depuis CoinCodex et les enregistrer dans un fichier JSON dans le chemin spécifié.
+    """
+    url = f"https://coincodex.com/api/coincodex/get_coin/{symbol}"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            coin_details = response.json()
+            # Créer un nom de fichier valide et spécifique pour chaque cryptomonnaie
+            filename = f"{name.replace('/', '_').replace(' ', '_').lower()}.json"
+            chemin_fichier = os.path.join(chemin_base, filename)
+            with open(chemin_fichier, 'w') as file:
+                json.dump(coin_details, file, indent=4)
+            print(f"Details for {symbol} saved to {filename}.")
+        else:
+            print(f"Failed to fetch data for {symbol}. Status code:", response.status_code)
+    except Exception as e:
+        print(f"An error occurred while fetching data for {symbol}:", e)
+
+def fetch_coins_and_process():
+    """
+    Fonction pour récupérer les données des cryptomonnaies depuis l'API CoinPaprika, les sauvegarder, puis récupérer des détails supplémentaires pour chaque cryptomonnaie depuis CoinCodex.
+    """
+    url = "https://api.coinpaprika.com/v1/coins"
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            coins = response.json()
+            for coin in coins[:5000]:  # Limiter pour cet exemple
+                fetch_coin_details(coin['symbol'], coin['name'])
+        else:
+            print("Failed to fetch data from CoinPaprika API. Status code:", response.status_code)
+    except Exception as e:
+        print("An error occurred:", e)
