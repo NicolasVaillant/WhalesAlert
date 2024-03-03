@@ -252,15 +252,14 @@ body main .container-split .grey {
   color: var(--grey);
 }
 body main .container-split.crypto {
-  margin-bottom: 3em;
+  margin-bottom: 50%;
 }
 body main .container-split.crypto.no-more-info {
-  margin-bottom: auto;
   grid-template-columns: 1fr;
 }
-@media all and (max-width: 700px) {
+@media all and (min-width: 700px) {
   body main .container-split.crypto {
-    margin-bottom: auto;
+    margin-bottom: 3em;
   }
 }
 @media all and (max-width: 700px) {
