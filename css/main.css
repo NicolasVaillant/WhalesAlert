@@ -102,6 +102,11 @@ body main header .hamburger-menu .hb-container {
   min-width: 20vw;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+@media all and (max-width: 500px) {
+  body main header .hamburger-menu .hb-container {
+    font-size: 1.2em;
+  }
+}
 body main header .hamburger-menu .hb-container li,
 body main header .hamburger-menu .hb-container label {
   padding: 0.5em;

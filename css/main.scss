@@ -89,6 +89,7 @@ body{
           z-index: 9999;
           min-width: 20vw;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          @media all and (max-width: 500px){font-size: 1.2em}
           li,
           label{
             padding: .5em;
