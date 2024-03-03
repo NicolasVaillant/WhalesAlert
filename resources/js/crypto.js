@@ -56,30 +56,37 @@ fLoad_cryptoIMG()
 
 
 const setAsideInfo = (data) => {
+    const duplicated_info = document.querySelector('.duplicated-info')
     const container = document.querySelector('.crypto-info')
     const symbol = document.querySelector('.crypto-info-symbol')
     if(data == "null"){
         container.closest('.container-split').classList.add('no-more-info')
         container.closest('.col-more-info').classList.add('hidden')
+        duplicated_info.classList.add('hidden')
     } else{
         symbol.innerText = data.symbol
     }
-
     const price = document.querySelector('.quote-USD-price')
+    const price_dup = document.querySelector('.dup-quote-USD-price')
     const percent_change_24h = document.querySelector('.percent-24h')
     const market_cap = document.querySelector('.market-cap')
+    const dup_market_cap = document.querySelector('.dup-market-cap')
     const market_cap_change = document.querySelector('.market-cap-change')
     const volume_24h = document.querySelector('.volume-24h')
+    const dup_volume_24h = document.querySelector('.dup-volume-24h')
     const volume_24h_change = document.querySelector('.volume-24h-change')
     const max_supply = document.querySelector('.max-supply')
     const circulating_supply = document.querySelector('.circulating-supply')
     const refresh_date = document.querySelector('.refresh-date')
-
     percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
+
     price.innerText = data.quotes.USD.price.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    price_dup.innerText = data.quotes.USD.price.toLocaleString("us-US", {style: "currency", currency: "USD"})
     market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    dup_market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
     market_cap_change.innerText = `${data.quotes.USD.market_cap_change_24h}%`
     volume_24h.innerText = data.quotes.USD.volume_24h.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    dup_volume_24h.innerText = data.quotes.USD.volume_24h.toLocaleString("us-US", {style: "currency", currency: "USD"})
     volume_24h_change.innerText = `${data.quotes.USD.volume_24h_change_24h}%`
     max_supply.innerText = data.max_supply.toLocaleString("us-US", {style: "currency", currency: "BTC"})
     circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: "BTC"})

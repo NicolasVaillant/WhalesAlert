@@ -2,6 +2,7 @@
 .user-trends::-webkit-scrollbar,
 .summary::-webkit-scrollbar,
 .user-trends-dup::-webkit-scrollbar,
+.duplicated-info-container::-webkit-scrollbar,
 .dataTables_scrollBody::-webkit-scrollbar,
 .container-overflow::-webkit-scrollbar {
     height: .4em;
@@ -12,6 +13,7 @@
 }
 
 .user-trends-dup::-webkit-scrollbar-track,
+.duplicated-info-container::-webkit-scrollbar-track,
 .settings-bar-table::-webkit-scrollbar-track,
 .user-trends::-webkit-scrollbar-track,
 .summary::-webkit-scrollbar-track,
@@ -20,6 +22,7 @@
     padding: 1em;
 }
 .user-trends-dup::-webkit-scrollbar-thumb,
+.duplicated-info-container::-webkit-scrollbar-thumb,
 .summary::-webkit-scrollbar-thumb,
 .settings-bar-table::-webkit-scrollbar-thumb,
 .dataTables_scrollBody::-webkit-scrollbar-thumb,
