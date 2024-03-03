@@ -55,6 +55,7 @@
     --btn-main-bg: rgba(var(--rgb) / 100%);
     --card-g-l: #c6cfd9;
     --text-aside:var(--bg-color);
+    --grey:#808080fa;
 }
 
 .toggle_dark_mode{

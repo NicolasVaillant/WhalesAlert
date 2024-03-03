@@ -199,12 +199,18 @@ body{
     .container-split{
       --gap-side-bar:2em;
       margin-top: 3em;
+
+      .grey{color: var(--grey)}
+
       &.crypto{
         margin-bottom: 3em;
+        &.no-more-info{
+          margin-bottom: auto;
+          grid-template-columns: 1fr;
+        }
         @media all and (max-width: 700px) {
           margin-bottom: auto;
         }
-
       }
 
       display: grid;
@@ -216,7 +222,6 @@ body{
         grid-template-columns:100%;
         .col-more-info{display: none;}
       }
-
 
       .col-more-info{
         width: 100%;
@@ -276,6 +281,50 @@ body{
             }
             .crypto-info{
               min-height: 40vh;
+              .crypto-info-top-container{
+                @include centerFlex();
+                gap: 1em;
+                flex-direction: column;
+                align-items: flex-end;
+                .crypto-info-top-line,
+                .crypto-info-line{
+                  @include centerFlex();
+                  flex-wrap: wrap;
+                  justify-content: flex-end;
+                  align-items: baseline;
+                  gap: .5em;
+                  width: 100%;
+                  .top-line-fc{
+                    @include centerFlex();
+                    flex-basis: 100%;
+                    gap: .5em;
+                  }
+                  &:first-child{
+                    background: var(--hf-color);
+                    padding: 0.5em;
+                    border-radius: 3px;
+                    [class$="-label"]:after{
+                      display: none;
+                    }
+                  }
+                  [class$="-label"]{
+                    flex-basis: 100%;
+                    position: relative;
+                    &:after{
+                      position: absolute;
+                      width: -webkit-fill-available;
+                      content: " ";
+                      background: var(--card-g-l);
+                      height: 2px;
+                      translate: 0 -50%;
+                      top: 50%;
+                      margin-left: 1em;
+                      border-radius: 1000px;
+                    }
+                  }
+                  .bold{font-weight: bold}
+                }
+              }
             }
             h3{
               display: flex;

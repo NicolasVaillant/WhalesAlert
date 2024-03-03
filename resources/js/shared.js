@@ -12,11 +12,9 @@ closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
 
-if(exact_type !== "crypto"){
-    backToTop.addEventListener('click', () => {
-        window.scrollTo(0, 0)
-    })
-}
+backToTop.addEventListener('click', () => {
+    window.scrollTo(0, 0)
+})
 
 darkM.addEventListener('change', (e) => {
     /**
@@ -55,14 +53,11 @@ window.onscroll = function () {
     if(exact_type == "index")
         modal.style.display = 'none';
     
-    if(exact_type !== "crypto"){
-        if(window.scrollY > 200){
-            backToTop.classList.remove('hidden')
-        } else{
-            backToTop.classList.add('hidden')
-        }
+    if(window.scrollY > 200){
+        backToTop.classList.remove('hidden')
+    } else{
+        backToTop.classList.add('hidden')
     }
-    
     hb_container.classList.add('hidden')
 }
 window.onload = function () {

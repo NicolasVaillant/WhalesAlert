@@ -93,9 +93,50 @@
             <div class="content-displayed">
                 <div class="w_bg">
                     <div class="crypto-info">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, doloribus.</p>
+                        <div class="crypto-info-top-container">
+                            <div class="crypto-info-line">
+                                <div class="top-line-fc">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                    <p class="quote-USD-price-label"></p>
+                                </div>
+                                <p class="percent-24h grey"></p>
+                                <p class="quote-USD-price bold"></p>
+                            </div>
+                            <div class="crypto-info-line">
+                                <p class="market-cap-label"></p>
+                                <p class="market-cap-change grey"></p>
+                                <p class="market-cap bold"></p>
+                            </div>
+                            <div class="crypto-info-line">
+                                <p class="volume-24h-label"></p>
+                                <p class="volume-24h-change grey"></p>
+                                <p class="volume-24h bold"></p>
+                            </div>
+                            <div class="crypto-info-line">
+                                <p class="circulating-supply-label"></p>
+                                <p class="circulating-supply bold"></p>
+                                <span class="progress-bar">
+                                    <span class="progress-bar-circulating-supply"></span>
+                                </span>
+                            </div>
+                            <div class="crypto-info-line">
+                                <p class="max-supply-label"></p>
+                                <p class="max-supply bold"></p>
+                                <span class="progress-bar">
+                                    <span class="progress-bar-max-supply"></span>
+                                </span>
+                            </div>
+                            <div class="crypto-info-line">
+                                <p class="refresh-date-label"></p>
+                                <p class="refresh-date"></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <button class="btn-main backToTop hidden">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <text class="backToTop-Text"></text>
+                </button>
             </div>
         </div>
         <div class="col-content">
@@ -103,6 +144,7 @@
                 <h2 class="title-container max logo">
                     <img src="resources/img/logo.png" alt="crypto logo" class="logo_crypto">
                     <text class="name-crypto"></text>
+                    <text class="crypto-info-symbol grey"></text>
                 </h2>
             </div>
             <div class="wrapper-content array">
