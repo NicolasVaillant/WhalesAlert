@@ -1,16 +1,2914 @@
 [
     {
-        "total_out": "6.90K",
-        "value": 1446.7405784268228,
-        "porcentage_supply": 0.012666713294010874,
-        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000a55cad1c000ed15ff000cd0c21da3451d6018a4cfdb5d98e98c8",
-        "date": "2024-02-29T13:53:46.019994"
+        "total_out": "790.73K",
+        "value": 222717.72501753215,
+        "porcentage_supply": 1.4487065046936884,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000bdf9a50b1ab09a6bda28d29fb516b39468272f3a9776a71fbfd4",
+        "date": "2024-03-02T07:59:24.886250"
     },
     {
-        "total_out": "12.05K",
-        "value": 2528.3176609035677,
-        "porcentage_supply": 0.022136294097504346,
-        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b57a50c12e293b139ac836b72f6ee03f9f95688f9be799a90d42",
-        "date": "2024-02-29T13:53:46.001997"
+        "total_out": "74.27K",
+        "value": 20917.900435591502,
+        "porcentage_supply": 0.13606415216027754,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000017293f843f25c96341a1463e127bddc27a4b9bd02f8abc90cb66",
+        "date": "2024-03-02T07:59:24.879847"
+    },
+    {
+        "total_out": "72.69K",
+        "value": 20472.825307258863,
+        "porcentage_supply": 0.13316908292660018,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000083eaaaef86526e3b028b0e465f6a409bef2ba046277254699115",
+        "date": "2024-03-02T07:59:24.873500"
+    },
+    {
+        "total_out": "148.84K",
+        "value": 41922.7088724201,
+        "porcentage_supply": 0.27269361265733966,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000361227e616569bfcfd0cf3d0c30be7c25c272b388c826374001b",
+        "date": "2024-03-02T07:59:24.867263"
+    },
+    {
+        "total_out": "810.73K",
+        "value": 228350.94565408604,
+        "porcentage_supply": 1.4853487763310622,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001fe4507b58d72867d460a95cf21cbb7cb85b784188d934a0da18",
+        "date": "2024-03-02T07:59:24.860684"
+    },
+    {
+        "total_out": "54.25K",
+        "value": 15280.694246580068,
+        "porcentage_supply": 0.09939595579792017,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000be06d2aacd70d378f1746db42bd6981d6d386ddfae9bf49c587d",
+        "date": "2024-03-02T07:59:24.849085"
+    },
+    {
+        "total_out": "50.85K",
+        "value": 14321.7863928889,
+        "porcentage_supply": 0.09315857148136025,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009357ee5f55edad563f8b9ffda60a46df061c553b6a27de9082e4",
+        "date": "2024-03-02T07:59:24.842748"
+    },
+    {
+        "total_out": "98.57K",
+        "value": 27764.535661004873,
+        "porcentage_supply": 0.18059929181088458,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020e6a073a9dea3380f30c2a00503ad3d7731592aaa45dbc57f57",
+        "date": "2024-03-02T07:59:24.836493"
+    },
+    {
+        "total_out": "65.00K",
+        "value": 18307.965,
+        "porcentage_supply": 0.11908736936459152,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000dfa65b900588e397390446ce9ecb5a564ad52d5529e1e64cd14e",
+        "date": "2024-03-02T07:59:24.830124"
+    },
+    {
+        "total_out": "109.96K",
+        "value": 30971.793777287403,
+        "porcentage_supply": 0.20146146474716237,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b6623c943ef8fef65489cd7afde2f27a00e7bf3a01eac40709fb",
+        "date": "2024-03-02T07:59:24.823829"
+    },
+    {
+        "total_out": "71.53K",
+        "value": 20148.07059761506,
+        "porcentage_supply": 0.13105665895920443,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000cff4b6c4508d0f4748e52798811d086db581c0f7b03f3d67901e",
+        "date": "2024-03-02T07:59:24.817669"
+    },
+    {
+        "total_out": "62.09K",
+        "value": 17487.204846,
+        "porcentage_supply": 0.11374859099030817,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000107d643d7b350bbf55f5698652a10c3bdb1d0c9a8ae65e1cebf6a",
+        "date": "2024-03-02T07:59:24.806377"
+    },
+    {
+        "total_out": "106.73K",
+        "value": 30061.545667041868,
+        "porcentage_supply": 0.1955405962662454,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000238366ec4fc23948930129e6bd1401ad21b93b5471af67188780",
+        "date": "2024-03-02T07:59:24.800137"
+    },
+    {
+        "total_out": "74.16K",
+        "value": 20888.329928222054,
+        "porcentage_supply": 0.13587180560874088,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000356a3e69834e69087ed5bc0fdccceb0fc50364e25194f405c6ff",
+        "date": "2024-03-02T07:59:24.794006"
+    },
+    {
+        "total_out": "50.14K",
+        "value": 14122.142989775175,
+        "porcentage_supply": 0.0918599559504802,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002075901b320601c1881a1e7840385f1e469644fb621018d6be20",
+        "date": "2024-03-02T07:59:24.787574"
+    },
+    {
+        "total_out": "52.68K",
+        "value": 14838.577539161486,
+        "porcentage_supply": 0.09652013013195382,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c27cc1e973bad2ea75c947178cb4f26f2c4b19b2fb3a33cd246c",
+        "date": "2024-03-02T07:59:24.781489"
+    },
+    {
+        "total_out": "65.50K",
+        "value": 18448.528630030272,
+        "porcentage_supply": 0.12000169014948724,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000003f822c2f55fbc8a9cdfaaab6df6a38309c493be39c685979fc2",
+        "date": "2024-03-02T07:59:24.770069"
+    },
+    {
+        "total_out": "96.42K",
+        "value": 27158.512440069408,
+        "porcentage_supply": 0.17665730748029068,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004f229726f6e739bb4e118cc4151457eca9d864f1aa101fc69699",
+        "date": "2024-03-02T07:59:24.763697"
+    },
+    {
+        "total_out": "70.84K",
+        "value": 19953.738858488057,
+        "porcentage_supply": 0.12979259407833532,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b11c7dfe2daf84eb4a182993cf3b086a5e4a5b905f547c83af09",
+        "date": "2024-03-02T07:59:24.757687"
+    },
+    {
+        "total_out": "115.80K",
+        "value": 32615.60326239401,
+        "porcentage_supply": 0.21215391184971635,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000037dbcb22369c6426b8ed4b4f2d963e44e2cb6521dc93ee6afcc5",
+        "date": "2024-03-02T07:59:24.751336"
+    },
+    {
+        "total_out": "106.73K",
+        "value": 30061.54732884177,
+        "porcentage_supply": 0.1955406070757143,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000010f152769d753984d4cb281ebf6913621f7867fd59ffd6fb6c44a",
+        "date": "2024-03-02T07:59:24.745368"
+    },
+    {
+        "total_out": "52.87K",
+        "value": 14890.422196012052,
+        "porcentage_supply": 0.096857362795439,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002533d18f30028620075bce704d4e9700b8a7c8ded53f62756d8d",
+        "date": "2024-03-02T07:59:24.739364"
+    },
+    {
+        "total_out": "90.00K",
+        "value": 25349.489999999998,
+        "porcentage_supply": 0.16489020373558827,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a9603c26a380c2aa26147fd6c4421db08eb699a5bd279317e02",
+        "date": "2024-03-02T07:59:24.728099"
+    },
+    {
+        "total_out": "830.73K",
+        "value": 233984.1662906399,
+        "porcentage_supply": 1.5219910479684358,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003d208ed5ce68cc380130d4b22459f9a568590531d169f87a3066",
+        "date": "2024-03-02T07:59:24.722075"
+    },
+    {
+        "total_out": "59.77K",
+        "value": 16833.889667442025,
+        "porcentage_supply": 0.10949898782685293,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009c69a234b5881b00b656539fbc9043e5b2e725e1a84c93a34d30",
+        "date": "2024-03-02T07:59:24.716045"
+    },
+    {
+        "total_out": "838.30K",
+        "value": 236117.7021187063,
+        "porcentage_supply": 1.535869005961557,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000e9fc1ab432ffed2cf62eac903cdca597e8fb71abec0dfa65fe39",
+        "date": "2024-03-02T07:59:24.710044"
+    },
+    {
+        "total_out": "849.71K",
+        "value": 239329.61833554017,
+        "porcentage_supply": 1.5567614783298525,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000053f42383d7b9053eab8a5171daa4ecb7d8d5d711251629a09783",
+        "date": "2024-03-02T07:59:24.703992"
+    },
+    {
+        "total_out": "61.14K",
+        "value": 17219.478575407324,
+        "porcentage_supply": 0.11200711850690137,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000028f93766ff1fda2af933ee4759abbf493e59cd93f41ef54ced0f",
+        "date": "2024-03-02T07:59:24.698027"
+    },
+    {
+        "total_out": "856.41K",
+        "value": 241216.93977851435,
+        "porcentage_supply": 1.56903789167176,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000937ddd318ef21d9e3252b6aa073e1dbba2bbb0ec26db3b5e1c69",
+        "date": "2024-03-02T07:59:24.686964"
+    },
+    {
+        "total_out": "58.42K",
+        "value": 16453.573772676373,
+        "porcentage_supply": 0.10702515638599194,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000017892b96e2cfb887b71aeeec2b52fd25d31fcf2d45fef664f265",
+        "date": "2024-03-02T07:59:24.680918"
+    },
+    {
+        "total_out": "876.53K",
+        "value": 246883.25543069097,
+        "porcentage_supply": 1.6058954356427653,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c5ce0c5be44887c3e1c077184fb706f76bb436e14a16f9992713",
+        "date": "2024-03-02T07:59:24.674803"
+    },
+    {
+        "total_out": "881.53K",
+        "value": 248291.56106724482,
+        "porcentage_supply": 1.6150560066575406,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007198a3a30d3ac751d62eab09319d0e98a70618662efe4c508949",
+        "date": "2024-03-02T07:59:24.668776"
+    },
+    {
+        "total_out": "886.53K",
+        "value": 249699.86670379867,
+        "porcentage_supply": 1.624216577672316,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001d99f5d7e1692a974cce36ab6f7aab1448453b52b26addd91e2a",
+        "date": "2024-03-02T07:59:24.662713"
+    },
+    {
+        "total_out": "165.10K",
+        "value": 46502.512761,
+        "porcentage_supply": 0.30248375029943736,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000ca1240ff98187449f7ad1185458e0ca43ef39df8c551f93c0dad",
+        "date": "2024-03-02T07:59:24.651716"
+    },
+    {
+        "total_out": "82.16K",
+        "value": 23140.72357435253,
+        "porcentage_supply": 0.1505228951258554,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005adcb759fd237d94ab8ad54f428cf173b398146e987b1da97eb4",
+        "date": "2024-03-02T07:59:24.645894"
+    },
+    {
+        "total_out": "80.00K",
+        "value": 22532.878920252555,
+        "porcentage_supply": 0.14656906296378297,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006ae2dd86dc5c9bf24f1c39262c42c1e9dc05ba5f7e779b51ddef",
+        "date": "2024-03-02T07:59:24.639982"
+    },
+    {
+        "total_out": "896.53K",
+        "value": 252516.47734035255,
+        "porcentage_supply": 1.642537715561291,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000041342c0e2a5ec85486a263d28852e923fa16e30b7bab847f421d",
+        "date": "2024-03-02T07:59:24.634086"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.59593507049,
+        "porcentage_supply": 0.18321456338063472,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000041342c0e2a5ec85486a263d28852e923fa16e30b7bab847f421d",
+        "date": "2024-03-02T07:59:24.628234"
+    },
+    {
+        "total_out": "996.53K",
+        "value": 280683.0739119769,
+        "porcentage_supply": 1.8257522830825021,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002f69e1d4ef263123e07756595c0ff60de5b2b2ebc583d32660f1",
+        "date": "2024-03-02T07:59:24.622461"
+    },
+    {
+        "total_out": "1.02M",
+        "value": 286186.8814873956,
+        "porcentage_supply": 1.8615527647660495,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000005651bb6eb5c6c70c23f1471c26d6dc2d32994ae673facc3eb22",
+        "date": "2024-03-02T07:59:24.611266"
+    },
+    {
+        "total_out": "1.02M",
+        "value": 286468.5431239495,
+        "porcentage_supply": 1.8633848822814654,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000738b16650afa303bb02b0eba85fa33b56b89ff35dbbeaab19563",
+        "date": "2024-03-02T07:59:24.605447"
+    },
+    {
+        "total_out": "63.87K",
+        "value": 17990.167206416943,
+        "porcentage_supply": 0.11702019787788191,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000085b44fd06235600c6987b72d07ebb89ac8c7e3ffd47608b01580",
+        "date": "2024-03-02T07:59:24.599734"
+    },
+    {
+        "total_out": "55.54K",
+        "value": 15643.62966707702,
+        "porcentage_supply": 0.10175673289555029,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000a13c0400be5253c1993f82485504054a81318bc8d00cd5e9b6e",
+        "date": "2024-03-02T07:59:24.593884"
+    },
+    {
+        "total_out": "50.50K",
+        "value": 14222.47712627854,
+        "porcentage_supply": 0.09251259693890537,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000872cb2a9f5cb4734cba0e45294b6391bf300df189c9917d0bdde",
+        "date": "2024-03-02T07:59:24.587914"
+    },
+    {
+        "total_out": "58.67K",
+        "value": 16525.393397942098,
+        "porcentage_supply": 0.10749231973493031,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000013c99215fdcb32625710300bfaf71f77266b27e1a04035c46793",
+        "date": "2024-03-02T07:59:24.582361"
+    },
+    {
+        "total_out": "50.10K",
+        "value": 14111.21328339,
+        "porcentage_supply": 0.09178886175834372,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000937f358f6df913a6947b44a88b566ee7594272de3742e02cce0",
+        "date": "2024-03-02T07:59:24.571304"
+    },
+    {
+        "total_out": "106.72K",
+        "value": 30060.142503481762,
+        "porcentage_supply": 0.19553146914276873,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000075f1e7de8e17f9a972175977cf284cb5c4404eb0823389dca5b8",
+        "date": "2024-03-02T07:59:24.565460"
+    },
+    {
+        "total_out": "76.30K",
+        "value": 21489.39922025223,
+        "porcentage_supply": 0.13978156623990395,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003f16718fd9ce49a7d903558ad145bf2483d7f35b24eee51a894d",
+        "date": "2024-03-02T07:59:24.559808"
+    },
+    {
+        "total_out": "116.79K",
+        "value": 32895.44563589686,
+        "porcentage_supply": 0.2139741956495378,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000043654bac6a220c68b86905e0c4e5b5dc9015ff8213c8594f55c2",
+        "date": "2024-03-02T07:59:24.554147"
+    },
+    {
+        "total_out": "106.73K",
+        "value": 30061.553963084963,
+        "porcentage_supply": 0.19554065022931275,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009571c9ad7fdbb33574cea47d05bf3a64641691ac00136b449346",
+        "date": "2024-03-02T07:59:24.548390"
+    },
+    {
+        "total_out": "98.06K",
+        "value": 27618.269355,
+        "porcentage_supply": 0.17964787696992346,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000149de9f94fc4aa91dce6f59302e8e22a0ed8ba2072bbebb46f74",
+        "date": "2024-03-02T07:59:24.542616"
+    },
+    {
+        "total_out": "143.64K",
+        "value": 40459.03059816672,
+        "porcentage_supply": 0.26317286060887657,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009ef4d5426e7e0f66d5341a37ba902842f64d5c2c97518affc29b",
+        "date": "2024-03-02T07:59:24.531613"
+    },
+    {
+        "total_out": "115.21K",
+        "value": 32450.445171160598,
+        "porcentage_supply": 0.21107961207831827,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006a8edf69f48354cf2ec4d052a5cdda78caa85f8bfdfb8817a0fd",
+        "date": "2024-03-02T07:59:24.526029"
+    },
+    {
+        "total_out": "248.79K",
+        "value": 70075.76380724354,
+        "porcentage_supply": 0.4558200962269202,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000082ce04cf01c90d9ed0e1cf7130aca3e8ffe9d14d0517a5acd373",
+        "date": "2024-03-02T07:59:24.520254"
+    },
+    {
+        "total_out": "464.19K",
+        "value": 130744.00689001454,
+        "porcentage_supply": 0.8504473239225584,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003f6b5a6d580d07db722d0393a2e346b9708c263c9b451d04f443",
+        "date": "2024-03-02T07:59:24.514634"
+    },
+    {
+        "total_out": "52.36K",
+        "value": 14748.5434574382,
+        "porcentage_supply": 0.09593448765636557,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006dee4934c22a7a2f7baed73ab53219870d224da5a323e864b931",
+        "date": "2024-03-02T07:59:24.509021"
+    },
+    {
+        "total_out": "58.87K",
+        "value": 16580.915479194173,
+        "porcentage_supply": 0.1078534728504162,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000428a3c26e08956f311e369adf7130e97fa051094b5805533676c",
+        "date": "2024-03-02T07:59:24.503472"
+    },
+    {
+        "total_out": "50.11K",
+        "value": 14114.314371,
+        "porcentage_supply": 0.09180903332660072,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000038a3cfd0c84eee0f7b9ccea7b01cb77006ff7463aeefecfc5398",
+        "date": "2024-03-02T07:59:24.497774"
+    },
+    {
+        "total_out": "58.99K",
+        "value": 16615.311732623755,
+        "porcentage_supply": 0.10807720931358546,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000362bc8062ceef0eaeea681d8ef41101c3e40b1e79c5e314f1d07",
+        "date": "2024-03-02T07:59:24.487059"
+    },
+    {
+        "total_out": "1.03M",
+        "value": 289285.15376050334,
+        "porcentage_supply": 1.8817060201704403,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004d7e8bbb565de9cbca230ef9fe2d3c177ae442e53c8c7dc0cda1",
+        "date": "2024-03-02T07:59:24.481554"
+    },
+    {
+        "total_out": "192.80K",
+        "value": 54304.29042282373,
+        "porcentage_supply": 0.35323178144948725,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000077ccb71ff92187df1feabd5086b086b9b499c367b14980165a44",
+        "date": "2024-03-02T07:59:24.476088"
+    },
+    {
+        "total_out": "1.03M",
+        "value": 289859.7971480128,
+        "porcentage_supply": 1.8854438888708265,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000059b7d4ff63d9ad8d15f82e04e0051ca67eb1a3015f024f1463d1",
+        "date": "2024-03-02T07:59:24.470655"
+    },
+    {
+        "total_out": "1.03M",
+        "value": 290563.9502845667,
+        "porcentage_supply": 1.8900241764485022,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000029d4046740f99c94188ad7d11162692404add52366c591876225",
+        "date": "2024-03-02T07:59:24.465118"
+    },
+    {
+        "total_out": "1.03M",
+        "value": 291268.1034211205,
+        "porcentage_supply": 1.8946044640261779,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003605342eadbe0f30401ac1a2b18b31af20342bd3f5c4a347f1a1",
+        "date": "2024-03-02T07:59:24.459507"
+    },
+    {
+        "total_out": "1.04M",
+        "value": 291986.3397034391,
+        "porcentage_supply": 1.8992763578955147,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000531ced96ab0482d420099cc28e7ef3e37afd80011015c7f2880f",
+        "date": "2024-03-02T07:59:24.448776"
+    },
+    {
+        "total_out": "1.04M",
+        "value": 293514.8638459357,
+        "porcentage_supply": 1.9092189112672402,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005c5291276d23a60d49e8f0a2bf5ec8ccee29bb702e9350d72366",
+        "date": "2024-03-02T07:59:24.443436"
+    },
+    {
+        "total_out": "1.05M",
+        "value": 294923.1694824895,
+        "porcentage_supply": 1.9183794822820157,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002ea3eba6b12305710f116fffc379bca6591369a835495c0cafb1",
+        "date": "2024-03-02T07:59:24.437887"
+    },
+    {
+        "total_out": "53.71K",
+        "value": 15127.480107146588,
+        "porcentage_supply": 0.09839934755584669,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000063a349639e6a6116230c807282eccabdd5f2b11f503339e4eec8",
+        "date": "2024-03-02T07:59:24.432466"
+    },
+    {
+        "total_out": "1.05M",
+        "value": 295659.9603034749,
+        "porcentage_supply": 1.923172067402379,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004cd26c75049cd15d4f2b1de0f01b52f12353a8d5abff4021cdab",
+        "date": "2024-03-02T07:59:24.426964"
+    },
+    {
+        "total_out": "1.05M",
+        "value": 296779.0298050449,
+        "porcentage_supply": 1.9304512512482135,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008a26b159f3861bcd352ba16516e26685ee565f5f8af9ec5a0bb4",
+        "date": "2024-03-02T07:59:24.421523"
+    },
+    {
+        "total_out": "192.59K",
+        "value": 54245.72961313529,
+        "porcentage_supply": 0.35285086239192637,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000080a93238577956ff94b04add13b6d41fc0cc5304a7a297167a16",
+        "date": "2024-03-02T07:59:24.410817"
+    },
+    {
+        "total_out": "1.06M",
+        "value": 298044.6250435309,
+        "porcentage_supply": 1.938683537448873,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000036b00a6c42d144f7aab1d092dbaeade05fed73bfb6950597bd1a",
+        "date": "2024-03-02T07:59:24.405155"
+    },
+    {
+        "total_out": "1.06M",
+        "value": 298748.7781800848,
+        "porcentage_supply": 1.9432638250265488,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008210373a35cfd60276873001d9f7cb8b8ab6c0152c180a62a1ee",
+        "date": "2024-03-02T07:59:24.399781"
+    },
+    {
+        "total_out": "1.06M",
+        "value": 299593.7590000286,
+        "porcentage_supply": 1.9487601509705108,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005ebe7ee669d1acf1e71921d4ac666d2d247f23a9767886070db8",
+        "date": "2024-03-02T07:59:24.394395"
+    },
+    {
+        "total_out": "275.55K",
+        "value": 77612.48905685506,
+        "porcentage_supply": 0.5048440474743653,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009c98a35ba13f700efc62618d40964b4e295cb851d6adade00646",
+        "date": "2024-03-02T07:59:24.389112"
+    },
+    {
+        "total_out": "50.88K",
+        "value": 14330.49529584841,
+        "porcentage_supply": 0.09321522006810921,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008be86ef853d3014a17ccf627ed95369093eb30ca962678d9a14b",
+        "date": "2024-03-02T07:59:24.383870"
+    },
+    {
+        "total_out": "1.06M",
+        "value": 299875.4133547556,
+        "porcentage_supply": 1.950592221120007,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002f6af58a251a238ac6edac5f9d5811bad89c082700047e1f51c2",
+        "date": "2024-03-02T07:59:24.378619"
+    },
+    {
+        "total_out": "63.43K",
+        "value": 17866.986489436855,
+        "porcentage_supply": 0.116218947299699,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008fe1d2a08001e5f92c4715bd8d9ef2ea904d15060188607db6e1",
+        "date": "2024-03-02T07:59:24.367987"
+    },
+    {
+        "total_out": "1.08M",
+        "value": 302920.66856059287,
+        "porcentage_supply": 1.9704006177117082,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000561d34aa4d5920f6919dc7a936b0c2ea903529ca8352ddcbaa84",
+        "date": "2024-03-02T07:59:24.362704"
+    },
+    {
+        "total_out": "51.62K",
+        "value": 14538.374683613489,
+        "porcentage_supply": 0.09456740800565798,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000150fe20b268e979f40958cc70ba6c117911d61e30a4d9f1a6d4b",
+        "date": "2024-03-02T07:59:24.357388"
+    },
+    {
+        "total_out": "80.62K",
+        "value": 22706.186459729866,
+        "porcentage_supply": 0.14769637225060994,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000adc9a0828c4201d09b347ff66c68501ae7c2e7fb90fc6fcddad8",
+        "date": "2024-03-02T07:59:24.352117"
+    },
+    {
+        "total_out": "160.36K",
+        "value": 45167.76706203821,
+        "porcentage_supply": 0.2938016628003591,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003b607c959bf5d6b4223f6a237f83f69f2af4824ebd48067ca4ca",
+        "date": "2024-03-02T07:59:24.346981"
+    },
+    {
+        "total_out": "1.09M",
+        "value": 305737.2791971467,
+        "porcentage_supply": 1.9887217556006829,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007f6a1094c15b111ab468ddecc93577bc51c38060367cfa1cd4f8",
+        "date": "2024-03-02T07:59:24.341804"
+    },
+    {
+        "total_out": "1.09M",
+        "value": 306286.5188794653,
+        "porcentage_supply": 1.9922943814451157,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009c27157342f45954eda4462dc5bae4e15dd5a61065d8ec49e8d3",
+        "date": "2024-03-02T07:59:24.331215"
+    },
+    {
+        "total_out": "1.09M",
+        "value": 307131.50251601916,
+        "porcentage_supply": 1.9977907257102114,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000665f1307b3073c2f471a17927d2d7c48966725886f407edcae8a",
+        "date": "2024-03-02T07:59:24.326056"
+    },
+    {
+        "total_out": "1.09M",
+        "value": 307694.825152573,
+        "porcentage_supply": 2.001454956600467,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008bb5a2dc338c2fd3ec78c8ef992ab83ca7ff2b50229b4001f5ba",
+        "date": "2024-03-02T07:59:24.320774"
+    },
+    {
+        "total_out": "1.10M",
+        "value": 310194.47003398737,
+        "porcentage_supply": 2.017714335142719,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001c641c8b0892dc5c267c07e097690b5a35d74eb2c55e849ada97",
+        "date": "2024-03-02T07:59:24.315704"
+    },
+    {
+        "total_out": "1.11M",
+        "value": 313011.0806705412,
+        "porcentage_supply": 2.036035473031694,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000944834f5a1183c0c88d733c281e66f8c41a1daf8a1c62171b97d",
+        "date": "2024-03-02T07:59:24.310671"
+    },
+    {
+        "total_out": "83.27K",
+        "value": 23453.252471287513,
+        "porcentage_supply": 0.15255579415020923,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000144019c6aa8763d6ad310d8ffda29fb4e5bf8920d0912850ad75",
+        "date": "2024-03-02T07:59:24.305417"
+    },
+    {
+        "total_out": "251.80K",
+        "value": 70923.0812146368,
+        "porcentage_supply": 0.46133162091375945,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000064e3f96415e83375de0496c8e54e861c4188099457e6b0f76d97",
+        "date": "2024-03-02T07:59:24.300179"
+    },
+    {
+        "total_out": "52.50K",
+        "value": 14785.844513636252,
+        "porcentage_supply": 0.09617711891861383,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000028d6fa92ad1f7398f150d5009166619348987898a2e37dc6f51e",
+        "date": "2024-03-02T07:59:24.289963"
+    },
+    {
+        "total_out": "1.13M",
+        "value": 316923.6262810612,
+        "porcentage_supply": 2.061485312174155,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000064d58fb6e18b913a5fd9bae31ff990ea09da7138afc166481fa6",
+        "date": "2024-03-02T07:59:24.284872"
+    },
+    {
+        "total_out": "1.13M",
+        "value": 317839.7944753064,
+        "porcentage_supply": 2.0674446888797675,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000376601adc14b71ce715dfaede0b12b276020b67df84f6edc9f8a",
+        "date": "2024-03-02T07:59:24.279790"
+    },
+    {
+        "total_out": "1.14M",
+        "value": 320656.4051118603,
+        "porcentage_supply": 2.0857658267687427,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000264930422b6cfeae28f2db63b890aecc83c800fcae1bc26d562b",
+        "date": "2024-03-02T07:59:24.274691"
+    },
+    {
+        "total_out": "1.14M",
+        "value": 321642.21924841416,
+        "porcentage_supply": 2.0921782277212584,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003077d7167e661acdd00ce31ab3c08e5f4279486a5ac442fe059f",
+        "date": "2024-03-02T07:59:24.269679"
+    },
+    {
+        "total_out": "1.14M",
+        "value": 321923.88088496804,
+        "porcentage_supply": 2.0940103452366747,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a410518a12ec0c7d0ccd33b3aa29fa258592a3479df8e0f7677",
+        "date": "2024-03-02T07:59:24.264681"
+    },
+    {
+        "total_out": "1.14M",
+        "value": 322275.9577715219,
+        "porcentage_supply": 2.0963004910958007,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001f73a43ec3882130676a2d9d2ebf17028673db734e73b823c626",
+        "date": "2024-03-02T07:59:24.259743"
+    },
+    {
+        "total_out": "1.15M",
+        "value": 323473.0176580757,
+        "porcentage_supply": 2.1040869770794464,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000585488920ee3045e62e45b55cba1817b5e16c3d445fb5ae480c1",
+        "date": "2024-03-02T07:59:24.249621"
+    },
+    {
+        "total_out": "1.16M",
+        "value": 326289.6254780196,
+        "porcentage_supply": 2.1224080966472876,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005f53fc5cbaddfab3705139dd8733cd0d1f1b41faa02dc5256242",
+        "date": "2024-03-02T07:59:24.244754"
+    },
+    {
+        "total_out": "1.17M",
+        "value": 329172.9637987986,
+        "porcentage_supply": 2.1411632764616306,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003a5a81afdfcb34f1faf72f7dae65656423af24d17c76650dc4ff",
+        "date": "2024-03-02T07:59:24.239849"
+    },
+    {
+        "total_out": "1.17M",
+        "value": 330158.77793535247,
+        "porcentage_supply": 2.1475756774141463,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000057496068a0c04648981a17cf103d7c1efeba0171e66fe4e3617e",
+        "date": "2024-03-02T07:59:24.234714"
+    },
+    {
+        "total_out": "1.18M",
+        "value": 332061.31511430716,
+        "porcentage_supply": 2.1599510641794173,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000080f118c2f25cd568c1c293b0514b991efc0d38fab1294345d2ee",
+        "date": "2024-03-02T07:59:24.229762"
+    },
+    {
+        "total_out": "1.18M",
+        "value": 333574.1567029064,
+        "porcentage_supply": 2.1697916076287647,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020884c051381aa3da70e84d219f537350336265170db4b13d1e4",
+        "date": "2024-03-02T07:59:24.224942"
+    },
+    {
+        "total_out": "1.19M",
+        "value": 336390.7673394603,
+        "porcentage_supply": 2.1881127455177394,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006116f608dee25c0e1c9e49cb56ebff2965253482b821aab7770f",
+        "date": "2024-03-02T07:59:24.218416"
+    },
+    {
+        "total_out": "727.41K",
+        "value": 204882.66354389666,
+        "porcentage_supply": 1.3326952192585773,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000ab590ba9a06ccb3900f732da717df9cbfd6b7887cf96b954231",
+        "date": "2024-03-02T07:59:24.213606"
+    },
+    {
+        "total_out": "51.99K",
+        "value": 14642.677633573861,
+        "porcentage_supply": 0.09524586483730188,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000f0dbca51b24980669af3f1e5c1acf74ce57fbdd32f32e7c457c",
+        "date": "2024-03-02T07:59:24.204546"
+    },
+    {
+        "total_out": "729.41K",
+        "value": 205447.39448545052,
+        "porcentage_supply": 1.3363686107157073,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001213dbf7551abb6d58434a60a83573ae3edbf12ec4de3b034729",
+        "date": "2024-03-02T07:59:24.199656"
+    },
+    {
+        "total_out": "745.41K",
+        "value": 209953.97112200438,
+        "porcentage_supply": 1.3656824288537213,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003f5fcf32fb3acc39b79a4e58a84e67ef132a787decc87a37c68f",
+        "date": "2024-03-02T07:59:24.194868"
+    },
+    {
+        "total_out": "753.41K",
+        "value": 212207.25985432297,
+        "porcentage_supply": 1.3803393406159352,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000174c01ef56ad209687f8a492433513ab2ec27065d83d69f63cb4",
+        "date": "2024-03-02T07:59:24.189765"
+    },
+    {
+        "total_out": "760.37K",
+        "value": 214166.6240025589,
+        "porcentage_supply": 1.3930843683697411,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007b65f90394b9e3f90dbacbcb719df333b21f03189e1f1ac2e953",
+        "date": "2024-03-02T07:59:24.185009"
+    },
+    {
+        "total_out": "337.48K",
+        "value": 95055.78009425364,
+        "porcentage_supply": 0.618306993394611,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020b795749213d2e59a2f92fb3a1332d55a33ef22c90b87013a07",
+        "date": "2024-03-02T07:59:24.180135"
+    },
+    {
+        "total_out": "763.60K",
+        "value": 215077.33774003875,
+        "porcentage_supply": 1.3990082656046698,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006f75e21d058854da3026672d2f7dacf485538269e3249c76d062",
+        "date": "2024-03-02T07:59:24.175288"
+    },
+    {
+        "total_out": "52.70K",
+        "value": 14843.697043719298,
+        "porcentage_supply": 0.09655343084725668,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001a8fe54b10673bb7e12631d174d038f1c3591aa047de23e72745",
+        "date": "2024-03-02T07:59:24.165372"
+    },
+    {
+        "total_out": "765.10K",
+        "value": 215499.82987659262,
+        "porcentage_supply": 1.401756439807506,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000ac819e76e1e05e191ab889f047cc7fb3e09d2697d581f741b4b",
+        "date": "2024-03-02T07:59:24.160456"
+    },
+    {
+        "total_out": "772.35K",
+        "value": 217539.66957386464,
+        "porcentage_supply": 1.4150249348845716,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000090e5d7966bc3922c55213ef4390b82f659494247f83c4c8a952f",
+        "date": "2024-03-02T07:59:24.155708"
+    },
+    {
+        "total_out": "103.34K",
+        "value": 29107.8316275387,
+        "porcentage_supply": 0.189336996025011,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000025e045d6ccf83612bf54e6a019c0aa83dd6a1d6304af11fa3a4b",
+        "date": "2024-03-02T07:59:24.150833"
+    },
+    {
+        "total_out": "99.96K",
+        "value": 28154.766749241866,
+        "porcentage_supply": 0.1831376183666992,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000493e59c913bdb6a009bdee261a10582afdf03840a1b77ef158bf",
+        "date": "2024-03-02T07:59:24.146036"
+    },
+    {
+        "total_out": "72.52K",
+        "value": 20425.431986520634,
+        "porcentage_supply": 0.13286080475957462,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000482ffa163da320d3fee8c6faeba267ab143203cf11cefc0348e9",
+        "date": "2024-03-02T07:59:24.141353"
+    },
+    {
+        "total_out": "66.20K",
+        "value": 18647.084844,
+        "porcentage_supply": 0.12129323386789875,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001b2687fe77292dc0df64fe8d8be0a769c2213b2f3a687276714e",
+        "date": "2024-03-02T07:59:24.136724"
+    },
+    {
+        "total_out": "782.35K",
+        "value": 220356.2802104185,
+        "porcentage_supply": 1.4333460727735465,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000006b7ed1a3e40bee723ac2b4bfcf4f9646de6a3830b11c26b31b7",
+        "date": "2024-03-02T07:59:24.126816"
+    },
+    {
+        "total_out": "783.57K",
+        "value": 220702.45556313792,
+        "porcentage_supply": 1.4355978310707804,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003e8e4ba56d9711d6c6d2d7651e092f418efe1ca254d6234fe413",
+        "date": "2024-03-02T07:59:24.122225"
+    },
+    {
+        "total_out": "786.50K",
+        "value": 221526.3626853842,
+        "porcentage_supply": 1.4409570794519664,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000074265452e2960cee2cf3ecb38622046ef2a68f8277176c0f0300",
+        "date": "2024-03-02T07:59:24.117620"
+    },
+    {
+        "total_out": "339.98K",
+        "value": 95759.9332308075,
+        "porcentage_supply": 0.622887280972287,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000122d95e1c53b23da84fa1f0d2abcc2dbaeef4ad748a1ad87180c",
+        "date": "2024-03-02T07:59:24.112937"
+    },
+    {
+        "total_out": "347.56K",
+        "value": 97894.00191576954,
+        "porcentage_supply": 0.6367687050265433,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000072643b02a91d7b0259f998de95464399217e6fb22dfec4dc31a8",
+        "date": "2024-03-02T07:59:24.108226"
+    },
+    {
+        "total_out": "354.42K",
+        "value": 99827.1649457268,
+        "porcentage_supply": 0.6493433030111087,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005926da6a219ad299c606e03f4d82e17a9b1b81d3c418488a8926",
+        "date": "2024-03-02T07:59:24.103602"
+    },
+    {
+        "total_out": "231.60K",
+        "value": 65233.922857497986,
+        "porcentage_supply": 0.42432549256196056,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000039edb34953c8b773967730f96de0f29998b3d7004718af2eabca",
+        "date": "2024-03-02T07:59:24.098922"
+    },
+    {
+        "total_out": "58.80K",
+        "value": 16562.92721076603,
+        "porcentage_supply": 0.10773646500347463,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001970097e9b3d22d495bfe3514179a910994c2b790ffa41b4b052",
+        "date": "2024-03-02T07:59:24.094254"
+    },
+    {
+        "total_out": "58.93K",
+        "value": 16599.544924736387,
+        "porcentage_supply": 0.10797465134635188,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006f0752f0c54dcbc53150d2c8197c5c90a215d84fa8b802a4143e",
+        "date": "2024-03-02T07:59:24.084514"
+    },
+    {
+        "total_out": "360.32K",
+        "value": 101488.02816603352,
+        "porcentage_supply": 0.6601466791253152,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000b50cce547b206ea50a18f7c3702363b46819c9e238ca41ecb24",
+        "date": "2024-03-02T07:59:24.079881"
+    },
+    {
+        "total_out": "51.13K",
+        "value": 14400.721298543564,
+        "porcentage_supply": 0.09367201741953285,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000058f29eb07b01c8603f9d140679210f1c55c5cc92d1f052ee8c0a",
+        "date": "2024-03-02T07:59:24.075220"
+    },
+    {
+        "total_out": "369.09K",
+        "value": 103957.51130825888,
+        "porcentage_supply": 0.6762098653449647,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001bde03145ad18fa5ce5670450c8c81a340f7da0dce4abeb00be0",
+        "date": "2024-03-02T07:59:24.070761"
+    },
+    {
+        "total_out": "90.43K",
+        "value": 25469.88551843446,
+        "porcentage_supply": 0.16567333750133703,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000034cd8bb61ee638f50e73ddf672891543efc5d508ce9e6458f880",
+        "date": "2024-03-02T07:59:24.066101"
+    },
+    {
+        "total_out": "70.87K",
+        "value": 19960.54662154929,
+        "porcentage_supply": 0.12983687636717622,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000012ae9739080be0cb2c7ab74954da006a8941ab292bb992bc4e42",
+        "date": "2024-03-02T07:59:24.061701"
+    },
+    {
+        "total_out": "99.67K",
+        "value": 28073.72272383765,
+        "porcentage_supply": 0.1826104532891985,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000646109a90e0085a7aec0711d04fa61a996ff7e47cabc61616df1",
+        "date": "2024-03-02T07:59:24.057134"
+    },
+    {
+        "total_out": "102.51K",
+        "value": 28872.17470596947,
+        "porcentage_supply": 0.18780412424694953,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a6a8bab644f155e029af6d0a33fb194a9d5893803a333ae4f0e",
+        "date": "2024-03-02T07:59:24.047353"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.375528958368,
+        "porcentage_supply": 0.18321312971042156,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006f8f26d09cb74d80bb365f66d68fe5e7418a7a262c8bc8449e2c",
+        "date": "2024-03-02T07:59:24.042981"
+    },
+    {
+        "total_out": "89.40K",
+        "value": 25180.433763713674,
+        "porcentage_supply": 0.16379054779600039,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000c1fe6f9e501daf25d5d4571d86a416070c62e70b90b4c1b959b",
+        "date": "2024-03-02T07:59:24.038391"
+    },
+    {
+        "total_out": "51.68K",
+        "value": 14556.27767196336,
+        "porcentage_supply": 0.09468386113337322,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000daef642db3785528753c8e5938d4c8eacf384cdf090c3ddedbe",
+        "date": "2024-03-02T07:59:24.033893"
+    },
+    {
+        "total_out": "71.50K",
+        "value": 20137.916024363643,
+        "porcentage_supply": 0.13099060675648658,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000484b07258db0e9ad52e0c4ff09b1b2cb3bd7b99f0d4579f67347",
+        "date": "2024-03-02T07:59:24.029522"
+    },
+    {
+        "total_out": "68.63K",
+        "value": 19329.831108,
+        "porcentage_supply": 0.1257342766885106,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002d3afba9e6fca00be62b1459428583c647450fd2dae326a4e968",
+        "date": "2024-03-02T07:59:24.025207"
+    },
+    {
+        "total_out": "51.25K",
+        "value": 14435.497721065933,
+        "porcentage_supply": 0.09389822675924377,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000523723c944b73796ec986ff91ef8b70cefda7dc0ad4d922fecc6",
+        "date": "2024-03-02T07:59:24.020821"
+    },
+    {
+        "total_out": "53.21K",
+        "value": 14988.120523305413,
+        "porcentage_supply": 0.09749285870056486,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000002599c8a2e00b483e8d8bbcba9778a2e4aa8a0a93d9d7c016839",
+        "date": "2024-03-02T07:59:24.016463"
+    },
+    {
+        "total_out": "74.83K",
+        "value": 21075.995528460644,
+        "porcentage_supply": 0.13709250942004053,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000094a192a294e9213b94020a776fb549e9b06a68a92c3d4792c9d",
+        "date": "2024-03-02T07:59:24.006979"
+    },
+    {
+        "total_out": "80.33K",
+        "value": 22624.583027148794,
+        "porcentage_supply": 0.1471655684110133,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000045fa947c65a4fbedfb832c7977205368659e3e018f5fd8ed3c28",
+        "date": "2024-03-02T07:59:24.002685"
+    },
+    {
+        "total_out": "51.00K",
+        "value": 14364.291719435401,
+        "porcentage_supply": 0.09343505483286357,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000048a6864ae799c2a196bf9ae1fdbb944f069cc432452e8f0ccfd9",
+        "date": "2024-03-02T07:59:23.998430"
+    },
+    {
+        "total_out": "131.40K",
+        "value": 37009.973990205,
+        "porcentage_supply": 0.240737866974591,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000047c17723d00f6757eb815af7dd154fed7fb375f21208bf8dbd70",
+        "date": "2024-03-02T07:59:23.994158"
+    },
+    {
+        "total_out": "80.00K",
+        "value": 22533.594840501257,
+        "porcentage_supply": 0.14657371979260542,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000047c17723d00f6757eb815af7dd154fed7fb375f21208bf8dbd70",
+        "date": "2024-03-02T07:59:23.989876"
+    },
+    {
+        "total_out": "123.00K",
+        "value": 34644.021339,
+        "porcentage_supply": 0.22534811299192914,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000019a29346df03d8657625d9648adaaac0aa65f3d777e01c07201a",
+        "date": "2024-03-02T07:59:23.985605"
+    },
+    {
+        "total_out": "59.41K",
+        "value": 16734.06862303126,
+        "porcentage_supply": 0.10884968433593496,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005c56b6e51ef1382801d3765599bb5ee462662fa29b57c395da40",
+        "date": "2024-03-02T07:59:23.981180"
+    },
+    {
+        "total_out": "58.72K",
+        "value": 16538.088058529505,
+        "porcentage_supply": 0.10757489438122939,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000035f6fde2d19482448a4113cf1ee3e44cf3c9edcdba187812c1de",
+        "date": "2024-03-02T07:59:23.976981"
+    },
+    {
+        "total_out": "51.45K",
+        "value": 14490.904509105481,
+        "porcentage_supply": 0.09425862992980757,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000035f6fde2d19482448a4113cf1ee3e44cf3c9edcdba187812c1de",
+        "date": "2024-03-02T07:59:23.967557"
+    },
+    {
+        "total_out": "100.48K",
+        "value": 28302.064909839635,
+        "porcentage_supply": 0.18409574508683613,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000009ddf2a53d1dd00e05a12c4bde268e64c233070a1d943cd4d3b3",
+        "date": "2024-03-02T07:59:23.963344"
+    },
+    {
+        "total_out": "300.00K",
+        "value": 84498.3,
+        "porcentage_supply": 0.549634012451961,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a1c34e9e9f5bd68999a7fc559a940f541eca63acce663d30161",
+        "date": "2024-03-02T07:59:23.959128"
+    },
+    {
+        "total_out": "500.00K",
+        "value": 140830.5,
+        "porcentage_supply": 0.9160566874199348,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a1c34e9e9f5bd68999a7fc559a940f541eca63acce663d30161",
+        "date": "2024-03-02T07:59:23.954913"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a1c34e9e9f5bd68999a7fc559a940f541eca63acce663d30161",
+        "date": "2024-03-02T07:59:23.950788"
+    },
+    {
+        "total_out": "200.00K",
+        "value": 56332.2,
+        "porcentage_supply": 0.366422674967974,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a1c34e9e9f5bd68999a7fc559a940f541eca63acce663d30161",
+        "date": "2024-03-02T07:59:23.946645"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a1c34e9e9f5bd68999a7fc559a940f541eca63acce663d30161",
+        "date": "2024-03-02T07:59:23.942545"
+    },
+    {
+        "total_out": "1.00M",
+        "value": 281661.0,
+        "porcentage_supply": 1.8321133748398697,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000032e8dd642f352519dab259d55b45cf719942fae77af0ef948047",
+        "date": "2024-03-02T07:59:23.938380"
+    },
+    {
+        "total_out": "1.00M",
+        "value": 281661.0,
+        "porcentage_supply": 1.8321133748398697,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000032e8dd642f352519dab259d55b45cf719942fae77af0ef948047",
+        "date": "2024-03-02T07:59:23.934014"
+    },
+    {
+        "total_out": "1.00M",
+        "value": 281661.0,
+        "porcentage_supply": 1.8321133748398697,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005470bef882d846f361a6f68bb85342b5fad074c8939d1619b8f3",
+        "date": "2024-03-02T07:59:23.924929"
+    },
+    {
+        "total_out": "1.00M",
+        "value": 281661.0,
+        "porcentage_supply": 1.8321133748398697,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005470bef882d846f361a6f68bb85342b5fad074c8939d1619b8f3",
+        "date": "2024-03-02T07:59:23.920824"
+    },
+    {
+        "total_out": "129.24K",
+        "value": 36402.31265416134,
+        "porcentage_supply": 0.23678522723696796,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000cdf926c673618ecd9787b1f2f668c267f4cc3fac1b3a1c71533",
+        "date": "2024-03-02T07:59:23.916789"
+    },
+    {
+        "total_out": "52.92K",
+        "value": 14905.33895986529,
+        "porcentage_supply": 0.09695439150216392,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002fe7a0f91fae27aae1128194c5a3c8d8898dd999d5f001afa1cf",
+        "date": "2024-03-02T07:59:23.912628"
+    },
+    {
+        "total_out": "52.92K",
+        "value": 14905.621281298369,
+        "porcentage_supply": 0.09695622791144155,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001f8d923325386810e06114397f6ac4a9d61c75389471d5b81a5f",
+        "date": "2024-03-02T07:59:23.908418"
+    },
+    {
+        "total_out": "53.32K",
+        "value": 15017.723019737083,
+        "porcentage_supply": 0.09768541333056728,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000222c2902efe99a6dfd2c30571bf0e8f239084cb1fedfd4508028",
+        "date": "2024-03-02T07:59:23.904329"
+    },
+    {
+        "total_out": "54.27K",
+        "value": 15285.301630215226,
+        "porcentage_supply": 0.09942592533286108,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002e45f2d9438a72b2ac152b1ef5167c82e1751ab8ce7f9e4cd9ab",
+        "date": "2024-03-02T07:59:23.900147"
+    },
+    {
+        "total_out": "58.22K",
+        "value": 16397.863240817303,
+        "porcentage_supply": 0.10666277746048064,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000345f75ca465a00428a9d52cea1d023bd4ddf8795084e0f099658",
+        "date": "2024-03-02T07:59:23.894685"
+    },
+    {
+        "total_out": "58.33K",
+        "value": 16428.24601386185,
+        "porcentage_supply": 0.10686040753656373,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000bcdb62efbd45144132211fe21ebfbaac4010331d43d8cc21ad8",
+        "date": "2024-03-02T07:59:23.885458"
+    },
+    {
+        "total_out": "58.33K",
+        "value": 16430.585052252027,
+        "porcentage_supply": 0.10687562222201506,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002f95f3fec28a7758bd0fa8c22e95d9bcc19b4a50467974935ddd",
+        "date": "2024-03-02T07:59:23.881421"
+    },
+    {
+        "total_out": "60.58K",
+        "value": 17062.84855225963,
+        "porcentage_supply": 0.11098829105009916,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000055f7031dc02cf7a7228ec2c4f0605caf840aefdb7cefe9fbc678",
+        "date": "2024-03-02T07:59:23.877545"
+    },
+    {
+        "total_out": "172.12K",
+        "value": 48480.610305017755,
+        "porcentage_supply": 0.3153506327117444,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003b34f6bdb1142904dad88f855a2a9f7a6650f23ca3959de219b3",
+        "date": "2024-03-02T07:59:23.873595"
+    },
+    {
+        "total_out": "60.96K",
+        "value": 17169.701566994143,
+        "porcentage_supply": 0.11168333522532066,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000d46371250b3cbafc88fc43fc1b3feb0236cb789ef5acc14b3be",
+        "date": "2024-03-02T07:59:23.869712"
+    },
+    {
+        "total_out": "60.96K",
+        "value": 17169.983889582032,
+        "porcentage_supply": 0.11168517164210996,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000057a356f62d83646d981ba5fda3a75e6bc749028e58e6e255872c",
+        "date": "2024-03-02T07:59:23.865743"
+    },
+    {
+        "total_out": "65.96K",
+        "value": 18578.289550795314,
+        "porcentage_supply": 0.12084574281728706,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000022bf5c2402948b1db8e9843c2aeef01eca0671a7998d47c24734",
+        "date": "2024-03-02T07:59:23.861726"
+    },
+    {
+        "total_out": "72.13K",
+        "value": 20316.116556326822,
+        "porcentage_supply": 0.13214974337111665,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001ca1800aae26c5841e839382e788b65c7ebbfc87a67e2317379e",
+        "date": "2024-03-02T07:59:23.857924"
+    },
+    {
+        "total_out": "72.13K",
+        "value": 20316.96220080205,
+        "porcentage_supply": 0.1321552440139228,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005710901295ded6bc4754659b70a8cf966bb58ccb09b2561e28b5",
+        "date": "2024-03-02T07:59:23.853998"
+    },
+    {
+        "total_out": "72.13K",
+        "value": 20317.244523378675,
+        "porcentage_supply": 0.13215708043063884,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000042d6265abdd8ebbdce5ef0ea596b571ae835994228e2be6a5f0d",
+        "date": "2024-03-02T07:59:23.844978"
+    },
+    {
+        "total_out": "72.63K",
+        "value": 20458.07568520034,
+        "porcentage_supply": 0.13307314142299387,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000030cc464c07f88a5d5a61940cca587996878968f1aafbe2566b7b",
+        "date": "2024-03-02T07:59:23.841216"
+    },
+    {
+        "total_out": "72.64K",
+        "value": 20458.639668610787,
+        "porcentage_supply": 0.1330768099520038,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004251e5af35965fa904427b6f97703ae8bab0c670bfc1d31eb746",
+        "date": "2024-03-02T07:59:23.837285"
+    },
+    {
+        "total_out": "81.27K",
+        "value": 22889.5771612722,
+        "porcentage_supply": 0.14888926923356807,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000048c40160d3989384cde20de518a6b5aa7ba3697f7750b2f4106b",
+        "date": "2024-03-02T07:59:23.833460"
+    },
+    {
+        "total_out": "89.27K",
+        "value": 25142.865822017924,
+        "porcentage_supply": 0.1635461805302235,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001b9289a56411ffa1e4217eeab4f98d0162a59965e6a6d6c3eb39",
+        "date": "2024-03-02T07:59:23.829679"
+    },
+    {
+        "total_out": "89.33K",
+        "value": 25159.76624146048,
+        "porcentage_supply": 0.16365611227264115,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020e69e71c60b39832a15f7a69f2dd84e518045e40c0d58b43cba",
+        "date": "2024-03-02T07:59:23.825951"
+    },
+    {
+        "total_out": "90.13K",
+        "value": 25386.166238535083,
+        "porcentage_supply": 0.1651287707617614,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004c20bea9ce67bf7523de9eb50bbb190ccea52cb1ddb5cdd39514",
+        "date": "2024-03-02T07:59:23.822182"
+    },
+    {
+        "total_out": "90.14K",
+        "value": 25387.57520348934,
+        "porcentage_supply": 0.16513793562142381,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000af0286713b2f14cc80cf2b81b6bf6a1323788aebdf4fc67e79f",
+        "date": "2024-03-02T07:59:23.818338"
+    },
+    {
+        "total_out": "90.76K",
+        "value": 25564.177310443596,
+        "porcentage_supply": 0.1662866750002366,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004d613bf56c4aa144aa79ba514c831c3c840092db4f56837b4584",
+        "date": "2024-03-02T07:59:23.814521"
+    },
+    {
+        "total_out": "90.86K",
+        "value": 25592.34407041475,
+        "porcentage_supply": 0.16646989063061873,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001f0b6254f4280345c28b0cc5152c8fad27e9b77554212f0806a4",
+        "date": "2024-03-02T07:59:23.805336"
+    },
+    {
+        "total_out": "91.32K",
+        "value": 25720.39289086982,
+        "porcentage_supply": 0.16730280664166822,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001dc6d7046d66329f6a376448659b10c819457e989c91ef4ad6b8",
+        "date": "2024-03-02T07:59:23.801480"
+    },
+    {
+        "total_out": "91.37K",
+        "value": 25734.47660082408,
+        "porcentage_supply": 0.1673944166031984,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000057590472e003f3aa058345d82270a6aaaab8df6201eeb71e961d",
+        "date": "2024-03-02T07:59:23.797797"
+    },
+    {
+        "total_out": "99.37K",
+        "value": 27987.765260786786,
+        "porcentage_supply": 0.18205132789476053,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000102c050ab2ab421c06c610f55c04a584ca781be571a7c13b0d2b",
+        "date": "2024-03-02T07:59:23.794069"
+    },
+    {
+        "total_out": "99.37K",
+        "value": 27988.329342626483,
+        "porcentage_supply": 0.1820549970640208,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a725da4ee55ab0e38c7e398ca66a2f2177bcf204390f535885d",
+        "date": "2024-03-02T07:59:23.790406"
+    },
+    {
+        "total_out": "99.37K",
+        "value": 27989.1749858286,
+        "porcentage_supply": 0.18206049769854576,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004c1feed75d6c20f874b9b9f8e9a9a2577439c869e839bb34d076",
+        "date": "2024-03-02T07:59:23.786717"
+    },
+    {
+        "total_out": "71.25K",
+        "value": 20068.71837353364,
+        "porcentage_supply": 0.1305404985001318,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000011c325076d99113b17e866d17f71baf7160d8c88f4342bed6f31",
+        "date": "2024-03-02T07:59:23.783042"
+    },
+    {
+        "total_out": "101.21K",
+        "value": 28507.850997474787,
+        "porcentage_supply": 0.18543431678654723,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000369ce00e8cd011ed9e8dc8dee8a3e655302cfb6467689c771a65",
+        "date": "2024-03-02T07:59:23.779391"
+    },
+    {
+        "total_out": "101.24K",
+        "value": 28516.13339216396,
+        "porcentage_supply": 0.1854881910754468,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000e6948c5e33842d13e12df5e84e270b13fb5890d3da37a29638c",
+        "date": "2024-03-02T07:59:23.775769"
+    },
+    {
+        "total_out": "104.16K",
+        "value": 29338.44776371563,
+        "porcentage_supply": 0.19083707913038822,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002ff893522555db274e7454fdae9d95f8a9f9a308e27246f908bf",
+        "date": "2024-03-02T07:59:23.766896"
+    },
+    {
+        "total_out": "104.21K",
+        "value": 29351.771608638166,
+        "porcentage_supply": 0.19092374641654736,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020bb41907c01f64971a07918018bfe9adab5a31a880660bf1edc",
+        "date": "2024-03-02T07:59:23.763303"
+    },
+    {
+        "total_out": "106.52K",
+        "value": 30002.782548433745,
+        "porcentage_supply": 0.19515836125483363,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002baa9ca0f3cb8aa27fa67d330fba9447524b882ce03e3a96acbe",
+        "date": "2024-03-02T07:59:23.759712"
+    },
+    {
+        "total_out": "107.07K",
+        "value": 30158.66996827367,
+        "porcentage_supply": 0.19617235831817575,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002fd901575ff80288a8e0a069c704b6aa87a485c0f1bcb307bbb7",
+        "date": "2024-03-02T07:59:23.756112"
+    },
+    {
+        "total_out": "107.24K",
+        "value": 30206.35034314687,
+        "porcentage_supply": 0.1964825036791685,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000001ad9cf475179066af6fb6c8310ed189cadafaaa1dece4eda532",
+        "date": "2024-03-02T07:59:23.752446"
+    },
+    {
+        "total_out": "108.25K",
+        "value": 30488.501727101542,
+        "porcentage_supply": 0.19831780684244965,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000f0fd6a3d7de62de6780b7e86b932ba85fe1d29c4d48a605494d",
+        "date": "2024-03-02T07:59:23.748945"
+    },
+    {
+        "total_out": "108.36K",
+        "value": 30519.766758086782,
+        "porcentage_supply": 0.19852117572004663,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001629f591b48d040e5f828538ce061d9061418d8b1606b589c4aa",
+        "date": "2024-03-02T07:59:23.745316"
+    },
+    {
+        "total_out": "123.28K",
+        "value": 34722.67624414202,
+        "porcentage_supply": 0.22585973761765818,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005f9d655ae2158bf87ad661b5b1134d3ac1abc6804eb9bcab8349",
+        "date": "2024-03-02T07:59:23.741702"
+    },
+    {
+        "total_out": "123.28K",
+        "value": 34722.9585657272,
+        "porcentage_supply": 0.22586157402792514,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000207f1a31fb24f813ae51dbeb489d5ffee1a60f52ed934de6fa99",
+        "date": "2024-03-02T07:59:23.738276"
+    },
+    {
+        "total_out": "124.46K",
+        "value": 35055.319206416585,
+        "porcentage_supply": 0.2280234721078062,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000186692152b632e959197837606e4034054884cbb8ea6d379bbaa",
+        "date": "2024-03-02T07:59:23.734900"
+    },
+    {
+        "total_out": "126.53K",
+        "value": 35638.121991813794,
+        "porcentage_supply": 0.23181441504282435,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005756df051062a8dc40885739111fed77cb57ef7a813868d074a1",
+        "date": "2024-03-02T07:59:23.726125"
+    },
+    {
+        "total_out": "127.53K",
+        "value": 35919.7836517934,
+        "porcentage_supply": 0.2336465327106173,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006ec67cd2bf8c88f9fe2ea603bd2b66af0096258c09637dc101d8",
+        "date": "2024-03-02T07:59:23.722742"
+    },
+    {
+        "total_out": "128.54K",
+        "value": 36203.83389633851,
+        "porcentage_supply": 0.23549418734564892,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006e937282bd9e81099d00dd228c2118a47ee9a385263a340f73dc",
+        "date": "2024-03-02T07:59:23.719338"
+    },
+    {
+        "total_out": "129.04K",
+        "value": 36344.66505631248,
+        "porcentage_supply": 0.2364102483259853,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000046e6f8e013def112dac1782f075e0907341a54444a474dd45ad4",
+        "date": "2024-03-02T07:59:23.715964"
+    },
+    {
+        "total_out": "129.20K",
+        "value": 36390.8299541949,
+        "porcentage_supply": 0.23671053600109296,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002bea9885892b91f18a8e2dcb87cb08ec33019b235035cf98fdb8",
+        "date": "2024-03-02T07:59:23.712549"
+    },
+    {
+        "total_out": "133.30K",
+        "value": 37545.07009716024,
+        "porcentage_supply": 0.2442184934524401,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000405e2cc5a778cfaa470a2ad02385e7568c4c3c1fbc4287b0c666",
+        "date": "2024-03-02T07:59:23.709221"
+    },
+    {
+        "total_out": "134.32K",
+        "value": 37831.933585160696,
+        "porcentage_supply": 0.2460844473229399,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000028daadf29a5d2be30d59ca7e0221c25ba6496989988ced9d12ff",
+        "date": "2024-03-02T07:59:23.705779"
+    },
+    {
+        "total_out": "134.34K",
+        "value": 37837.56746514875,
+        "porcentage_supply": 0.24612109388344475,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002f91b28229bce56e16cad9cd3fba40e3b6b940fe60d9669be3ac",
+        "date": "2024-03-02T07:59:23.702454"
+    },
+    {
+        "total_out": "172.28K",
+        "value": 48524.27475897814,
+        "porcentage_supply": 0.31563465581081,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000023f09493e6ed45bbeb408b3b88e8712aa2fbc6cb5611f552f1",
+        "date": "2024-03-02T07:59:23.699105"
+    },
+    {
+        "total_out": "135.45K",
+        "value": 38151.75897087187,
+        "porcentage_supply": 0.24816480763826498,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000278ab921d5473ef25f19fc47d676bd731de6b377dcd772ad77fd",
+        "date": "2024-03-02T07:59:23.695802"
+    },
+    {
+        "total_out": "89.25K",
+        "value": 25138.617026001346,
+        "porcentage_supply": 0.16351854349134007,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002c349d32170ee06096afd07f4705c7b267885e0dc3e7a87c9c3a",
+        "date": "2024-03-02T07:59:23.687182"
+    },
+    {
+        "total_out": "144.07K",
+        "value": 40578.269145893726,
+        "porcentage_supply": 0.26394846865573834,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004da322cfe415239cca5516e72b48e9e250f58fdbd79e1652eb32",
+        "date": "2024-03-02T07:59:23.683924"
+    },
+    {
+        "total_out": "145.42K",
+        "value": 40958.5121559184,
+        "porcentage_supply": 0.26642182600501846,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001301d8d7d2e1f91eb03a9780218af6e3865b374059371b264549",
+        "date": "2024-03-02T07:59:23.680669"
+    },
+    {
+        "total_out": "62.97K",
+        "value": 17736.887317014047,
+        "porcentage_supply": 0.11537269441466547,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000588f69eb7ec41ce3278765f9b7783b6b6ade65cec4bf419f51aa",
+        "date": "2024-03-02T07:59:23.677263"
+    },
+    {
+        "total_out": "73.11K",
+        "value": 20591.522314081685,
+        "porcentage_supply": 0.13394116842567014,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001d1a8ee3c12c435b8e3041b29718687f3c4ad9763858ad27e450",
+        "date": "2024-03-02T07:59:23.674141"
+    },
+    {
+        "total_out": "74.10K",
+        "value": 20872.397241924755,
+        "porcentage_supply": 0.1357681686562966,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000009f8a812e3a54bd8303390ab159c5e3551bd3c1c6f28395c9751",
+        "date": "2024-03-02T07:59:23.670892"
+    },
+    {
+        "total_out": "74.25K",
+        "value": 20914.54867042664,
+        "porcentage_supply": 0.13604235001589876,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000030c6a204cf1857e7e99dbf29ce5fc8c04ca8e36cb08ed44e79b9",
+        "date": "2024-03-02T07:59:23.667544"
+    },
+    {
+        "total_out": "74.95K",
+        "value": 21111.14476789844,
+        "porcentage_supply": 0.13732114381276597,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000047b99aa5de87a9f267957ec6ab121e20db996f059398e2e0542d",
+        "date": "2024-03-02T07:59:23.664281"
+    },
+    {
+        "total_out": "76.11K",
+        "value": 21436.39380804916,
+        "porcentage_supply": 0.13943678323964426,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000517568b7b0e624a163d68ce474d71b237570817aeb2bd24a2d05",
+        "date": "2024-03-02T07:59:23.661181"
+    },
+    {
+        "total_out": "58.74K",
+        "value": 16544.76714,
+        "porcentage_supply": 0.10761833963809395,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001b6159779bbe6d75a44c8d0fcc9be9fbef7831ce4c7dd28d5d8d",
+        "date": "2024-03-02T07:59:23.658021"
+    },
+    {
+        "total_out": "76.15K",
+        "value": 21449.81950377499,
+        "porcentage_supply": 0.13952411303221696,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000015b099909efa1951a05506ea415087814811b8541f9096f2a140",
+        "date": "2024-03-02T07:59:23.654904"
+    },
+    {
+        "total_out": "77.15K",
+        "value": 21731.481165560042,
+        "porcentage_supply": 0.14135623071175377,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000493e7f996b89401929f2120b8bb43c80aad6ba2e35084b6f3913",
+        "date": "2024-03-02T07:59:23.651663"
+    },
+    {
+        "total_out": "154.42K",
+        "value": 43493.461815976865,
+        "porcentage_supply": 0.2829108506720433,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003129b3aa91e842562bbea3c9c945cd8ce5d6917d449cd68f027d",
+        "date": "2024-03-02T07:59:23.646694"
+    },
+    {
+        "total_out": "77.65K",
+        "value": 21872.31232693387,
+        "porcentage_supply": 0.14227229170119576,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005f78e7d4a835bd640bd02f6882cd0bfd9af953fd1596f7bd0521",
+        "date": "2024-03-02T07:59:23.643572"
+    },
+    {
+        "total_out": "78.65K",
+        "value": 22153.97398884285,
+        "porcentage_supply": 0.1441044093815387,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002cf3e388cb37c0d896ba0206c52b0b2397b88bda68402471e0e2",
+        "date": "2024-03-02T07:59:23.640549"
+    },
+    {
+        "total_out": "79.65K",
+        "value": 22435.63565035751,
+        "porcentage_supply": 0.14593652705931667,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002bcc9e6020f20dc6f7bdaf0ffbb68f04f400dfd39b2216d39dac",
+        "date": "2024-03-02T07:59:23.637529"
+    },
+    {
+        "total_out": "80.53K",
+        "value": 22683.497991945398,
+        "porcentage_supply": 0.14754879113259023,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000170177ef4cbd55ecc390f138d1016bf7153db2dff10cfbae1e98",
+        "date": "2024-03-02T07:59:23.634530"
+    },
+    {
+        "total_out": "80.73K",
+        "value": 22739.226295729153,
+        "porcentage_supply": 0.14791128565870268,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003b6c6acf0c4abf37f1e27079e138ecc24f4b76dcc68f65a821c7",
+        "date": "2024-03-02T07:59:23.631514"
+    },
+    {
+        "total_out": "81.56K",
+        "value": 22972.0206458226,
+        "porcentage_supply": 0.14942553733853536,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000047c493c6b23ecbc32201c631710171c3cdc0e3fd555ba39d5d33",
+        "date": "2024-03-02T07:59:23.628436"
+    },
+    {
+        "total_out": "82.73K",
+        "value": 23302.842234298343,
+        "porcentage_supply": 0.15157742438335942,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000570553fe92339aceb364fa47c192c8f1aad0f29021b7c0cbc88b",
+        "date": "2024-03-02T07:59:23.625391"
+    },
+    {
+        "total_out": "82.83K",
+        "value": 23329.2457689053,
+        "porcentage_supply": 0.15174917080510913,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002d8e77b080994c6cc95c7620afcf9ce9f4a0bc148f6b49e24b70",
+        "date": "2024-03-02T07:59:23.618490"
+    },
+    {
+        "total_out": "83.58K",
+        "value": 23540.492179242618,
+        "porcentage_supply": 0.15312326013151892,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000056363e758f339fdc55bbf82a7e16dfbefb905a7d2309dc6ab41f",
+        "date": "2024-03-02T07:59:23.615500"
+    },
+    {
+        "total_out": "85.22K",
+        "value": 24004.4360789989,
+        "porcentage_supply": 0.15614106459830296,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006c145ca554090c5efc69eab388b2feef5fbc08f8b5358166153b",
+        "date": "2024-03-02T07:59:23.612535"
+    },
+    {
+        "total_out": "85.72K",
+        "value": 24145.26723905174,
+        "porcentage_supply": 0.15705712557915233,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002b5cb4acd79cab51d9daa7e25bdb3b8e46694fe8745b7fc8b4eb",
+        "date": "2024-03-02T07:59:23.609582"
+    },
+    {
+        "total_out": "87.13K",
+        "value": 24540.196575382146,
+        "porcentage_supply": 0.1596260127137133,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002877eed17d1745b4542b39e4a7fd5dbaca03be3d308b04cc9ae5",
+        "date": "2024-03-02T07:59:23.606691"
+    },
+    {
+        "total_out": "87.60K",
+        "value": 24672.35415393658,
+        "porcentage_supply": 0.1604856548624525,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000052add4825c33476707c232e404a34f8df7b0b59e0b292960aff8",
+        "date": "2024-03-02T07:59:23.603599"
+    },
+    {
+        "total_out": "88.35K",
+        "value": 24883.600563795073,
+        "porcentage_supply": 0.1618597441857477,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000409371a54fc29ce1a03e9436c29ba6a54865f2ce02b5f102b485",
+        "date": "2024-03-02T07:59:23.600654"
+    },
+    {
+        "total_out": "90.71K",
+        "value": 25550.186399122133,
+        "porcentage_supply": 0.1661956686636893,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000072bec05da89933fd4e2aab756424384ad540236a3679ee3b917e",
+        "date": "2024-03-02T07:59:23.597805"
+    },
+    {
+        "total_out": "90.91K",
+        "value": 25606.51925897217,
+        "porcentage_supply": 0.1665620956307676,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000742eeca682a5e03777116460e9307d4f0b965b2ff4ba398f9eab",
+        "date": "2024-03-02T07:59:23.589652"
+    },
+    {
+        "total_out": "91.40K",
+        "value": 25742.84542012663,
+        "porcentage_supply": 0.16744885305615362,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006c70818e05ed35eb45370086c65da1578a1cd4a5fdb477c9d10f",
+        "date": "2024-03-02T07:59:23.586715"
+    },
+    {
+        "total_out": "94.14K",
+        "value": 26514.495822022305,
+        "porcentage_supply": 0.1724681884345469,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005b5f86a18aa26b8ebd9e188450054da710c66b9a33bd7391292e",
+        "date": "2024-03-02T07:59:23.583842"
+    },
+    {
+        "total_out": "51.00K",
+        "value": 14364.709687428758,
+        "porcentage_supply": 0.09343777357898352,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003eb250a1436aa9bbffb7f3857dfaca333276b28acd863502596a",
+        "date": "2024-03-02T07:59:23.580956"
+    },
+    {
+        "total_out": "95.69K",
+        "value": 26953.324319894877,
+        "porcentage_supply": 0.1753226253648043,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005131d24076b60d6d0e026b380b9cf6dfbd8fe3431caf78029c10",
+        "date": "2024-03-02T07:59:23.578072"
+    },
+    {
+        "total_out": "97.19K",
+        "value": 27375.534818767454,
+        "porcentage_supply": 0.17806896760594618,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006b77ee82cbc33a7fd9cbef9bbae389dfe419d8380bc9e05273cb",
+        "date": "2024-03-02T07:59:23.575253"
+    },
+    {
+        "total_out": "90.00K",
+        "value": 25349.489347532293,
+        "porcentage_supply": 0.16489019949149766,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005133282bcecb9c449f6d816d23b8771cc2ff1d93a3796bab90cf",
+        "date": "2024-03-02T07:59:23.572452"
+    },
+    {
+        "total_out": "105.69K",
+        "value": 29769.65397862876,
+        "porcentage_supply": 0.19364193558426868,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006e008f777fbb388728ce433b90b2ef73a8da3f1509deffdfe7a0",
+        "date": "2024-03-02T07:59:23.564252"
+    },
+    {
+        "total_out": "154.92K",
+        "value": 43634.29297788585,
+        "porcentage_supply": 0.2838269116649664,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006e008f777fbb388728ce433b90b2ef73a8da3f1509deffdfe7a0",
+        "date": "2024-03-02T07:59:23.561625"
+    },
+    {
+        "total_out": "106.58K",
+        "value": 30018.924623495703,
+        "porcentage_supply": 0.19526336021322221,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000006e65e0d861c7bb82f1b327e8afe41f9ad0807d659a62bf0a6c9",
+        "date": "2024-03-02T07:59:23.558676"
+    },
+    {
+        "total_out": "115.09K",
+        "value": 32415.86049264251,
+        "porcentage_supply": 0.21085464997111308,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000202620787bdeae8d21135a8da04a6859025685fdefae67058d9e",
+        "date": "2024-03-02T07:59:23.555829"
+    },
+    {
+        "total_out": "120.09K",
+        "value": 33824.44781355452,
+        "porcentage_supply": 0.22001705325120066,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002d21cf9fee01a962745aae79738d4d66f7372bbe979ccce15a70",
+        "date": "2024-03-02T07:59:23.553137"
+    },
+    {
+        "total_out": "120.38K",
+        "value": 33905.81752011987,
+        "porcentage_supply": 0.22054633677893498,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000471195fabb1dac9ce658be9b1ba90a01411ce334dc10f3dde1f6",
+        "date": "2024-03-02T07:59:23.550281"
+    },
+    {
+        "total_out": "122.13K",
+        "value": 34398.04297254824,
+        "porcentage_supply": 0.22374810356535774,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004a3b6bd08bb11dbc7923fcf261bdfa299b79ecaefa1834a71809",
+        "date": "2024-03-02T07:59:23.547616"
+    },
+    {
+        "total_out": "155.42K",
+        "value": 43775.12413775279,
+        "porcentage_supply": 0.2847429726446065,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000041d188dbef64910be6bebd5de551fb045fcb895d6848a10ecb84",
+        "date": "2024-03-02T07:59:23.544889"
+    },
+    {
+        "total_out": "122.43K",
+        "value": 34482.541932418,
+        "porcentage_supply": 0.22429774187004828,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000066089f1fab364b17c4dea1c518771f07e305b555029e75da4d93",
+        "date": "2024-03-02T07:59:23.542054"
+    },
+    {
+        "total_out": "122.78K",
+        "value": 34581.1239422962,
+        "porcentage_supply": 0.22493898584353575,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002d40b3475ca9a6d34b651934ee0f0e4e1b8f7e6e9041049423d9",
+        "date": "2024-03-02T07:59:23.539327"
+    },
+    {
+        "total_out": "123.08K",
+        "value": 34665.87214400458,
+        "porcentage_supply": 0.22549024538547993,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000069fcb9692c14dad27c5472e619f148e1d7dff9f502ccfa9690b",
+        "date": "2024-03-02T07:59:23.536520"
+    },
+    {
+        "total_out": "124.67K",
+        "value": 35113.329270302485,
+        "porcentage_supply": 0.22840080874269947,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000799adf798448c1e6bd6d73bb8ebc8a03524f7879c35c0889d2cb",
+        "date": "2024-03-02T07:59:23.533935"
+    },
+    {
+        "total_out": "127.97K",
+        "value": 36043.37455239475,
+        "porcentage_supply": 0.23445045140010665,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000485b8cb03a50fca19f08c2b043745a648945bc9fe48b37f96fdb",
+        "date": "2024-03-02T07:59:23.531340"
+    },
+    {
+        "total_out": "146.97K",
+        "value": 41394.93288855921,
+        "porcentage_supply": 0.26926060120402945,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000061360c69bde21e11360a7991654d3114414e3127f09c95bc2834",
+        "date": "2024-03-02T07:59:23.523429"
+    },
+    {
+        "total_out": "64.82K",
+        "value": 18257.27153196494,
+        "porcentage_supply": 0.11875762481066306,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000077f019c7fb5dcb65f60fa553e845f929fe82f9f514b0ed7a1e88",
+        "date": "2024-03-02T07:59:23.520857"
+    },
+    {
+        "total_out": "65.27K",
+        "value": 18383.064388770075,
+        "porcentage_supply": 0.11957586651047951,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000063ce6661dab49b815ae42318cdd03e8f418c6974028d3b3c571e",
+        "date": "2024-03-02T07:59:23.518292"
+    },
+    {
+        "total_out": "69.22K",
+        "value": 19496.057447196228,
+        "porcentage_supply": 0.12681552506614216,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003ec18ea5182819ee61bdca1b9cf58e66a1fb9ec7dbb41f0b850e",
+        "date": "2024-03-02T07:59:23.515764"
+    },
+    {
+        "total_out": "75.17K",
+        "value": 21171.9410573561,
+        "porcentage_supply": 0.137716603940565,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000030e4e501c721a86bbc8cca01615f93396fd7c94098e0776903bf",
+        "date": "2024-03-02T07:59:23.513308"
+    },
+    {
+        "total_out": "75.37K",
+        "value": 21228.27259372898,
+        "porcentage_supply": 0.13808302229885402,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000000eef6a61a83ad4d483f3c2c89544c3c02686aab419517e40b4d",
+        "date": "2024-03-02T07:59:23.510840"
+    },
+    {
+        "total_out": "79.19K",
+        "value": 22304.638202321632,
+        "porcentage_supply": 0.14508443118300998,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000765bb00ea9cd3bc0c6161029ca8a34e86c5134b6c357b278eb9c",
+        "date": "2024-03-02T07:59:23.508325"
+    },
+    {
+        "total_out": "147.72K",
+        "value": 41606.17929851628,
+        "porcentage_supply": 0.27063469052796585,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000685140db1250af9917d1992e05a118c5a947d1498585c085e83",
+        "date": "2024-03-02T07:59:23.505892"
+    },
+    {
+        "total_out": "79.62K",
+        "value": 22424.58594589446,
+        "porcentage_supply": 0.1458646523186363,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000685140db1250af9917d1992e05a118c5a947d1498585c085e83",
+        "date": "2024-03-02T07:59:23.503364"
+    },
+    {
+        "total_out": "80.28K",
+        "value": 22610.79827011818,
+        "porcentage_supply": 0.14707590304120807,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000617d141d897ed8d6f7e4c91932b1bbc919416b46d2c30fba3796",
+        "date": "2024-03-02T07:59:23.500957"
+    },
+    {
+        "total_out": "62.53K",
+        "value": 17611.5579257683,
+        "porcentage_supply": 0.11455746740786696,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000062465867ba2e1c23c2c110b0248ce50bd2bd2da59ca8194628cc",
+        "date": "2024-03-02T07:59:23.498407"
+    },
+    {
+        "total_out": "81.68K",
+        "value": 23006.047671545693,
+        "porcentage_supply": 0.14964687209532918,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005269ab17bd6dbf51c48ed080fb3b6c68560aed4be4937a0d4a1e",
+        "date": "2024-03-02T07:59:23.496013"
+    },
+    {
+        "total_out": "85.38K",
+        "value": 24049.571325942125,
+        "porcentage_supply": 0.15643465472828683,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000015e3e99b371cd4fcd5f3dae85c4383aef00fcce5ee0510189c7c",
+        "date": "2024-03-02T07:59:23.493537"
+    },
+    {
+        "total_out": "86.29K",
+        "value": 24303.523458706928,
+        "porcentage_supply": 0.1580865309163551,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004c0b2e84d16576d8a15c58d9b0620e72b1e7388c4e5310b44db8",
+        "date": "2024-03-02T07:59:23.491137"
+    },
+    {
+        "total_out": "60.00K",
+        "value": 16899.66,
+        "porcentage_supply": 0.10992680249039219,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000e7dac67d485f13446ee31404d878195020a75fd315d75873bc8",
+        "date": "2024-03-02T07:59:23.483394"
+    },
+    {
+        "total_out": "90.51K",
+        "value": 25492.607377291024,
+        "porcentage_supply": 0.16582113581744162,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000043c756f1d77ba174de1381a02b85062f4f1d55b453880e71792a",
+        "date": "2024-03-02T07:59:23.481057"
+    },
+    {
+        "total_out": "50.28K",
+        "value": 14161.067454169204,
+        "porcentage_supply": 0.09211314695606769,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006c03a4a4e15a28eb052f0f6d81c133175784fa63760d2aa8f015",
+        "date": "2024-03-02T07:59:23.478615"
+    },
+    {
+        "total_out": "51.28K",
+        "value": 14442.72911532897,
+        "porcentage_supply": 0.09394526463153723,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000048ae3c4ce2cf9d8881b07f945ce3cd748697ca8cdb1ff9de0f23",
+        "date": "2024-03-02T07:59:23.476164"
+    },
+    {
+        "total_out": "52.18K",
+        "value": 14696.224675885978,
+        "porcentage_supply": 0.09559417096560203,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000008207afdaa7a7188c2c8e6833bdab7792dd48cea5289daa80f211",
+        "date": "2024-03-02T07:59:23.473717"
+    },
+    {
+        "total_out": "67.18K",
+        "value": 18921.140336457072,
+        "porcentage_supply": 0.12307587588500063,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009696507d1c524322a1a0cba3be81dc8d87333109e074b14eef04",
+        "date": "2024-03-02T07:59:23.471315"
+    },
+    {
+        "total_out": "71.93K",
+        "value": 20259.22213850836,
+        "porcentage_supply": 0.13177966365174149,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003cb642eaae50357e60bf4fc1c42c3b90dd118d77e4b4eb6b31bf",
+        "date": "2024-03-02T07:59:23.469130"
+    },
+    {
+        "total_out": "121.06K",
+        "value": 34096.885969201554,
+        "porcentage_supply": 0.22178917501735795,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000688465d38585916a5a30dd2442d652e17c3b8f93edf41e48b400",
+        "date": "2024-03-02T07:59:23.466727"
+    },
+    {
+        "total_out": "76.59K",
+        "value": 21571.852008090813,
+        "porcentage_supply": 0.1403178948597409,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002eca2a44a2dc049f7bab41813b0cf15aabfd1355248957bc9ad4",
+        "date": "2024-03-02T07:59:23.464528"
+    },
+    {
+        "total_out": "50.67K",
+        "value": 14271.543770972365,
+        "porcentage_supply": 0.09283175953508332,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000061de84a385ea80f9e39128aa8b1776ca6d7f1bfb037eec7520e1",
+        "date": "2024-03-02T07:59:23.462148"
+    },
+    {
+        "total_out": "54.20K",
+        "value": 15266.602046014115,
+        "porcentage_supply": 0.099304290607717,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007735596ebd43d5fdbec9857ffca273ba64300ccbc18790c2f7b5",
+        "date": "2024-03-02T07:59:23.459934"
+    },
+    {
+        "total_out": "54.30K",
+        "value": 15294.768806435928,
+        "porcentage_supply": 0.0994875062410305,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004f76004f1f90e17e9994c7368bd091f4d61c8298f19effdba23f",
+        "date": "2024-03-02T07:59:23.457689"
+    },
+    {
+        "total_out": "54.36K",
+        "value": 15311.619976475271,
+        "porcentage_supply": 0.09959711763206719,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000bb8e6d6b4f502cd6b6c5ce3211ddeed1e6a1d1201aee87c7a91",
+        "date": "2024-03-02T07:59:23.455532"
+    },
+    {
+        "total_out": "55.63K",
+        "value": 15668.958595488844,
+        "porcentage_supply": 0.10192148935282931,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000619d244c16a5583ff530dcd67538aa0c5104f8bc0082d1727327",
+        "date": "2024-03-02T07:59:23.453384"
+    },
+    {
+        "total_out": "56.77K",
+        "value": 15990.361552155251,
+        "porcentage_supply": 0.10401211125512179,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006133fa53ed43f696f940a595326994e22f11069e91b8ea860a7e",
+        "date": "2024-03-02T07:59:23.451057"
+    },
+    {
+        "total_out": "60.75K",
+        "value": 17111.406791390076,
+        "porcentage_supply": 0.11130414663312116,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004f40a394d7942585c0f9aba000422ba7705570b9208a6095198e",
+        "date": "2024-03-02T07:59:23.443684"
+    },
+    {
+        "total_out": "70.45K",
+        "value": 19841.69926997983,
+        "porcentage_supply": 0.1290638129243329,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000010c6d697b7af15f120f61340ac9979ae866805c04e583bd273b9",
+        "date": "2024-03-02T07:59:23.441526"
+    },
+    {
+        "total_out": "70.53K",
+        "value": 19866.771927536603,
+        "porcentage_supply": 0.12922690242288806,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000057cbe0de0fd4a20f323205192285bdc69012837e5f7897ce5695",
+        "date": "2024-03-02T07:59:23.439341"
+    },
+    {
+        "total_out": "71.28K",
+        "value": 20076.328372572436,
+        "porcentage_supply": 0.13058999907359245,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000223c16727b902cb4c46a165b3b359dff98a389ccf0a70729459",
+        "date": "2024-03-02T07:59:23.437214"
+    },
+    {
+        "total_out": "72.54K",
+        "value": 20430.360151206998,
+        "porcentage_supply": 0.13289286087112467,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005e55a2a5046f8bb76500a3943e345679f054f212d447725ce93f",
+        "date": "2024-03-02T07:59:23.435072"
+    },
+    {
+        "total_out": "75.32K",
+        "value": 21213.47671896284,
+        "porcentage_supply": 0.1379867799363988,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000056e2bd361aa834ba9a50a0be57f986b16ffc1814cce81a515bbe",
+        "date": "2024-03-02T07:59:23.432954"
+    },
+    {
+        "total_out": "52.46K",
+        "value": 14776.149080374846,
+        "porcentage_supply": 0.09611405327248927,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000264a06dec8e3e49be2ac1dfdef24361a409bc37593f11faa361b",
+        "date": "2024-03-02T07:59:23.430898"
+    },
+    {
+        "total_out": "54.23K",
+        "value": 15274.021159638673,
+        "porcentage_supply": 0.09935254953352148,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000007f47a2e1b301797d1169b6cd3b0e56c7b01edb2e2716c3915f5",
+        "date": "2024-03-02T07:59:23.428764"
+    },
+    {
+        "total_out": "59.96K",
+        "value": 16888.67879406976,
+        "porcentage_supply": 0.1098553733104324,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000039726aa7d838bbc7b9f4b48d80fbbcd1ae10fac684363a933619",
+        "date": "2024-03-02T07:59:23.426733"
+    },
+    {
+        "total_out": "63.45K",
+        "value": 17870.802321631272,
+        "porcentage_supply": 0.1162437680494639,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003b59e37630e65f33be7096e007f277df05c3f5f8ab3e355f56c3",
+        "date": "2024-03-02T07:59:23.424681"
+    },
+    {
+        "total_out": "68.56K",
+        "value": 19310.77695852471,
+        "porcentage_supply": 0.12561033563135368,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005453c26881cb161bfd38efbcda3372be9b175abc31923ba13714",
+        "date": "2024-03-02T07:59:23.422366"
+    },
+    {
+        "total_out": "69.24K",
+        "value": 19501.869876077686,
+        "porcentage_supply": 0.1268533330292397,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007e273b69686486caff59c8ccdfb8e6a0a5c57e09773996e7efc7",
+        "date": "2024-03-02T07:59:23.420280"
+    },
+    {
+        "total_out": "70.60K",
+        "value": 19885.660856945113,
+        "porcentage_supply": 0.12934976877714274,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001d537d8bb9d6aab61339773f342af6088bb16d6954a10123374d",
+        "date": "2024-03-02T07:59:23.418245"
+    },
+    {
+        "total_out": "99.90K",
+        "value": 28138.597413259493,
+        "porcentage_supply": 0.18303244208487254,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007d970789999953faafa6400da240b7f8a7c91d66d3d6fdeffd70",
+        "date": "2024-03-02T07:59:23.416293"
+    },
+    {
+        "total_out": "53.91K",
+        "value": 15183.94937212068,
+        "porcentage_supply": 0.09876666179397836,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000488c8f72a3459afa7b9cddf251844a8e35b9eca48e72600cc9c4",
+        "date": "2024-03-02T07:59:23.414329"
+    },
+    {
+        "total_out": "56.00K",
+        "value": 15772.306568502507,
+        "porcentage_supply": 0.10259373436943055,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002b138c8000f8bdcdf402e9b0fe4a50922b26a8dc47525a65c8ca",
+        "date": "2024-03-02T07:59:23.412433"
+    },
+    {
+        "total_out": "50.67K",
+        "value": 14272.503501672318,
+        "porcentage_supply": 0.09283800227174771,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000080d14ff9d83a47f1b115ebad80520812caae4e6b7d057c2bb753",
+        "date": "2024-03-02T07:59:23.410577"
+    },
+    {
+        "total_out": "51.95K",
+        "value": 14633.076940873909,
+        "porcentage_supply": 0.09518341544777578,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007787baa02a52780359bdb009ba917b46aa877eb4c31b22f0c286",
+        "date": "2024-03-02T07:59:23.408601"
+    },
+    {
+        "total_out": "50.32K",
+        "value": 14173.345546587441,
+        "porcentage_supply": 0.09219301196164878,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000a5efaa67676c01451524494d498410910839241a4687cbcee302",
+        "date": "2024-03-02T07:59:23.406778"
+    },
+    {
+        "total_out": "53.71K",
+        "value": 15129.419954116262,
+        "porcentage_supply": 0.09841196563068941,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004c2a0f3b96cef638f5af1d667ee9eeded42b0aaa1e1996cb0022",
+        "date": "2024-03-02T07:59:23.399439"
+    },
+    {
+        "total_out": "99.80K",
+        "value": 28110.71628152859,
+        "porcentage_supply": 0.18285108437347528,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000074054c693825e5a5686e9c382bcf47e0944c8a45e0c668e8bc76",
+        "date": "2024-03-02T07:59:23.397645"
+    },
+    {
+        "total_out": "100.20K",
+        "value": 28221.4830587622,
+        "porcentage_supply": 0.18357158630330442,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000074054c693825e5a5686e9c382bcf47e0944c8a45e0c668e8bc76",
+        "date": "2024-03-02T07:59:23.395675"
+    },
+    {
+        "total_out": "51.61K",
+        "value": 14535.553989844448,
+        "porcentage_supply": 0.09454906030831761,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003080069e30094e06ae2e1c2376a64579060fcd3411e030111a1f",
+        "date": "2024-03-02T07:59:23.393877"
+    },
+    {
+        "total_out": "112.91K",
+        "value": 31802.34351,
+        "porcentage_supply": 0.20686392115316968,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000889a22617e0dbe7b7b665921737a056f73330a59df1b19fefd62",
+        "date": "2024-03-02T07:59:23.392072"
+    },
+    {
+        "total_out": "53.11K",
+        "value": 14958.046150280345,
+        "porcentage_supply": 0.09729723466649855,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007f39cdbad408be5b0de4a3a8d7729b217638f64a77b5af9467b9",
+        "date": "2024-03-02T07:59:23.390231"
+    },
+    {
+        "total_out": "54.33K",
+        "value": 15303.431274785511,
+        "porcentage_supply": 0.09954385278571508,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000257b9de7b1c8ca3e2f214f284dad05534e56f0dc8f0cb1336c14",
+        "date": "2024-03-02T07:59:23.388519"
+    },
+    {
+        "total_out": "505.10K",
+        "value": 142266.126117,
+        "porcentage_supply": 0.9253949692914938,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000075288e292352eb303d853da0f9ae962d42cc5be532f9dd4eb2ce",
+        "date": "2024-03-02T07:59:23.386645"
+    },
+    {
+        "total_out": "388.74K",
+        "value": 109493.460462,
+        "porcentage_supply": 0.7122194175620007,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000265712e98e606f4ad8ab040fe4e6cdd647201dc88d605de5c125",
+        "date": "2024-03-02T07:59:23.384855"
+    },
+    {
+        "total_out": "99.80K",
+        "value": 28110.716288770094,
+        "porcentage_supply": 0.1828510844205789,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000018f23fff8d969468d2d16b922e907d57abeb53ef03b222b909c7",
+        "date": "2024-03-02T07:59:23.383170"
+    },
+    {
+        "total_out": "50.47K",
+        "value": 14214.12906100341,
+        "porcentage_supply": 0.09245829548416155,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000018f23fff8d969468d2d16b922e907d57abeb53ef03b222b909c7",
+        "date": "2024-03-02T07:59:23.381367"
+    },
+    {
+        "total_out": "172.77K",
+        "value": 48661.725987,
+        "porcentage_supply": 0.3165287314309598,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002625047550dfd8bb7433066fd7af8bb00972d1fd3a22f02538de",
+        "date": "2024-03-02T07:59:23.379663"
+    },
+    {
+        "total_out": "61.00K",
+        "value": 17181.32034753229,
+        "porcentage_supply": 0.11175891162114142,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b85eeb217068b9191a6c0a2b629b30dbd9139697d9972dd442ec",
+        "date": "2024-03-02T07:59:23.377958"
+    },
+    {
+        "total_out": "155.94K",
+        "value": 43923.061323,
+        "porcentage_supply": 0.28570525601265384,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000054edecf03174d68d87f3f29817f7e2723ef4c9acc6bb2588ec19",
+        "date": "2024-03-02T07:59:23.376054"
+    },
+    {
+        "total_out": "295.62K",
+        "value": 83264.906481,
+        "porcentage_supply": 0.5416111879835371,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000649f148d329dd0033d0fcca1f974bde2018332fc311764a48020",
+        "date": "2024-03-02T07:59:23.374441"
+    },
+    {
+        "total_out": "82.18K",
+        "value": 23146.055997,
+        "porcentage_supply": 0.15055758080421597,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000012d28dc9a7d9e39a1a7071f4a9d143a647e80396000f510cb7c9",
+        "date": "2024-03-02T07:59:23.372811"
+    },
+    {
+        "total_out": "94.67K",
+        "value": 26664.565209,
+        "porcentage_supply": 0.17344434108271564,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000052f5440646e05e17ad34fa8acd8417afcee1111c5097d2d4123f",
+        "date": "2024-03-02T07:59:23.371088"
+    },
+    {
+        "total_out": "150.27K",
+        "value": 42324.84600224121,
+        "porcentage_supply": 0.2753093841488311,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000088f28d2b0f7297bcf3c19c08752ea76eff9b22f16a061acb431",
+        "date": "2024-03-02T07:59:23.369471"
+    },
+    {
+        "total_out": "55.25K",
+        "value": 15560.843298015781,
+        "porcentage_supply": 0.10121823443814396,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000050731d25f7f7e166a1306042c1d45a2ec65d25af0c6128009e7a",
+        "date": "2024-03-02T07:59:23.367847"
+    },
+    {
+        "total_out": "79.14K",
+        "value": 22290.369878999998,
+        "porcentage_supply": 0.14499162037145244,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000004d3b9a621bb4cbeb1291f0d38ebd39f2f7bdf7f066e5689e64b2",
+        "date": "2024-03-02T07:59:23.366179"
+    },
+    {
+        "total_out": "71.33K",
+        "value": 20092.005774,
+        "porcentage_supply": 0.13069197548082725,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000057332c79f6fd3d240f74089d70f3127a7a903cc871e72ad96354",
+        "date": "2024-03-02T07:59:23.359394"
+    },
+    {
+        "total_out": "79.67K",
+        "value": 22441.340175,
+        "porcentage_supply": 0.14597363314036663,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000060504a63c79481bfdd0633899fa6f03fe9084ba598f5745d6460",
+        "date": "2024-03-02T07:59:23.357724"
+    },
+    {
+        "total_out": "65.31K",
+        "value": 18395.843232,
+        "porcentage_supply": 0.11965898873754158,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001abd408e8169935ffc9805b643c898a6535fc1fa9f727c40710f",
+        "date": "2024-03-02T07:59:23.356081"
+    },
+    {
+        "total_out": "67.13K",
+        "value": 18907.621269,
+        "porcentage_supply": 0.12298793873962563,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000068ab3b03be59c3730ee91157bf213a13305e8a65bf6eb027b236",
+        "date": "2024-03-02T07:59:23.354489"
+    },
+    {
+        "total_out": "74.84K",
+        "value": 21079.790901,
+        "porcentage_supply": 0.1371171970863907,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000020bdf638f69c7320dbaf72f9952e762e63830416340735553dc8",
+        "date": "2024-03-02T07:59:23.352864"
+    },
+    {
+        "total_out": "58.08K",
+        "value": 16358.025897,
+        "porcentage_supply": 0.10640364847057512,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000a6d57607cb2d9c2e2e378bd88eb5c15b91c7cb1f75347f4bd769",
+        "date": "2024-03-02T07:59:23.351329"
+    },
+    {
+        "total_out": "57.50K",
+        "value": 16194.662516999999,
+        "porcentage_supply": 0.105341022713168,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000f0bcf491bcd7799b445c2bdf7d17a4cc67a369b8d09dfcfc104a",
+        "date": "2024-03-02T07:59:23.349799"
+    },
+    {
+        "total_out": "55.55K",
+        "value": 15647.113533,
+        "porcentage_supply": 0.10177939431247927,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c47434399846da4ec43afe109f18f4d0f318fe1f0c372a07843b",
+        "date": "2024-03-02T07:59:23.348198"
+    },
+    {
+        "total_out": "80.12K",
+        "value": 22567.397958325233,
+        "porcentage_supply": 0.14679359810119835,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001f4cc2a7fecad21330b1da3971b9706a4ad05ce1fbea285f9075",
+        "date": "2024-03-02T07:59:23.346691"
+    },
+    {
+        "total_out": "52.29K",
+        "value": 14727.772029,
+        "porcentage_supply": 0.09579937625700195,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000be987ade5c2cf3684c58e98bd7822312f7bb7ba7155ccad1867b",
+        "date": "2024-03-02T07:59:23.345236"
+    },
+    {
+        "total_out": "54.91K",
+        "value": 15467.413815,
+        "porcentage_supply": 0.10061050597933147,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000cd01a2a47127992a53ab4f0fd62880d7a9a6f22745cdb83019a1",
+        "date": "2024-03-02T07:59:23.343818"
+    },
+    {
+        "total_out": "55.64K",
+        "value": 15672.463023,
+        "porcentage_supply": 0.10194428451621487,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000574977fdc98c7bb494b7978525203377245b704e6786490a68f",
+        "date": "2024-03-02T07:59:23.342328"
+    },
+    {
+        "total_out": "90.02K",
+        "value": 25355.84185832523,
+        "porcentage_supply": 0.16493152051211307,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000038442e0ed9b3ac4094523966eb10f15a4fe6d1bb29be83f83d02",
+        "date": "2024-03-02T07:59:23.340914"
+    },
+    {
+        "total_out": "80.55K",
+        "value": 22686.948567,
+        "porcentage_supply": 0.147571236003227,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000038442e0ed9b3ac4094523966eb10f15a4fe6d1bb29be83f83d02",
+        "date": "2024-03-02T07:59:23.339415"
+    },
+    {
+        "total_out": "112.25K",
+        "value": 31616.820685597893,
+        "porcentage_supply": 0.20565715540311852,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c09380bc48e985c3d3e790c7197782aa9ffa02292f8190ced8cc",
+        "date": "2024-03-02T07:59:23.337988"
+    },
+    {
+        "total_out": "62.34K",
+        "value": 17558.635141286926,
+        "porcentage_supply": 0.11421322187411508,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c09380bc48e985c3d3e790c7197782aa9ffa02292f8190ced8cc",
+        "date": "2024-03-02T07:59:23.336612"
+    },
+    {
+        "total_out": "114.90K",
+        "value": 32362.39651863468,
+        "porcentage_supply": 0.21050688417516747,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c09380bc48e985c3d3e790c7197782aa9ffa02292f8190ced8cc",
+        "date": "2024-03-02T07:59:23.335137"
+    },
+    {
+        "total_out": "150.31K",
+        "value": 42337.309893,
+        "porcentage_supply": 0.27539045771230536,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c09380bc48e985c3d3e790c7197782aa9ffa02292f8190ced8cc",
+        "date": "2024-03-02T07:59:23.333766"
+    },
+    {
+        "total_out": "84.48K",
+        "value": 23794.495289800823,
+        "porcentage_supply": 0.15477546791358537,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c09380bc48e985c3d3e790c7197782aa9ffa02292f8190ced8cc",
+        "date": "2024-03-02T07:59:23.332371"
+    },
+    {
+        "total_out": "149.76K",
+        "value": 42180.1578035558,
+        "porcentage_supply": 0.2743682343837126,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003bd2f4685001a2ce3045bdededb3221974703314a7cba082dda3",
+        "date": "2024-03-02T07:59:23.331096"
+    },
+    {
+        "total_out": "87.61K",
+        "value": 24676.905721253577,
+        "porcentage_supply": 0.16051526133036234,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000018264a17b9aa546a43a95459c9b2519dd2a726ec619a90e9b9ea",
+        "date": "2024-03-02T07:59:23.329842"
+    },
+    {
+        "total_out": "57.74K",
+        "value": 16263.40690888224,
+        "porcentage_supply": 0.10578818266720029,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007e853230978f7f3e520ce1b40b9120ee604cfa390848f59dac2a",
+        "date": "2024-03-02T07:59:23.328449"
+    },
+    {
+        "total_out": "137.27K",
+        "value": 38662.79615443658,
+        "porcentage_supply": 0.2514889386292414,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000042d621b6ca9c2d2925dbc842619533162b5d0a62eedacdae26f",
+        "date": "2024-03-02T07:59:23.327151"
+    },
+    {
+        "total_out": "234.79K",
+        "value": 66131.8058442,
+        "porcentage_supply": 0.43016592992807773,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000eb0fc0bad47e04521877fb770c1f99a27a168b5a995f881390bd",
+        "date": "2024-03-02T07:59:23.325808"
+    },
+    {
+        "total_out": "86.05K",
+        "value": 24236.925179417354,
+        "porcentage_supply": 0.15765333072808713,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000058ac963834ddece9fcc94bda85eb696e7da2c89d205e91cf54f1",
+        "date": "2024-03-02T07:59:23.319229"
+    },
+    {
+        "total_out": "78.75K",
+        "value": 22180.80375,
+        "porcentage_supply": 0.14427892826863975,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000051e85d1af2305d5e5c628f88f6469aac61ff4321eddff0a928f8",
+        "date": "2024-03-02T07:59:23.318037"
+    },
+    {
+        "total_out": "78.75K",
+        "value": 22180.803087246033,
+        "porcentage_supply": 0.14427892395764036,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000051e85d1af2305d5e5c628f88f6469aac61ff4321eddff0a928f8",
+        "date": "2024-03-02T07:59:23.316815"
+    },
+    {
+        "total_out": "157.50K",
+        "value": 44361.6075,
+        "porcentage_supply": 0.2885578565372795,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007b6222a8ace7a001ebd1387bad75819a73e41f9000e6f9626e50",
+        "date": "2024-03-02T07:59:23.315623"
+    },
+    {
+        "total_out": "157.55K",
+        "value": 44375.69055,
+        "porcentage_supply": 0.2886494622060215,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000edd4b0a7ce03cbd18a596a8f1bf8d1d82a0d88463aba88b1024",
+        "date": "2024-03-02T07:59:23.314311"
+    },
+    {
+        "total_out": "62.64K",
+        "value": 17642.18496094413,
+        "porcentage_supply": 0.11475668632982396,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000003fd9849f61956e8d726c7e3aef2dfeb653479617b1814381ba78",
+        "date": "2024-03-02T07:59:23.313121"
+    },
+    {
+        "total_out": "62.34K",
+        "value": 17558.63470139441,
+        "porcentage_supply": 0.11421321901275705,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000aa2ac51328fd25c5278d0ddbcd5e2185306f1977cc9f88a0e24d",
+        "date": "2024-03-02T07:59:23.311973"
+    },
+    {
+        "total_out": "53.16K",
+        "value": 14973.643546765556,
+        "porcentage_supply": 0.09739869066755383,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000001a5fbcb16297c179c47926ab0d4e8ee3fd801a44a0cede084585",
+        "date": "2024-03-02T07:59:23.310886"
+    },
+    {
+        "total_out": "65.50K",
+        "value": 18448.7955,
+        "porcentage_supply": 0.12000342605201147,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000d79f2e0d0be20ac8c898d4459cd51634c7b74fb588b43baf387d",
+        "date": "2024-03-02T07:59:23.309624"
+    },
+    {
+        "total_out": "54.00K",
+        "value": 15209.688720712396,
+        "porcentage_supply": 0.09893408790130082,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000011b4a0f3e469b0cfd3b15c31cad1841c7576280a0b61a3af29ae6",
+        "date": "2024-03-02T07:59:23.308554"
+    },
+    {
+        "total_out": "59.00K",
+        "value": 16617.994381097593,
+        "porcentage_supply": 0.1080946590710915,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000002dc456014be17008a9a1f7b8ce6e25bc6a70df56a85fba3571e3",
+        "date": "2024-03-02T07:59:23.307465"
+    },
+    {
+        "total_out": "64.00K",
+        "value": 18026.300041750368,
+        "porcentage_supply": 0.11725523024262272,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000000500cae2d968f155c80e9a6a522edc579b2187164b7d8473e1df",
+        "date": "2024-03-02T07:59:23.306383"
+    },
+    {
+        "total_out": "69.00K",
+        "value": 19434.6057020905,
+        "porcentage_supply": 0.12641580141212025,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000d2c23cc40b3b3a0e8e660c8a51d0da6ca7aa80bada06f08325d0",
+        "date": "2024-03-02T07:59:23.305183"
+    },
+    {
+        "total_out": "78.80K",
+        "value": 22194.8868,
+        "porcentage_supply": 0.14437053393738175,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000069a224e8de060e5eec58faafddd5694d08436d55407b7d586075",
+        "date": "2024-03-02T07:59:23.304167"
+    },
+    {
+        "total_out": "65.53K",
+        "value": 18458.028865740474,
+        "porcentage_supply": 0.12006348609890441,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000069a224e8de060e5eec58faafddd5694d08436d55407b7d586075",
+        "date": "2024-03-02T07:59:23.303188"
+    },
+    {
+        "total_out": "144.33K",
+        "value": 40652.91632759313,
+        "porcentage_supply": 0.2644340243414228,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c3ca1ef6c6a4b0114c17bb16e3aeeb0d48c6c96a287fbe80442f",
+        "date": "2024-03-02T07:59:23.302210"
+    },
+    {
+        "total_out": "78.80K",
+        "value": 22194.8868,
+        "porcentage_supply": 0.14437053393738175,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c3ca1ef6c6a4b0114c17bb16e3aeeb0d48c6c96a287fbe80442f",
+        "date": "2024-03-02T07:59:23.300811"
+    },
+    {
+        "total_out": "223.13K",
+        "value": 62847.80378961477,
+        "porcentage_supply": 0.4088045625850405,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000006cdee4b31bd7b21a19e69f6fefcb899d9d98ecd447335e63275b",
+        "date": "2024-03-02T07:59:23.299787"
+    },
+    {
+        "total_out": "157.60K",
+        "value": 44389.7736,
+        "porcentage_supply": 0.2887410678747635,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b3b1e7bd9ee257bb370c47ffb8f9fdd28a4de1ea02ffb65b2fad",
+        "date": "2024-03-02T07:59:23.298901"
+    },
+    {
+        "total_out": "223.13K",
+        "value": 62848.08610308248,
+        "porcentage_supply": 0.408806398942506,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000b3b1e7bd9ee257bb370c47ffb8f9fdd28a4de1ea02ffb65b2fad",
+        "date": "2024-03-02T07:59:23.297949"
+    },
+    {
+        "total_out": "51.37K",
+        "value": 14468.92360645667,
+        "porcentage_supply": 0.09411565129331215,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000009811c14befd542f3f60cb731ec6752960f42c7c197c078ce43df",
+        "date": "2024-03-02T07:59:23.296000"
+    },
+    {
+        "total_out": "62.34K",
+        "value": 17558.6347027661,
+        "porcentage_supply": 0.11421321902167945,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000111be241365f4dc8c35db137bfd9bb173b70a729d7f34fe7739ea",
+        "date": "2024-03-02T07:59:23.295138"
+    },
+    {
+        "total_out": "70.00K",
+        "value": 19716.26736277426,
+        "porcentage_supply": 0.1282479190844935,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000752693778c6e04e928fee3af902a52f684f48555a9da7db6f2b8",
+        "date": "2024-03-02T07:59:23.294230"
+    },
+    {
+        "total_out": "75.00K",
+        "value": 21124.573023807276,
+        "porcentage_supply": 0.13740849025849805,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000c7b711b5e246e6e9782df27428995f31a8306ae4574e3d333813",
+        "date": "2024-03-02T07:59:23.293389"
+    },
+    {
+        "total_out": "80.00K",
+        "value": 22532.87868439527,
+        "porcentage_supply": 0.14656906142960788,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005ea24da350663b82fa31e4ed80e0ccc8aaf778c5416423fb3b42",
+        "date": "2024-03-02T07:59:23.292562"
+    },
+    {
+        "total_out": "55.00K",
+        "value": 15491.355,
+        "porcentage_supply": 0.10076623561619284,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000007e2fecdb03167bd7f1e1ecf40ee538357146245f307faae81d44",
+        "date": "2024-03-02T07:59:23.291616"
+    },
+    {
+        "total_out": "85.00K",
+        "value": 23941.184336862974,
+        "porcentage_supply": 0.15572963254789782,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000011b7e30df24861d155b9a9147f5ee0fcc2d90e765b4a061daa83d",
+        "date": "2024-03-02T07:59:23.290773"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000ec3b9e05182163678285d81ae923bfe786104968ef0b99863e7b",
+        "date": "2024-03-02T07:59:23.290007"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000d3444efbeaf8d257134e513daeac16cfa0de46e4bd679079c9bd",
+        "date": "2024-03-02T07:59:23.289259"
+    },
+    {
+        "total_out": "130.00K",
+        "value": 36615.93,
+        "porcentage_supply": 0.23817473872918304,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000192be8351eddb305526632bfb28e81a4a41dc49d404c49aefaef4",
+        "date": "2024-03-02T07:59:23.288511"
+    },
+    {
+        "total_out": "150.00K",
+        "value": 42249.15,
+        "porcentage_supply": 0.2748170062259805,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000193c6d00fbf5b00f4de2073a24f2c60e8d7be9a7fb2458eb0b589",
+        "date": "2024-03-02T07:59:23.287764"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001fc3f111edc8664e40c95070f483877043fcbe09a8fe7f21fc81a",
+        "date": "2024-03-02T07:59:23.286950"
+    },
+    {
+        "total_out": "65.73K",
+        "value": 18512.859294449998,
+        "porcentage_supply": 0.12042014023911879,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000011801a42feb12dd06e457675ec3f147249de87abd7ee84dd2bb76",
+        "date": "2024-03-02T07:59:23.286145"
+    },
+    {
+        "total_out": "90.00K",
+        "value": 25349.489999999998,
+        "porcentage_supply": 0.16489020373558827,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000005e2dceb40e67432959aa8f69f9cdefc367cf735a54ab71457c49",
+        "date": "2024-03-02T07:59:23.285458"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.098920252556,
+        "porcentage_supply": 0.18321133046058036,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000f539ef2fc06972ceb5320274d8dc7598436b37fb5323ed0e41b2",
+        "date": "2024-03-02T07:59:23.284790"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000f539ef2fc06972ceb5320274d8dc7598436b37fb5323ed0e41b2",
+        "date": "2024-03-02T07:59:23.284106"
+    },
+    {
+        "total_out": "177.24K",
+        "value": 49921.032318,
+        "porcentage_supply": 0.32472011032986886,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001a7a18f8900cdb42b6c020d141d492592037dd2f3e643513feef0",
+        "date": "2024-03-02T07:59:23.283489"
+    },
+    {
+        "total_out": "59.00K",
+        "value": 16617.999,
+        "porcentage_supply": 0.10809468911555233,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000f6a4dad9bb7879c248385ecafb52de07be9ab6e4bb36074b1eb4",
+        "date": "2024-03-02T07:59:23.282813"
+    },
+    {
+        "total_out": "60.00K",
+        "value": 16899.66,
+        "porcentage_supply": 0.10992680249039219,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000f2db65fdc66fd48cfda296342c5f08564273159a2b945d425236",
+        "date": "2024-03-02T07:59:23.282160"
+    },
+    {
+        "total_out": "200.00K",
+        "value": 56332.2,
+        "porcentage_supply": 0.366422674967974,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000125279415858dfc1fc9567c501be009237e896cf56d7a9a4c67c8",
+        "date": "2024-03-02T07:59:23.281424"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000014d40828ed7f1240eb053417cf13a671f7b6c8e2445ccd662a1f2",
+        "date": "2024-03-02T07:59:23.280688"
+    },
+    {
+        "total_out": "60.00K",
+        "value": 16899.66,
+        "porcentage_supply": 0.10992680249039219,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000014d40828ed7f1240eb053417cf13a671f7b6c8e2445ccd662a1f2",
+        "date": "2024-03-02T07:59:23.280184"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001cf316df49727673948e1f03e2e09f2d76bab9b85d6f28736fcc1",
+        "date": "2024-03-02T07:59:23.279723"
+    },
+    {
+        "total_out": "150.00K",
+        "value": 42249.15,
+        "porcentage_supply": 0.2748170062259805,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000820cef8b89836efba1845eb2a4d3adaa5e9fe792132ab6cc6b4d",
+        "date": "2024-03-02T07:59:23.279206"
+    },
+    {
+        "total_out": "200.00K",
+        "value": 56332.2,
+        "porcentage_supply": 0.366422674967974,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000d6ee53022c2502f6c30ac9b6545dac14ede1931daf19740cf3d4",
+        "date": "2024-03-02T07:59:23.278733"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000e116e0569b3ebbd777941eb4a96d69b162e71f2fae5b8847600b",
+        "date": "2024-03-02T07:59:23.278104"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000150de9bde98425d2b68d47bdc0d5cb032bc6ace2465768565cd92",
+        "date": "2024-03-02T07:59:23.277694"
+    },
+    {
+        "total_out": "75.00K",
+        "value": 21124.575,
+        "porcentage_supply": 0.13740850311299024,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000060fa9ea6b76e480e9f017428f923b160ad5bdbc1c61375f5c8bb",
+        "date": "2024-03-02T07:59:23.277277"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000011431a1c07dab1bd3d1c85a6d25908839508b28f151356fc38821",
+        "date": "2024-03-02T07:59:23.276812"
+    },
+    {
+        "total_out": "55.00K",
+        "value": 15491.355,
+        "porcentage_supply": 0.10076623561619284,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001898d342ea9ba099532f4135542bd6b7679e0c7e6377e7f516b58",
+        "date": "2024-03-02T07:59:23.276391"
+    },
+    {
+        "total_out": "56.37K",
+        "value": 15877.229258924375,
+        "porcentage_supply": 0.10327622241160211,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001898d342ea9ba099532f4135542bd6b7679e0c7e6377e7f516b58",
+        "date": "2024-03-02T07:59:23.276060"
+    },
+    {
+        "total_out": "111.37K",
+        "value": 31368.58491486215,
+        "porcentage_supply": 0.20404246229445724,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000001feb0126c09f44c5e6fec45bdc6aa2328bc7947cf1d8b2a6c8f71",
+        "date": "2024-03-02T07:59:23.275756"
+    },
+    {
+        "total_out": "55.00K",
+        "value": 15491.355,
+        "porcentage_supply": 0.10076623561619284,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000a7273f42903f30f79f00be7847a60006af263c7b3f77fc4c9faf",
+        "date": "2024-03-02T07:59:23.275461"
+    },
+    {
+        "total_out": "92.10K",
+        "value": 25942.241278888087,
+        "porcentage_supply": 0.1687458583913777,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000351bc6addce3632077ce6d5bf3bec7181cca4135983b14f314f28",
+        "date": "2024-03-02T07:59:23.275180"
+    },
+    {
+        "total_out": "102.10K",
+        "value": 28758.570270355794,
+        "porcentage_supply": 0.1870651642704922,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000ddc9941ff88f862d1b55355b6189db669aac6703553b6ceafd58",
+        "date": "2024-03-02T07:59:23.274912"
+    },
+    {
+        "total_out": "102.10K",
+        "value": 28758.8525838235,
+        "porcentage_supply": 0.18706700062795767,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000002349b102c0bfc14906c28b88b8f913f1f7efce46d9155a3e8d5ca",
+        "date": "2024-03-02T07:59:23.274658"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000048f27aa229d9731ca47e8c3175186e6e00b805eb55a6afac45f54",
+        "date": "2024-03-02T07:59:23.274417"
+    },
+    {
+        "total_out": "151.91K",
+        "value": 42786.64808556316,
+        "porcentage_supply": 0.2783132567949662,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000048f27aa229d9731ca47e8c3175186e6e00b805eb55a6afac45f54",
+        "date": "2024-03-02T07:59:23.274194"
+    },
+    {
+        "total_out": "100.00K",
+        "value": 28166.1,
+        "porcentage_supply": 0.183211337483987,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/00000000000115a2533877598db4dfd2e48e1229dbdc093f111445359b6471a0",
+        "date": "2024-03-02T07:59:23.273984"
+    },
+    {
+        "total_out": "161.37K",
+        "value": 45451.63557,
+        "porcentage_supply": 0.29564813529790984,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000a82a0aa48ad31126ec980d0592fbf91a4cd9c54277832d2d4541",
+        "date": "2024-03-02T07:59:23.273740"
+    },
+    {
+        "total_out": "51.26K",
+        "value": 14437.16829225,
+        "porcentage_supply": 0.09390909328251092,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/0000000000019c970dc73dd875e1a60703589e4dafde855e6ff5c2ed2ac131ae",
+        "date": "2024-03-02T07:59:23.273377"
+    },
+    {
+        "total_out": "77.86K",
+        "value": 21930.688782,
+        "porcentage_supply": 0.14265201159178195,
+        "url_tx_hash": "https://explorer.aipowergrid.io/block/000000000000540e2f91bea319a66197859a70c496f6af23b2a76e50ccb62312",
+        "date": "2024-03-02T07:59:23.263204"
     }
 ]
