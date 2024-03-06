@@ -1,20 +1,20 @@
 [
     {
-        "urlPart": "dymension",
-        "title": "DYM",
-        "changeValue": "6,30%",
+        "urlPart": "pepe",
+        "title": "PEPE",
+        "changeValue": "29,83%",
         "changeDirection": "up"
     },
     {
-        "urlPart": "jupiter-ag",
-        "title": "JUP",
-        "changeValue": "6,05%",
-        "changeDirection": "down"
+        "urlPart": "jito",
+        "title": "JTO",
+        "changeValue": "4,26%",
+        "changeDirection": "up"
     },
     {
-        "urlPart": "meme-ai-token",
-        "title": "MEMEAI",
-        "changeValue": "16,07%",
+        "urlPart": "shiba-inu",
+        "title": "SHIB",
+        "changeValue": "19,02%",
         "changeDirection": "up"
     }
 ]

@@ -20,7 +20,7 @@ from resources.python.fennec import fennec
 from resources.python.aipg import aipg
 from resources.python.BTCW import BTCW
 from resources.python.ferrite import ferrite
-from resources.python.Bitnet import Bitnet
+from resources.python.bitnet import bitnet
 from resources.python.nexa import nexa
 
 from resources.python import table
@@ -41,7 +41,7 @@ from resources.python import coins_data
 
 logger_fonction_scrap = logging.getLogger('scraping')
 logger_fonction_scrap.setLevel(logging.INFO)
-filenamelog = Path("log", f"scrap").with_suffix(".log")
+filenamelog = Path("logs", f"scrap").with_suffix(".log")
 handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger_fonction_scrap.addHandler(handler)
@@ -49,12 +49,18 @@ logger_fonction_scrap.addHandler(handler)
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
     logger_fonction_tx_analyze.setLevel(logging.INFO)
-    filenamelog = Path("log", "tx_analyze.log")
+    filenamelog = Path("logs", "tx_analyze.log")
     handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
 logger_fonction_tx_analyze.info("Start")
+
+# Version pc
+coins_path_root = Path("resources", "config_python")
+
+# Version serveur
+# coins_path_root = Path("/home", "container", "webroot","resources", "config_python")
 
 def dynex_j():
     dynex.job_dynex()
@@ -89,7 +95,7 @@ def fec_j():
     logger_fonction_tx_analyze.info("End Job FEC")
 
 def bit_j():
-    Bitnet.job_bitnet()
+    bitnet.job_bitnet()
     logger_fonction_tx_analyze.info("End Job BIT")
 
 def nexa_j():
@@ -144,21 +150,22 @@ def all_price ():
             price = data[coin]['usd']
             if coin == "ai-power-grid":
                 coin = "aipg"
+
+            coins_path = coins_path_root.joinpath(f"{coin}/tweet.json")
             
-            with open(f"./config/{coin}/tweet.json", "r") as f:
+            with open(coins_path, "r") as f:
                 globals_data = json.load(f)
             f.close()
 
             globals_data['price'] = price
 
-            with open(f"./config/{coin}/tweet.json", "w") as f:
+            with open(coins_path, "w") as f:
                 json.dump(globals_data, f, indent=4)
 
         except Exception as e:
             print(f"Error occurred while getting {coin} price: {e}")
 
 def all_price_paprika ():
-    path_coin = ''
     coins = ['fnnc-fennec', 'xrp-xrp', 'fec-ferrite', 'bit-bitnet-io']
     for coin in coins : 
         url: str = f"https://api.coinpaprika.com/v1/tickers/{coin}"
@@ -168,14 +175,16 @@ def all_price_paprika ():
             price = data['quotes']['USD']['price']
 
             path_coin = coin.partition('-')[2].removesuffix("-io")
+            
+            coins_path = coins_path_root.joinpath(f"{path_coin}/tweet.json")
 
-            with open(f"./config/{path_coin}/tweet.json", "r") as f:
+            with open(coins_path, "r") as f:
                 globals_data = json.load(f)
             f.close()
 
             globals_data['price'] = price
 
-            with open(f"./config/{path_coin}/tweet.json", "w") as f:
+            with open(coins_path, "w") as f:
                 json.dump(globals_data, f, indent=4)
 
         except Exception as e:
@@ -194,22 +203,24 @@ def all_price_xeggex ():
 
             path_coin = coin.removesuffix('USDT')
 
-            with open(f"./config/{path_coin}/tweet.json", "r") as f:
+            coins_path = coins_path_root.joinpath(f"{path_coin}/tweet.json")
+
+            with open(coins_path, "r") as f:
                 globals_data = json.load(f)
             f.close()
 
             globals_data['price'] = price
 
-            with open(f"./config/{path_coin}/tweet.json", "w") as f:
+            with open(coins_path, "w") as f:
                 json.dump(globals_data, f, indent=4)
 
         except Exception as e:
             print(f"Error occurred while getting {path_coin} price: {e}")
 
 # Price get
-schedule.every(30).minutes.do(all_price)
-schedule.every(30).minutes.do(all_price_paprika)
-schedule.every(30).minutes.do(all_price_xeggex)
+schedule.every(60).minutes.do(all_price)
+schedule.every(60).minutes.do(all_price_paprika)
+schedule.every(60).minutes.do(all_price_xeggex)
 
 # Scrap CoinMarketCap
 schedule.every(60).minutes.do(gainer_j)
@@ -221,16 +232,16 @@ schedule.every(1).week.do(coins_data_j)
 schedule.every(30).minutes.do(coins_table_j)
 
 # Analyse TX --> THREAD
-schedule.every(60).seconds.do(run_threaded, dynex_j)
-schedule.every(60).seconds.do(run_threaded, kylacoin_j)
-schedule.every(60).seconds.do(run_threaded, lyncoin_j)
-schedule.every(60).seconds.do(run_threaded, radiant_j)
-schedule.every(60).seconds.do(run_threaded, fennec_j)
-schedule.every(60).seconds.do(run_threaded, aipg_j)
-schedule.every(60).seconds.do(run_threaded, btcw_j)
-schedule.every(60).seconds.do(run_threaded, fec_j)
-schedule.every(60).seconds.do(run_threaded, bit_j)
-schedule.every(60).seconds.do(run_threaded, nexa_j)
+schedule.every(1).minutes.do(run_threaded, dynex_j)
+schedule.every(1).minutes.do(run_threaded, kylacoin_j)
+schedule.every(1).minutes.do(run_threaded, lyncoin_j)
+schedule.every(1).minutes.do(run_threaded, radiant_j)
+schedule.every(1).minutes.do(run_threaded, fennec_j)
+schedule.every(1).minutes.do(run_threaded, aipg_j)
+schedule.every(1).minutes.do(run_threaded, btcw_j)
+schedule.every(1).minutes.do(run_threaded, fec_j)
+schedule.every(1).minutes.do(run_threaded, bit_j)
+schedule.every(1).minutes.do(run_threaded, nexa_j)
 
 # Exécuter la boucle infiniment
 while True:

@@ -2,6 +2,13 @@ import asyncio
 import aiohttp
 import json
 from bs4 import BeautifulSoup
+from pathlib import Path
+
+# Version pc
+trends_jaon = Path("resources", "data_scrap", "trends.json")
+
+# Version serveur
+# trends_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "trends.json")
 
 class Scraper:
     async def scrape_trend(self):
@@ -67,18 +74,16 @@ class Scraper:
             print(f'An error occurred while scraping {url_part}:', e)
             return None
 
-# Usage Example
-# Note: To run this code, you need to have an event loop
 async def main():
     scraper = Scraper()
     results = await scraper.scrape_trend()
 
-    with open(f"./resources/data/trends.json", "r") as f:
+    with open(trends_jaon, "r") as f:
         globals_data = json.load(f)
     f.close()
 
     globals_data = results
 
-    with open(f"./resources/data/trends.json", "w") as f:
+    with open(trends_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
 
