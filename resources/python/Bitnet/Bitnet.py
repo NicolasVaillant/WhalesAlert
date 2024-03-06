@@ -158,9 +158,10 @@ def save_tx(total_out, value, url_tx_hash):
 
     # Créer un dictionnaire pour la nouvelle transaction
     new_transaction = {
-        'total_out': total_out,
+        'amount': total_out,
         'value': value,
-        'url_tx_hash': url_tx_hash,
+        'porcentage_supply': None,
+        'url': url_tx_hash,
         'date': datetime.datetime.now().isoformat()  # Ajouter un horodatage pour la transaction
     }
 
