@@ -8,16 +8,16 @@ from pathlib import Path
 import os
 
 # Version pc
-tweet_json = Path("resources", "config_python", "BTCW", "tweet.json")
-config_json = Path("resources", "config_python", "BTCW", "config.json")
-telegram_json = Path("resources", "config_python", "BTCW", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_bitcoinpow.json")
+# tweet_json = Path("resources", "config_python", "BTCW", "tweet.json")
+# config_json = Path("resources", "config_python", "BTCW", "config.json")
+# telegram_json = Path("resources", "config_python", "BTCW", "telegram.json")
+# tx_data_json = Path("resources", "data_tx", "tx_bitcoinpow.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitcoinpow.json")
+tweet_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "tweet.json")
+config_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "config.json")
+telegram_json = Path("/home", "container", "webroot","resources", "config_python", "BTCW", "telegram.json")
+tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitcoinpow.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
@@ -154,7 +154,9 @@ def send_telegram_message(message):
 
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     # S'assurer que le dossier existe, sinon le créer
-    os.makedirs(tx_data_json, exist_ok=True)
+    directory = os.path.dirname(tx_data_json)
+    if not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
     
     # Essayer de lire les transactions existantes, sinon initialiser une liste vide
     try:

@@ -11,12 +11,14 @@ tweet_json = Path("resources", "config_python", "bitnet", "tweet.json")
 config_json = Path("resources", "config_python", "bitnet", "config.json")
 telegram_json = Path("resources", "config_python", "bitnet", "telegram.json")
 tx_data_json = Path("resources", "data_tx", "tx_bitnet.json")
+certif = Path("resources", "python", "bitnet","bitexplorer.io.crt")
 
 # Version serveur
 # tweet_json = Path("/home", "container", "webroot","resources", "config_python", "bitnet", "tweet.json")
 # config_json = Path("/home", "container", "webroot","resources", "config_python", "bitnet", "config.json")
 # telegram_json = Path("/home", "container", "webroot","resources", "config_python", "bitnet", "telegram.json")
 # tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitnet.json")
+# certif = Path("/home", "container", "webroot","resources", "python", "bitnet","bitexplorer.io.crt")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
@@ -57,13 +59,13 @@ def get_transaction_info():
         url_block_hash = "https://bitexplorer.io/api/block-height/"
         url_block : str = "https://bitexplorer.io/api/block/"
         url_tx: str = "https://bitexplorer.io/fr/address/"
-        data = requests.get(url, verify=False)
+        data = requests.get(url, cert=certif)
         block_heigh = data.json()
 
-        block_hash_j = requests.get(f"https://bitexplorer.io/api/block-height/{block_heigh}", verify=False)
+        block_hash_j = requests.get(f"https://bitexplorer.io/api/block-height/{block_heigh}" , cert=certif)
         url_block_json = block_hash_j.text
 
-        data_block = requests.get(f"https://bitexplorer.io/api/block/{url_block_json}/txs", verify=False)
+        data_block = requests.get(f"https://bitexplorer.io/api/block/{url_block_json}/txs", cert=certif)
         data_json = data_block.json()
         transactions = []
         if last_known_block_index != block_heigh:
@@ -147,7 +149,9 @@ def send_telegram_message(message):
 def save_tx(total_out, value, url_tx_hash):
     
     # S'assurer que le dossier existe, sinon le créer
-    os.makedirs(tx_data_json, exist_ok=True)
+    directory = os.path.dirname(tx_data_json)
+    if not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
     
     # Essayer de lire les transactions existantes, sinon initialiser une liste vide
     try:

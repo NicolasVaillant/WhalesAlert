@@ -148,7 +148,9 @@ def send_telegram_message(message):
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
 
     # S'assurer que le dossier existe, sinon le créer
-    os.makedirs(tx_data_json, exist_ok=True)
+    directory = os.path.dirname(tx_data_json)
+    if not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
     
     # Essayer de lire les transactions existantes, sinon initialiser une liste vide
     try:
