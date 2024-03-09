@@ -1,9 +1,13 @@
 import requests
 import os
 import json
+from pathlib import Path
 
-# Définir le chemin de base pour l'enregistrement des informations des cryptomonnaies
-chemin_base = 'resources/data_coins'
+# Version pc
+chemin_base = Path("resources", "data_coins")
+
+# Version serveur
+# chemin_base = Path("/home", "container", "webroot","resources", "data_coins")
 
 # S'assurer que le chemin de base existe
 if not os.path.exists(chemin_base):

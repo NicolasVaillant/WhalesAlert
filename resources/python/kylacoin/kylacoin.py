@@ -6,17 +6,28 @@ import logging
 import os
 from pathlib import Path
 
+# Version pc
+tweet_json = Path("resources", "config_python", "kylacoin", "tweet.json")
+config_json = Path("resources", "config_python", "kylacoin", "config.json")
+telegram_json = Path("resources", "config_python", "kylacoin", "telegram.json")
+tx_data_json = Path("resources", "data_tx", "tx_kylacoin.json")
+
+# Version serveur
+# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
+# config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
+# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "telegram.json")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
+
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
     logger_fonction_tx_analyze.setLevel(logging.INFO)
-    filenamelog = Path("log", "tx_analyze.log")
+    filenamelog = Path("logs", "tx_analyze.log")
     handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
-
 # Charger les valeurs globales initiales
-with open("./resources/config_python/kylacoin/tweet.json", "r") as f:
+with open(tweet_json, "r") as f:
     globals_data = json.load(f)
 
 last_transaction_value: float = 0.0
@@ -30,7 +41,7 @@ seen_transactions: set = set()
 
 # Obtenez le prix de DNX
 def get_kylacoin_price() -> float:
-    with open("./resources/config_python/kylacoin/tweet.json", "r") as f:
+    with open(tweet_json, "r") as f:
         globals_data = json.load(f)
     f.close()
     return globals_data['price']
@@ -90,7 +101,7 @@ def post_tweet(payload: dict) -> None:
         logger_fonction_tx_analyze.warning("Reached the day limit of tweets.")
         return
 
-    with open("./resources/config_python/kylacoin/config.json") as f:
+    with open(config_json) as f:
         config: dict = json.load(f)
         consumer_key: str = config['CONSUMER_KEY']
         consumer_secret: str = config['CONSUMER_SECRET']
@@ -128,7 +139,7 @@ def post_tweet(payload: dict) -> None:
         logger_fonction_tx_analyze.error(f"Error occurred while posting tweet: {e}")
         
 def send_telegram_message(message):
-    with open("./resources/config_python/telegram.json") as f:
+    with open(telegram_json) as f:
         config: dict = json.load(f)
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     payload = {
@@ -140,29 +151,25 @@ def send_telegram_message(message):
     return response.json()
 
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
-    # Chemin du dossier où stocker les transactions
-    transactions_dir_path = './resources/data_tx'
-    # Nom du fichier JSON pour stocker les transactions
-    transactions_file_name = 'tx_ai_power_grid.json'
-    # Chemin complet du fichier
-    transactions_file_path = os.path.join(transactions_dir_path, transactions_file_name)
-    
+
     # S'assurer que le dossier existe, sinon le créer
-    os.makedirs(transactions_dir_path, exist_ok=True)
+    directory = os.path.dirname(tx_data_json)
+    if not os.path.exists(directory):
+        os.makedirs(directory, exist_ok=True)
     
     # Essayer de lire les transactions existantes, sinon initialiser une liste vide
     try:
-        with open(transactions_file_path, 'r') as file:
+        with open(tx_data_json, 'r') as file:
             transactions = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         transactions = []
 
     # Créer un dictionnaire pour la nouvelle transaction
     new_transaction = {
-        'total_out': total_out,
+        'amount': total_out,
         'value': value,
         'porcentage_supply': tx_percentage_of_supply,
-        'url_tx_hash': url_tx_hash,
+        'url': url_tx_hash,
         'date': datetime.datetime.now().isoformat()  # Ajouter un horodatage pour la transaction
     }
 
@@ -170,7 +177,7 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     transactions.insert(0, new_transaction)
 
     # Sauvegarder la liste mise à jour dans le fichier JSON
-    with open(transactions_file_path, 'w') as file:
+    with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
 def human_format(num):
@@ -184,7 +191,7 @@ def job_kylacoin() -> None:
     global tweets_this_day, day
     logger_fonction_tx_analyze.info("Job Kylacoin")
 
-    with open("./resources/config_python/kylacoin/tweet.json", "r") as f:
+    with open(tweet_json, "r") as f:
         globals_data = json.load(f)
 
     # Récupérez le prix DNX
@@ -217,5 +224,5 @@ def job_kylacoin() -> None:
     globals_data['tweets_this_day'] = tweets_this_day
     globals_data['day'] = day
 
-    with open("./resources/config_python/kylacoin/tweet.json", "w") as f:
+    with open(tweet_json, "w") as f:
         json.dump(globals_data, f, indent=4)

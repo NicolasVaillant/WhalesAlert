@@ -1,5 +1,12 @@
 import requests
 import json
+from pathlib import Path
+
+# Version pc
+table_jaon = Path("resources", "data_scrap", "main.json")
+
+# Version serveur
+# table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
 
 class CoinFetcher:
     def __init__(self):
@@ -37,9 +44,8 @@ class CoinFetcher:
 
 # Lecture des données existantes et mise à jour avec les nouvelles données
 def update_global_data(new_data):
-    file_path = "./resources/data_scrap/main.json"
     try:
-        with open(file_path, "r") as f:
+        with open(table_jaon, "r") as f:
             globals_data = json.load(f)
     except FileNotFoundError:
         globals_data = {}
@@ -48,7 +54,7 @@ def update_global_data(new_data):
     globals_data.update(new_data)
 
     # Sauvegarde des données mises à jour dans le fichier
-    with open(file_path, "w") as f:
+    with open(table_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
 
 

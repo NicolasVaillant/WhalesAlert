@@ -2,6 +2,13 @@ from bs4 import BeautifulSoup
 import asyncio
 import aiohttp
 import json
+from pathlib import Path
+
+# Version pc
+gainers_jaon = Path("resources", "data_scrap", "gainers.json")
+
+# Version serveur
+# gainers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "gainers.json")
 
 class ScraperG:
     async def scrape_gainers(self):
@@ -67,18 +74,16 @@ class ScraperG:
             print(f'An error occurred while scraping {url_part}:', e)
             return None
 
-# Usage Example
-# Note: To run this code, you need to have an event loop
 async def main():
     scraper = ScraperG()
     results = await scraper.scrape_gainers()
 
-    with open(f"./resources/data/gainers.json", "r") as f:
+    with open(gainers_jaon, "r") as f:
         globals_data = json.load(f)
     f.close()
 
     globals_data = results
 
-    with open(f"./resources/data/gainers.json", "w") as f:
+    with open(gainers_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
 
