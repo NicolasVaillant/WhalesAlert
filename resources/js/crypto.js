@@ -56,6 +56,7 @@ fLoad_cryptoIMG()
 
 
 const setAsideInfo = (data) => {
+    console.log(data);
     const duplicated_info = document.querySelector('.duplicated-info')
     const container = document.querySelector('.crypto-info')
     const symbol = document.querySelector('.crypto-info-symbol')
