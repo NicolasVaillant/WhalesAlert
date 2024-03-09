@@ -62,8 +62,8 @@ const fEdit_main = (data) => {
             { data: '7d' }
         ],
         columnDefs: [{
+            "targets": "_all",
             "defaultContent": "-",
-            "targets": "_all"
         }],
         order: [[0, 'asc']],
         scrollX: "300px",

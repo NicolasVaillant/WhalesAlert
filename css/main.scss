@@ -778,7 +778,7 @@ body{
           .array-content{
             width: 100%;
             min-height: 60vh;
-    
+            margin-bottom: 3em;
             #table_crypto_wrapper{
               td:first-child {text-align: center}
             }
@@ -786,6 +786,17 @@ body{
             #table_crypto_unique_wrapper{
               display: flex;
               flex-direction: column;
+              label,
+              .dataTables_info,
+              .dataTables_paginate.paging_simple_numbers{
+                color: var(--white);
+              }
+              label{
+                select{
+                  background: var(--w);
+                  color: var(--b);
+                }
+              }
               .dataTables_scroll{
                 background: var(--hf-color-op);
                 margin: 1em 0;
@@ -809,12 +820,25 @@ body{
     
               }
             }
-            .dataTables_length,
-            #table_crypto_filter,
-            .dataTables_paginate,
-            .dataTables_info{
-              display: none;
+            table{
+              thead,
+              tfoot{
+                .row_table_def{
+                  width: 100%;
+                  text-transform: capitalize;
+                }
+                th{
+                  padding: 1em;
+                  white-space: nowrap;
+                }
+              }
             }
+            // .dataTables_length,
+            // #table_crypto_filter,
+            // .dataTables_paginate,
+            // .dataTables_info{
+            //   display: none;
+            // }
     
             .table_crypto{
               &.hidden{display: none}

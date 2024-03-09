@@ -37,6 +37,7 @@ const fLoad_cryptoIMG = async() => {
 
 fLoad_crypto_tx()
     .then(r => {
+        createLabelArray()
         fLoad_table(r)
     })
 
@@ -93,6 +94,18 @@ const setAsideInfo = (data) => {
     max_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
     // circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
     refresh_date.innerText = new Date(data.last_updated).toLocaleString()
+}
+
+const createLabelArray = () => {
+    const row_table_def = document.querySelectorAll('.row_table_def')
+    row_table_def.forEach(td => {
+        variables.arrayCryptoLabel.forEach(element => {
+            const th = document.createElement('th')
+            th.innerText = element
+            td.appendChild(th)
+        });
+        
+    })
 }
 
 const fLoad_table = async(r) => {
