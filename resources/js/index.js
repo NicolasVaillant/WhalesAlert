@@ -1,3 +1,4 @@
+const gain_lose_content = document.querySelector('.gain-lose-content')
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
@@ -130,7 +131,7 @@ const fEdit_Trend = (data) => {
         status.appendChild(status_dir)
         status.appendChild(status_val)
         const text = document.createElement('p')
-        text.innerHTML = urlPart
+        text.innerHTML = `${urlPart.charAt(0).toUpperCase() + urlPart.slice(1)}`
         element.href = `crypto.html?q=${urlPart}`
         element.appendChild(status)
         element.appendChild(text)
@@ -147,12 +148,17 @@ const fLoad_gainers = async() => {
     }
 }
 const fEdit_GL = (data, loc) => {
-    const location = document.querySelector('.card-content-gainers')
+    if(data === "error"){
+        if(loc.includes('losers')){
+            gain_lose_content.querySelector('.col:last-child').classList.add('hidden')
+        } else{
+            gain_lose_content.querySelector('.col:first-child').classList.add('hidden')
+        } 
+        return
+    }
+
     data.forEach((element, index) => {
         const {urlPart, title, changeDirection, changeValue} = element 
-
-        // console.log(element);
-
         const line = document.createElement('a')
         line.classList.add('line')
         line.href = `crypto.html?q=${urlPart}`
@@ -186,7 +192,6 @@ const fEdit_GL = (data, loc) => {
         
         line.appendChild(first_col)
         line.appendChild(sec_col)
-        // location.appendChild(line)
         document.querySelector(`.${loc}`).appendChild(line)
     })
 }
@@ -251,7 +256,6 @@ fLoad_gainers()
     
 fLoad_losers()
     .then(r => {
-        const data = (typeof r === 'object') ? r : "error"
-        // fEdit_losers(data)
+        const data = (typeof r === 'object' && r.length !== 0) ? r : "error"
         fEdit_GL(data, "card-content-losers")
     })

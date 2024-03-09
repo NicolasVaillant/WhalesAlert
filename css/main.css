@@ -259,7 +259,7 @@ body main .container-split.crypto.no-more-info {
 }
 @media all and (min-width: 700px) {
   body main .container-split.crypto {
-    margin-bottom: 3em;
+    margin-bottom: auto;
   }
 }
 @media all and (max-width: 700px) {
