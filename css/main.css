@@ -945,16 +945,93 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   display: flex;
   flex-direction: column;
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background: var(--hf-color);
+  color: var(--b);
+  border-radius: var(--br);
+  padding: 0.5em;
+  border: 1px solid var(--btn-main-bg);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .paginate_button {
+  cursor: pointer;
+  color: var(--b) !important;
+  border-radius: 1000px;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button:hover, body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button:active,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .paginate_button:hover,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .paginate_button:active {
+  border: 1px solid var(--card-g-l);
+  background: var(--hf-color);
+  box-shadow: none;
+  color: var(--b) !important;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .element_icon,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .element_icon {
+  position: absolute;
+  top: -0.8em;
+  right: -0.8em;
+  background-color: var(--w);
+  cursor: pointer;
+  border: 1px solid var(--card-g-l);
+  width: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 1000px;
+  aspect-ratio: 1;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .element_icon i,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .element_icon i {
+  transition: 0.2s;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .element_icon i.unpin,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .element_icon i.unpin {
+  rotate: 45deg;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate.pin-dock,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate.pin-dock {
+  position: sticky;
+  bottom: 1em;
+}
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate.paging_simple_numbers,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate.paging_simple_numbers {
-  color: var(--white);
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info {
+  text-align: end;
+  margin: 0 0 1em;
+  padding: 0;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper label select,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper label select {
+  background: var(--w);
+  color: var(--b);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter {
+  color: var(--white);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter label {
+  color: var(--white);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length label input,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info label input,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter label input,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length label input,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info label input,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter label input {
   background: var(--w);
   color: var(--b);
 }
@@ -962,13 +1039,17 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll {
   background: var(--hf-color-op);
   margin: 1em 0;
-  border-radius: 10px;
+  border-radius: var(--br);
   overflow: hidden;
   border: 1px solid var(--btn-main-bg);
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll .row_table_def,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll .row_table_def {
   background: var(--w);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody .dataTables_empty,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody .dataTables_empty {
+  color: var(--error);
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr {

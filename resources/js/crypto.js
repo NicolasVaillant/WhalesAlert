@@ -137,6 +137,7 @@ const fLoad_table = async(r) => {
         "ordering": false,
         "autoWidth": false,
         "responsive": false,
+        pagingType: 'simple'
     });
 
     $('#table_crypto_unique tbody').on('click', 'tr', function (e) {

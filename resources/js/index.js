@@ -70,7 +70,19 @@ const fEdit_main = (data) => {
         "searching": true,
         "ordering": true,
         "autoWidth": true,
-        "responsive": true
+        "responsive": true,
+        pagingType: 'simple',
+        initComplete: function (settings) {
+            const dock = document.querySelector('.dataTables_paginate')
+            // dock.classList.add('pin-dock')
+            const element = document.createElement('span')
+            const element_icon = document.createElement('i')
+            element.classList.add('element_icon')
+            element_icon.classList.add('fa-solid', 'fa-thumbtack')
+            element.appendChild(element_icon)
+            element.onclick = function(){dockedDock(dock, element_icon)}
+            // dock.appendChild(element)
+        }
     });
 
     $('#table_crypto tbody').on('click', 'tr', function (e) {
@@ -86,6 +98,11 @@ const fEdit_main = (data) => {
             $(this).addClass('selected');
         }
     })
+}
+
+const dockedDock = (dock, span) => {
+    dock.classList.toggle('pin-dock')
+    span.classList.toggle('unpin')
 }
 
 const fEdit_Trend_user = (data) => {
