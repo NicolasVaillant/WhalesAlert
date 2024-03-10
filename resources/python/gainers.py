@@ -62,7 +62,7 @@ class ScraperG:
                 change_value = change_element.text.strip().replace("(1d)", "").replace(".", ",")
                 change_value = change_value.replace('\xa0', '')
                 change_direction = change_element.attrs['data-change']
-
+            url_part = url_part.replace("-","_")
             return {
                 'urlPart': url_part,
                 'title': title,

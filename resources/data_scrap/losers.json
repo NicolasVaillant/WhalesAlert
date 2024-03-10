@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "urlPart": "arweave",
+        "title": "AR",
+        "changeValue": "10,01%",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "worldcoin_org",
+        "title": "WLD",
+        "changeValue": "8,70%",
+        "changeDirection": "down"
+    },
+    {
+        "urlPart": "celestia",
+        "title": "TIA",
+        "changeValue": "7,23%",
+        "changeDirection": "down"
+    }
+]
