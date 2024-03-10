@@ -597,6 +597,12 @@ body main .container-split .col-content .info-crypto h2 {
   justify-content: space-between;
   gap: 0.5em;
 }
+body main .container-split .col-content .info-crypto h2 .info-crypto-text {
+  margin-right: auto;
+}
+body main .container-split .col-content .info-crypto h2 .read-more {
+  width: fit-content;
+}
 body main .container-split .col-content .info-crypto .description-text {
   text-align: justify;
 }
@@ -605,10 +611,6 @@ body main .container-split .col-content .info-crypto .description-text ul {
 }
 body main .container-split .col-content .info-crypto .description-text h3 {
   margin: 1em 0;
-}
-body main .container-split .col-content .info-crypto .read-more {
-  margin-left: auto;
-  width: fit-content;
 }
 body main .container-split .col-content .info-crypto .more {
   display: none;

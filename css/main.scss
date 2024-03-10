@@ -516,15 +516,15 @@ body{
             align-items: center;
             justify-content: space-between;
             gap: 0.5em;
+            .info-crypto-text{margin-right: auto;}
+            .read-more{
+              width: fit-content;
+            }
           }
           .description-text{
             text-align: justify;
             ul{margin: 1em 0 1em 1em}
             h3{margin: 1em 0}
-          }
-          .read-more{
-            margin-left: auto;
-            width: fit-content;
           }
           .more {display: none;}
         }
