@@ -7,6 +7,9 @@
 .container-overflow::-webkit-scrollbar {
     height: .4em;
 }
+.title-container.max::-webkit-scrollbar{
+    height: .2em;
+}
 
 .summary::-webkit-scrollbar{
     width: .3em;
@@ -17,6 +20,7 @@
 .settings-bar-table::-webkit-scrollbar-track,
 .user-trends::-webkit-scrollbar-track,
 .summary::-webkit-scrollbar-track,
+.title-container.max::-webkit-scrollbar-track,
 .container-overflow::-webkit-scrollbar-track {
     background: transparent;
     padding: 1em;
@@ -27,6 +31,7 @@
 .settings-bar-table::-webkit-scrollbar-thumb,
 .dataTables_scrollBody::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb,
+.title-container.max::-webkit-scrollbar-thumb,
 .container-overflow::-webkit-scrollbar-thumb {
     background-color: var(--w);
     border-radius: 1000px;

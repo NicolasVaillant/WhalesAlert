@@ -248,6 +248,8 @@ body main .title-container.max {
   display: flex;
   align-items: baseline;
   gap: 0.5em;
+  overflow: auto;
+  padding-bottom: 0.5em;
 }
 body main .title-container.logo {
   align-items: center;
