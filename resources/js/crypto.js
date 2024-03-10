@@ -55,19 +55,53 @@ fLoad_cryptoIMG()
         }else{}
     })
 
+let counter_rm = 0
+function readMoreInfo() {
+    const moreText = document.querySelectorAll(".more");
+    const btnText = document.querySelector(".read-more");
+    counter_rm++
+    console.log(moreText.getElementsByName);
+    if (counter_rm%2 === 0) {
+        btnText.innerHTML = "Read more";
+        moreText.forEach(e => {
+            e.style.display = "none";
+        })
+    } else {
+        btnText.innerHTML = "Read less";
+        moreText.forEach(e => {
+            if (e.tagName.toLowerCase() === 'li') {
+                e.style.display = "list-item";
+            }else{
+                e.style.display = "block";
+            }
+        })
+    }
+}
 
 const setAsideInfo = (data) => {
-    console.log(data);
+    const info_c = document.querySelector('.info-crypto')
+    const info = document.querySelector('.info-crypto .description-text')
     const duplicated_info = document.querySelector('.duplicated-info')
     const container = document.querySelector('.crypto-info')
     const symbol = document.querySelector('.crypto-info-symbol')
-    if(data == "null"){
+
+    console.log(data);
+    if(data == "null" || data.length === 1){
         container.closest('.container-split').classList.add('no-more-info')
         container.closest('.col-more-info').classList.add('hidden')
         duplicated_info.classList.add('hidden')
+        info_c.classList.add('hidden')
         return
     } else{
         symbol.innerText = data.symbol
+        info.innerHTML = data.description
+    
+        const p = info.querySelectorAll('p')
+        const all = info.querySelectorAll('*')
+        all.forEach((e, i) => {
+            if(i > 2)
+                e.classList.add('more')
+        })
     }
     const price = document.querySelector('.quote-USD-price')
     const price_dup = document.querySelector('.dup-quote-USD-price')
@@ -137,7 +171,12 @@ const fLoad_table = async(r) => {
         "ordering": false,
         "autoWidth": false,
         "responsive": false,
-        pagingType: 'simple'
+        pagingType: 'simple',
+        // initComplete: function (settings) {
+        //     const dataTables_length = document.querySelector('.dataTables_length')
+        //     const dataTables_info = document.querySelector('.dataTables_info')
+        //     dataTables_info.appendChild(dataTables_length)
+        // }
     });
 
     $('#table_crypto_unique tbody').on('click', 'tr', function (e) {

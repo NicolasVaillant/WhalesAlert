@@ -240,6 +240,53 @@ body main .new .buttons .telegram,
 body main .new .buttons .x-com {
   width: fit-content;
 }
+body main .title-container {
+  color: var(--white);
+}
+body main .title-container.max {
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+body main .title-container.logo {
+  align-items: center;
+}
+body main .title-container.logo img {
+  width: 1.4em;
+  border-radius: var(--br);
+}
+body main .head-layout-crypto {
+  width: var(--width-page);
+  margin: 2em 0;
+}
+body main .head-layout-crypto .duplicated-info {
+  margin-top: 1em;
+}
+body main .head-layout-crypto .duplicated-info .duplicated-info-container {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding-bottom: 0.5em;
+}
+body main .head-layout-crypto .duplicated-info .duplicated-info-container .duplicated-info-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5em;
+  background: var(--card-g-l);
+  border-radius: 1000px;
+  padding: 0.2em 0.5em;
+  border: 1px solid var(--btn-main-bg);
+  color: var(--b);
+}
+@media all and (min-width: 700px) {
+  body main .head-layout-crypto .duplicated-info {
+    display: none;
+  }
+}
 body main .container-split {
   --gap-side-bar:2em;
   margin-top: 3em;
@@ -252,10 +299,11 @@ body main .container-split .grey {
   color: var(--grey);
 }
 body main .container-split.crypto {
-  margin-bottom: 50%;
+  margin-top: 0;
 }
 body main .container-split.crypto.no-more-info {
   grid-template-columns: 1fr;
+  margin-bottom: auto;
 }
 @media all and (min-width: 700px) {
   body main .container-split.crypto {
@@ -267,11 +315,6 @@ body main .container-split.crypto.no-more-info {
     grid-template-columns: 100%;
   }
   body main .container-split .col-more-info {
-    display: none;
-  }
-}
-@media all and (min-width: 700px) {
-  body main .container-split .duplicated-info {
     display: none;
   }
 }
@@ -540,6 +583,36 @@ body main .container-split .col-content {
   width: 100%;
   height: 100%;
 }
+body main .container-split .col-content .info-crypto {
+  margin-bottom: 2em;
+  background: var(--hf-color-op);
+  border-radius: var(--br);
+  padding: 1em;
+  border: 1px solid var(--w);
+}
+body main .container-split .col-content .info-crypto h2 {
+  margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+body main .container-split .col-content .info-crypto .description-text {
+  text-align: justify;
+}
+body main .container-split .col-content .info-crypto .description-text ul {
+  margin: 1em 0 1em 1em;
+}
+body main .container-split .col-content .info-crypto .description-text h3 {
+  margin: 1em 0;
+}
+body main .container-split .col-content .info-crypto .read-more {
+  margin-left: auto;
+  width: fit-content;
+}
+body main .container-split .col-content .info-crypto .more {
+  display: none;
+}
 body main .container-split .col-content .privacy-content {
   color: var(--white);
   margin-bottom: 3em;
@@ -598,44 +671,6 @@ body main .container-split .col-content .privacy-content .header-privacy .date {
   border-radius: var(--br);
   color: var(--b);
 }
-body main .container-split .col-content .duplicated-info {
-  margin-top: 1em;
-}
-body main .container-split .col-content .duplicated-info .duplicated-info-container {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  padding-bottom: 0.5em;
-}
-body main .container-split .col-content .duplicated-info .duplicated-info-container .duplicated-info-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 0.5em;
-  background: var(--card-g-l);
-  border-radius: 1000px;
-  padding: 0.2em 0.5em;
-  border: 1px solid var(--btn-main-bg);
-  color: var(--b);
-}
-body main .container-split .col-content .title-container {
-  color: var(--white);
-}
-body main .container-split .col-content .title-container.max {
-  margin-top: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5em;
-}
-body main .container-split .col-content .title-container.logo {
-  align-items: center;
-}
-body main .container-split .col-content .title-container.logo img {
-  width: 1.4em;
-  border-radius: var(--br);
-}
 body main .container-split .col-content .wrapper-content {
   gap: 1em;
   color: var(--b);
@@ -647,8 +682,11 @@ body main .container-split .col-content .wrapper-content.top {
   margin: 0;
 }
 body main .container-split .col-content .wrapper-content.array {
-  margin-top: 2em;
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+body main .container-split .col-content .wrapper-content.array .description-array-crypto {
+  display: none;
 }
 body main .container-split .col-content .wrapper-content.array p:not(.error-loading-data-text) {
   color: var(--white);
@@ -935,7 +973,6 @@ body main .container-split .col-content .wrapper-content .container-error {
 body main .container-split .col-content .wrapper-content .array-content {
   width: 100%;
   min-height: 60vh;
-  margin-bottom: 3em;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper td:first-child {
   text-align: center;
@@ -961,6 +998,11 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   cursor: pointer;
   color: var(--b) !important;
   border-radius: 1000px;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button:hover,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .paginate_button:hover {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button:hover, body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate .paginate_button:active,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate .paginate_button:hover,
@@ -1009,6 +1051,13 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper label select {
   background: var(--w);
   color: var(--b);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
@@ -1064,6 +1113,22 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr.selected * {
   box-shadow: inset 0 0 0 9999px var(--active-color) !important;
   background: var(--active-color) !important;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper {
+  background: var(--hf-color-op);
+  border-radius: var(--br);
+  padding: 1em;
+  border: 1px solid var(--w);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter {
+  color: var(--b);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info label,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter label {
+  color: var(--b);
 }
 body main .container-split .col-content .wrapper-content .array-content table thead .row_table_def,
 body main .container-split .col-content .wrapper-content .array-content table tfoot .row_table_def {

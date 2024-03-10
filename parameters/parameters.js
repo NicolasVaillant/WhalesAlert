@@ -35,7 +35,8 @@ const settings = {
         'circulating-supply-label':'Circulating supply',
         'circulating-supply-no-info':'No Circulating supply data',
         'max-supply-label':'Max supply',
-        'refresh-date-label':'Last refresh'
+        'refresh-date-label':'Last refresh',
+        'info-crypto-text': 'Description'
     }
 }
 
