@@ -84,6 +84,7 @@ const setAsideInfo = (data) => {
     const duplicated_info = document.querySelector('.duplicated-info')
     const container = document.querySelector('.crypto-info')
     const symbol = document.querySelector('.crypto-info-symbol')
+    const read_more = document.querySelector(".read-more");
 
     console.log(data);
     if(data == "null" || data.length === 1){
@@ -96,12 +97,15 @@ const setAsideInfo = (data) => {
         symbol.innerText = data.symbol
         info.innerHTML = data.description
     
-        const p = info.querySelectorAll('p')
         const all = info.querySelectorAll('*')
-        all.forEach((e, i) => {
-            if(i > 2)
-                e.classList.add('more')
-        })
+        if(all.length <= 2){
+            read_more.classList.add('hidden')
+        }else{
+            all.forEach((e, i) => {
+                if(i > 2)
+                    e.classList.add('more')
+            })
+        }
     }
     const price = document.querySelector('.quote-USD-price')
     const price_dup = document.querySelector('.dup-quote-USD-price')
