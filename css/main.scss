@@ -206,7 +206,7 @@ body{
           grid-template-columns: 1fr;
         }
         @media all and (min-width: 700px) {
-          margin-bottom: 3em;
+          margin-bottom: auto;
         }
       }
 
@@ -778,7 +778,7 @@ body{
           .array-content{
             width: 100%;
             min-height: 60vh;
-    
+            margin-bottom: 3em;
             #table_crypto_wrapper{
               td:first-child {text-align: center}
             }
@@ -786,35 +786,115 @@ body{
             #table_crypto_unique_wrapper{
               display: flex;
               flex-direction: column;
+              .dataTables_paginate{
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                background: var(--hf-color);
+                color: var(--b);
+                border-radius: var(--br);
+                padding: .5em;
+                border:1px solid var(--btn-main-bg);
+                .paginate_button{
+                  cursor: pointer;
+                  color: var(--b)!important;
+                  border-radius: 1000px;
+                  &:hover,
+                  &:active{
+                    border: 1px solid var(--card-g-l);
+                    background: var(--hf-color);
+                    box-shadow: none;
+                    color: var(--b)!important;
+                  }
+                }
+                .element_icon{
+                  position: absolute;
+                  top: -0.8em;
+                  right: -0.8em;
+                  background-color: var(--w);
+                  cursor: pointer;
+                  border: 1px solid var(--card-g-l);
+                  width: 2em;
+                  @include centerFlex();
+                  border-radius: 1000px;
+                  aspect-ratio: 1;
+                  i{
+                    transition: .2s;
+                    &.unpin{rotate: 45deg}
+                  }
+                }
+                &.pin-dock{
+                  position: sticky;
+                  bottom: 1em;
+                }
+              }
+              .dataTables_info{
+                text-align: end;
+                margin: 0 0 1em;
+                padding: 0;            
+              }
+              label{
+                select{
+                  background: var(--w);
+                  color: var(--b);
+                }
+              }
+              .dataTables_length,
+              .dataTables_info,
+              .dataTables_filter{
+                label{
+                  color: var(--white);
+                  input{
+                    background: var(--w);
+                    color: var(--b);
+                  }
+                }
+                color: var(--white);
+              }
               .dataTables_scroll{
                 background: var(--hf-color-op);
                 margin: 1em 0;
-                border-radius: 10px;
+                border-radius: var(--br);
                 overflow: hidden;
                 border: 1px solid var(--btn-main-bg);
                 .row_table_def{
                   background: var(--w);
                 }
-                table.dataTable tbody tr {
-                  background-color: transparent;
-                  cursor: pointer;
-                  &:hover{
-                    background: var(--w);
+                table.dataTable tbody{
+                  .dataTables_empty{color: var(--error)}
+                  tr {
+                    background-color: transparent;
+                    cursor: pointer;
+                    &:hover{
+                      background: var(--w);
+                    }
+                    &.selected *{
+                      box-shadow: inset 0 0 0 9999px var(--active-color)!important;
+                      background: var(--active-color)!important;
+                    }   
                   }
-                  &.selected *{
-                    box-shadow: inset 0 0 0 9999px var(--active-color)!important;
-                    background: var(--active-color)!important;
-                  }   
                 }
-    
               }
             }
-            .dataTables_length,
-            #table_crypto_filter,
-            .dataTables_paginate,
-            .dataTables_info{
-              display: none;
+            table{
+              thead,
+              tfoot{
+                .row_table_def{
+                  width: 100%;
+                  text-transform: capitalize;
+                }
+                th{
+                  padding: 1em;
+                  white-space: nowrap;
+                }
+              }
             }
+            // .dataTables_length,
+            // #table_crypto_filter,
+            // .dataTables_paginate,
+            // .dataTables_info{
+            //   display: none;
+            // }
     
             .table_crypto{
               &.hidden{display: none}

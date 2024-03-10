@@ -30,15 +30,18 @@ const settings = {
         'description-array-crypto': 'The latest transactions appear on top.',
         'quote-USD-price-label':'Quote price',
         'market-cap-label':'Market cap',
+        'market-cap-no-info':'No Market cap data',
         'volume-24h-label':'Volume (24h)',
         'circulating-supply-label':'Circulating supply',
+        'circulating-supply-no-info':'No Circulating supply data',
         'max-supply-label':'Max supply',
         'refresh-date-label':'Last refresh'
     }
 }
 
 const variables = {
-    refreshRate: ["30s", "1m", "10m"]
+    refreshRate: ["30s", "1m", "10m"],
+    arrayCryptoLabel: ["Amount", "Value", "Value (%)", "Link"]
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'

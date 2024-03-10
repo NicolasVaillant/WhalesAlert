@@ -37,12 +37,13 @@ const fLoad_cryptoIMG = async() => {
 
 fLoad_crypto_tx()
     .then(r => {
+        createLabelArray()
         fLoad_table(r)
     })
 
 fLoad_crypto_coin()
     .then(r => {
-        const data = (r.length === 1) ? r[0] : "null"
+        const data = (typeof r === "object") ? r : "null"
         setAsideInfo(data)
     })
 
@@ -56,6 +57,7 @@ fLoad_cryptoIMG()
 
 
 const setAsideInfo = (data) => {
+    console.log(data);
     const duplicated_info = document.querySelector('.duplicated-info')
     const container = document.querySelector('.crypto-info')
     const symbol = document.querySelector('.crypto-info-symbol')
@@ -63,6 +65,7 @@ const setAsideInfo = (data) => {
         container.closest('.container-split').classList.add('no-more-info')
         container.closest('.col-more-info').classList.add('hidden')
         duplicated_info.classList.add('hidden')
+        return
     } else{
         symbol.innerText = data.symbol
     }
@@ -78,19 +81,31 @@ const setAsideInfo = (data) => {
     const max_supply = document.querySelector('.max-supply')
     const circulating_supply = document.querySelector('.circulating-supply')
     const refresh_date = document.querySelector('.refresh-date')
-    percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
+    // percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
 
-    price.innerText = data.quotes.USD.price.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    price_dup.innerText = data.quotes.USD.price.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    dup_market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    market_cap_change.innerText = `${data.quotes.USD.market_cap_change_24h}%`
-    volume_24h.innerText = data.quotes.USD.volume_24h.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    dup_volume_24h.innerText = data.quotes.USD.volume_24h.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    volume_24h_change.innerText = `${data.quotes.USD.volume_24h_change_24h}%`
-    max_supply.innerText = data.max_supply.toLocaleString("us-US", {style: "currency", currency: "BTC"})
-    circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: "BTC"})
+    price.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    price_dup.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    // market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    dup_market_cap.innerText = "?"
+    // market_cap_change.innerText = `${data.quotes.USD.market_cap_change_24h}%`
+    volume_24h.innerText = data.volume_24_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    dup_volume_24h.innerText = data.volume_24_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    // volume_24h_change.innerText = `${data.quotes.USD.volume_24h_change_24h}%`
+    max_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
+    // circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
     refresh_date.innerText = new Date(data.last_updated).toLocaleString()
+}
+
+const createLabelArray = () => {
+    const row_table_def = document.querySelectorAll('.row_table_def')
+    row_table_def.forEach(td => {
+        variables.arrayCryptoLabel.forEach(element => {
+            const th = document.createElement('th')
+            th.innerText = element
+            td.appendChild(th)
+        });
+        
+    })
 }
 
 const fLoad_table = async(r) => {
@@ -122,6 +137,7 @@ const fLoad_table = async(r) => {
         "ordering": false,
         "autoWidth": false,
         "responsive": false,
+        pagingType: 'simple'
     });
 
     $('#table_crypto_unique tbody').on('click', 'tr', function (e) {
