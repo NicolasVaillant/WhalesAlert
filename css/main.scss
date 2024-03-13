@@ -12,6 +12,13 @@
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
 }
+
+@mixin card{
+  background: var(--hf-color-op);
+  border-radius: var(--br);
+  padding: 1em;
+  border: 1px solid var(--w);
+}
 .swal2-container{z-index: 99999}
 .swal2-popup{top: var(--height-header);}
 
@@ -194,6 +201,52 @@ body{
       }
     }
 
+    .title-container{
+      &.max{
+        margin-top: 0;
+        display: flex;
+        align-items: baseline;
+        gap: 0.5em;
+        overflow: auto;
+        padding-bottom: .5em;
+      }
+      &.logo{
+        align-items: center;
+        img{
+          width: 1.4em;
+          border-radius: var(--br);
+        }
+      }
+      color: var(--white);
+    }
+
+    .head-layout-crypto{
+      width: var(--width-page);
+      margin: 2em 0;
+      .duplicated-info{
+        margin-top: 1em;
+        .duplicated-info-container{
+          overflow-y: auto;
+          display: flex;
+          flex-direction: row;
+          gap: 1em;
+          padding-bottom: .5em;
+          .duplicated-info-card{
+            @include centerFlex();
+            gap:.5em;
+            background: var(--card-g-l);
+            border-radius: 1000px;
+            padding: .2em .5em;
+            border: 1px solid var(--btn-main-bg);
+            color: var(--b);
+          }
+        }
+      }
+      @media all and (min-width: 700px) {
+        .duplicated-info{display: none}
+      }
+    }
+
     .container-split{
       --gap-side-bar:2em;
       margin-top: 3em;
@@ -201,9 +254,10 @@ body{
       .grey{color: var(--grey)}
 
       &.crypto{
-        margin-bottom: 50%;
+        margin-top: 0;
         &.no-more-info{
           grid-template-columns: 1fr;
+          margin-bottom: auto;
         }
         @media all and (min-width: 700px) {
           margin-bottom: auto;
@@ -219,10 +273,6 @@ body{
         grid-template-columns:100%;
         .col-more-info{display: none}
       }
-      @media all and (min-width: 700px) {
-        .duplicated-info{display: none}
-      }
-
       .col-more-info{
         width: 100%;
         height: 100%;
@@ -459,6 +509,27 @@ body{
       .col-content{
         width: 100%;
         height: 100%;
+        .info-crypto{
+          margin-bottom: 2em;
+          @include card;
+          h2{
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5em;
+            .info-crypto-text{margin-right: auto;}
+            .read-more{
+              width: fit-content;
+            }
+          }
+          .description-text{
+            text-align: justify;
+            ul{margin: 1em 0 1em 1em}
+            h3{margin: 1em 0}
+          }
+          .more {display: none;}
+        }
         .privacy-content{
           color: var(--white);
           margin-bottom: 3em;
@@ -508,49 +579,16 @@ body{
             }
           }
         }
-        .duplicated-info{
-          margin-top: 1em;
-          .duplicated-info-container{
-            overflow-y: auto;
-            display: flex;
-            flex-direction: row;
-            gap: 1em;
-            padding-bottom: .5em;
-            .duplicated-info-card{
-              @include centerFlex();
-              gap:.5em;
-              background: var(--card-g-l);
-              border-radius: 1000px;
-              padding: .2em .5em;
-              border: 1px solid var(--btn-main-bg);
-              color: var(--b);
-            }
-          }
-        }
-        .title-container{
-          &.max{
-            margin-top: 0;
-            display: flex;
-            align-items: baseline;
-            gap: 0.5em;
-          }
-          &.logo{
-            align-items: center;
-            img{
-              width: 1.4em;
-              border-radius: var(--br);
-            }
-          }
-          color: var(--white);
-        }
         .wrapper-content{
           gap: 1em;
           color: var(--b);
           &.top{margin: 0}
           &.array{
+            // .dataTables_scroll{margin-top: 0!important;}
+            .description-array-crypto{display: none;}
             p:not(.error-loading-data-text){color: var(--white)}
-            margin-top: 2em;
-            margin-bottom: auto;
+            margin-top: 0;
+            margin-bottom: 2em;
           }
           &.title{
             border-top: 1px solid var(--w);
@@ -778,7 +816,6 @@ body{
           .array-content{
             width: 100%;
             min-height: 60vh;
-            margin-bottom: 3em;
             #table_crypto_wrapper{
               td:first-child {text-align: center}
             }
@@ -799,6 +836,7 @@ body{
                   cursor: pointer;
                   color: var(--b)!important;
                   border-radius: 1000px;
+                  &:hover{@include outline}
                   &:hover,
                   &:active{
                     border: 1px solid var(--card-g-l);
@@ -839,6 +877,12 @@ body{
                   color: var(--b);
                 }
               }
+              .dataTables_info{
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                align-items: center;
+              }
               .dataTables_length,
               .dataTables_info,
               .dataTables_filter{
@@ -876,6 +920,19 @@ body{
                 }
               }
             }
+
+            #table_crypto_unique_wrapper{
+              @include card;
+              .dataTables_length,
+              .dataTables_info,
+              .dataTables_filter{
+                label{
+                  color: var(--b);
+                }
+                color: var(--b);
+              }
+            }
+
             table{
               thead,
               tfoot{

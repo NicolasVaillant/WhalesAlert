@@ -95,6 +95,32 @@
             </a>
         </div>
     </div>
+
+    <div class="head-layout-crypto">
+        <div class="wrapper-content top">
+            <h2 class="title-container max logo">
+                <img src="resources/img/logo.png" alt="crypto logo" class="logo_crypto">
+                <text class="name-crypto"></text>
+                <text class="crypto-info-symbol grey"></text>
+            </h2>
+        </div>
+        <div class="duplicated-info">
+            <div class="duplicated-info-container">
+                <div class="duplicated-info-card">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <p class="dup-quote-USD-price"></p>
+                </div>
+                <div class="duplicated-info-card">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                    <p class="dup-market-cap"></p>
+                </div>
+                <div class="duplicated-info-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <p class="dup-volume-24h"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-split crypto">
         <div class="col-more-info">
             <div class="content-displayed">
@@ -147,29 +173,6 @@
             </div>
         </div>
         <div class="col-content">
-            <div class="wrapper-content top">
-                <h2 class="title-container max logo">
-                    <img src="resources/img/logo.png" alt="crypto logo" class="logo_crypto">
-                    <text class="name-crypto"></text>
-                    <text class="crypto-info-symbol grey"></text>
-                </h2>
-            </div>
-            <div class="duplicated-info">
-                <div class="duplicated-info-container">
-                    <div class="duplicated-info-card">
-                        <i class="fa-solid fa-dollar-sign"></i>
-                        <p class="dup-quote-USD-price"></p>
-                    </div>
-                    <div class="duplicated-info-card">
-                        <i class="fa-solid fa-money-bill-trend-up"></i>
-                        <p class="dup-market-cap"></p>
-                    </div>
-                    <div class="duplicated-info-card">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <p class="dup-volume-24h"></p>
-                    </div>
-                </div>
-            </div>
             <div class="wrapper-content array">
                 <p class="description-array-crypto"></p>
                 <div class="array-content">
@@ -188,6 +191,14 @@
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <p class="error-loading-data-text"></p>
                 </div>
+            </div>
+            <div class="info-crypto">
+                <h2>
+                    <i class="fa-solid fa-circle-info"></i>
+                    <text class="info-crypto-text"></text>
+                    <button onclick="readMoreInfo()" class="read-more btn-main">Read more</button>
+                </h2>
+                <text class="description-text"></text>
             </div>
         </div>
     </div>
