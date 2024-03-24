@@ -236,9 +236,18 @@ body main .new .buttons {
   margin: 1em 0 0;
   gap: 1em;
 }
-body main .new .buttons .telegram,
-body main .new .buttons .x-com {
+body main .new .buttons .btn-main {
   width: fit-content;
+}
+body main .new .buttons .btn-main.box-dashed {
+  overflow: hidden;
+  padding: 0.2em;
+  background: repeating-linear-gradient(-45deg, orange, orange 5px, #000 5px, #000 15px);
+}
+body main .new .buttons .btn-main.box-dashed span {
+  padding: 0.3em 0.8em;
+  border-radius: 2px;
+  background: var(--w);
 }
 body main .title-container {
   color: var(--white);
@@ -1196,10 +1205,8 @@ body main footer .footer-container .bottom-line .buttons {
   flex-wrap: wrap;
   gap: 1em;
 }
-body main footer .footer-container .top-line .buttons .telegram,
-body main footer .footer-container .top-line .buttons .x-com,
-body main footer .footer-container .bottom-line .buttons .telegram,
-body main footer .footer-container .bottom-line .buttons .x-com {
+body main footer .footer-container .top-line .buttons .btn-main,
+body main footer .footer-container .bottom-line .buttons .btn-main {
   width: fit-content;
 }
 @media all and (max-width: 450px) {

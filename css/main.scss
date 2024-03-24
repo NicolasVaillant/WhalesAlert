@@ -194,9 +194,18 @@ body{
         flex-wrap: wrap;
         margin: 1em 0 0;
         gap: 1em;
-        .telegram,
-        .x-com{
+        .btn-main{
           width: fit-content;
+          &.box-dashed{
+            overflow: hidden;
+            padding: .2em;
+            background: repeating-linear-gradient(-45deg, orange, orange 5px, #000 5px, #000 15px);
+            span{
+              padding: .3em .8em;
+              border-radius: 2px;
+              background: var(--w);
+            }
+          }
         }
       }
     }
@@ -992,8 +1001,7 @@ body{
             flex-direction: row;
             flex-wrap: wrap;
             gap: 1em;
-            .telegram,
-            .x-com{
+            .btn-main{
               width: fit-content;
             }
           }
