@@ -264,23 +264,45 @@ body main .new .buttons .btn-main.box-dashed span {
   border-radius: 2px;
   background: var(--w);
 }
-body main .title-container {
+body main .header-name-fav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding-bottom: 0.5em;
+  gap: 1em;
+}
+body main .header-name-fav .title-container {
   color: var(--white);
 }
-body main .title-container.max {
+body main .header-name-fav .title-container.max {
   margin-top: 0;
   display: flex;
   align-items: baseline;
   gap: 0.5em;
   overflow: auto;
-  padding-bottom: 0.5em;
 }
-body main .title-container.logo {
+body main .header-name-fav .title-container.logo {
   align-items: center;
 }
-body main .title-container.logo img {
+body main .header-name-fav .title-container.logo img {
   width: 1.4em;
   border-radius: var(--br);
+}
+body main .header-name-fav label {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  width: fit-content;
+  border-radius: 1000px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+body main .header-name-fav label input {
+  display: none;
+}
+body main .header-name-fav label input:checked ~ i {
+  color: #bbbb67;
 }
 body main .head-layout-crypto {
   width: var(--width-page);
@@ -1030,7 +1052,6 @@ body main .container-split .col-content .wrapper-content .more-crypto-redirect h
   align-items: baseline;
   gap: 0.5em;
   overflow: auto;
-  padding-bottom: 0.5em;
 }
 body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements {
   margin-top: 1em;

@@ -4,6 +4,21 @@ const name_c = document.querySelector('.name-crypto');
 const logo_crypto = document.querySelector('.logo_crypto');
 name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 
+if(variables.version === "2.0.0"){
+    const checkbox_fav_crypto = document.querySelector('#fav-crypto');
+    const label = document.querySelector('.label-crypto-fav');
+    label.classList.remove('hidden')
+    checkbox_fav_crypto.addEventListener('change', (e) => {
+        const toggle_fav = document.querySelector('.toggle_fav')
+        if(e.target.checked){
+            toggle_fav.classList.replace('fa-regular', 'fa-solid')
+        }else{
+            toggle_fav.classList.replace('fa-solid', 'fa-regular')
+        }
+
+    })
+}
+
 const fLoad_crypto_tx = async() => {
     try {
         const response = await fetch(

@@ -40,7 +40,8 @@ const settings = {
         'max-supply-label':'Max supply',
         'refresh-date-label':'Last refresh',
         'info-crypto-text': 'Description',
-        'more-crypto-redirect-text':'Discover other cryptocurrencies'
+        'more-crypto-redirect-text':'Discover other cryptocurrencies',
+        'fav-crypto-label':'Set as favorite'
     }
 }
 
