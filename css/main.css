@@ -264,6 +264,23 @@ body main .new .buttons .btn-main.box-dashed span {
   border-radius: 2px;
   background: var(--w);
 }
+body main .title-container {
+  color: var(--white);
+}
+body main .title-container.max {
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  overflow: auto;
+}
+body main .title-container.logo {
+  align-items: center;
+}
+body main .title-container.logo img {
+  width: 1.4em;
+  border-radius: var(--br);
+}
 body main .header-name-fav {
   display: flex;
   justify-content: center;
@@ -272,23 +289,6 @@ body main .header-name-fav {
   justify-content: space-between;
   padding-bottom: 0.5em;
   gap: 1em;
-}
-body main .header-name-fav .title-container {
-  color: var(--white);
-}
-body main .header-name-fav .title-container.max {
-  margin-top: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5em;
-  overflow: auto;
-}
-body main .header-name-fav .title-container.logo {
-  align-items: center;
-}
-body main .header-name-fav .title-container.logo img {
-  width: 1.4em;
-  border-radius: var(--br);
 }
 body main .header-name-fav label {
   display: flex;
@@ -302,7 +302,7 @@ body main .header-name-fav label input {
   display: none;
 }
 body main .header-name-fav label input:checked ~ i {
-  color: #bbbb67;
+  color: #ffd700;
 }
 body main .head-layout-crypto {
   width: var(--width-page);

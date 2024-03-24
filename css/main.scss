@@ -227,22 +227,23 @@ body{
       }
     }
 
+    .title-container{
+      &.max{@include h2title}
+      &.logo{
+        align-items: center;
+        img{
+          width: 1.4em;
+          border-radius: var(--br);
+        }
+      }
+      color: var(--white);
+    }
+    
     .header-name-fav{
       @include centerFlex;
       justify-content: space-between;
       padding-bottom: .5em;
       gap: 1em;
-      .title-container{
-        &.max{@include h2title}
-        &.logo{
-          align-items: center;
-          img{
-            width: 1.4em;
-            border-radius: var(--br);
-          }
-        }
-        color: var(--white);
-      }
       label{
         display: flex;
         gap: .5em;
@@ -252,7 +253,7 @@ body{
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
         input{display: none;}
         input:checked ~ i{
-          color: #bbbb67;
+          color: #ffd700;
         }
       }
     }
