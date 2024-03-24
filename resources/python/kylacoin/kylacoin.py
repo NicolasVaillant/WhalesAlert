@@ -215,7 +215,7 @@ def job_kylacoin() -> None:
         message += "https://linktr.ee/whales_alert"
 
         payload = {"text": message}
-        save_tx(total_out_str,(float(price) * total_out) , tx_percentage_of_supply, url_tx_hash)
+        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
         post_tweet(payload)
         send_telegram_message(payload['text'])
 
