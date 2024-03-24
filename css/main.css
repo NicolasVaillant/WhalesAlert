@@ -193,7 +193,7 @@ body main header .wrapper-header label.search-bar input {
 body main .new {
   background-image: url("/resources/img/bg-dark.svg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: right;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   border: 1px solid var(--btn-main-bg);
   border-radius: var(--br);
@@ -1141,8 +1141,10 @@ body main .container-split .col-content .wrapper-content .array-content table tf
 }
 body main .container-split .col-content .wrapper-content .array-content table thead th,
 body main .container-split .col-content .wrapper-content .array-content table tfoot th {
-  padding: 1em;
   white-space: nowrap;
+}
+body main .container-split .col-content .wrapper-content .array-content table tfoot th {
+  padding: 1em;
 }
 body main .container-split .col-content .wrapper-content .array-content .table_crypto.hidden {
   display: none;
