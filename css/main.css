@@ -107,9 +107,13 @@ body main header .hamburger-menu .hb-container {
     font-size: 1.2em;
   }
 }
-body main header .hamburger-menu .hb-container li,
-body main header .hamburger-menu .hb-container label {
+body main header .hamburger-menu .hb-container li.no-effect {
+  border-bottom: 1px solid var(--card-g-l);
   padding: 0.5em;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect),
+body main header .hamburger-menu .hb-container label,
+body main header .hamburger-menu .hb-container a {
   white-space: nowrap;
   border-radius: 5px;
   cursor: pointer;
@@ -118,23 +122,34 @@ body main header .hamburger-menu .hb-container label {
   flex-direction: row;
   gap: 1em;
 }
-body main header .hamburger-menu .hb-container li input,
-body main header .hamburger-menu .hb-container label input {
+body main header .hamburger-menu .hb-container li:not(.no-effect) input,
+body main header .hamburger-menu .hb-container label input,
+body main header .hamburger-menu .hb-container a input {
   display: none;
 }
-body main header .hamburger-menu .hb-container li .tog_dm_icon,
-body main header .hamburger-menu .hb-container label .tog_dm_icon {
+body main header .hamburger-menu .hb-container li:not(.no-effect) .tog_dm_icon,
+body main header .hamburger-menu .hb-container label .tog_dm_icon,
+body main header .hamburger-menu .hb-container a .tog_dm_icon {
   transition: 0.5s;
 }
-body main header .hamburger-menu .hb-container li .tog_dm_icon.rotate180,
-body main header .hamburger-menu .hb-container label .tog_dm_icon.rotate180 {
+body main header .hamburger-menu .hb-container li:not(.no-effect) .tog_dm_icon.rotate180,
+body main header .hamburger-menu .hb-container label .tog_dm_icon.rotate180,
+body main header .hamburger-menu .hb-container a .tog_dm_icon.rotate180 {
   rotate: 180deg;
 }
 @media (pointer: fine) {
-  body main header .hamburger-menu .hb-container li:hover,
-  body main header .hamburger-menu .hb-container label:hover {
+  body main header .hamburger-menu .hb-container li:not(.no-effect):hover,
+  body main header .hamburger-menu .hb-container label:hover,
+  body main header .hamburger-menu .hb-container a:hover {
     background: var(--hf-color);
   }
+}
+body main header .hamburger-menu .hb-container label,
+body main header .hamburger-menu .hb-container a {
+  padding: 0.5em;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em;
 }
 body main header .wrapper-header {
   display: flex;

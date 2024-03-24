@@ -95,9 +95,15 @@ body{
           min-width: 20vw;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           @media all and (max-width: 500px){font-size: 1.2em}
-          li,
-          label{
-            padding: .5em;
+          li{
+            &.no-effect{
+              border-bottom: 1px solid var(--card-g-l);
+              padding: .5em;
+            }
+          }
+          li:not(.no-effect),
+          label,
+          a{
             white-space: nowrap;
             border-radius: 5px;
             cursor: pointer;
@@ -115,6 +121,13 @@ body{
                 background: var(--hf-color);
               }
             }
+          }
+          label,
+          a{
+            padding: .5em;
+            width: 100%;
+            height: 100%;
+            padding: .5em;
           }
         }
       }

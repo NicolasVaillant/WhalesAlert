@@ -11,7 +11,9 @@ const settings = {
         'error-loading-data-text':'No data loaded'
     },
     HAMBURGER:{
-        'menu-2':'Force refresh'
+        'menu-2':'Force refresh',
+        'seperator-default':"Tools",
+        'seperator-links':"Links"
     },
     GENERAL_text:{
         'intro-banner': 'Get to know us and stay informed by subscribing to the following links.',
