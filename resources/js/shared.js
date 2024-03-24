@@ -1,3 +1,4 @@
+const getVersion = "https://whales-alert.fr/version.php"
 const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
@@ -11,6 +12,16 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
+
+const fLoadVersionFromServer = async() => {
+    try {
+        const response = await fetch(getVersion);
+        return await response.text();
+    } catch (error) {
+        // setToast('error', error.message, 0);
+        console.log(error.message);
+    }
+}
 
 backToTop.addEventListener('click', () => {
     window.scrollTo(0, 0)
@@ -67,6 +78,8 @@ window.onload = function () {
 
     if(exact_type == "privacy")
         setSummary()
+
+    fLoadVersionFromServer()
 }
 
 const storeDataUsers = () => {
