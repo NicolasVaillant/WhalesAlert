@@ -38,6 +38,7 @@ const settings = {
         'circulating-supply-label':'Circulating supply',
         'circulating-supply-no-info':'No Circulating supply data',
         'max-supply-label':'Max supply',
+        'max-supply-no-info':'No Max supply data',
         'refresh-date-label':'Last refresh',
         'info-crypto-text': 'Description',
         'more-crypto-redirect-text':'Discover other cryptocurrencies',

@@ -136,17 +136,22 @@ const setAsideInfo = (data) => {
     const circulating_supply = document.querySelector('.circulating-supply')
     const refresh_date = document.querySelector('.refresh-date')
     // percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
-
+    let calc_market_cap = data.supply*data.last_price_usd
+    console.log(data, data.total_supply);
     price.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     price_dup.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
-    // market_cap.innerText = data.quotes.USD.market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
+    market_cap.innerText = calc_market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
     dup_market_cap.innerText = "?"
     // market_cap_change.innerText = `${data.quotes.USD.market_cap_change_24h}%`
     volume_24h.innerText = data.volume_24_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     dup_volume_24h.innerText = data.volume_24_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     // volume_24h_change.innerText = `${data.quotes.USD.volume_24h_change_24h}%`
-    max_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
-    // circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
+    if(data.total_supply !== null){
+        max_supply.innerText = data.total_supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
+    }else{
+        max_supply.classList.add('max-supply-no-info')
+    }
+    circulating_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
     refresh_date.innerText = new Date(data.last_update).toLocaleString()
 }
 
