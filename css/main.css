@@ -308,6 +308,9 @@ body main .head-layout-crypto .duplicated-info .duplicated-info-container .dupli
   border: 1px solid var(--btn-main-bg);
   color: var(--b);
 }
+body main .head-layout-crypto .duplicated-info .duplicated-info-container .duplicated-info-card.head {
+  color: var(--active-color);
+}
 @media all and (min-width: 700px) {
   body main .head-layout-crypto .duplicated-info {
     display: none;
@@ -326,15 +329,7 @@ body main .container-split .grey {
 }
 body main .container-split.crypto {
   margin-top: 0;
-}
-body main .container-split.crypto.no-more-info {
-  grid-template-columns: 1fr;
   margin-bottom: auto;
-}
-@media all and (min-width: 700px) {
-  body main .container-split.crypto {
-    margin-bottom: auto;
-  }
 }
 @media all and (max-width: 700px) {
   body main .container-split {
@@ -358,6 +353,15 @@ body main .container-split .col-more-info .content-displayed {
   flex-direction: column;
   margin-bottom: 3em;
 }
+body main .container-split .col-more-info .content-displayed h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--bg-color);
+  border-radius: 4px;
+  color: var(--white);
+  padding: 0.5em;
+}
 body main .container-split .col-more-info .content-displayed .w_bg {
   padding: 0.5em;
   color: var(--b);
@@ -368,6 +372,12 @@ body main .container-split .col-more-info .content-displayed .w_bg {
   gap: 1em;
   max-height: 70vh;
   border: 1px solid var(--btn-main-bg);
+}
+body main .container-split .col-more-info .content-displayed .w_bg.glassy {
+  background: var(--hf-color-op);
+}
+body main .container-split .col-more-info .content-displayed .w_bg.padUpd {
+  padding: 1em;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .summary {
   display: flex;
@@ -461,7 +471,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .crypto-info 
   position: absolute;
   width: -webkit-fill-available;
   content: " ";
-  background: var(--card-g-l);
+  background: var(--hf-color-op);
   height: 2px;
   translate: 0 -50%;
   top: 50%;
@@ -472,14 +482,17 @@ body main .container-split .col-more-info .content-displayed .w_bg .crypto-info 
 body main .container-split .col-more-info .content-displayed .w_bg .crypto-info .crypto-info-top-container .crypto-info-line .bold {
   font-weight: bold;
 }
-body main .container-split .col-more-info .content-displayed .w_bg h3 {
+body main .container-split .col-more-info .content-displayed .w_bg .crypto-info .crypto-info-top-container .crypto-info-top-line .head,
+body main .container-split .col-more-info .content-displayed .w_bg .crypto-info .crypto-info-top-container .crypto-info-line .head {
+  color: var(--active-color);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .crypto-info-error {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.5em;
-  background: var(--bg-color);
-  border-radius: 4px;
-  color: var(--white);
-  padding: 0.5em;
+  align-content: center;
+  color: var(--error);
+  gap: 1em;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends {
   overflow-y: auto;
@@ -997,6 +1010,55 @@ body main .container-split .col-content .wrapper-content .container-error {
   padding: 1em;
   border-radius: var(--br);
   color: var(--error);
+  border: 1px solid var(--w);
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect {
+  background-color: var(--w);
+  opacity: 1;
+  background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);
+  background-size: 10px 10px;
+  justify-content: flex-start;
+  color: var(--b);
+  padding: 1em;
+  border-radius: var(--br);
+  max-height: 70vh;
+  border: 1px solid var(--btn-main-bg);
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect h2 {
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  overflow: auto;
+  padding-bottom: 0.5em;
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(186px, 1fr));
+  gap: 1em;
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements .suggested-currency {
+  border-radius: var(--br);
+  background: var(--w);
+  border: 2px dashed var(--card-g-l);
+  padding: 1em;
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 1em;
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements .suggested-currency p {
+  color: var(--b);
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements .suggested-currency img {
+  width: 1.5em;
+}
+body main .container-split .col-content .wrapper-content .more-crypto-redirect .grid-elements .suggested-currency:hover {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
 }
 body main .container-split .col-content .wrapper-content .array-content {
   width: 100%;

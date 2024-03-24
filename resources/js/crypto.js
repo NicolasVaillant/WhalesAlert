@@ -26,9 +26,9 @@ const fLoad_crypto_coin = async() => {
     }
 }
 
-const fLoad_cryptoIMG = async() => {
+const fLoad_cryptoIMG = async(input) => {
     try {
-        const response = await fetch(`resources/logos/${query}.png`);
+        const response = await fetch(`resources/logos/${input}.png`);
         return await response.blob()
     } catch (error) {
         return error.message
@@ -47,12 +47,12 @@ fLoad_crypto_coin()
         setAsideInfo(data)
     })
 
-fLoad_cryptoIMG()
+fLoad_cryptoIMG(query)
     .then(r => {
         const data = (r.type === 'image/png') ? r : "null"
         if(r.type == 'image/png'){
             logo_crypto.src = `resources/logos/${query}.png`
-        }else{}
+        }
     })
 
 let counter_rm = 0
@@ -60,7 +60,6 @@ function readMoreInfo() {
     const moreText = document.querySelectorAll(".more");
     const btnText = document.querySelector(".read-more");
     counter_rm++
-    console.log(moreText.getElementsByName);
     if (counter_rm%2 === 0) {
         btnText.innerHTML = "Read more";
         moreText.forEach(e => {
@@ -86,12 +85,14 @@ const setAsideInfo = (data) => {
     const symbol = document.querySelector('.crypto-info-symbol')
     const read_more = document.querySelector(".read-more");
 
-    console.log(data);
     if(data == "null" || data.length === 1){
         container.closest('.container-split').classList.add('no-more-info')
-        container.closest('.col-more-info').classList.add('hidden')
+        container.closest('.col-more-info .crypto-info').classList.add('hidden')
+        container.closest('.col-more-info .w_bg').classList.add('padUpd')
+        container.closest('.col-more-info').querySelector('.crypto-info-error').classList.remove('hidden')
         duplicated_info.classList.add('hidden')
         info_c.classList.add('hidden')
+        suggestMoreCrypto()
         return
     } else{
         symbol.innerText = data.symbol
@@ -131,7 +132,46 @@ const setAsideInfo = (data) => {
     // volume_24h_change.innerText = `${data.quotes.USD.volume_24h_change_24h}%`
     max_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
     // circulating_supply.innerText = data.circulating_supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
-    refresh_date.innerText = new Date(data.last_updated).toLocaleString()
+    refresh_date.innerText = new Date(data.last_update).toLocaleString()
+}
+
+const suggestMoreCrypto = async () => {
+    if(variables.version === "2.0.0"){
+        const card = document.querySelector('.more-crypto-redirect')
+        const grid = document.querySelector('.grid-elements')
+        card.classList.remove('hidden')
+        try {
+            const response = await fetch(LINK_TO_DATA__Files);
+            data = await response.json()
+            const shuffledFiles = data.files.sort(() => Math.random() - 0.5);
+            const selectedFiles = shuffledFiles.slice(0, 4);
+            if (selectedFiles.includes(query)) {
+                selectedFiles = selectedFiles.filter(file => file !== query);
+                const remainingFilesCount = 4 - selectedFiles.length;
+                const remainingFiles = shuffledFiles.filter(file => file !== query);
+                const additionalFiles = remainingFiles.slice(0, remainingFilesCount);
+                selectedFiles = selectedFiles.concat(additionalFiles);
+            }
+            selectedFiles.forEach(async (e) => {
+                const container = document.createElement('a')
+                container.classList.add('suggested-currency')
+                const text = document.createElement('p')
+                const img = document.createElement('img')
+                text.innerHTML = e
+                container.href = `crypto.html?q=${e}`
+                fLoad_cryptoIMG(e).then(r => {
+                    if(r.type == 'image/png'){
+                        img.src = `resources/logos/${e}.png`
+                        container.appendChild(img)
+                    }
+                })
+                container.appendChild(text)
+                document.querySelector('.grid-elements').appendChild(container)
+            })
+        } catch (error) {
+            return error.message
+        }
+    }
 }
 
 const createLabelArray = () => {
@@ -141,8 +181,7 @@ const createLabelArray = () => {
             const th = document.createElement('th')
             th.innerText = element
             td.appendChild(th)
-        });
-        
+        });  
     })
 }
 
