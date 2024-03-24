@@ -22,6 +22,7 @@ from resources.python.BTCW import BTCW
 from resources.python.ferrite import ferrite
 from resources.python.bitnet import bitnet
 from resources.python.nexa import nexa
+from resources.python.pyrin import pyrin
 
 from resources.python import table
 
@@ -101,6 +102,12 @@ def bit_j():
 def nexa_j():
     nexa.job_nexa()
     logger_fonction_tx_analyze.info("End Job NEXA")
+
+def pyrin_j():
+    pyrin.job_pyrin()
+    logger_fonction_tx_analyze.info("End Job PYI")
+
+#-----------------------
 
 def gainer_j():
     asyncio.run(gainers.main())
@@ -242,6 +249,7 @@ schedule.every(1).minutes.do(run_threaded, btcw_j)
 schedule.every(1).minutes.do(run_threaded, fec_j)
 schedule.every(1).minutes.do(run_threaded, bit_j)
 schedule.every(1).minutes.do(run_threaded, nexa_j)
+pyrin_j()
 
 # Exécuter la boucle infiniment
 while True:

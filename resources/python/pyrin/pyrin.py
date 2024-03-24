@@ -5,18 +5,19 @@ import datetime
 import logging
 import os
 from pathlib import Path
+import websocket
 
 # Version pc
-tweet_json = Path("resources", "config_python", "kylacoin", "tweet.json")
-config_json = Path("resources", "config_python", "kylacoin", "config.json")
-telegram_json = Path("resources", "config_python", "kylacoin", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_kylacoin.json")
+tweet_json = Path("resources", "config_python", "pyrin", "tweet.json")
+config_json = Path("resources", "config_python", "pyrin", "config.json")
+telegram_json = Path("resources", "config_python", "telegram.json")
+tx_data_json = Path("resources", "data_tx", "tx_pyrin.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
+# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "pyrin", "tweet.json")
+# config_json = Path("/home", "container", "webroot","resources", "config_python", "pyrin", "config.json")
+# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_pyrin.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
@@ -35,57 +36,12 @@ last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
 post = globals_data.get('post', 0)
+price = globals_data.get('price', 0)
+
+circulating_supply = 173985752.00000000
 
 # Variable globale pour les transactions déjà vues
 seen_transactions: set = set()
-
-# Obtenez le prix de DNX
-def get_lyncoin_price() -> float:
-    with open(tweet_json, "r") as f:
-        globals_data = json.load(f)
-    f.close()
-    return globals_data['price']
-
-# Récupérez les informations sur les transactions
-def get_transaction_info():
-    global last_transaction_value
-    global last_known_block_index
-    global seen_transactions  # Ajout de la variable globale
-
-    # Get the total circulating supply
-    supply_url: str = "https://api.lcnxp.com/supply"
-    try:
-        supply_response = requests.get(supply_url)
-        supply_data: dict = supply_response.json()
-        circulating_supply: float = float(supply_data['result']['circulating'])
-
-        url: str = "https://api.lcnxp.com/blocks?offset=0&limit=10"
-        url_block : str = "https://api.lcnxp.com/txs?block="
-        url_tx: str = "https://lcnxp.com/block/"
-        data = requests.get(url)
-        data_json: dict = data.json()
-
-        transactions = []
-        
-        for block in data_json['result']:
-            block_hash = block['hash']
-            block_data = requests.get(url_block + block_hash)
-            block_data_json = block_data.json()
-            for tx in block_data_json['result']:
-                if tx['hash'] not in seen_transactions:  # Check if we've seen this transaction
-                    for tx_output in tx['outputs']:
-                        amount: float = float(tx_output['value'])
-                        if amount > 50000000:
-                            tx_percentage_of_supply: float = (amount / circulating_supply) * 100
-                            transactions.append((amount, tx_percentage_of_supply, url_tx + block_hash))
-                            last_transaction_value = amount
-                    seen_transactions.add(tx['hash'])  # Add the transaction hash to our set of seen transactions
-
-        return transactions
-    
-    except Exception as e:
-        logger_fonction_tx_analyze.error(f"Error occurred while getting transaction info: {e}")
-        return []
 
 def post_tweet(payload: dict) -> None:
     global tweets_this_day
@@ -152,7 +108,7 @@ def send_telegram_message(message):
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     payload = {
         "chat_id": "-1002081153394",
-        "message_thread_id" : "246",
+        "message_thread_id" : "2211",
         "text": message
     }
     response = requests.post(url, data=payload)
@@ -188,42 +144,89 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-def job_lyncoin() -> None:
-    global tweets_this_day, day
-    logger_fonction_tx_analyze.info("Job Lyncoin")
-
+# Obtenez le prix de DNX
+def get_pyrin_price() -> float:
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
+    f.close()
+    return globals_data['price']
 
-    # Récupérez le prix DNX
-    price: float = get_lyncoin_price()
+def put_pyrin_price(price) -> float:
+    with open(tweet_json, "a") as f:
+        globals_data = json.load(f)
+    f.close()
 
-    # Récupérez les informations sur les transactions
-    transactions = get_transaction_info()
-
-    for transaction in transactions:
-        total_out, tx_percentage_of_supply, url_tx_hash = transaction
-        total_out_str = human_format(total_out)
-
-        message = "🐋 Whale Alert! 🚨\n"
-        message += f"A transaction of {total_out_str} $LCN "
-        message += f"(💵 ${float(price) * total_out:.2f}) has been detected. \n"
-        message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
-        message += f"🔗 Transaction details: {url_tx_hash}\n"
-        message += "--------------------------------\n"
-        message += "Stay tuned for more updates!\n"
-        message += "https://linktr.ee/whales_alert"
-
-        payload = {"text": message}
-
-        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
-        # post_tweet(payload)
-        send_telegram_message(payload['text'])
-
-    # Sauvegarder les valeurs globales après les modifications
-    globals_data['last_known_block_index'] = last_known_block_index
-    globals_data['tweets_this_day'] = tweets_this_day
-    globals_data['day'] = day
+    globals_data['price'] = price
 
     with open(tweet_json, "w") as f:
         json.dump(globals_data, f, indent=4)
+    f.close()
+
+def on_message(ws, message):
+    global circulating_supply
+    global tweets_this_day, day, price
+
+    price = get_pyrin_price()
+    
+    try:
+        data = json.loads(message)
+        if data.get('type') == 'block':
+            block_data = data.get('data', {})
+            transactions = block_data.get('transactions', [])
+
+            for tx in transactions:
+                amount = float(tx.get('amount'))/pow(10, 8) 
+                if amount > 25000: 
+                    tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
+                    url_tx_hash = "https://explorer.pyrin.network/block/" + block_data.get('hash', {})
+
+                    total_out_str = human_format(amount)
+
+                    message = "🐋 Whale Alert! 🚨\n"
+                    message += f"A transaction of {total_out_str} $PYI "
+                    message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
+                    message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
+                    message += f"🔗 Transaction details: {url_tx_hash}\n"
+                    message += "--------------------------------\n"
+                    message += "Stay tuned for more updates!\n"
+                    message += "https://linktr.ee/whales_alert"
+
+                    payload = {"text": message}
+
+                    save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+
+                    # post_tweet(payload)
+                    send_telegram_message(payload['text'])
+
+        if data.get('type') == 'metrics':
+            block_data = data.get('data', {})
+            circulating_supply = float(block_data.get('circulating', []))/pow(10, 8)
+            
+        elif data.get('path') == 'price':
+            price = data.get('data')
+            put_pyrin_price(price)
+
+    except json.JSONDecodeError:
+        print("Received non-JSON message:", message)
+
+def on_open(ws): 
+    print("Connection opened")
+    ws.send(json.dumps({"path":"price","params":{}}))
+    # ws.send(json.dumps({"path": "latest-dashboard", "params": {}}))
+    ws.send(json.dumps({"subscribe": "dashboard"}))
+    ws.send(json.dumps({"subscribe": "metrics"}))
+
+def start_listening():
+    websocket.enableTrace(False)
+    ws = websocket.WebSocketApp("wss://apieco.pyrin.network/",
+                                on_open=on_open,
+                                on_message=on_message,
+                                on_error=lambda ws, error: print("Error:", error),
+                                on_close=lambda ws, close_status_code, close_msg: print("### closed ###"))
+
+    ws.run_forever()
+
+def job_pyrin() -> None:
+    logger_fonction_tx_analyze.info("Job Pyrin")
+
+    start_listening()

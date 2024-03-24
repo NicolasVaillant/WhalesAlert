@@ -42,9 +42,10 @@ def fetch_coins_and_process():
         response = requests.get(url)
         if response.status_code == 200:
             coins = response.json()
-            for coin in coins[:5000]:  # Limiter pour cet exemple
+            for coin in coins[:10000]:  # Limiter pour cet exemple
                 fetch_coin_details(coin['symbol'], coin['name'])
         else:
             print("Failed to fetch data from CoinPaprika API. Status code:", response.status_code)
     except Exception as e:
         print("An error occurred:", e)
+
