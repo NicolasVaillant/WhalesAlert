@@ -1,4 +1,5 @@
-const getVersion = "https://whales-alert.fr/version.php"
+const getIP = "https://api.ipify.org?format=json"
+const getVersion = "https://whales-alert.fr/version_upd.php?ip=__IP__"
 const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
@@ -13,12 +14,24 @@ closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
 
-const fLoadVersionFromServer = async() => {
+const fLoadIP = async() => {
     try {
-        const response = await fetch(getVersion);
-        return await response.text();
+        const response = await fetch(getIP);
+        return await response.json();
     } catch (error) {
-        // setToast('error', error.message, 0);
+        console.log(error.message);
+    }
+}
+
+const fLoadVersionFromServer = async(r) => {
+    try {
+        const response = await fetch(
+            getVersion.replaceAll(
+                '__IP__', r
+            )
+        );
+        return await response.json();
+    } catch (error) {
         console.log(error.message);
     }
 }
@@ -79,7 +92,9 @@ window.onload = function () {
     if(exact_type == "privacy")
         setSummary()
 
-    fLoadVersionFromServer()
+    fLoadIP().then(r => {
+        fLoadVersionFromServer(r.ip);
+    })
 }
 
 const storeDataUsers = () => {
