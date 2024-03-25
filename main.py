@@ -23,6 +23,8 @@ from resources.python.ferrite import ferrite
 from resources.python.bitnet import bitnet
 from resources.python.nexa import nexa
 from resources.python.pyrin import pyrin
+from resources.python.warthog import warthog
+from resources.python.btc import btc
 
 from resources.python import table
 
@@ -107,6 +109,14 @@ def pyrin_j():
     pyrin.job_pyrin()
     logger_fonction_tx_analyze.info("End Job PYI")
 
+def warthog_j():
+    warthog.job_warthog()
+    logger_fonction_tx_analyze.info("End Job WART")
+
+def bitcoin_j():
+    btc.job_bitcoin()
+    logger_fonction_tx_analyze.info("End Job BTC")
+
 #-----------------------
 
 def gainer_j():
@@ -173,13 +183,14 @@ def all_price ():
             print(f"Error occurred while getting {coin} price: {e}")
 
 def all_price_paprika ():
-    coins = ['fnnc-fennec', 'xrp-xrp', 'fec-ferrite', 'bit-bitnet-io']
+    coins = ['fnnc-fennec', 'xrp-xrp', 'fec-ferrite', 'bit-bitnet-io', 'wart-warthog', 'btc-bitcoin']
     for coin in coins : 
         url: str = f"https://api.coinpaprika.com/v1/tickers/{coin}"
         try:
             response = requests.get(url)
             data: dict = response.json()
             price = data['quotes']['USD']['price']
+            supply = data['max_supply']
 
             path_coin = coin.partition('-')[2].removesuffix("-io")
             
@@ -190,6 +201,8 @@ def all_price_paprika ():
             f.close()
 
             globals_data['price'] = price
+            if coin == 'wart-warthog' or  coin == 'btc-bitcoin':
+                globals_data['supply'] = supply
 
             with open(coins_path, "w") as f:
                 json.dump(globals_data, f, indent=4)
@@ -235,8 +248,8 @@ schedule.every(60).minutes.do(loser_j)
 schedule.every(60).minutes.do(trend_j)
 
 # Scrap Coins Data
-schedule.every(1).week.do(coins_data_j)
-schedule.every(30).minutes.do(coins_table_j)
+schedule.every(1).days.do(coins_data_j)
+schedule.every(120).minutes.do(coins_table_j)
 
 # Analyse TX --> THREAD
 schedule.every(1).minutes.do(run_threaded, dynex_j)
@@ -249,7 +262,10 @@ schedule.every(1).minutes.do(run_threaded, btcw_j)
 schedule.every(1).minutes.do(run_threaded, fec_j)
 schedule.every(1).minutes.do(run_threaded, bit_j)
 schedule.every(1).minutes.do(run_threaded, nexa_j)
-pyrin_j()
+
+run_threaded(warthog_j)
+run_threaded(pyrin_j)
+run_threaded(bitcoin_j)
 
 # Exécuter la boucle infiniment
 while True:
