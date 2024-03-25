@@ -6,17 +6,52 @@ name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 
 if(variables.version === "2.0.0"){
     const checkbox_fav_crypto = document.querySelector('#fav-crypto');
+    const toggle_fav = document.querySelector('.toggle_fav')
+
+    const stored_fav = JSON.parse(localStorage.getItem(favorite_elements))
+    if(stored_fav !== null){
+        if(typeof stored_fav.data === 'string'){
+            if(stored_fav.data == query){
+                checkbox_fav_crypto.setAttribute("checked", true)
+                toggle_fav.classList.replace('fa-regular', 'fa-solid')
+            }
+        }else{
+            stored_fav.data.forEach(e => {
+                if(e == query){
+                    checkbox_fav_crypto.setAttribute("checked", true)
+                    toggle_fav.classList.replace('fa-regular', 'fa-solid')
+                }
+            })
+        }
+    }
     const label = document.querySelector('.label-crypto-fav');
     label.classList.remove('hidden')
     checkbox_fav_crypto.addEventListener('change', (e) => {
-        const toggle_fav = document.querySelector('.toggle_fav')
-        if(e.target.checked){
-            toggle_fav.classList.replace('fa-regular', 'fa-solid')
-        }else{
-            toggle_fav.classList.replace('fa-solid', 'fa-regular')
+        if (e.target.checked) {
+            toggle_fav.classList.replace('fa-regular', 'fa-solid');
+            const stored_fav = JSON.parse(localStorage.getItem(favorite_elements));
+            let newData;
+            if (stored_fav !== null) {
+                newData = [query, ...stored_fav.data];
+            } else {
+                newData = [query];
+            }
+            localStorage.setItem(favorite_elements, JSON.stringify({
+                status: 'success',
+                data: newData
+            }));
+        } else {
+            toggle_fav.classList.replace('fa-solid', 'fa-regular');
+            const stored_fav = JSON.parse(localStorage.getItem(favorite_elements));
+            if (stored_fav !== null) {
+                const filteredData = stored_fav.data.filter(item => item !== query);
+                localStorage.setItem(favorite_elements, JSON.stringify({
+                    status: 'success',
+                    data: filteredData
+                }));
+            }
         }
-
-    })
+    });
 }
 
 const fLoad_crypto_tx = async() => {

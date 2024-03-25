@@ -7,6 +7,8 @@ const LINK_TO_DATA__coin = "resources/data_coins/__COIN__.json"
 const LINK_TO_DATA__tx = "resources/data_tx/tx___COIN__.json"
 const LINK_TO_DATA__Files = "resources/php/data/getFiles_coin.json"
 
+const favorite_elements = "fav-c"
+
 const settings = {
     ERROR:{
         'error-loading-data-text':'No data loaded'
