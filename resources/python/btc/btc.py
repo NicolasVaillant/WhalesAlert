@@ -8,16 +8,16 @@ from pathlib import Path
 import websocket
 
 # Version pc
-tweet_json = Path("resources", "config_python", "pyrin", "tweet.json")
-config_json = Path("resources", "config_python", "pyrin", "config.json")
-telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_pyrin.json")
+# tweet_json = Path("resources", "config_python", "bitcoin", "tweet.json")
+# config_json = Path("resources", "config_python", "bitcoin", "config.json")
+# telegram_json = Path("resources", "config_python", "telegram.json")
+# tx_data_json = Path("resources", "data_tx", "tx_bitcoin.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "pyrin", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "pyrin", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_pyrin.json")
+tweet_json = Path("/home", "container", "webroot","resources", "config_python", "bitcoin", "tweet.json")
+config_json = Path("/home", "container", "webroot","resources", "config_python", "bitcoin", "config.json")
+telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
+tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitcoin.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
@@ -37,11 +37,6 @@ tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
 post = globals_data.get('post', 0)
 price = globals_data.get('price', 0)
-
-circulating_supply = 173985752.00000000
-
-# Variable globale pour les transactions déjà vues
-seen_transactions: set = set()
 
 def post_tweet(payload: dict) -> None:
     global tweets_this_day
@@ -108,7 +103,7 @@ def send_telegram_message(message):
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     payload = {
         "chat_id": "-1002081153394",
-        "message_thread_id" : "2211",
+        "message_thread_id" : "-",
         "text": message
     }
     response = requests.post(url, data=payload)
@@ -145,45 +140,31 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
         json.dump(transactions, file, indent=4)
 
 # Obtenez le prix de DNX
-def get_pyrin_price() -> float:
+def get_bitcoin_price() -> float:
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
     f.close()
-    return globals_data['price']
-
-def put_pyrin_price(price) -> float:
-    with open(tweet_json, "a") as f:
-        globals_data = json.load(f)
-    f.close()
-
-    globals_data['price'] = price
-
-    with open(tweet_json, "w") as f:
-        json.dump(globals_data, f, indent=4)
-    f.close()
+    return globals_data['price'], globals_data['supply']
 
 def on_message(ws, message):
-    global circulating_supply
     global tweets_this_day, day, price
 
-    price = get_pyrin_price()
+    price, circulating_supply = get_bitcoin_price()
     
     try:
         data = json.loads(message)
-        if data.get('type') == 'block':
-            block_data = data.get('data', {})
-            transactions = block_data.get('transactions', [])
-
-            for tx in transactions:
-                amount = float(tx.get('amount'))/pow(10, 8) 
-                if amount > 25000: 
+        if data['op'] == 'utx':
+            transactions = data['x']
+            for tx in transactions['out']:
+                amount = float(tx['value'])/ 100000000
+                if amount > 10.0: 
                     tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
-                    url_tx_hash = "https://explorer.pyrin.network/block/" + block_data.get('hash', {})
+                    url_tx_hash = "https://bitaps.com/" + transactions['hash']
 
                     total_out_str = human_format(amount)
 
                     message = "🐋 Whale Alert! 🚨\n"
-                    message += f"A transaction of {total_out_str} $PYI "
+                    message += f"A transaction of {total_out_str} $BTC "
                     message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
                     message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
                     message += f"🔗 Transaction details: {url_tx_hash}\n"
@@ -196,37 +177,33 @@ def on_message(ws, message):
                     save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
 
                     # post_tweet(payload)
-                    send_telegram_message(payload['text'])
-
-        if data.get('type') == 'metrics':
-            block_data = data.get('data', {})
-            circulating_supply = float(block_data.get('circulating', []))/pow(10, 8)
-            
-        elif data.get('path') == 'price':
-            price = data.get('data')
-            put_pyrin_price(price)
+                    # send_telegram_message(payload['text'])
 
     except json.JSONDecodeError:
         print("Received non-JSON message:", message)
 
-def on_open(ws): 
-    print("Connection opened PYI")
-    ws.send(json.dumps({"path":"price","params":{}}))
-    # ws.send(json.dumps({"path": "latest-dashboard", "params": {}}))
-    ws.send(json.dumps({"subscribe": "dashboard"}))
-    ws.send(json.dumps({"subscribe": "metrics"}))
+def on_error(ws, error):
+    print("Erreur :", error)
+
+def on_close(ws, close_status_code, close_msg):
+    print("### Connexion fermée ###")
+
+def on_open(ws):
+    print("Connection opened BTC")
+    sub_request = json.dumps({"op": "unconfirmed_sub"})
+    ws.send(sub_request)
 
 def start_listening():
     websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("wss://apieco.pyrin.network/",
+    ws = websocket.WebSocketApp("wss://ws.blockchain.info/inv",
                                 on_open=on_open,
                                 on_message=on_message,
-                                on_error=lambda ws, error: print("Error:", error),
-                                on_close=lambda ws, close_status_code, close_msg: print("### closed ###"))
+                                on_error=on_error,
+                                on_close=on_close)
 
     ws.run_forever()
 
-def job_pyrin() -> None:
-    logger_fonction_tx_analyze.info("Job Pyrin")
+def job_bitcoin() -> None:
+    logger_fonction_tx_analyze.info("Job bitcoin")
 
     start_listening()
