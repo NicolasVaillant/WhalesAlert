@@ -87,7 +87,7 @@ window.onscroll = function () {
 window.onload = function () {
     copyrightDate()
     setTextFromParameters()
-    storeDataUsers()
+    // storeDataUsers()
 
     if(exact_type == "privacy")
         setSummary()

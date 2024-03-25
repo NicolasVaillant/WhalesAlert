@@ -4,6 +4,7 @@
 .user-trends-dup::-webkit-scrollbar,
 .duplicated-info-container::-webkit-scrollbar,
 .dataTables_scrollBody::-webkit-scrollbar,
+.suggested-currency::-webkit-scrollbar,
 .container-overflow::-webkit-scrollbar {
     height: .4em;
 }
@@ -21,6 +22,7 @@
 .user-trends::-webkit-scrollbar-track,
 .summary::-webkit-scrollbar-track,
 .title-container.max::-webkit-scrollbar-track,
+.suggested-currency::-webkit-scrollbar-track,
 .container-overflow::-webkit-scrollbar-track {
     background: transparent;
     padding: 1em;
@@ -32,12 +34,14 @@
 .dataTables_scrollBody::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb,
 .title-container.max::-webkit-scrollbar-thumb,
+.suggested-currency::-webkit-scrollbar-thumb,
 .container-overflow::-webkit-scrollbar-thumb {
     background-color: var(--w);
     border-radius: 1000px;
     cursor: pointer;
 }
 .settings-bar-table::-webkit-scrollbar-thumb,
+.suggested-currency::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb{
     background-color: var(--card-g-l);
 }

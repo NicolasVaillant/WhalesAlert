@@ -126,15 +126,22 @@
 
     <div class="head-layout-crypto">
         <div class="wrapper-content top">
-            <h2 class="title-container max logo">
-                <img src="resources/img/logo.png" alt="crypto logo" class="logo_crypto">
-                <text class="name-crypto"></text>
-                <text class="crypto-info-symbol grey"></text>
-            </h2>
+            <div class="header-name-fav">
+                <h2 class="title-container max logo">
+                    <img src="resources/img/logo.png" alt="crypto logo" class="logo_crypto">
+                    <text class="name-crypto"></text>
+                    <text class="crypto-info-symbol grey"></text>
+                </h2>
+                <label for="fav-crypto" class="label-crypto-fav btn-main hidden">
+                    <input type="checkbox" name="fav-crypto" id="fav-crypto">
+                    <text class="fav-crypto-label"></text>
+                    <i class="fa-regular fa-star toggle_fav"></i>
+                </label>
+            </div>
         </div>
         <div class="duplicated-info">
             <div class="duplicated-info-container">
-                <div class="duplicated-info-card">
+                <div class="duplicated-info-card head">
                     <i class="fa-solid fa-dollar-sign"></i>
                     <p class="dup-quote-USD-price"></p>
                 </div>
@@ -152,7 +159,7 @@
     <div class="container-split crypto">
         <div class="col-more-info">
             <div class="content-displayed">
-                <div class="w_bg">
+                <div class="w_bg glassy">
                     <div class="crypto-info">
                         <div class="crypto-info-top-container">
                             <div class="crypto-info-line">
@@ -161,12 +168,12 @@
                                     <p class="quote-USD-price-label"></p>
                                 </div>
                                 <p class="percent-24h grey"></p>
-                                <p class="quote-USD-price bold"></p>
+                                <p class="quote-USD-price bold head"></p>
                             </div>
                             <div class="crypto-info-line">
                                 <p class="market-cap-label"></p>
                                 <p class="market-cap-change grey"></p>
-                                <p class="market-cap bold market-cap-no-info"></p>
+                                <p class="market-cap bold"></p>
                             </div>
                             <div class="crypto-info-line">
                                 <p class="volume-24h-label"></p>
@@ -175,7 +182,7 @@
                             </div>
                             <div class="crypto-info-line">
                                 <p class="circulating-supply-label"></p>
-                                <p class="circulating-supply bold circulating-supply-no-info"></p>
+                                <p class="circulating-supply bold"></p>
                                 <span class="progress-bar">
                                     <span class="progress-bar-circulating-supply"></span>
                                 </span>
@@ -192,6 +199,10 @@
                                 <p class="refresh-date"></p>
                             </div>
                         </div>
+                    </div>
+                    <div class="crypto-info-error hidden">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <p>Nothing here</p>
                     </div>
                 </div>
                 <button class="btn-main backToTop hidden">
@@ -218,6 +229,13 @@
                 <div class="container-error hidden">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <p class="error-loading-data-text"></p>
+                </div>
+                <div class="more-crypto-redirect hidden">
+                    <h2>
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <text class="more-crypto-redirect-text"></text>
+                    </h2>
+                    <div class="grid-elements"></div>
                 </div>
             </div>
             <div class="info-crypto">

@@ -5,6 +5,7 @@ const LINK_TO_DATA__trends = "resources/data_scrap/trends.json"
 const LINK_TO_DATA__trends_user = "resources/php/data/trends_user.json"
 const LINK_TO_DATA__coin = "resources/data_coins/__COIN__.json"
 const LINK_TO_DATA__tx = "resources/data_tx/tx___COIN__.json"
+const LINK_TO_DATA__Files = "resources/php/data/getFiles_coin.json"
 
 const settings = {
     ERROR:{
@@ -37,14 +38,18 @@ const settings = {
         'circulating-supply-label':'Circulating supply',
         'circulating-supply-no-info':'No Circulating supply data',
         'max-supply-label':'Max supply',
+        'max-supply-no-info':'No Max supply data',
         'refresh-date-label':'Last refresh',
-        'info-crypto-text': 'Description'
+        'info-crypto-text': 'Description',
+        'more-crypto-redirect-text':'Discover other cryptocurrencies',
+        'fav-crypto-label':'Set as favorite'
     }
 }
 
 const variables = {
     refreshRate: ["30s", "1m", "10m"],
-    arrayCryptoLabel: ["Amount", "Value", "Supply (%)", "Link"]
+    arrayCryptoLabel: ["Amount", "Value", "Supply (%)", "Link"],
+    version: "1.0.0"
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'

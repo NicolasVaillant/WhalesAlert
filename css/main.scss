@@ -6,13 +6,18 @@
   padding: 0;
   user-select: none;
 }
-
 *.hidden{display: none!important;}
+@mixin h2title{
+  margin-top: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  overflow: auto;
+}
 @mixin outline{
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
 }
-
 @mixin card{
   background: var(--hf-color-op);
   border-radius: var(--br);
@@ -21,7 +26,6 @@
 }
 .swal2-container{z-index: 99999}
 .swal2-popup{top: var(--height-header);}
-
 @mixin centerFlex{
   display: flex;
   justify-content: center;
@@ -224,14 +228,7 @@ body{
     }
 
     .title-container{
-      &.max{
-        margin-top: 0;
-        display: flex;
-        align-items: baseline;
-        gap: 0.5em;
-        overflow: auto;
-        padding-bottom: .5em;
-      }
+      &.max{@include h2title}
       &.logo{
         align-items: center;
         img{
@@ -240,6 +237,25 @@ body{
         }
       }
       color: var(--white);
+    }
+    
+    .header-name-fav{
+      @include centerFlex;
+      justify-content: space-between;
+      padding-bottom: .5em;
+      gap: 1em;
+      label{
+        display: flex;
+        gap: .5em;
+        align-items: center;
+        width: fit-content;
+        border-radius: 1000px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        input{display: none;}
+        input:checked ~ i{
+          color: #ffd700;
+        }
+      }
     }
 
     .head-layout-crypto{
@@ -254,6 +270,7 @@ body{
           gap: 1em;
           padding-bottom: .5em;
           .duplicated-info-card{
+            &.head{color: var(--active-color)}
             @include centerFlex();
             gap:.5em;
             background: var(--card-g-l);
@@ -277,13 +294,10 @@ body{
 
       &.crypto{
         margin-top: 0;
-        &.no-more-info{
-          grid-template-columns: 1fr;
-          margin-bottom: auto;
-        }
-        @media all and (min-width: 700px) {
-          margin-bottom: auto;
-        }
+        // &.no-more-info{
+          // grid-template-columns: 1fr;
+        // }
+        margin-bottom: auto;
       }
 
       display: grid;
@@ -298,7 +312,6 @@ body{
       .col-more-info{
         width: 100%;
         height: 100%;
-
         .content-displayed{
           position: sticky;
           top: calc(var(--height-header) + var(--margin-from-header));
@@ -308,7 +321,19 @@ body{
           gap: 1em;
           flex-direction: column;
           margin-bottom: 3em;
+          h3{
+            display: flex;
+            align-items: center;
+            gap: .5em;
+            // color: var(--text-aside);
+            background: var(--bg-color);
+            border-radius: 4px;
+            color: var(--white);
+            padding: 0.5em;
+          }
           .w_bg{
+            &.glassy{background: var(--hf-color-op)}
+            &.padUpd{padding: 1em}
             padding: .5em;
             color: var(--b);
             background: var(--w);
@@ -385,7 +410,7 @@ body{
                       position: absolute;
                       width: -webkit-fill-available;
                       content: " ";
-                      background: var(--card-g-l);
+                      background: var(--hf-color-op);
                       height: 2px;
                       translate: 0 -50%;
                       top: 50%;
@@ -394,18 +419,14 @@ body{
                     }
                   }
                   .bold{font-weight: bold}
+                  .head{color: var(--active-color)}
                 }
               }
             }
-            h3{
-              display: flex;
-              align-items: center;
-              gap: .5em;
-              // color: var(--text-aside);
-              background: var(--bg-color);
-              border-radius: 4px;
-              color: var(--white);
-              padding: 0.5em;
+            .crypto-info-error{
+              @include centerFlex;
+              color: var(--error);
+              gap: 1em;
             }
             .user-trends{
               overflow-y: auto;
@@ -825,7 +846,7 @@ body{
               }
             }
           }
-    
+
           .container-error{
             @include centerFlex;
             gap:1em;
@@ -833,6 +854,42 @@ body{
             padding: 1em;
             border-radius: var(--br);
             color: var(--error);
+            border: 1px solid var(--w);
+          }
+
+          .more-crypto-redirect{
+            background-color: var(--w);
+            opacity: 1;
+            background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);
+            background-size: 10px 10px;
+            justify-content: flex-start;
+            h2{@include h2title}
+            color: var(--b);
+            padding: 1em;
+            border-radius: var(--br);
+            max-height: 70vh;
+            border: 1px solid var(--btn-main-bg);
+            .grid-elements{
+              margin-top: 1em;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(186px, 1fr));
+              gap: 1em;
+              .suggested-currency{
+                border-radius: var(--br);
+                background: var(--w);
+                border: 2px dashed var(--card-g-l);
+                padding: 1em;
+                display: flex;
+                overflow: auto;
+                align-items: center;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                gap: 1em;
+                p{color: var(--b)}
+                img{width:1.5em}
+                &:hover{@include outline}
+              }
+            }
           }
     
           .array-content{
