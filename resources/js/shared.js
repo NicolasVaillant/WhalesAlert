@@ -4,7 +4,9 @@ const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
 const hb_container = document.querySelector('.hb-container')
+const tooltip_content = document.querySelector('.tooltip-content')
 const darkM = document.querySelector("#darkMode-input")
+const LS = document.querySelector("#toggle-ls")
 const tog_dm_icon = document.querySelectorAll(".tog_dm_icon")
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
@@ -13,6 +15,19 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
+
+if(variables.version === "2.0.0"){
+    document.querySelector('.tooltip-content').classList.remove('hidden')
+    LS.addEventListener('change', (e) => {
+        if(e.target.checked){
+            LS.closest('label').classList.add('active')
+            tooltip_content.querySelector('span').classList.remove('hidden')
+        }else{
+            LS.closest('label').classList.remove('active')
+            tooltip_content.querySelector('span').classList.add('hidden')
+        }
+    })
+}
 
 const fLoadIP = async() => {
     try {

@@ -8,7 +8,7 @@ if(variables.version === "2.0.0"){
     const checkbox_fav_crypto = document.querySelector('#fav-crypto');
     const toggle_fav = document.querySelector('.toggle_fav')
 
-    const stored_fav = JSON.parse(localStorage.getItem(favorite_elements))
+    const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
     if(stored_fav !== null){
         if(typeof stored_fav.data === 'string'){
             if(stored_fav.data == query){
@@ -29,23 +29,23 @@ if(variables.version === "2.0.0"){
     checkbox_fav_crypto.addEventListener('change', (e) => {
         if (e.target.checked) {
             toggle_fav.classList.replace('fa-regular', 'fa-solid');
-            const stored_fav = JSON.parse(localStorage.getItem(favorite_elements));
+            const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements));
             let newData;
             if (stored_fav !== null) {
                 newData = [query, ...stored_fav.data];
             } else {
                 newData = [query];
             }
-            localStorage.setItem(favorite_elements, JSON.stringify({
+            localStorage.setItem(label__favorite_elements, JSON.stringify({
                 status: 'success',
                 data: newData
             }));
         } else {
             toggle_fav.classList.replace('fa-solid', 'fa-regular');
-            const stored_fav = JSON.parse(localStorage.getItem(favorite_elements));
+            const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements));
             if (stored_fav !== null) {
                 const filteredData = stored_fav.data.filter(item => item !== query);
-                localStorage.setItem(favorite_elements, JSON.stringify({
+                localStorage.setItem(label__favorite_elements, JSON.stringify({
                     status: 'success',
                     data: filteredData
                 }));

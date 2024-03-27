@@ -7,14 +7,15 @@ const LINK_TO_DATA__coin = "resources/data_coins/__COIN__.json"
 const LINK_TO_DATA__tx = "resources/data_tx/tx___COIN__.json"
 const LINK_TO_DATA__Files = "resources/php/data/getFiles_coin.json"
 
-const favorite_elements = "fav-c"
-
 const settings = {
     ERROR:{
         'error-loading-data-text':'No data loaded'
     },
     HAMBURGER:{
         'menu-2':'Force refresh',
+        'menu-3':'Mode',
+        'menu-4':'Clean Localstorage',
+        'menu-4-explanation':'We use LocalStorage of your browser to store information such as favorite cryptocurrencies. <b>By clearing this storage, you may lose some of your preferences.</b>',
         'seperator-default':"Tools",
         'seperator-links':"Links"
     },
@@ -55,3 +56,4 @@ const variables = {
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'
+const label__favorite_elements = "fav-c"

@@ -72,8 +72,35 @@
                     <li>
                         <label for="darkMode-input">
                             <i class="fa-solid fa-circle-half-stroke tog_dm_icon"></i>
-                            <text class="menu-3">Mode</text>
+                            <text class="menu-3"></text>
                             <input type="checkbox" id="darkMode-input">
+                        </label>
+                    </li>
+                    <li>
+                        <label for="toggle-ls" class="tooltip-content hidden">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <text class="menu-4"></text>
+                            <span class="hidden">
+                                <text class="menu-4-explanation"></text>
+                                <div class="row">
+                                    <button class="btn-main confirm" onclick="removeLS(this)">Confirm</button>
+                                    <button class="btn-main cancel" onclick="closePopup()">Cancel</button>
+                                </div>
+                                <script defer>
+                                    const removeLS = (e) => {
+                                        localStorage.removeItem(label__favorite_elements)
+                                        e.classList.add('done')
+                                        e.innerText = 'Done'
+                                    }
+
+                                    const closePopup = () => {
+                                        LS.checked = false
+                                        LS.closest('label').classList.remove('active')
+                                        tooltip_content.querySelector('span').classList.add('hidden')
+                                    }
+                                </script>
+                            </span>
+                            <input type="checkbox" id="toggle-ls">
                         </label>
                     </li>
                     <li class="seperator-links no-effect"></li>

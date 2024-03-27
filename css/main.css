@@ -11,6 +11,11 @@
   display: none !important;
 }
 
+*.active {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+
 .swal2-container {
   z-index: 99999;
 }
@@ -121,6 +126,69 @@ body main header .hamburger-menu .hb-container a {
   align-items: center;
   flex-direction: row;
   gap: 1em;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
+body main header .hamburger-menu .hb-container label.tooltip-content,
+body main header .hamburger-menu .hb-container a.tooltip-content {
+  position: relative;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span,
+body main header .hamburger-menu .hb-container label span,
+body main header .hamburger-menu .hb-container a span {
+  position: absolute;
+  top: 0;
+  padding: 0.5em;
+  width: 30vw;
+  max-width: 300px;
+  background: var(--w);
+  white-space: normal;
+  right: calc(100% + 0.4em);
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span text,
+body main header .hamburger-menu .hb-container label span text,
+body main header .hamburger-menu .hb-container a span text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span text b,
+body main header .hamburger-menu .hb-container label span text b,
+body main header .hamburger-menu .hb-container a span text b {
+  text-decoration: underline;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row,
+body main header .hamburger-menu .hb-container label span .row,
+body main header .hamburger-menu .hb-container a span .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button,
+body main header .hamburger-menu .hb-container label span .row button,
+body main header .hamburger-menu .hb-container a span .row button {
+  display: flex;
+  justify-content: center;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button.confirm,
+body main header .hamburger-menu .hb-container label span .row button.confirm,
+body main header .hamburger-menu .hb-container a span .row button.confirm {
+  background: var(--active-color);
+  color: var(--w);
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button.confirm.done,
+body main header .hamburger-menu .hb-container label span .row button.confirm.done,
+body main header .hamburger-menu .hb-container a span .row button.confirm.done {
+  background: var(--up);
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button.cancel,
+body main header .hamburger-menu .hb-container label span .row button.cancel,
+body main header .hamburger-menu .hb-container a span .row button.cancel {
+  border: 1px solid var(--card-g-l);
 }
 body main header .hamburger-menu .hb-container li:not(.no-effect) input,
 body main header .hamburger-menu .hb-container label input,
