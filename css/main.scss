@@ -858,6 +858,7 @@ body{
           }
 
           .more-crypto-redirect{
+            @include outline;
             background-color: var(--w);
             opacity: 1;
             background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);
@@ -902,6 +903,15 @@ body{
             #table_crypto_unique_wrapper{
               display: flex;
               flex-direction: column;
+              tr:has(.dataTables_empty){
+                &:hover{background: transparent!important;}
+              }
+              .dataTables_empty{
+                button{
+                  margin: 1em auto;
+                  width: fit-content;
+                }
+              }
               .dataTables_paginate{
                 position: relative;
                 display: flex;
