@@ -1035,6 +1035,8 @@ body main .container-split .col-content .wrapper-content .container-error {
   border: 1px solid var(--w);
 }
 body main .container-split .col-content .wrapper-content .more-crypto-redirect {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
   background-color: var(--w);
   opacity: 1;
   background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);
@@ -1092,6 +1094,15 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper {
   display: flex;
   flex-direction: column;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper tr:has(.dataTables_empty):hover,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper tr:has(.dataTables_empty):hover {
+  background: transparent !important;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty button,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty button {
+  margin: 1em auto;
+  width: fit-content;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate {
