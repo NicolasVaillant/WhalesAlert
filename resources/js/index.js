@@ -98,6 +98,21 @@ const fEdit_main = (data) => {
             $(this).addClass('selected');
         }
     })
+    if(variables.version === "2.0.0"){
+        const button = document.createElement('button')
+        button.classList.add('btn-main', 'fallback-crypto-table')
+        $('#table_crypto_filter input').on('keyup', function () {
+            const row = document.querySelector('.dataTables_empty')
+            if(row){
+                row.appendChild(button)
+                const value = this.value
+                button.innerText = `Go to ${value} page`
+                button.onclick = function() {
+                    window.open(`crypto.html?q=${value}`, '_self')
+                }
+            }
+        });
+    }
 }
 
 const dockedDock = (dock, span) => {
