@@ -98,7 +98,7 @@ const fEdit_main = (data) => {
             $(this).addClass('selected');
         }
     })
-    if(variables.version === "1.0.0"){
+    if(variables.version === "2.0.0"){
         const button = document.createElement('button')
         button.classList.add('btn-main', 'fallback-crypto-table')
         $('#table_crypto_filter input').on('keyup', function () {
