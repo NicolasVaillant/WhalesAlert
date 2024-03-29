@@ -3,6 +3,7 @@ import requests
 from requests_oauthlib import OAuth1Session
 import datetime
 import logging
+from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 import os
 
@@ -21,10 +22,11 @@ certif = Path("resources", "python", "bitnet","bitexplorer.io.crt")
 # certif = Path("/home", "container", "webroot","resources", "python", "bitnet","bitexplorer.io.crt")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
-if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
+if not logger_fonction_tx_analyze.handlers:
     logger_fonction_tx_analyze.setLevel(logging.INFO)
     filenamelog = Path("logs", "tx_analyze.log")
-    handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 

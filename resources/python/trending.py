@@ -10,6 +10,21 @@ trends_jaon = Path("resources", "data_scrap", "trends.json")
 # Version serveur
 # trends_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "trends.json")
 
+#----------------------------------------------------
+# Logging
+#----------------------------------------------------
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+logger_fonction_scrap = logging.getLogger('scraping')
+if not logger_fonction_scrap.handlers:
+    logger_fonction_scrap.setLevel(logging.INFO)
+    filenamelog = Path("logs", f"scrap").with_suffix(".log")
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+    logger_fonction_scrap.addHandler(handler)
+
 class Scraper:
     async def scrape_trend(self):
         try:
@@ -41,7 +56,7 @@ class Scraper:
             return details
 
         except Exception as e:
-            print('An error occurred while scraping:', e)
+            logger_fonction_scrap.error('An error occurred while scraping:', e)
             return []
 
     async def scrape_specific_info(self, url_part):
@@ -71,7 +86,7 @@ class Scraper:
             }
 
         except Exception as e:
-            print(f'An error occurred while scraping {url_part}:', e)
+            logger_fonction_scrap.error(f'An error occurred while scraping {url_part}:', e)
             return None
 
 async def main():
