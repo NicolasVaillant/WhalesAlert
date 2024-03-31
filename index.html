@@ -83,22 +83,11 @@
                             <span class="hidden">
                                 <text class="menu-4-explanation"></text>
                                 <div class="row">
-                                    <button class="btn-main confirm" onclick="removeLS(this)">Confirm</button>
-                                    <button class="btn-main cancel" onclick="closePopup()">Cancel</button>
+                                    <button 
+                                        class="btn-main confirm cleanLSConfirmButton" 
+                                        btn-clean='false'>Confirm</button>
+                                    <button class="btn-main cancel cleanLSCancelButton">Cancel</button>
                                 </div>
-                                <script defer>
-                                    const removeLS = (e) => {
-                                        localStorage.removeItem(label__favorite_elements)
-                                        e.classList.add('done')
-                                        e.innerText = 'Done'
-                                    }
-
-                                    const closePopup = () => {
-                                        LS.checked = false
-                                        LS.closest('label').classList.remove('active')
-                                        tooltip_content.querySelector('span').classList.add('hidden')
-                                    }
-                                </script>
                             </span>
                             <input type="checkbox" id="toggle-ls">
                         </label>

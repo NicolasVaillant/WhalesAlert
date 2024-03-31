@@ -27,6 +27,10 @@ if(variables.version === "2.0.0"){
     const label = document.querySelector('.label-crypto-fav');
     label.classList.remove('hidden')
     checkbox_fav_crypto.addEventListener('change', (e) => {
+        checkFav(e)
+    });
+
+    const checkFav = (e) => {
         if (e.target.checked) {
             toggle_fav.classList.replace('fa-regular', 'fa-solid');
             const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements));
@@ -51,7 +55,7 @@ if(variables.version === "2.0.0"){
                 }));
             }
         }
-    });
+    }
 }
 
 const fLoad_crypto_tx = async() => {
@@ -172,7 +176,6 @@ const setAsideInfo = (data) => {
     const refresh_date = document.querySelector('.refresh-date')
     // percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
     let calc_market_cap = data.supply*data.last_price_usd
-    console.log(data, data.total_supply);
     price.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     price_dup.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     market_cap.innerText = calc_market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})

@@ -135,6 +135,7 @@ body main header .hamburger-menu .hb-container a.tooltip-content {
 body main header .hamburger-menu .hb-container li:not(.no-effect) span,
 body main header .hamburger-menu .hb-container label span,
 body main header .hamburger-menu .hb-container a span {
+  cursor: default;
   position: absolute;
   top: 0;
   padding: 0.5em;
@@ -173,6 +174,11 @@ body main header .hamburger-menu .hb-container label span .row button,
 body main header .hamburger-menu .hb-container a span .row button {
   display: flex;
   justify-content: center;
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button.cleanLSConfirmButton[btn-clean=true],
+body main header .hamburger-menu .hb-container label span .row button.cleanLSConfirmButton[btn-clean=true],
+body main header .hamburger-menu .hb-container a span .row button.cleanLSConfirmButton[btn-clean=true] {
+  background: var(--up);
 }
 body main header .hamburger-menu .hb-container li:not(.no-effect) span .row button.confirm,
 body main header .hamburger-menu .hb-container label span .row button.confirm,

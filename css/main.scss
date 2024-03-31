@@ -111,6 +111,7 @@ body{
           a{
             &.tooltip-content{position: relative;}
             span{
+              cursor: default;
               position: absolute;
               top: 0;
               padding: .5em;
@@ -134,6 +135,11 @@ body{
                 button{
                   display: flex;
                   justify-content: center;
+                  &.cleanLSConfirmButton{
+                    &[btn-clean = "true"]{
+                      background: var(--up);
+                    }
+                  }
                   &.confirm{
                     background: var(--active-color);
                     color: var(--w);
