@@ -713,6 +713,7 @@ body main .container-split .col-content {
   height: 100%;
 }
 body main .container-split .col-content .info-crypto {
+  color: var(--b);
   margin-bottom: 2em;
   background: var(--hf-color-op);
   border-radius: var(--br);
