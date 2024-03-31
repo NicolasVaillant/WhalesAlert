@@ -10,6 +10,21 @@ losers_jaon = Path("resources", "data_scrap", "losers.json")
 # Version serveur
 # losers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "losers.json")
 
+#----------------------------------------------------
+# Logging
+#----------------------------------------------------
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+logger_fonction_scrap = logging.getLogger('scraping')
+if not logger_fonction_scrap.handlers:
+    logger_fonction_scrap.setLevel(logging.INFO)
+    filenamelog = Path("logs", f"scrap").with_suffix(".log")
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+    logger_fonction_scrap.addHandler(handler)
+
 class ScraperL:
     async def scrape_losers(self):
         try:
@@ -25,7 +40,7 @@ class ScraperL:
             table_wrap = header_element.find_previous('div', class_='uikit-col-md-8').select_one('.table-wrap tbody') if header_element else None
 
             if not table_wrap:
-                print("Could not find the Top Losers table.")
+                logger_fonction_scrap.error("Could not find the Top Losers table.")
                 return []
 
             rows = table_wrap.select('tr')
@@ -47,7 +62,7 @@ class ScraperL:
             return details
 
         except Exception as e:
-            print("An error occurred while scraping the Losers section:", e)
+            logger_fonction_scrap.error("An error occurred while scraping the Losers section:", e)
             return []
 
     async def scrape_specific_info(self, url_part):
@@ -77,7 +92,7 @@ class ScraperL:
             }
 
         except Exception as e:
-            print(f'An error occurred while scraping {url_part}:', e)
+            logger_fonction_scrap.error(f'An error occurred while scraping {url_part}:', e)
             return None
 
 async def main():

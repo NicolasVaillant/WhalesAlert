@@ -5,7 +5,7 @@ import json
 import asyncio
 import threading
 import logging
-import os
+from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 
 #----------------------------------------------------
@@ -43,19 +43,25 @@ from resources.python import coins_data
 #----------------------------------------------------
 
 logger_fonction_scrap = logging.getLogger('scraping')
-logger_fonction_scrap.setLevel(logging.INFO)
-filenamelog = Path("logs", f"scrap").with_suffix(".log")
-handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-logger_fonction_scrap.addHandler(handler)
+if not logger_fonction_scrap.handlers:
+    logger_fonction_scrap.setLevel(logging.INFO)
+    filenamelog = Path("logs", f"scrap").with_suffix(".log")
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+    logger_fonction_scrap.addHandler(handler)
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
-if not logger_fonction_tx_analyze.handlers:  # Vérifie s'il y a déjà des handlers configurés
+if not logger_fonction_tx_analyze.handlers:
     logger_fonction_tx_analyze.setLevel(logging.INFO)
     filenamelog = Path("logs", "tx_analyze.log")
-    handler = logging.FileHandler(filename=filenamelog, encoding='utf-8', mode='a')
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
+
+
+logger_fonction_tx_analyze.info("Start")
 
 logger_fonction_tx_analyze.info("Start")
 
@@ -131,8 +137,12 @@ def trend_j():
     asyncio.run(trending.main())
     logger_fonction_scrap.info("Trendings scrap")
 
+def coins_data_file_j():
+    coins_data.fetch_and_save_coins_data()
+    logger_fonction_scrap.info("Infos coins")
+
 def coins_data_j():
-    coins_data.fetch_coins_and_process()
+    coins_data.process_coins_and_fetch_details()
     logger_fonction_scrap.info("Infos coins")
 
 def coins_table_j():
@@ -248,6 +258,7 @@ schedule.every(60).minutes.do(loser_j)
 schedule.every(60).minutes.do(trend_j)
 
 # Scrap Coins Data
+schedule.every(1).week.do(coins_data_file_j)
 schedule.every(1).days.do(coins_data_j)
 schedule.every(120).minutes.do(coins_table_j)
 

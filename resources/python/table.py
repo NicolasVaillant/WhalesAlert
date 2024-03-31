@@ -8,6 +8,21 @@ table_jaon = Path("resources", "data_scrap", "main.json")
 # Version serveur
 # table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
 
+#----------------------------------------------------
+# Logging
+#----------------------------------------------------
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+logger_fonction_scrap = logging.getLogger('scraping')
+if not logger_fonction_scrap.handlers:
+    logger_fonction_scrap.setLevel(logging.INFO)
+    filenamelog = Path("logs", f"scrap").with_suffix(".log")
+    handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+    logger_fonction_scrap.addHandler(handler)
+
 class CoinFetcher:
     def __init__(self):
         self.api_key = '4b3b4ea4-0770-4d97-8db7-a62f4f5148c9'
