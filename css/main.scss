@@ -7,6 +7,7 @@
   user-select: none;
 }
 *.hidden{display: none!important}
+*.grey{color: var(--grey)}
 @mixin h2title{
   margin-top: 0;
   display: flex;
@@ -49,7 +50,8 @@ body{
     @include centerFlex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--bg-color);
+    // background-color: var(--bg-color);
+    background-image: radial-gradient(circle, var(--bg-color), #0a4070, #0e497d, #12518a, #155a97);
 
     a{
       text-decoration: none;
@@ -302,6 +304,10 @@ body{
         }
       }
     }
+    .link-crypto-header{
+      color: var(--active-color);
+      text-decoration: underline;
+    }
 
     .head-layout-crypto{
       width: var(--width-page);
@@ -334,8 +340,6 @@ body{
     .container-split{
       --gap-side-bar:2em;
       margin-top: 3em;
-
-      .grey{color: var(--grey)}
 
       &.crypto{
         margin-top: 0;

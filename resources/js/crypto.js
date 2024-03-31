@@ -132,6 +132,7 @@ function readMoreInfo() {
 }
 
 const setAsideInfo = (data) => {
+    const link = document.querySelector('.link-crypto-header')
     const info_c = document.querySelector('.info-crypto')
     const info = document.querySelector('.info-crypto .description-text')
     const duplicated_info = document.querySelector('.duplicated-info')
@@ -161,6 +162,11 @@ const setAsideInfo = (data) => {
                     e.classList.add('more')
             })
         }
+    }
+    if(variables.version === "2.0.0"){
+        console.log(data);
+        link.innerText = data.website
+        link.href = data.website
     }
     const price = document.querySelector('.quote-USD-price')
     const price_dup = document.querySelector('.dup-quote-USD-price')
