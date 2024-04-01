@@ -7,7 +7,6 @@ name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 if(variables.version === "2.0.0"){
     const checkbox_fav_crypto = document.querySelector('#fav-crypto');
     const toggle_fav = document.querySelector('.toggle_fav')
-
     const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
     if(stored_fav !== null){
         if(typeof stored_fav.data === 'string'){
@@ -27,6 +26,10 @@ if(variables.version === "2.0.0"){
     const label = document.querySelector('.label-crypto-fav');
     label.classList.remove('hidden')
     checkbox_fav_crypto.addEventListener('change', (e) => {
+        checkFav(e)
+    });
+
+    const checkFav = (e) => {
         if (e.target.checked) {
             toggle_fav.classList.replace('fa-regular', 'fa-solid');
             const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements));
@@ -51,7 +54,7 @@ if(variables.version === "2.0.0"){
                 }));
             }
         }
-    });
+    }
 }
 
 const fLoad_crypto_tx = async() => {
@@ -128,6 +131,7 @@ function readMoreInfo() {
 }
 
 const setAsideInfo = (data) => {
+    const link = document.querySelector('.link-crypto-header')
     const info_c = document.querySelector('.info-crypto')
     const info = document.querySelector('.info-crypto .description-text')
     const duplicated_info = document.querySelector('.duplicated-info')
@@ -158,6 +162,11 @@ const setAsideInfo = (data) => {
             })
         }
     }
+    if(variables.version === "2.0.0"){
+        console.log(data, data.social);
+        link.innerText = data.website
+        link.href = data.website
+    }
     const price = document.querySelector('.quote-USD-price')
     const price_dup = document.querySelector('.dup-quote-USD-price')
     const percent_change_24h = document.querySelector('.percent-24h')
@@ -172,7 +181,6 @@ const setAsideInfo = (data) => {
     const refresh_date = document.querySelector('.refresh-date')
     // percent_change_24h.innerText = `${data.quotes.USD.percent_change_24h}%`
     let calc_market_cap = data.supply*data.last_price_usd
-    console.log(data, data.total_supply);
     price.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     price_dup.innerText = data.last_price_usd.toLocaleString("us-US", {style: "currency", currency: "USD"})
     market_cap.innerText = calc_market_cap.toLocaleString("us-US", {style: "currency", currency: "USD"})
@@ -244,6 +252,13 @@ const fLoad_table = async(r) => {
     
     if(typeof r !== 'object'){
         const cont = document.querySelector('.container-error')
+        if(variables.version !== "2.0.0"){
+            const svg = document.querySelector('.container-error svg')
+            const redirect = document.querySelector('.suggest-crypto-redirect')
+            redirect.href = `suggest-crypto.html?q=${query}`
+            redirect.classList.add('hidden')
+            svg.classList.add('hidden')
+        }        
         cont.classList.remove('hidden')
         table_coin.classList.add('hidden')
     }

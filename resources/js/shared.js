@@ -4,6 +4,7 @@ const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
 const hb_container = document.querySelector('.hb-container')
+const hamburger_menu = document.querySelector('.hamburger-menu')
 const tooltip_content = document.querySelector('.tooltip-content')
 const darkM = document.querySelector("#darkMode-input")
 const LS = document.querySelector("#toggle-ls")
@@ -15,11 +16,48 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
-
 if(variables.version === "2.0.0"){
+    const cleanLSConfirmButton = document.querySelector('.cleanLSConfirmButton')
+    const cleanLSCancelButton = document.querySelector('.cleanLSCancelButton')
+    cleanLSCancelButton.addEventListener('click', (e) => {
+        LS.checked = false
+        LS.closest('label').classList.remove('active')
+        tooltip_content.querySelector('span').classList.add('hidden')
+    })
+    cleanLSConfirmButton.addEventListener('click', (e) => {
+        const checkbox_fav_crypto = document.querySelector('#fav-crypto');
+        const toggle_fav = document.querySelector('.toggle_fav')
+        const btn = e.target
+        const status = btn.getAttribute('btn-clean')
+        if(status === 'true'){
+            LS.checked = false
+            btn.innerText = 'Confirm'
+            LS.closest('label').classList.remove('active')
+            tooltip_content.querySelector('span').classList.add('hidden')
+            btn.setAttribute('btn-clean', 'false')
+        } else {
+            if(checkbox_fav_crypto){
+                checkbox_fav_crypto.checked = false
+                toggle_fav.classList.replace('fa-solid', 'fa-regular')
+            }
+            localStorage.removeItem(label__favorite_elements)
+            btn.innerText = 'Done!'
+            btn.setAttribute('btn-clean', 'true')
+        }
+    })
+
     document.querySelector('.tooltip-content').classList.remove('hidden')
     LS.addEventListener('change', (e) => {
+        const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
         if(e.target.checked){
+            if(stored_fav === null){
+                const status = cleanLSConfirmButton.getAttribute('btn-clean')
+                cleanLSConfirmButton.innerText = 'Already empty'
+                cleanLSConfirmButton.setAttribute('btn-clean', 'true')
+            } else {
+                cleanLSConfirmButton.innerText = 'Confirm'
+                cleanLSConfirmButton.setAttribute('btn-clean', 'false')
+            }
             LS.closest('label').classList.add('active')
             tooltip_content.querySelector('span').classList.remove('hidden')
         }else{
@@ -232,6 +270,13 @@ function setToast(type, text, timer){
 toggle_hamburger.addEventListener('click', () => {
     if(hb_container.classList.contains('hidden')){
         hb_container.classList.remove('hidden')
+        if(variables.version === "2.0.0"){
+            document.addEventListener('click', function(event) {
+                if (!hamburger_menu.contains(event.target)) {
+                    hb_container.classList.add('hidden')
+                }
+            });
+        }
     }else{
         hb_container.classList.add('hidden')
     }
@@ -263,9 +308,12 @@ const contextMenuCreation = (text, x, y, url = false) => {
         modal.style.display = 'none';
     });
 }
-const close_btn = document.querySelector('.close-btn');
-close_btn.addEventListener('click', function() {
-    modal.style.display = 'none';
-    $('#table_crypto tbody tr').removeClass('selected');
-    $('#table_crypto_unique tbody tr').removeClass('selected');
-});
+
+if(exact_type === 'crypto' || exact_type === 'index'){
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        $('#table_crypto tbody tr').removeClass('selected');
+        $('#table_crypto_unique tbody tr').removeClass('selected');
+    });
+}

@@ -7,6 +7,7 @@
   user-select: none;
 }
 *.hidden{display: none!important}
+*.grey{color: var(--grey)}
 @mixin h2title{
   margin-top: 0;
   display: flex;
@@ -48,8 +49,8 @@ body{
     min-height: 100svh;
     @include centerFlex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--bg-color);
+    // background-color: var(--bg-color);
+    background-image: radial-gradient(circle, var(--bg-color), #0a4070, #0e497d, #12518a, #155a97);
 
     a{
       text-decoration: none;
@@ -111,6 +112,7 @@ body{
           a{
             &.tooltip-content{position: relative;}
             span{
+              cursor: default;
               position: absolute;
               top: 0;
               padding: .5em;
@@ -134,6 +136,11 @@ body{
                 button{
                   display: flex;
                   justify-content: center;
+                  &.cleanLSConfirmButton{
+                    &[btn-clean = "true"]{
+                      background: var(--up);
+                    }
+                  }
                   &.confirm{
                     background: var(--active-color);
                     color: var(--w);
@@ -296,6 +303,10 @@ body{
         }
       }
     }
+    .link-crypto-header{
+      color: var(--active-color);
+      text-decoration: underline;
+    }
 
     .head-layout-crypto{
       width: var(--width-page);
@@ -309,7 +320,6 @@ body{
           gap: 1em;
           padding-bottom: .5em;
           .duplicated-info-card{
-            &.head{color: var(--active-color)}
             @include centerFlex();
             gap:.5em;
             background: var(--card-g-l);
@@ -328,8 +338,6 @@ body{
     .container-split{
       --gap-side-bar:2em;
       margin-top: 3em;
-
-      .grey{color: var(--grey)}
 
       &.crypto{
         margin-top: 0;
@@ -592,6 +600,7 @@ body{
         width: 100%;
         height: 100%;
         .info-crypto{
+          color: var(--b);
           margin-bottom: 2em;
           @include card;
           h2{
@@ -888,12 +897,32 @@ body{
 
           .container-error{
             @include centerFlex;
+            flex-direction: column;
             gap:1em;
             background: var(--w);
             padding: 1em;
             border-radius: var(--br);
             color: var(--error);
             border: 1px solid var(--w);
+            text,
+            .follow-up-crypto{
+              @include centerFlex;
+              gap:1em;
+            }
+            svg{
+              width: 40vw;
+              max-width: 250px;
+              height: auto;
+            }
+            .follow-up-crypto{
+              flex-wrap: wrap;
+              a{
+                width: fit-content;
+                border: 1px solid var(--active-color);
+                color: var(--active-color);
+                border-radius: 1000px;
+              }
+            }
           }
 
           .more-crypto-redirect{
@@ -946,9 +975,11 @@ body{
                 &:hover{background: transparent!important;}
               }
               .dataTables_empty{
-                button{
-                  margin: 1em auto;
-                  width: fit-content;
+                .row-btn{
+                  @include centerFlex;
+                  margin-top: 1em;
+                  gap: 1em;
+                  button{width: fit-content}
                 }
               }
               .dataTables_paginate{
@@ -1091,10 +1122,36 @@ body{
             background: red;
           }
         }
+        .suggest-crypto-content{
+          color: var(--white);
+          margin-bottom: 3em;
+          .container{
+            @include centerFlex;
+            margin-top: 1em;
+            gap: 1em;
+            @media all and (max-width: 600px) {
+              flex-wrap: wrap;
+            }
+            button{
+              &:first-child{margin-left: auto}
+              &:not(:first-child){@include outline;}
+              width: fit-content;
+            }
+            label{
+              width: 100%;
+              input{
+                width: 100%;
+                margin-top: .5em;
+                cursor: text;
+              }
+            }
+          }
+        }
       }
     }
 
     footer{
+      margin-top: auto;
       width: 100%;
       color: var(--b);
       background: var(--hf-color);

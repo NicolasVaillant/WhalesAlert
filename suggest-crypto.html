@@ -5,13 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Whales-Alert.fr offers real-time cryptocurrency transaction tracking, market trends, and analytics focused on significant blockchain activity and low market cap gems. Join our community to stay ahead with timely alerts and detailed crypto statistics."/>
+    <meta name="description" content="🔍 LowCap Crypto Watch | 💰 Large Transactions | 📈 Insights & More"/>
     <meta name="author" content="Whales Alert"/>
     <meta property="og:title" content="Whales Alert"/>
     <meta property="og:image" content="https://whales-alert.fr/thumbnail.png"/>
     <meta property="og:url" content="https://whales-alert.fr"/>
     <meta property="og:site_name" content="Whales Alert"/>
-    <meta property="og:description" content="Whales-Alert.fr offers real-time cryptocurrency transaction tracking, market trends, and analytics focused on significant blockchain activity and low market cap gems. Join our community to stay ahead with timely alerts and detailed crypto statistics."/>
+    <meta property="og:description" content="🔍 LowCap Crypto Watch | 💰 Large Transactions | 📈 Insights & More"/>
     <link type="image/png" sizes="16x16" rel="icon" href="resources/ico/def_16.png">
     <link type="image/png" sizes="32x32" rel="icon" href="resources/ico/def_32.png">
     <link type="image/png" sizes="96x96" rel="icon" href="resources/ico/def_96.png">
@@ -28,7 +28,7 @@
     <script src="parameters/parameters.js" defer></script>
     <!-- JS FILE(S) -->
     <script src="resources/js/shared.js" defer></script>
-    <script src="resources/js/index.js" defer></script>
+    <script src="resources/js/suggest-crypto.js" defer></script>
     <!-- CSS FILE(S) -->
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/main.css">
@@ -42,7 +42,7 @@
     <!-- <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js" defer></script> -->
     <!-- <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js" defer></script> -->
     <!-- //cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css -->
-    <title>Home | WhalesAlert</title>
+    <title>Suggestion | WhalesAlert</title>
 </head>
 <body>
 <main>
@@ -72,7 +72,7 @@
                     <li>
                         <label for="darkMode-input">
                             <i class="fa-solid fa-circle-half-stroke tog_dm_icon"></i>
-                            <text class="menu-3"></text>
+                            <text class="menu-3">Mode</text>
                             <input type="checkbox" id="darkMode-input">
                         </label>
                     </li>
@@ -143,35 +143,7 @@
         <div class="col-more-info">
             <div class="content-displayed">
                 <div class="w_bg">
-                    <h3>
-                        <i class="fa-solid fa-star"></i>
-                        <text class="top-trend-user"></text>
-                    </h3>
-                    <div class="user-trends">
-                        <a class="user-trend-card" data-value="init">
-                            <span class="user-trend-card-nb"></span>
-                            <div class="user-trend-card-container">
-                                <div class="user-trend-card-name"></div>
-                                <div class="user-trend-card-value"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <h3>
-                        <i class="fa-solid fa-ranking-star"></i>
-                        <text class="latest-top"></text>
-                    </h3>
-                    <div class="settings-bar-table">
-                        <div class="col-left-sc"></div>
-                        <div class="col-right-sc">
-                            <select name="select_table" id="select_table">
-                                <option value="1000">All</option>
-                            </select>
-                            <button class="type-table-toggle btn-main">
-                                <!-- <i class="fa-solid fa-list"></i> -->
-                                <i class="fa-solid fa-table-cells-large"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, a?</p>
                 </div>
                 <button class="btn-main backToTop hidden">
                     <i class="fa-solid fa-arrow-up"></i>
@@ -180,81 +152,57 @@
             </div>
         </div>
         <div class="col-content">
-            <div class="wrapper-content top">
-                <div class="top-content">
-                    <div class="duplicated-user-trends">
-                        <h2>
-                            <i class="fa-solid fa-star"></i>
-                            <text class="top-trend-user"></text>
-                        </h3>
+            <div class="suggest-crypto-content">
+                <h1>Suggest Crypto</h1>
+                <form action="" method="GET" class="">
+                    <div class="container">
+                        <label for="sc-input-name">Name
+                            <input 
+                                type="text" 
+                                name="sc-input-name" 
+                                id="sc-input-name" 
+                                placeholder="Name of cryptocurrency" 
+                                class="btn-main" 
+                                required>
+                        </label>
+                        <label for="sc-input-symbol">Symbol
+                            <input 
+                                type="text" 
+                                name="sc-input-symbol" 
+                                id="sc-input-symbol" 
+                                placeholder="Symbol of cryptocurrency"
+                                class="btn-main"
+                                required>
+                        </label>
                     </div>
-                    <div class="trending-content">
-                        <h2 class="title-container max">
-                            <i class="fa-solid fa-fire"></i>
-                            Trending
-                        </h2>
-                        <div class="line-content-trend">
-                            <div class="container-overflow"></div>
-                        </div>
+                    <div class="container">
+                        <label for="sc-input-url">Url of cryptocurrency
+                            <input 
+                                type="text" 
+                                name="sc-input-url" 
+                                id="sc-input-url" 
+                                placeholder="Url of cryptocurrency" 
+                                class="btn-main"
+                                required>
+                        </label>
                     </div>
-                    <div class="gain-lose-content">
-                        <div class="col">
-                            <h3 class="title-container">
-                                <i class="fa-solid fa-circle-arrow-up"></i>
-                                Gainers
-                            </h3>
-                            <div class="card-content-gainers"></div>
-                        </div>
-                        <div class="col">
-                            <h3 class="title-container">
-                                <i class="fa-solid fa-circle-arrow-down"></i>
-                                Losers
-                            </h3>
-                            <div class="card-content-losers"></div>
-                        </div>
+                    <div class="container">
+                        <label for="sc-input-img">Url of cryptocurrency icon
+                            <input 
+                                type="text" 
+                                name="sc-input-img" 
+                                id="sc-input-img" 
+                                placeholder="Url of cryptocurrency icon" 
+                                class="btn-main"
+                                required>
+                        </label>
                     </div>
-                </div>
-            </div>
-            <div class="wrapper-content title">
-                <h2 class="title-container max">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <text class="home-h2-transactions"></text>
-                </h2>
-            </div>
-            <div class="settings-container">
-                
-            </div>
-            <div class="wrapper-content table">
-                <div class="array-content">
-                    <table id="table_crypto" class="table table-bordered order-column cell-border" style="width:100%">
-                        <thead>
-                        <tr class="row_table_def">
-                            <th>Rank</th>
-                            <th>Name</th>
-                            <th>Symbol</th>
-                            <th>Price</th>
-                            <th>Volume</th>
-                            <th>1h</th>
-                            <th>24h</th>
-                            <th>7d</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                        <tr class="row_table_def">
-                            <th>Rank</th>
-                            <th>Name</th>
-                            <th>Symbol</th>
-                            <th>Price</th>
-                            <th>Volume</th>
-                            <th>1h</th>
-                            <th>24h</th>
-                            <th>7d</th>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="grid_crypto hidden"></div>
+                      
+                    <div class="container">
+                        <button class="btn-main" type="reset">Cancel</button>
+                        <button class="btn-main outline" type="submit">Submit</button>
+                    </div>
+                  </form>
             </div>
         </div>
     </div>
@@ -290,17 +238,6 @@
             </div>
         </div>
     </footer>
-    <div id="modal" style="display: none;">
-        <div class="container-header">
-            <p class="modal-text"></p>
-            <div class="close-btn">
-                <i class="fa-solid fa-times"></i>
-            </div>
-        </div>
-        <div class="container-content">
-            <button id="open_crypto_from_table" class="btn-main"></button>
-        </div>
-    </div>
 </main>
 </body>
 </html>

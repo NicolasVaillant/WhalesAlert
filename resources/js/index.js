@@ -99,16 +99,26 @@ const fEdit_main = (data) => {
         }
     })
     if(variables.version === "2.0.0"){
+        const row_btn = document.createElement('div')
         const button = document.createElement('button')
+        const button_s = document.createElement('button')
+        row_btn.classList.add('row-btn')
         button.classList.add('btn-main', 'fallback-crypto-table')
+        button_s.classList.add('btn-main', 'fallback-crypto-table', 'active')
         $('#table_crypto_filter input').on('keyup', function () {
             const row = document.querySelector('.dataTables_empty')
             if(row){
-                row.appendChild(button)
+                row_btn.appendChild(button)
+                row_btn.appendChild(button_s)
+                row.appendChild(row_btn)
                 const value = this.value
                 button.innerText = `Go to ${value} page`
+                button_s.innerText = `Suggest ${value}`
                 button.onclick = function() {
                     window.open(`crypto.html?q=${value}`, '_self')
+                }
+                button_s.onclick = function() {
+                    window.open(`suggest-crypto.html?q=${value}`, '_self')
                 }
             }
         });
