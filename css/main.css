@@ -50,7 +50,6 @@ body main {
   align-items: center;
   align-content: center;
   flex-direction: column;
-  justify-content: space-between;
   background-image: radial-gradient(circle, var(--bg-color), #0a4070, #0e497d, #12518a, #155a97);
 }
 body main a {
@@ -411,9 +410,6 @@ body main .head-layout-crypto .duplicated-info .duplicated-info-container .dupli
   padding: 0.2em 0.5em;
   border: 1px solid var(--btn-main-bg);
   color: var(--b);
-}
-body main .head-layout-crypto .duplicated-info .duplicated-info-container .duplicated-info-card.head {
-  color: var(--active-color);
 }
 @media all and (min-width: 700px) {
   body main .head-layout-crypto .duplicated-info {
@@ -1107,12 +1103,35 @@ body main .container-split .col-content .wrapper-content .container-error {
   justify-content: center;
   align-items: center;
   align-content: center;
+  flex-direction: column;
   gap: 1em;
   background: var(--w);
   padding: 1em;
   border-radius: var(--br);
   color: var(--error);
   border: 1px solid var(--w);
+}
+body main .container-split .col-content .wrapper-content .container-error text,
+body main .container-split .col-content .wrapper-content .container-error .follow-up-crypto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1em;
+}
+body main .container-split .col-content .wrapper-content .container-error svg {
+  width: 40vw;
+  max-width: 250px;
+  height: auto;
+}
+body main .container-split .col-content .wrapper-content .container-error .follow-up-crypto {
+  flex-wrap: wrap;
+}
+body main .container-split .col-content .wrapper-content .container-error .follow-up-crypto a {
+  width: fit-content;
+  border: 1px solid var(--active-color);
+  color: var(--active-color);
+  border-radius: 1000px;
 }
 body main .container-split .col-content .wrapper-content .more-crypto-redirect {
   outline: 2px solid var(--active-color);
@@ -1179,9 +1198,17 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper tr:has(.dataTables_empty):hover {
   background: transparent !important;
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty button,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty button {
-  margin: 1em auto;
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty .row-btn,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty .row-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 1em;
+  gap: 1em;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty .row-btn button,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty .row-btn button {
   width: fit-content;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate,
@@ -1354,7 +1381,43 @@ body main .container-split .col-content .wrapper-content .grid_crypto {
 body main .container-split .col-content .wrapper-content .grid_crypto.hidden {
   display: none;
 }
+body main .container-split .col-content .suggest-crypto-content {
+  color: var(--white);
+  margin-bottom: 3em;
+}
+body main .container-split .col-content .suggest-crypto-content .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 1em;
+  gap: 1em;
+}
+@media all and (max-width: 600px) {
+  body main .container-split .col-content .suggest-crypto-content .container {
+    flex-wrap: wrap;
+  }
+}
+body main .container-split .col-content .suggest-crypto-content .container button {
+  width: fit-content;
+}
+body main .container-split .col-content .suggest-crypto-content .container button:first-child {
+  margin-left: auto;
+}
+body main .container-split .col-content .suggest-crypto-content .container button:not(:first-child) {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+body main .container-split .col-content .suggest-crypto-content .container label {
+  width: 100%;
+}
+body main .container-split .col-content .suggest-crypto-content .container label input {
+  width: 100%;
+  margin-top: 0.5em;
+  cursor: text;
+}
 body main footer {
+  margin-top: auto;
   width: 100%;
   color: var(--b);
   background: var(--hf-color);

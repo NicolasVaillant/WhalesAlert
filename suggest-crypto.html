@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="🔍 LowCap Crypto Watch | 💰 Large Transactions | 📈 Insights & More"/>
+    <meta name="author" content="Whales Alert"/>
+    <meta property="og:title" content="Whales Alert"/>
+    <meta property="og:image" content="https://whales-alert.fr/thumbnail.png"/>
+    <meta property="og:url" content="https://whales-alert.fr"/>
+    <meta property="og:site_name" content="Whales Alert"/>
+    <meta property="og:description" content="🔍 LowCap Crypto Watch | 💰 Large Transactions | 📈 Insights & More"/>
+    <link type="image/png" sizes="16x16" rel="icon" href="resources/ico/def_16.png">
+    <link type="image/png" sizes="32x32" rel="icon" href="resources/ico/def_32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="resources/ico/def_96.png">
+    <!-- Toast with sweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mende+Kikakui&display=swap" rel="stylesheet">
+    <!-- icon from fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Parameters files -->
+    <link rel="stylesheet" href="parameters/parameters.css">
+    <script src="parameters/parameters.js" defer></script>
+    <!-- JS FILE(S) -->
+    <script src="resources/js/shared.js" defer></script>
+    <script src="resources/js/suggest-crypto.js" defer></script>
+    <!-- CSS FILE(S) -->
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- css style used to correctly display data tables -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <!-- script used to correctly display data tables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js" defer></script> -->
+    <!-- <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js" defer></script> -->
+    <!-- //cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css -->
+    <title>Suggestion | WhalesAlert</title>
+</head>
+<body>
+<main>
+    <header>
+        <div class="wrapper-header">
+            <a class="brand-container" href="index.html">
+                <img src="resources/img/logo.png" alt="Website's logo">
+                <h2>WhalesAlert</h2>
+            </a>
+            <label for="search-bar-input" class="search-bar">
+                <input type="text" id="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
+            </label>
+            <div class="hamburger-menu">
+                <span class="info-more">
+                    <i class="fa-solid fa-bars"></i>
+                </span>
+                <ul class="hb-container hidden">
+                    <li class="seperator-default no-effect"></li>
+                    <li class="refreshRate hidden">
+                        <i class="fa-solid fa-clock"></i>
+                        <text class="menu-1">Default</text>
+                    </li>
+                    <li class="hidden">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <text class="menu-2"></text>
+                    </li>
+                    <li>
+                        <label for="darkMode-input">
+                            <i class="fa-solid fa-circle-half-stroke tog_dm_icon"></i>
+                            <text class="menu-3">Mode</text>
+                            <input type="checkbox" id="darkMode-input">
+                        </label>
+                    </li>
+                    <li>
+                        <label for="toggle-ls" class="tooltip-content hidden">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <text class="menu-4"></text>
+                            <span class="hidden">
+                                <text class="menu-4-explanation"></text>
+                                <div class="row">
+                                    <button 
+                                        class="btn-main confirm cleanLSConfirmButton" 
+                                        btn-clean='false'>Confirm</button>
+                                    <button class="btn-main cancel cleanLSCancelButton">Cancel</button>
+                                </div>
+                            </span>
+                            <input type="checkbox" id="toggle-ls">
+                        </label>
+                    </li>
+                    <li class="seperator-links no-effect"></li>
+                    <li>
+                        <a href="https://t.me/Whales_Alert_info">
+                            <i class="fa-brands fa-telegram"></i>
+                            <text>Telegram channel</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linktr.ee/whales_alert">
+                            <i class="fa-solid fa-paperclip"></i>
+                            <text>Linktr.ee</text>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Charles-84/WhalesAlert_Site" class="box-dashed">
+                            <i class="fa-brands fa-github"></i>
+                            <text>GitHub</text>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="new">
+        <div class="top-line">
+            <h3 class="intro-banner"></h3>
+            <div class="close-banner">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <div class="buttons">
+            <a href="https://t.me/Whales_Alert_info" class="telegram btn-main">
+                <i class="fa-brands fa-telegram"></i>
+                <text>Telegram channel</text>
+            </a>
+            <a href="https://linktr.ee/whales_alert" class="x-com btn-main">
+                <i class="fa-solid fa-paperclip"></i>
+                <text>Linktr.ee</text>
+            </a>
+            <a href="https://github.com/Charles-84/WhalesAlert_Site" class="git btn-main box-dashed">
+                <span>
+                    <i class="fa-brands fa-github"></i>
+                    <text>GitHub</text>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="container-split">
+        <div class="col-more-info">
+            <div class="content-displayed">
+                <div class="w_bg">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, a?</p>
+                </div>
+                <button class="btn-main backToTop hidden">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <text class="backToTop-Text"></text>
+                </button>
+            </div>
+        </div>
+        <div class="col-content">
+            <div class="suggest-crypto-content">
+                <h1>Suggest Crypto</h1>
+                <form action="" method="GET" class="">
+                    <div class="container">
+                        <label for="sc-input-name">Name
+                            <input 
+                                type="text" 
+                                name="sc-input-name" 
+                                id="sc-input-name" 
+                                placeholder="Name of cryptocurrency" 
+                                class="btn-main" 
+                                required>
+                        </label>
+                        <label for="sc-input-symbol">Symbol
+                            <input 
+                                type="text" 
+                                name="sc-input-symbol" 
+                                id="sc-input-symbol" 
+                                placeholder="Symbol of cryptocurrency"
+                                class="btn-main"
+                                required>
+                        </label>
+                    </div>
+                    <div class="container">
+                        <label for="sc-input-url">Url of cryptocurrency
+                            <input 
+                                type="text" 
+                                name="sc-input-url" 
+                                id="sc-input-url" 
+                                placeholder="Url of cryptocurrency" 
+                                class="btn-main"
+                                required>
+                        </label>
+                    </div>
+                    <div class="container">
+                        <label for="sc-input-img">Url of cryptocurrency icon
+                            <input 
+                                type="text" 
+                                name="sc-input-img" 
+                                id="sc-input-img" 
+                                placeholder="Url of cryptocurrency icon" 
+                                class="btn-main"
+                                required>
+                        </label>
+                    </div>
+                      
+                    <div class="container">
+                        <button class="btn-main" type="reset">Cancel</button>
+                        <button class="btn-main outline" type="submit">Submit</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="top-line">
+                <div class="col-left-footer">
+                    <div class="brand-container">
+                        <img src="resources/img/logo.png" alt="Website's logo">
+                        <p>WhalesAlert</p>
+                    </div>
+                    <p class="copyright-date"></p>
+                </div>
+                <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a> & <a href="https://github.com/Charles-84">@Charles-84</a></p>
+            </div>
+            <div class="bottom-line">
+                <a href="privacy.html">Privacy</a>
+                <div class="buttons">
+                    <div class="telegram btn-main">
+                        <i class="fa-brands fa-telegram"></i>
+                        <a href="https://t.me/Whales_Alert_info">Telegram channel</a>
+                    </div>
+                    <div class="x-com btn-main">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <a href="https://linktr.ee/whales_alert">Linktr.ee</a>
+                    </div>
+                    <div class="git btn-main">
+                        <i class="fa-brands fa-github"></i>
+                        <a href="https://github.com/Charles-84/WhalesAlert_Site">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+</body>
+</html>

@@ -4,6 +4,7 @@ const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
 const hb_container = document.querySelector('.hb-container')
+const hamburger_menu = document.querySelector('.hamburger-menu')
 const tooltip_content = document.querySelector('.tooltip-content')
 const darkM = document.querySelector("#darkMode-input")
 const LS = document.querySelector("#toggle-ls")
@@ -15,7 +16,6 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
-
 if(variables.version === "2.0.0"){
     const cleanLSConfirmButton = document.querySelector('.cleanLSConfirmButton')
     const cleanLSCancelButton = document.querySelector('.cleanLSCancelButton')
@@ -270,6 +270,13 @@ function setToast(type, text, timer){
 toggle_hamburger.addEventListener('click', () => {
     if(hb_container.classList.contains('hidden')){
         hb_container.classList.remove('hidden')
+        if(variables.version === "2.0.0"){
+            document.addEventListener('click', function(event) {
+                if (!hamburger_menu.contains(event.target)) {
+                    hb_container.classList.add('hidden')
+                }
+            });
+        }
     }else{
         hb_container.classList.add('hidden')
     }
@@ -301,9 +308,12 @@ const contextMenuCreation = (text, x, y, url = false) => {
         modal.style.display = 'none';
     });
 }
-const close_btn = document.querySelector('.close-btn');
-close_btn.addEventListener('click', function() {
-    modal.style.display = 'none';
-    $('#table_crypto tbody tr').removeClass('selected');
-    $('#table_crypto_unique tbody tr').removeClass('selected');
-});
+
+if(exact_type === 'crypto' || exact_type === 'index'){
+    const close_btn = document.querySelector('.close-btn');
+    close_btn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        $('#table_crypto tbody tr').removeClass('selected');
+        $('#table_crypto_unique tbody tr').removeClass('selected');
+    });
+}

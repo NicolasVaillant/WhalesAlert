@@ -7,7 +7,6 @@ name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 if(variables.version === "2.0.0"){
     const checkbox_fav_crypto = document.querySelector('#fav-crypto');
     const toggle_fav = document.querySelector('.toggle_fav')
-
     const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
     if(stored_fav !== null){
         if(typeof stored_fav.data === 'string'){
@@ -164,7 +163,7 @@ const setAsideInfo = (data) => {
         }
     }
     if(variables.version === "2.0.0"){
-        console.log(data);
+        console.log(data, data.social);
         link.innerText = data.website
         link.href = data.website
     }
@@ -253,6 +252,13 @@ const fLoad_table = async(r) => {
     
     if(typeof r !== 'object'){
         const cont = document.querySelector('.container-error')
+        if(variables.version !== "2.0.0"){
+            const svg = document.querySelector('.container-error svg')
+            const redirect = document.querySelector('.suggest-crypto-redirect')
+            redirect.href = `suggest-crypto.html?q=${query}`
+            redirect.classList.add('hidden')
+            svg.classList.add('hidden')
+        }        
         cont.classList.remove('hidden')
         table_coin.classList.add('hidden')
     }
