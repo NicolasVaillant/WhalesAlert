@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Bitcoin",
+        "symbol": "BTC"
+    },
+    {
+        "name": "Ethereum",
+        "symbol": "ETH"
+    },
+    {
+        "name": "Binance Coin",
+        "symbol": "BNB"
+    },
+    {
+        "name": "Dynex",
+        "symbol": "DNX"
+    },
+    {
+        "name": "Radiant",
+        "symbol": "RXD"
+    },
+    {
+        "name": "Bitcoin Pow",
+        "symbol": "BTCW"
+    },
+    {
+        "name": "Ferrite",
+        "symbol": "FEC"
+    },
+    {
+        "name": "Warthog",
+        "symbol": "WART"
+    },
+    {
+        "name": "Pyrin",
+        "symbol": "PYI"
+    },
+    {
+        "name": "AI Power Grid",
+        "symbol": "AIPG"
+    },
+    {
+        "name": "Fennec",
+        "symbol": "FNNC"
+    },
+    {
+        "name": "Kylacoin",
+        "symbol": "KCN"
+    },
+    {
+        "name": "Lyncoin",
+        "symbol": "LCN"
+    },
+    {
+        "name": "BitnetIO",
+        "symbol": "BIT"
+    },
+    {
+        "name": "Nexa",
+        "symbol": "NEXA"
+    }
+]
