@@ -91,7 +91,28 @@ const fLoad_cryptoIMG = async(input) => {
 fLoad_crypto_tx()
     .then(r => {
         createLabelArray()
-        fLoad_table(r)
+        const chart = document.querySelector('#chart-crypto')
+        if(typeof r == 'object'){
+            fLoad_table(r)
+            if(variables.version == "2.0.0"){
+                createChart(r)
+            } else {
+                chart.classList.add('hidden')
+            }
+        } else {
+            const cont = document.querySelector('.container-error')
+            const redirect = document.querySelector('.suggest-crypto-redirect')
+            const svg = document.querySelector('.container-error svg')
+            if(variables.version == "2.0.0"){
+                redirect.href = `suggest-crypto.html?q=${query}`
+            } else {
+                redirect.classList.add('hidden')
+                svg.classList.add('hidden')
+            }
+            chart.classList.add('hidden')
+            cont.classList.remove('hidden')
+            table_coin.classList.add('hidden')
+        }
     })
 
 fLoad_crypto_coin()
@@ -139,7 +160,7 @@ const setAsideInfo = (data) => {
     const symbol = document.querySelector('.crypto-info-symbol')
     const read_more = document.querySelector(".read-more");
 
-    if(data == "null" || data.length === 1){
+    if(data === "null" || data.length === 1){
         container.closest('.container-split').classList.add('no-more-info')
         container.closest('.col-more-info .crypto-info').classList.add('hidden')
         container.closest('.col-more-info .w_bg').classList.add('padUpd')
@@ -162,7 +183,7 @@ const setAsideInfo = (data) => {
             })
         }
     }
-    if(variables.version === "2.0.0"){
+    if(variables.version == "2.0.0"){
         console.log(data, data.social);
         link.innerText = data.website
         link.href = data.website
@@ -249,19 +270,6 @@ const createLabelArray = () => {
 }
 
 const fLoad_table = async(r) => {
-    
-    if(typeof r !== 'object'){
-        const cont = document.querySelector('.container-error')
-        if(variables.version !== "2.0.0"){
-            const svg = document.querySelector('.container-error svg')
-            const redirect = document.querySelector('.suggest-crypto-redirect')
-            redirect.href = `suggest-crypto.html?q=${query}`
-            redirect.classList.add('hidden')
-            svg.classList.add('hidden')
-        }        
-        cont.classList.remove('hidden')
-        table_coin.classList.add('hidden')
-    }
 
     let leaderboard_table = $('#table_crypto_unique').DataTable({
         data: r,
@@ -302,4 +310,70 @@ const fLoad_table = async(r) => {
             contextMenuCreation(url, e.clientX, e.clientY, true)
         }
     })
+}
+
+const createChart = (r) => {
+    const outputArray = r.map(obj => {
+        const timestamp = new Date(obj.date).getTime() / 1000;
+        return [obj.date, Math.round(obj.value)];
+    });
+
+    const sortedData = r.slice().sort((a, b) => a.value - b.value);
+    const totalValue_in = r.reduce((sum, item) => sum + item.value, 0);
+    const meanValue = totalValue_in / r.length;
+    let closestValue = sortedData[0].value;
+    let minRange = closestValue;
+    let maxRange = closestValue;
+    for (let i = 1; i < sortedData.length; i++) {
+        const currentValue = sortedData[i].value;
+        if (Math.abs(currentValue - meanValue) < Math.abs(closestValue - meanValue)) {
+            closestValue = currentValue;
+        }
+        if (currentValue > meanValue) {
+            maxRange = currentValue;
+            break;
+        }
+    }
+    const halfwayValue = meanValue + (maxRange - meanValue) / 2;
+    const range = [closestValue, halfwayValue]; //could be use later
+
+    const totalValue = r.reduce((sum, item) => sum + item.value, 0);
+    
+    var options = {
+        chart: {
+            type: 'line'
+        },
+        series: [{
+            name:'Value',
+            data: outputArray
+        }],
+        xaxis: {
+            type: 'datetime'
+        },
+        stroke: {
+            width: 2,
+            curve: 'smooth',
+        },
+        title: {
+            text: 'Stock Value',
+            align: 'left',
+            margin: 10
+        },
+        annotations: {
+            yaxis: [{
+                y: Math.round(totalValue / r.length),
+                borderColor: '#00E396',
+                label: {
+                    borderColor: '#00E396',
+                    style: {
+                        color: '#fff',
+                        background: '#00E396'
+                    },
+                    text: `Mean: ${Math.round(totalValue / r.length)}`
+                }
+            }]
+        }
+    }
+    var chart = new ApexCharts(document.querySelector("#chart-crypto"), options);
+    chart.render();
 }

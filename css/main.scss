@@ -621,6 +621,12 @@ body{
           }
           .more {display: none;}
         }
+        #chart-crypto{
+          background: var(--w);
+          // margin-bottom: 2em;
+          border-radius: var(--br);
+          padding: 1em;
+        }
         .privacy-content{
           color: var(--white);
           margin-bottom: 3em;
@@ -679,7 +685,7 @@ body{
             .description-array-crypto{display: none;}
             p:not(.error-loading-data-text){color: var(--white)}
             margin-top: 0;
-            margin-bottom: 2em;
+            margin-bottom: 1em;
           }
           &.title{
             border-top: 1px solid var(--w);
@@ -927,6 +933,7 @@ body{
 
           .more-crypto-redirect{
             @include outline;
+            margin-bottom: 1em;
             background-color: var(--w);
             opacity: 1;
             background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);

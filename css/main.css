@@ -752,6 +752,11 @@ body main .container-split .col-content .info-crypto .description-text h3 {
 body main .container-split .col-content .info-crypto .more {
   display: none;
 }
+body main .container-split .col-content #chart-crypto {
+  background: var(--w);
+  border-radius: var(--br);
+  padding: 1em;
+}
 body main .container-split .col-content .privacy-content {
   color: var(--white);
   margin-bottom: 3em;
@@ -822,7 +827,7 @@ body main .container-split .col-content .wrapper-content.top {
 }
 body main .container-split .col-content .wrapper-content.array {
   margin-top: 0;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 body main .container-split .col-content .wrapper-content.array .description-array-crypto {
   display: none;
@@ -1136,6 +1141,7 @@ body main .container-split .col-content .wrapper-content .container-error .follo
 body main .container-split .col-content .wrapper-content .more-crypto-redirect {
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
+  margin-bottom: 1em;
   background-color: var(--w);
   opacity: 1;
   background-image: radial-gradient(var(--bg-color) 0.5px, var(--w) 0.5px);
