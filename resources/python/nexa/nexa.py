@@ -82,7 +82,7 @@ def get_transaction_info():
                 tx_outputs_json = tx_outputs.json()
                 for tx_output in tx_outputs_json['result']['vout']:
                     amount: float = float(tx_output['value'])
-                    if amount > 500000000:
+                    if amount > 5000000:
                         tx_percentage_of_supply: float = (amount / circulating_supply) * 100
                         transactions.append((amount, tx_percentage_of_supply, url_tx + block_hash))
                         last_transaction_value = amount

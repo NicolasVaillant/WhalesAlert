@@ -213,7 +213,7 @@ def on_message(ws, message):
 
 def on_open(ws): 
     print("Connection opened PYI")
-    ws.send(json.dumps({"path":"price","params":{}}))
+    # ws.send(json.dumps({"path":"price","params":{}}))
     ws.send(json.dumps({"subscribe": "dashboard"}))
     ws.send(json.dumps({"subscribe": "metrics"}))
 

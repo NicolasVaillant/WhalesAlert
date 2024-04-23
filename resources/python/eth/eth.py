@@ -9,16 +9,16 @@ from pathlib import Path
 import websocket
 
 # Version pc
-tweet_json = Path("resources", "config_python", "bitcoin", "tweet.json")
-config_json = Path("resources", "config_python", "bitcoin", "config.json")
+tweet_json = Path("resources", "config_python", "ethereum", "tweet.json")
+config_json = Path("resources", "config_python", "ethereum", "config.json")
 telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_bitcoin.json")
+tx_data_json = Path("resources", "data_tx", "tx_ethereum.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "bitcoin", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "bitcoin", "config.json")
+# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "ethereum", "tweet.json")
+# config_json = Path("/home", "container", "webroot","resources", "config_python", "ethereum", "config.json")
 # telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitcoin.json")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_ethereum.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -142,47 +142,58 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
         json.dump(transactions, file, indent=4)
 
 # Obtenez le prix de DNX
-def get_bitcoin_price() -> float:
+def get_ethereum_price() -> float:
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
     f.close()
     return globals_data['price'], globals_data['supply']
 
 def on_message(ws, message):
-    global tweets_this_day, day, price
-
-    price, circulating_supply = get_bitcoin_price()
+    data = json.loads(message)
     
-    try:
-        data = json.loads(message)
-        if data['op'] == 'utx':
-            transactions = data['x']
-            for tx in transactions['out']:
-                amount = float(tx['value'])/ 100000000
-                if amount > 10.0: 
-                    tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
-                    url_tx_hash = "https://bitaps.com/" + transactions['hash']
+    price, circulating_supply = get_ethereum_price()
 
-                    total_out_str = human_format(amount)
+    # Gérer les notifications de nouveau bloc
+    if 'method' in data and data['method'] == 'eth_subscription':
+        params = data['params']
+        result = params['result']
+        
+        # Pour les abonnements aux nouveaux blocs, 'result' contient les détails du bloc
+        if 'subscription' in params and params['subscription']:
+            block_hash = result['hash']
+            request_transactions = json.dumps({
+                "jsonrpc": "2.0",
+                "method": "eth_getBlockByHash",
+                "params": [block_hash, True],  # True pour obtenir les transactions complètes
+                "id": 1
+            })
+            ws.send(request_transactions)
 
-                    message = "🐋 Whale Alert! 🚨\n"
-                    message += f"A transaction of {total_out_str} $BTC "
-                    message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
-                    message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
-                    message += f"🔗 Transaction details: {url_tx_hash}\n"
-                    message += "--------------------------------\n"
-                    message += "Stay tuned for more updates!\n"
-                    message += "https://linktr.ee/whales_alert"
+    elif 'result' in data and 'transactions' in data['result']:
+        transactions = data['result']['transactions']
+        for tx in transactions:
+            amount = int(tx['value'], 16) / 10**18
+            if amount > 10000.0: 
+                tx_percentage_of_supply = (float(amount) / float(circulating_supply)) * 100
+                url_tx_hash = f"https://etherscan.io/tx/{tx['hash']}"
 
-                    payload = {"text": message}
+                total_out_str = human_format(amount)
 
-                    save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+                message = "🐋 Whale Alert! 🚨\n"
+                message += f"A transaction of {total_out_str} $BTC "
+                message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
+                message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
+                message += f"🔗 Transaction details: {url_tx_hash}\n"
+                message += "--------------------------------\n"
+                message += "Stay tuned for more updates!\n"
+                message += "https://linktr.ee/whales_alert"
 
-                    # post_tweet(payload)
-                    # send_telegram_message(payload['text'])
+                payload = {"text": message}
 
-    except json.JSONDecodeError:
-        print("Received non-JSON message:", message)
+                save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+
+                # post_tweet(payload)
+                # send_telegram_message(payload['text'])
 
 def on_error(ws, error):
     print("Erreur :", error)
@@ -191,13 +202,18 @@ def on_close(ws, close_status_code, close_msg):
     print("### Connexion fermée ###")
 
 def on_open(ws):
-    print("Connection opened BTC")
-    sub_request = json.dumps({"op": "unconfirmed_sub"})
-    ws.send(sub_request)
+    print("Connection opened ETH")
+    subscribe_request = json.dumps({
+            "jsonrpc": "2.0",
+            "method": "eth_subscribe",
+            "params": ["newHeads"],
+            "id": 1
+        })
+    ws.send(subscribe_request)
 
 def start_listening():
     websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("wss://ws.blockchain.info/inv",
+    ws = websocket.WebSocketApp("wss://ethereum-rpc.publicnode.com",
                                 on_open=on_open,
                                 on_message=on_message,
                                 on_error=on_error,
@@ -205,7 +221,7 @@ def start_listening():
 
     ws.run_forever()
 
-def job_bitcoin() -> None:
-    logger_fonction_tx_analyze.info("Job bitcoin")
+def job_ethereum() -> None:
+    logger_fonction_tx_analyze.info("Job ethereum")
 
     start_listening()

@@ -25,6 +25,8 @@ from resources.python.nexa import nexa
 from resources.python.pyrin import pyrin
 from resources.python.warthog import warthog
 from resources.python.btc import btc
+from resources.python.eth import eth
+from resources.python.raptoreum import raptoreum
 
 from resources.python import table
 
@@ -122,6 +124,14 @@ def warthog_j():
 def bitcoin_j():
     btc.job_bitcoin()
     logger_fonction_tx_analyze.info("End Job BTC")
+
+def raptoreum_j():
+    raptoreum.job_raptoreum()
+    logger_fonction_tx_analyze.info("End Job RTM")
+
+def eth_j():
+    eth.job_ethereum()
+    logger_fonction_tx_analyze.info("End Job ETH")
 
 #-----------------------
 
@@ -273,10 +283,12 @@ schedule.every(1).minutes.do(run_threaded, btcw_j)
 schedule.every(1).minutes.do(run_threaded, fec_j)
 schedule.every(1).minutes.do(run_threaded, bit_j)
 schedule.every(1).minutes.do(run_threaded, nexa_j)
+schedule.every(1).minutes.do(run_threaded, raptoreum_j)
 
 run_threaded(warthog_j)
 run_threaded(pyrin_j)
 run_threaded(bitcoin_j)
+run_threaded(eth_j)
 
 # Exécuter la boucle infiniment
 while True:
