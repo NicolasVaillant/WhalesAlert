@@ -11,13 +11,13 @@ import os
 # Version pc
 tweet_json = Path("resources", "config_python", "dynex", "tweet.json")
 config_json = Path("resources", "config_python", "dynex", "config.json")
-telegram_json = Path("resources", "config_python", "dynex", "telegram.json")
+telegram_json = Path("resources", "config_python", "telegram.json")
 tx_data_json = Path("resources", "data_tx", "tx_dynex.json")
 
 # Version serveur
 # tweet_json = Path("/home", "container", "webroot", "resources", "config_python", "dynex", "tweet.json")
 # config_json = Path("/home", "container", "webroot","resources", "config_python", "dynex", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "dynex", "telegram.json")
+# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
 # tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_dynex.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
@@ -37,7 +37,6 @@ last_transaction_value: float = 0.0
 last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
 
 def get_dynex_price() -> float:
     with open(tweet_json, "r") as f:
@@ -46,7 +45,7 @@ def get_dynex_price() -> float:
 
     return globals_data['price']
 
-def get_transaction_info() -> list[Tuple[float, float, float, str]]:
+def get_transaction_info():
     global last_transaction_value
     global last_known_block_index
 
@@ -71,7 +70,7 @@ def get_transaction_info() -> list[Tuple[float, float, float, str]]:
 
             output_amount = int(transaction['amount'][0],16)/pow(10, 9)
             tx_percentage_of_supply: float = (output_amount / already_generated_coins) * 100
-            if total_out != last_transaction_value and output_amount > 50000.0:
+            if total_out != last_transaction_value and output_amount > 5.0:
                 last_transaction_value = total_out
                 transaction_list.append((output_amount, tx_percentage_of_supply, url_tx_hash))
 
@@ -84,12 +83,14 @@ def post_tweet(payload: dict) -> None:
     global tweets_this_day
     global day
 
+    # Vérifiez si nous avons commencé un nouveau jour
     if datetime.datetime.now().day != day:
         tweets_this_day = 0
         day = datetime.datetime.now().day
 
+    # Vérifiez si nous avons atteint la limite de tweets pour ce jour
     if tweets_this_day >= 50:
-        logger_fonction_tx_analyze.warning("Reached the day limit of tweets.")
+        print("Reached the day limit of tweets.")
         return
 
     with open(config_json) as f:
@@ -99,14 +100,18 @@ def post_tweet(payload: dict) -> None:
         access_token: str = config['ACCESS_TOKEN']
         access_token_secret: str = config['ACCESS_TOKEN_SECRET']
 
+    # Get request token
     request_token_url: str = "https://api.twitter.com/oauth/request_token?oauth_callback=oob&x_auth_access_type=write"
     oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
 
     try:
         fetch_response = oauth.fetch_request_token(request_token_url)
     except ValueError:
-        logger_fonction_tx_analyze.error("There may have been an issue with the consumer_key or consumer_secret you entered.")
+        print(
+            "There may have been an issue with the consumer_key or consumer_secret you entered."
+        )
 
+    # Make the request
     oauth = OAuth1Session(
         consumer_key,
         client_secret=consumer_secret,
@@ -116,13 +121,13 @@ def post_tweet(payload: dict) -> None:
 
     try:
         response = oauth.post("https://api.twitter.com/2/tweets", json=payload)
-
         if response.status_code != 201:
             raise Exception(f"Request returned an error: {response.status_code} {response.text}")
 
         tweets_this_day += 1
+
     except Exception as e:
-        logger_fonction_tx_analyze.error(f"Error occurred while posting tweet: {e}")
+        print(f"Error occurred while posting tweet: {e}")
 
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
 
@@ -165,17 +170,19 @@ def human_format(num):
 def send_telegram_message(message):
     with open(telegram_json) as f:
         config: dict = json.load(f)
+
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     payload = {
         "chat_id": "-1002081153394",
         "message_thread_id" : "2",
         "text": message
     }
+
     response = requests.post(url, data=payload)
     return response.json()
 
-def job_dynex() -> None:
-    logger_fonction_tx_analyze.info("Job Dynex")
+def job_dynex():
+    print("Job Dynex")
 
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
@@ -184,7 +191,7 @@ def job_dynex() -> None:
     transactions = get_transaction_info()
 
     for transaction in transactions:
-        total_out, tx_percentage_of_supply, url_tx_hash = transaction # type: ignore
+        total_out, tx_percentage_of_supply, url_tx_hash = transaction
 
         # Convert numbers to human readable format
         total_out_str = human_format(total_out)

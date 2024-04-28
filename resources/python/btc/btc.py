@@ -185,7 +185,7 @@ def on_message(ws, message):
         print("Received non-JSON message:", message)
 
 def on_error(ws, error):
-    print("Erreur :", error)
+    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
 
 def on_close(ws, close_status_code, close_msg):
     print("### Connexion fermée ###")

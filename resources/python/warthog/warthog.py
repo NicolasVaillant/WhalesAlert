@@ -189,13 +189,18 @@ def on_message(ws, message):
 def on_open(ws): 
     print("Connection opened WART")
 
+def on_error(ws, error):
+    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
+
+def on_close(ws, close_status_code, close_msg):
+    logger_fonction_tx_analyze.info(f"WebSocket closed with code: {close_status_code}, message: {close_msg}")   
+
 def start_listening():
-    websocket.enableTrace(False)
     ws = websocket.WebSocketApp("ws://192.168.1.73:3000/ws/chain_delta",
                                 on_open=on_open,
                                 on_message=on_message,
-                                on_error=lambda ws, error: print("Error:", error),
-                                on_close=lambda ws, close_status_code, close_msg: print("### closed ###"))
+                                on_error=on_error,
+                                on_close=on_close)
 
     ws.run_forever()
 
