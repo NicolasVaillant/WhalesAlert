@@ -8,16 +8,16 @@ from pathlib import Path
 import os
 
 # Version pc
-tweet_json = Path("resources", "config_python", "raptoreum", "tweet.json")
-config_json = Path("resources", "config_python", "raptoreum", "config.json")
+tweet_json = Path("resources", "config_python", "zephyr", "tweet.json")
+config_json = Path("resources", "config_python", "zephyr", "config.json")
 telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_raptoreum.json")
+tx_data_json = Path("resources", "data_tx", "tx_zephyr.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "raptoreum", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "raptoreum", "config.json")
+# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "zephyr", "tweet.json")
+# config_json = Path("/home", "container", "webroot","resources", "config_python", "zephyr", "config.json")
 # telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_raptoreum.json")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_zephyr.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -37,12 +37,11 @@ last_transaction_value: float = 0.0
 last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
 
 # Variable globale pour les transactions déjà vues
 seen_transactions: set = set()
 
-# Obtenez le prix de raptoreum
+# Obtenez le prix de zephyr
 def get_fec_price() -> float:
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
@@ -52,40 +51,36 @@ def get_fec_price() -> float:
 
 # Récupérez les informations sur les transactions
 def get_transaction_info():
-    global last_transaction_value
     global last_known_block_index
     global seen_transactions  # Ajout de la variable globale
 
     # Get the total circulating supply
-    supply_url: str = "https://explorer.raptoreum.com/api/supply"
+    supply_url: str = "https://explorer.zephyrprotocol.com/api/supply"
+    url_tx = "https://explorer.zephyrprotocol.com/tx/"
     try:
         supply_response = requests.get(supply_url)
-        supply_data = supply_response.text
-        circulating_supply = float(supply_data)
+        supply_data = supply_response.json()
+        circulating_supply = float(supply_data['ZEPH'])
 
-        url: str = "https://explorer.raptoreum.com/api/getblockcount"
-        url_block_hash = "https://explorer.raptoreum.com/api/getblock?height="
-        url_block : str = "https://raptoreumcoin.org:53443/api/getblock?hash="
-        url_tx: str = "https://raptoreumcoin.org:53443/tx/"
-        data = requests.get(url)
-        block_heigh = data.json()
+        url: str = "https://explorer.zephyrprotocol.com/api/transactions"
 
-        data_block = requests.get(f"https://explorer.raptoreum.com/api/getblock?height={block_heigh}")
+        data_block = requests.get(url)
         data_json = data_block.json()
 
         transactions = []
         
-        for tx in data_json['tx']:
-            if tx not in seen_transactions:  # Check if we've seen this transaction
-                tx_get = requests.get(f'https://explorer.raptoreum.com/api/getrawtransaction?txid={tx}')
-                tx_get_json = tx_get.json()
-                for tx_output in tx_get_json['vout']:
-                    amount: float = float(tx_output['value'])
-                    if amount > 500000:
-                        tx_percentage_of_supply: float = (amount / circulating_supply) * 100
-                        transactions.append((amount, tx_percentage_of_supply, url_tx + tx))
-                        last_transaction_value = amount
-                    seen_transactions.add(tx)  # Add the transaction hash to our set of seen transactions
+        for tx in data_json['data']['blocks']:
+            for txs in tx['txs']:
+                tx_hash = txs['tx_hash']
+                if tx_hash not in seen_transactions:
+                    tx_get = requests.get(f'https://explorer.zephyrprotocol.com/api/transaction/{tx_hash}')
+                    tx_get_json = tx_get.json()
+                    for detail_tx in tx_get_json['data']['outputs']:
+                        amount = float(detail_tx['amount'])/10**12
+                        if amount > 1000:
+                            tx_percentage_of_supply: float = (amount / circulating_supply) * 100
+                            transactions.append((amount, tx_percentage_of_supply, url_tx + tx_hash))
+                        seen_transactions.add(tx_hash)  # Add the transaction hash to our set of seen transactions
         return transactions
     
     except Exception as e:
@@ -158,7 +153,7 @@ def send_telegram_message(message):
     
     payload = {
         "chat_id": "-1002081153394",
-        "message_thread_id" : "3462",
+        "message_thread_id" : "3673",
         "text": message,
     }
     
@@ -195,9 +190,9 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-def job_raptoreum() -> None:
+def job_zephyr():
     global tweets_this_day, day
-    logger_fonction_tx_analyze.info("Job FEC")
+    logger_fonction_tx_analyze.info("Job ZEPH")
 
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
@@ -213,7 +208,7 @@ def job_raptoreum() -> None:
         total_out_str = human_format(total_out)
 
         message = "🐋 Whale Alert! 🚨\n"
-        message += f"A transaction of {total_out_str} $RTM "
+        message += f"A transaction of {total_out_str} $ZEPH "
         message += f"(💵 ${float(price) * total_out:.2f}) has been detected. \n"
         message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
         message += f"🔗 Transaction details: {url_tx_hash}\n"
@@ -222,6 +217,7 @@ def job_raptoreum() -> None:
         message += "https://linktr.ee/whales_alert"
 
         payload = {"text": message}
+        print(message)
 
         save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
         # post_tweet(payload)
@@ -235,4 +231,4 @@ def job_raptoreum() -> None:
     with open(tweet_json, "w") as f:
         json.dump(globals_data, f, indent=4)
 
-job_raptoreum()
+job_zephyr()
