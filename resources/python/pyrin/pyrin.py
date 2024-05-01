@@ -178,7 +178,7 @@ def on_message(ws, message):
 
             for tx in transactions:
                 amount = float(tx.get('amount'))/pow(10, 8) 
-                if amount > 25000: 
+                if amount > 1000000: 
                     tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
                     url_tx_hash = "https://explorer.pyrin.network/block/" + block_data.get('hash', {})
 
@@ -198,35 +198,44 @@ def on_message(ws, message):
                     save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
 
                     # post_tweet(payload)
-                    send_telegram_message(payload['text'])
-
+                    # send_telegram_message(payload['text'])
+            ws.send('')
         if data.get('type') == 'metrics':
             block_data = data.get('data', {})
             circulating_supply = float(block_data.get('circulating', []))/pow(10, 8)
-            
+            ws.send('')
         elif data.get('path') == 'price':
             price = data.get('data')
             put_pyrin_price(price)
+            ws.send('')
+        ws.send('')
 
     except json.JSONDecodeError:
         print("Received non-JSON message:", message)
 
 def on_open(ws): 
     print("Connection opened PYI")
-    # ws.send(json.dumps({"path":"price","params":{}}))
     ws.send(json.dumps({"subscribe": "dashboard"}))
     ws.send(json.dumps({"subscribe": "metrics"}))
 
+def on_error(ws, error):
+    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
+
+def on_close(ws, close_status_code, close_msg):
+    print("### closed PYI ###")
+    logger_fonction_tx_analyze.info(f"WebSocket closed with code: {close_status_code}, message: {close_msg}")   
+    
 def start_listening():
     websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("wss://apieco.pyrin.network/",
-                                on_open=on_open,
-                                on_message=on_message,
-                                on_error=lambda ws, error: print("Error:", error),
-                                on_close=lambda ws, close_status_code, close_msg: print("### closed ###"),
-                                keep_running=True)
+    while True:
+        ws = websocket.WebSocketApp("wss://apieco.pyrin.network/",
+                                    on_open=on_open,
+                                    on_message=on_message,
+                                    on_error=on_error,
+                                    on_close=on_close)
+        ws.run_forever(reconnect=10)
+        print("WebSocket disconnected, attempting to reconnect...")
 
-    ws.run_forever(reconnect=1)
 
 def job_pyrin() -> None:
     logger_fonction_tx_analyze.info("Job Pyrin")

@@ -149,25 +149,29 @@ def get_ethereum_price() -> float:
     return globals_data['price'], globals_data['supply']
 
 def on_message(ws, message):
+    print(type(message))
     data = json.loads(message)
     
     price, circulating_supply = get_ethereum_price()
 
     # Gérer les notifications de nouveau bloc
     if 'method' in data and data['method'] == 'eth_subscription':
+        print(type(data))
         params = data['params']
-        result = params['result']
         
         # Pour les abonnements aux nouveaux blocs, 'result' contient les détails du bloc
-        if 'subscription' in params and params['subscription']:
-            block_hash = result['hash']
-            request_transactions = json.dumps({
-                "jsonrpc": "2.0",
-                "method": "eth_getBlockByHash",
-                "params": [block_hash, True],  # True pour obtenir les transactions complètes
-                "id": 1
-            })
-            ws.send(request_transactions)
+        if isinstance(data, dict):
+
+            if 'subscription' in params and params['subscription']:
+                result = params['result']
+                block_hash = str(result['hash'])
+                request_transactions = json.dumps({
+                    "jsonrpc": "2.0",
+                    "method": "eth_getBlockByHash",
+                    "params": [block_hash, True],  # True pour obtenir les transactions complètes
+                    "id": 1
+                })
+                ws.send(request_transactions)
 
     elif 'result' in data and 'transactions' in data['result']:
         transactions = data['result']['transactions']
@@ -178,10 +182,10 @@ def on_message(ws, message):
                 url_tx_hash = f"https://etherscan.io/tx/{tx['hash']}"
 
                 total_out_str = human_format(amount)
-
+                amount_price = float(price) * float(amount)
                 message = "🐋 Whale Alert! 🚨\n"
                 message += f"A transaction of {total_out_str} $BTC "
-                message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
+                message += f"(💵 ${amount_price:.2f}) has been detected. \n"
                 message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
                 message += f"🔗 Transaction details: {url_tx_hash}\n"
                 message += "--------------------------------\n"
@@ -190,13 +194,13 @@ def on_message(ws, message):
 
                 payload = {"text": message}
 
-                save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+                # save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
 
                 # post_tweet(payload)
                 # send_telegram_message(payload['text'])
 
 def on_error(ws, error):
-    print("Erreur :", error)
+    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
 
 def on_close(ws, close_status_code, close_msg):
     print("### Connexion fermée ###")
@@ -225,3 +229,5 @@ def job_ethereum() -> None:
     logger_fonction_tx_analyze.info("Job ethereum")
 
     start_listening()
+
+job_ethereum()

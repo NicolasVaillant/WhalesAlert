@@ -10,13 +10,13 @@ import os
 # Version pc
 tweet_json = Path("resources", "config_python", "raptoreum", "tweet.json")
 config_json = Path("resources", "config_python", "raptoreum", "config.json")
-telegram_json = Path("resources", "config_python", "raptoreum", "telegram.json")
+telegram_json = Path("resources", "config_python", "telegram.json")
 tx_data_json = Path("resources", "data_tx", "tx_raptoreum.json")
 
 # Version serveur
 # tweet_json = Path("/home", "container", "webroot","resources", "config_python", "raptoreum", "tweet.json")
 # config_json = Path("/home", "container", "webroot","resources", "config_python", "raptoreum", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "raptoreum", "telegram.json")
+# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
 # tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_raptoreum.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')

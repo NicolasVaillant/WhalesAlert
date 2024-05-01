@@ -4,21 +4,20 @@ from requests_oauthlib import OAuth1Session
 import datetime
 import logging
 from logging.handlers import TimedRotatingFileHandler
-import os
 from pathlib import Path
-import websocket
+import os
 
 # Version pc
-tweet_json = Path("resources", "config_python", "warthog", "tweet.json")
-config_json = Path("resources", "config_python", "warthog", "config.json")
+tweet_json = Path("resources", "config_python", "zephyr", "tweet.json")
+config_json = Path("resources", "config_python", "zephyr", "config.json")
 telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_warthog.json")
+tx_data_json = Path("resources", "data_tx", "tx_zephyr.json")
 
 # Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "warthog", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "warthog", "config.json")
+# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "zephyr", "tweet.json")
+# config_json = Path("/home", "container", "webroot","resources", "config_python", "zephyr", "config.json")
 # telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_warthog.json")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_zephyr.json")
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -29,6 +28,7 @@ if not logger_fonction_tx_analyze.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
+
 # Charger les valeurs globales initiales
 with open(tweet_json, "r") as f:
     globals_data = json.load(f)
@@ -37,8 +37,55 @@ last_transaction_value: float = 0.0
 last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
-price = globals_data.get('price', 0)
+
+# Variable globale pour les transactions déjà vues
+seen_transactions: set = set()
+
+# Obtenez le prix de zephyr
+def get_fec_price() -> float:
+    with open(tweet_json, "r") as f:
+        globals_data = json.load(f)
+    f.close()
+
+    return globals_data['price']
+
+# Récupérez les informations sur les transactions
+def get_transaction_info():
+    global last_known_block_index
+    global seen_transactions  # Ajout de la variable globale
+
+    # Get the total circulating supply
+    supply_url: str = "https://explorer.zephyrprotocol.com/api/supply"
+    url_tx = "https://explorer.zephyrprotocol.com/tx/"
+    try:
+        supply_response = requests.get(supply_url)
+        supply_data = supply_response.json()
+        circulating_supply = float(supply_data['ZEPH'])
+
+        url: str = "https://explorer.zephyrprotocol.com/api/transactions"
+
+        data_block = requests.get(url)
+        data_json = data_block.json()
+
+        transactions = []
+        
+        for tx in data_json['data']['blocks']:
+            for txs in tx['txs']:
+                tx_hash = txs['tx_hash']
+                if tx_hash not in seen_transactions:
+                    tx_get = requests.get(f'https://explorer.zephyrprotocol.com/api/transaction/{tx_hash}')
+                    tx_get_json = tx_get.json()
+                    for detail_tx in tx_get_json['data']['outputs']:
+                        amount = float(detail_tx['amount'])/10**12
+                        if amount > 1000:
+                            tx_percentage_of_supply: float = (amount / circulating_supply) * 100
+                            transactions.append((amount, tx_percentage_of_supply, url_tx + tx_hash))
+                        seen_transactions.add(tx_hash)  # Add the transaction hash to our set of seen transactions
+        return transactions
+    
+    except Exception as e:
+        logger_fonction_tx_analyze.error(f"Error occurred while getting transaction info: {e}")
+        return []
 
 def post_tweet(payload: dict) -> None:
     global tweets_this_day
@@ -89,7 +136,7 @@ def post_tweet(payload: dict) -> None:
         tweets_this_day += 1
 
     except Exception as e:
-        logger_fonction_tx_analyze.info(f"Error occurred while posting tweet: {e}")
+        logger_fonction_tx_analyze.error(f"Error occurred while posting tweet: {e}")
 
 # Fonction pour formater les nombres de manière lisible pour les humains
 def human_format(num):
@@ -100,14 +147,16 @@ def human_format(num):
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
 
 def send_telegram_message(message):
-    with open(telegram_json) as f:
+    with open("./resources/config_python/telegram.json") as f:
         config: dict = json.load(f)
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
+    
     payload = {
         "chat_id": "-1002081153394",
-        "message_thread_id" : "2178",
-        "text": message
+        "message_thread_id" : "3673",
+        "text": message,
     }
+    
     response = requests.post(url, data=payload)
     return response.json()
 
@@ -141,70 +190,45 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-# Obtenez le prix de DNX
-def get_warthog_price() -> float:
+def job_zephyr():
+    global tweets_this_day, day
+    logger_fonction_tx_analyze.info("Job ZEPH")
+
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
-    f.close()
-    return globals_data['price'], globals_data['supply']
 
-def on_message(ws, message):
-    global tweets_this_day, day, price
+    # Récupérez le prix FEC
+    price: float = get_fec_price()
 
-    price, circulating_supply = get_warthog_price()
-    
-    try:
-        data = json.loads(message)
-        if data.get('type') == 'blockAppend':
-            transactions = data.get('data', {}).get('body', {}).get('transfers', [])
-            for tx in transactions:
-                amount = float(tx.get('amount'))
-                if amount > 50: 
-                    tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
-                    url_tx_hash = "https://wartscan.io/tx/" + tx.get('txHash')
+    # Récupérez les informations sur les transactions
+    transactions = get_transaction_info()
 
-                    total_out_str = human_format(amount)
+    for transaction in transactions:
+        total_out, tx_percentage_of_supply, url_tx_hash = transaction
+        total_out_str = human_format(total_out)
 
-                    message = "🐋 Whale Alert! 🚨\n"
-                    message += f"A transaction of {total_out_str} $WART "
-                    message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
-                    message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
-                    message += f"🔗 Transaction details: {url_tx_hash}\n"
-                    message += "--------------------------------\n"
-                    message += "Stay tuned for more updates!\n"
-                    message += "https://linktr.ee/whales_alert"
+        message = "🐋 Whale Alert! 🚨\n"
+        message += f"A transaction of {total_out_str} $ZEPH "
+        message += f"(💵 ${float(price) * total_out:.2f}) has been detected. \n"
+        message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
+        message += f"🔗 Transaction details: {url_tx_hash}\n"
+        message += "--------------------------------\n"
+        message += "Stay tuned for more updates!\n"
+        message += "https://linktr.ee/whales_alert"
 
-                    payload = {"text": message}
+        payload = {"text": message}
+        print(message)
 
-                    print(payload['text'])
+        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+        # post_tweet(payload)
+        # send_telegram_message(payload['text'])
 
-                    save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+    # Sauvegarder les valeurs globales après les modifications
+    globals_data['last_known_block_index'] = last_known_block_index
+    globals_data['tweets_this_day'] = tweets_this_day
+    globals_data['day'] = day
 
-                    # post_tweet(payload)
-                    send_telegram_message(payload['text'])
+    with open(tweet_json, "w") as f:
+        json.dump(globals_data, f, indent=4)
 
-    except json.JSONDecodeError:
-        print("Received non-JSON message:", message)
-
-def on_open(ws): 
-    print("Connection opened WART")
-
-def on_error(ws, error):
-    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
-
-def on_close(ws, close_status_code, close_msg):
-    logger_fonction_tx_analyze.info(f"WebSocket closed with code: {close_status_code}, message: {close_msg}")   
-
-def start_listening():
-    ws = websocket.WebSocketApp("ws://192.168.1.73:3000/ws/chain_delta",
-                                on_open=on_open,
-                                on_message=on_message,
-                                on_error=on_error,
-                                on_close=on_close)
-
-    ws.run_forever()
-
-def job_warthog() -> None:
-    logger_fonction_tx_analyze.info("Job warthog")
-
-    start_listening()
+job_zephyr()
