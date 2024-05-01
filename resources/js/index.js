@@ -1,4 +1,6 @@
 const gain_lose_content = document.querySelector('.gain-lose-content')
+const wp_search_bar_result = document.querySelector('.wp-search-bar-result')
+const wp_search_bar_result_ex = document.querySelector('.extend-suggestion')
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
@@ -45,6 +47,7 @@ const fEdit_main = (data) => {
         location.appendChild(element)
     })
 
+    let result_draw_cb = []
     let leaderboard_table = $('#table_crypto').DataTable({
         data: data.cryptocurrencies,
         lengthMenu: [
@@ -72,6 +75,14 @@ const fEdit_main = (data) => {
         "autoWidth": true,
         "responsive": true,
         pagingType: 'simple',
+        drawCallback: function (settings) {
+            var api = this.api();
+            const result = api.rows({ page: 'current' }).data()
+            for (let i = 0; i < 5; i++) {
+                result_draw_cb.push(result[i])   
+            }
+            displayResultSB(result_draw_cb)
+        },
         initComplete: function (settings) {
             const dock = document.querySelector('.dataTables_paginate')
             // dock.classList.add('pin-dock')
@@ -99,30 +110,79 @@ const fEdit_main = (data) => {
         }
     })
     if(variables.version === "2.0.0"){
-        const row_btn = document.createElement('div')
-        const button = document.createElement('button')
-        const button_s = document.createElement('button')
-        row_btn.classList.add('row-btn')
-        button.classList.add('btn-main', 'fallback-crypto-table')
-        button_s.classList.add('btn-main', 'fallback-crypto-table', 'active')
-        $('#table_crypto_filter input').on('keyup', function () {
-            const row = document.querySelector('.dataTables_empty')
-            if(row){
-                row_btn.appendChild(button)
-                row_btn.appendChild(button_s)
-                row.appendChild(row_btn)
-                const value = this.value
-                button.innerText = `Go to ${value} page`
-                button_s.innerText = `Suggest ${value}`
-                button.onclick = function() {
-                    window.open(`crypto.html?q=${value}`, '_self')
-                }
-                button_s.onclick = function() {
-                    window.open(`suggest-crypto.html?q=${value}`, '_self')
-                }
-            }
-        });
+        $('.search-bar-input').on('keyup change keypress', function () {
+            setTimeout(() => {
+                result_draw_cb.length = 0
+                const child = wp_search_bar_result.querySelectorAll('.sb-result')
+                child.forEach(e => {e.remove()})
+                leaderboard_table.search(this.value).draw()
+            }, 100)
+        } );
     }
+}
+
+const btn_clear_sb = document.querySelector('.clear-input-sb')
+const input_sb = document.querySelectorAll('.search-bar-input')
+btn_clear_sb.addEventListener('click', () => {
+    input_sb.forEach(e => {
+        e.value = ''
+    })
+})
+
+const fallback_crypto = document.querySelector('.fallback-crypto')
+const suggest_crypto = document.querySelector('.suggest-crypto')
+const displayResultSB = (elements) => {
+    const error_no_data = document.querySelector('.error_no_data')
+    elements.forEach(e => {
+        if(e !== undefined){
+            const line = document.createElement('a')
+            const line_text = document.createElement('p')
+            const line_sb = document.createElement('p')
+            const line_tt = document.createElement('p')
+            line.classList.add('sb-result')
+            line_text.innerText = e.Name
+            line_sb.innerText = e.Symbol
+            line_tt.innerText = `${e["1h"]} (1h)`
+            line.appendChild(line_text)
+            line.appendChild(line_sb)
+            line.appendChild(line_tt)
+            line.onclick = () => {
+                window.open(`crypto.html?q=${e.Name}`, '_self')
+            }
+            wp_search_bar_result.appendChild(line)
+        }
+    })
+    function isArrayOnlyNull(arr) {
+        return arr.every(item => item === undefined);
+    }
+
+    if(isArrayOnlyNull(elements)){
+        error_no_data.classList.remove('hidden')
+        wp_search_bar_result_ex.classList.remove('hidden')
+        if (window.matchMedia("(max-width: 550px)").matches) {
+            fallback_crypto.innerText = `Go to ${input_sb[1].value} page`
+            suggest_crypto.innerText = `Suggest ${input_sb[1].value}`
+            fallback_crypto.href = `crypto.html?q=${input_sb[1].value}`
+            suggest_crypto.href = `suggest-crypto.html?q=${input_sb[1].value}`
+        }
+    } else {
+        error_no_data.classList.add('hidden')
+        wp_search_bar_result_ex.classList.add('hidden')
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+});
+
+li_foldable.addEventListener('click', () => {
+    i_foldable.classList.toggle('fold')
+})
+
+window.onresize = function () {
+    const size = window.getComputedStyle(hamburger_menu).width
+    i_foldable.parentElement.style.width = size
 }
 
 const dockedDock = (dock, span) => {
