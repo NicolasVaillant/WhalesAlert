@@ -279,38 +279,38 @@ def all_price_xeggex ():
             print(f"Error occurred while getting {path_coin} price: {e}")
 
 # Price get
-# schedule.every(60).minutes.do(all_price)
-# schedule.every(60).minutes.do(all_price_paprika)
-# schedule.every(60).minutes.do(all_price_xeggex)
+schedule.every(60).minutes.do(all_price)
+schedule.every(60).minutes.do(all_price_paprika)
+schedule.every(60).minutes.do(all_price_xeggex)
 
 # Scrap CoinMarketCap
-# schedule.every(60).minutes.do(gainer_j)
-# schedule.every(60).minutes.do(loser_j)
-# schedule.every(60).minutes.do(trend_j)
+schedule.every(60).minutes.do(gainer_j)
+schedule.every(60).minutes.do(loser_j)
+schedule.every(60).minutes.do(trend_j)
 
 # Scrap Coins Data
-# schedule.every(1).week.do(coins_data_file_j)
-# schedule.every(1).days.do(coins_data_j)
-# schedule.every(120).minutes.do(coins_table_j)
+schedule.every(1).week.do(coins_data_file_j)
+schedule.every(1).days.do(coins_data_j)
+schedule.every(120).minutes.do(coins_table_j)
 
 # Analyse TX --> THREAD
-# schedule.every(1).minutes.do(run_threaded, dynex_j)
-# schedule.every(1).minutes.do(run_threaded, kylacoin_j)
-# schedule.every(1).minutes.do(run_threaded, lyncoin_j)
-# schedule.every(1).minutes.do(run_threaded, radiant_j)
-# schedule.every(1).minutes.do(run_threaded, fennec_j)
-# schedule.every(1).minutes.do(run_threaded, aipg_j)
-# schedule.every(1).minutes.do(run_threaded, btcw_j)
-# schedule.every(1).minutes.do(run_threaded, fec_j)
-# schedule.every(1).minutes.do(run_threaded, bit_j)
-# schedule.every(1).minutes.do(run_threaded, nexa_j)
-# schedule.every(1).minutes.do(run_threaded, raptoreum_j)
-# schedule.every(1).minutes.do(run_threaded, zeph_j)
+schedule.every(1).minutes.do(run_threaded, dynex_j)
+schedule.every(1).minutes.do(run_threaded, kylacoin_j)
+schedule.every(1).minutes.do(run_threaded, lyncoin_j)
+schedule.every(1).minutes.do(run_threaded, radiant_j)
+schedule.every(1).minutes.do(run_threaded, fennec_j)
+schedule.every(1).minutes.do(run_threaded, aipg_j)
+schedule.every(1).minutes.do(run_threaded, btcw_j)
+schedule.every(1).minutes.do(run_threaded, fec_j)
+schedule.every(1).minutes.do(run_threaded, bit_j)
+schedule.every(1).minutes.do(run_threaded, nexa_j)
+schedule.every(1).minutes.do(run_threaded, raptoreum_j)
+schedule.every(1).minutes.do(run_threaded, zeph_j)
 
-# run_threaded(warthog_j)
-# run_threaded(pyrin_j)
-# run_threaded(bitcoin_j)
-# run_threaded(eth_j)
+run_threaded(warthog_j)
+run_threaded(pyrin_j)
+run_threaded(bitcoin_j)
+run_threaded(eth_j)
 run_threaded(coincodex_j)
 
 # Exécuter la boucle infiniment
