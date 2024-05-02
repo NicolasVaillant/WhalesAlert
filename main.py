@@ -31,6 +31,8 @@ from resources.python.zephyr import zephyr
 
 from resources.python import table
 
+from resources.python import websocket_data_rtc
+
 #----------------------------------------------------
 # Scrap CoinMarketCap
 #----------------------------------------------------
@@ -63,10 +65,20 @@ if not logger_fonction_tx_analyze.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
+logger_fonction_websocket = logging.getLogger('websockets')
+if not logger_fonction_websocket.handlers:
+    logger_fonction_websocket.setLevel(logging.INFO)
+    filenamelog_websocket= Path("logs", "websocket.log")
+    handler_websocket = TimedRotatingFileHandler(filenamelog_websocket, when='midnight', interval=1, backupCount=7, encoding='utf-8')
+    handler_websocket.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler_websocket.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+    logger_fonction_websocket.addHandler(handler_websocket)
 
 logger_fonction_tx_analyze.info("Start")
 
-logger_fonction_tx_analyze.info("Start")
+logger_fonction_scrap.info("Start")
+
+logger_fonction_websocket.info("Start")
 
 # Version pc
 coins_path_root = Path("resources", "config_python")
@@ -160,6 +172,10 @@ def coins_data_j():
     coins_data.process_coins_and_fetch_details()
     logger_fonction_scrap.info("Infos coins")
 
+def coincodex_j():
+    websocket_data_rtc.job_data_rtc()
+    logger_fonction_websocket.info("End websocket coincodex")
+
 def coins_table_j():
     coin_fetcher = table.CoinFetcher()
     table.update_global_data(coin_fetcher.coins)
@@ -208,7 +224,7 @@ def all_price ():
             print(f"Error occurred while getting {coin} price: {e}")
 
 def all_price_paprika ():
-    coins = ['fnnc-fennec', 'xrp-xrp', 'fec-ferrite', 'bit-bitnet-io', 'wart-warthog', 'btc-bitcoin', 'zeph2-zephyr-protocol']
+    coins = ['fnnc-fennec', 'fec-ferrite', 'bit-bitnet-io', 'wart-warthog', 'btc-bitcoin', 'zeph2-zephyr-protocol']
     for coin in coins : 
         url: str = f"https://api.coinpaprika.com/v1/tickers/{coin}"
         try:
@@ -217,7 +233,7 @@ def all_price_paprika ():
             price = data['quotes']['USD']['price']
             supply = data['max_supply']
 
-            path_coin = coin.partition('-')[2].removesuffix("-io")
+            path_coin = coin.partition('-')[2].removesuffix("-io").removesuffix("-protocol")
             
             coins_path = coins_path_root.joinpath(f"{path_coin}/tweet.json")
 
@@ -263,38 +279,39 @@ def all_price_xeggex ():
             print(f"Error occurred while getting {path_coin} price: {e}")
 
 # Price get
-schedule.every(60).minutes.do(all_price)
-schedule.every(60).minutes.do(all_price_paprika)
-schedule.every(60).minutes.do(all_price_xeggex)
+# schedule.every(60).minutes.do(all_price)
+# schedule.every(60).minutes.do(all_price_paprika)
+# schedule.every(60).minutes.do(all_price_xeggex)
 
 # Scrap CoinMarketCap
-schedule.every(60).minutes.do(gainer_j)
-schedule.every(60).minutes.do(loser_j)
-schedule.every(60).minutes.do(trend_j)
+# schedule.every(60).minutes.do(gainer_j)
+# schedule.every(60).minutes.do(loser_j)
+# schedule.every(60).minutes.do(trend_j)
 
 # Scrap Coins Data
-schedule.every(1).week.do(coins_data_file_j)
-schedule.every(1).days.do(coins_data_j)
-schedule.every(120).minutes.do(coins_table_j)
+# schedule.every(1).week.do(coins_data_file_j)
+# schedule.every(1).days.do(coins_data_j)
+# schedule.every(120).minutes.do(coins_table_j)
 
 # Analyse TX --> THREAD
-schedule.every(1).minutes.do(run_threaded, dynex_j)
-schedule.every(1).minutes.do(run_threaded, kylacoin_j)
-schedule.every(1).minutes.do(run_threaded, lyncoin_j)
-schedule.every(1).minutes.do(run_threaded, radiant_j)
-schedule.every(1).minutes.do(run_threaded, fennec_j)
-schedule.every(1).minutes.do(run_threaded, aipg_j)
-schedule.every(1).minutes.do(run_threaded, btcw_j)
-schedule.every(1).minutes.do(run_threaded, fec_j)
-schedule.every(1).minutes.do(run_threaded, bit_j)
-schedule.every(1).minutes.do(run_threaded, nexa_j)
-schedule.every(1).minutes.do(run_threaded, raptoreum_j)
-schedule.every(1).minutes.do(run_threaded, zeph_j)
+# schedule.every(1).minutes.do(run_threaded, dynex_j)
+# schedule.every(1).minutes.do(run_threaded, kylacoin_j)
+# schedule.every(1).minutes.do(run_threaded, lyncoin_j)
+# schedule.every(1).minutes.do(run_threaded, radiant_j)
+# schedule.every(1).minutes.do(run_threaded, fennec_j)
+# schedule.every(1).minutes.do(run_threaded, aipg_j)
+# schedule.every(1).minutes.do(run_threaded, btcw_j)
+# schedule.every(1).minutes.do(run_threaded, fec_j)
+# schedule.every(1).minutes.do(run_threaded, bit_j)
+# schedule.every(1).minutes.do(run_threaded, nexa_j)
+# schedule.every(1).minutes.do(run_threaded, raptoreum_j)
+# schedule.every(1).minutes.do(run_threaded, zeph_j)
 
-run_threaded(warthog_j)
-run_threaded(pyrin_j)
-run_threaded(bitcoin_j)
-run_threaded(eth_j)
+# run_threaded(warthog_j)
+# run_threaded(pyrin_j)
+# run_threaded(bitcoin_j)
+# run_threaded(eth_j)
+run_threaded(coincodex_j)
 
 # Exécuter la boucle infiniment
 while True:
