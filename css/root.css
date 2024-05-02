@@ -55,7 +55,7 @@
     --hf-color: rgba(var(--tinted-second-light-color) / 98%);
     --active-color: rgba(var(--rgb_active) / 100%);
     --hf-color-op:rgba(var(--tinted-second-light-color) / 80%);
-    --margin-from-header: 3em;
+    --margin-from-header: 2em;
     /* --- */
     --w: rgba(var(--rgb) / 100%);
     --b: rgba(var(--rgb_alt) / 100%);

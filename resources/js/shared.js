@@ -3,12 +3,17 @@ const getVersion = "https://whales-alert.fr/version_upd.php?ip=__IP__"
 const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
 const backToTop = document.querySelector('.backToTop')
+const sb = document.querySelector('.search-bar')
+const wrapper_sb = document.querySelector('.wrapper-sub-header-sb')
 const hb_container = document.querySelector('.hb-container')
 const hamburger_menu = document.querySelector('.hamburger-menu')
 const tooltip_content = document.querySelector('.tooltip-content')
 const darkM = document.querySelector("#darkMode-input")
 const LS = document.querySelector("#toggle-ls")
 const tog_dm_icon = document.querySelectorAll(".tog_dm_icon")
+const li_foldable = document.querySelector('.collapsible .collapsible-header')
+const i_foldable = document.querySelector('.collapsible .foldable')
+
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
 let refreshRateUserSelect = 'default'
@@ -138,6 +143,15 @@ window.onscroll = function () {
     hb_container.classList.add('hidden')
 }
 window.onload = function () {
+    if(exact_type == "index"){
+        const size = window.getComputedStyle(hamburger_menu).width
+        i_foldable.parentElement.style.width = size
+        if(variables.version !== "2.0.0"){
+            wrapper_sb.classList.add('hidden')
+        }        
+    }
+    sb.classList.add('hidden')
+
     copyrightDate()
     setTextFromParameters()
     // storeDataUsers()

@@ -15,7 +15,7 @@
   color: var(--grey);
 }
 
-*.active {
+*.active:not(.collapsible li) {
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
 }
@@ -51,10 +51,16 @@ body main {
   align-content: center;
   flex-direction: column;
   background-image: radial-gradient(circle, var(--bg-color), #0a4070, #0e497d, #12518a, #155a97);
+  --border:#e2e2e2;
 }
 body main a {
   text-decoration: none;
   color: inherit;
+}
+@media all and (max-width: 500px) {
+  body main {
+    --height-header: 8vh;
+  }
 }
 body main header {
   height: var(--height-header);
@@ -69,9 +75,6 @@ body main header {
   z-index: 9999;
 }
 @media all and (max-width: 500px) {
-  body main header {
-    --height-header: auto;
-  }
   body main header .hamburger-menu {
     font-size: 0.9em;
   }
@@ -84,6 +87,7 @@ body main header .hamburger-menu {
 }
 body main header .hamburger-menu .info-more {
   width: 2em;
+  border: 1px solid var(--border);
   cursor: pointer;
   border-radius: 1000px;
   aspect-ratio: 1;
@@ -100,6 +104,7 @@ body main header .hamburger-menu .info-more {
 }
 body main header .hamburger-menu .hb-container {
   position: absolute;
+  border: 1px solid var(--border);
   background: var(--w);
   padding: 0.2em;
   border-radius: var(--br);
@@ -130,6 +135,24 @@ body main header .hamburger-menu .hb-container a {
   flex-direction: row;
   gap: 1em;
 }
+@media all and (max-width: 550px) {
+  body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
+  body main header .hamburger-menu .hb-container label.tooltip-content,
+  body main header .hamburger-menu .hb-container a.tooltip-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content .texc,
+  body main header .hamburger-menu .hb-container label.tooltip-content .texc,
+  body main header .hamburger-menu .hb-container a.tooltip-content .texc {
+    position: initial;
+  }
+}
+body main header .hamburger-menu .hb-container li:not(.no-effect) .texc,
+body main header .hamburger-menu .hb-container label .texc,
+body main header .hamburger-menu .hb-container a .texc {
+  border: 1px solid var(--border);
+}
 body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
 body main header .hamburger-menu .hb-container label.tooltip-content,
 body main header .hamburger-menu .hb-container a.tooltip-content {
@@ -142,7 +165,6 @@ body main header .hamburger-menu .hb-container a span {
   position: absolute;
   top: 0;
   padding: 0.5em;
-  width: 30vw;
   max-width: 300px;
   background: var(--w);
   white-space: normal;
@@ -259,28 +281,162 @@ body main header .wrapper-header .brand-container a {
 body main header .wrapper-header .brand-container img {
   max-width: 2em;
 }
-body main header .wrapper-header label.search-bar {
+body main header .wrapper-header .wp-r {
   margin-left: auto;
   display: flex;
-  visibility: hidden;
+  flex-direction: row;
+  gap: 0.5em;
 }
 @media all and (max-width: 550px) {
-  body main header .wrapper-header label.search-bar {
+  body main header .wrapper-header .wp-r label.search-bar {
     display: none;
   }
 }
-body main header .wrapper-header label.search-bar input {
+body main label.search-bar {
+  display: flex;
+}
+body main label.search-bar input {
   font-size: 15px;
-  padding: 0.3em 0.8em;
-  border: 1px solid #e2e2e2;
+  padding: 0.5em 0.8em;
+  border: 1px solid var(--border);
   border-radius: 1000px;
   outline: none;
   width: 100%;
 }
-@media all and (max-width: 550px) {
-  body main header .wrapper-header label {
-    width: 100%;
+body main label.search-bar input:focus {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+body main .wrapper-sub-header-sb {
+  position: sticky;
+  top: var(--height-header);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  z-index: 9998;
+  width: 100%;
+  background: var(--bg-color);
+  padding: 0.5em calc((100% - var(--width-page)) / 2) 0.5em calc((100% - var(--width-page)) / 2);
+}
+@media all and (min-width: 550px) {
+  body main .wrapper-sub-header-sb {
+    display: none;
   }
+}
+body main .collapsible {
+  width: 100%;
+  list-style: none;
+}
+body main .collapsible .header-top {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+body main .collapsible .header-top .collapsible-header {
+  padding: 0;
+  width: 2em;
+  border-radius: 1000px;
+  border: 1px solid var(--border);
+  display: flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+}
+body main .collapsible .header-top .collapsible-header:hover {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+body main .collapsible .header-top .collapsible-header i {
+  rotate: 180deg;
+  transition: rotate 0.5s;
+}
+body main .collapsible .header-top .collapsible-header i.fold {
+  rotate: 90deg;
+}
+body main .collapsible .header-top .header-visible {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  width: 100%;
+}
+body main .collapsible .header-top .header-visible label {
+  width: 100%;
+}
+body main .collapsible .header-top .header-visible button {
+  width: fit-content;
+}
+body main .collapsible .collapsible-body {
+  margin-top: 0.5em;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result {
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5em;
+  color: var(--b);
+}
+@media all and (min-width: 550px) {
+  body main .collapsible .collapsible-body .wp-search-bar-result {
+    display: none;
+  }
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .error_no_data {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  background: var(--error);
+  width: 100%;
+  border-radius: var(--br);
+  padding: 0.5em;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .extend-suggestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  gap: 0.5em;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .extend-suggestion .fallback-crypto {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+  justify-content: center;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .extend-suggestion .suggest-crypto {
+  justify-content: center;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .sb-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--hf-color-op);
+  padding: 0.5em;
+  border-radius: var(--br);
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:last-child {
+  margin-left: auto;
+  background: var(--w);
+  padding: 0.2em;
+  border-radius: 4px;
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:nth-child(even) {
+  color: var(--grey);
+}
+body main .collapsible .collapsible-body:not(.show) {
+  display: none;
 }
 body main .new {
   background-image: url("/resources/img/bg-dark.svg");
@@ -329,6 +485,7 @@ body main .new .buttons {
   gap: 1em;
 }
 body main .new .buttons .btn-main {
+  gap: 0.5em;
   width: fit-content;
 }
 body main .new .buttons .btn-main.box-dashed {
@@ -418,7 +575,7 @@ body main .head-layout-crypto .duplicated-info .duplicated-info-container .dupli
 }
 body main .container-split {
   --gap-side-bar:2em;
-  margin-top: 3em;
+  margin-top: 2em;
   display: grid;
   grid-template-columns: var(--width-left-column) calc(100% - var(--width-left-column) - var(--gap-side-bar));
   grid-gap: var(--gap-side-bar);
@@ -1204,19 +1361,6 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper tr:has(.dataTables_empty):hover {
   background: transparent !important;
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty .row-btn,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty .row-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: 1em;
-  gap: 1em;
-}
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_empty .row-btn button,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_empty .row-btn button {
-  width: fit-content;
-}
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_paginate,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate {
   position: relative;
@@ -1377,6 +1521,12 @@ body main .container-split .col-content .wrapper-content .array-content table tf
 body main .container-split .col-content .wrapper-content .array-content table tfoot th {
   padding: 1em;
 }
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_filter {
+  display: none;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_length {
+  margin-left: auto;
+}
 body main .container-split .col-content .wrapper-content .array-content .table_crypto.hidden {
   display: none;
 }
@@ -1466,6 +1616,7 @@ body main footer .footer-container .bottom-line .buttons {
 body main footer .footer-container .top-line .buttons .btn-main,
 body main footer .footer-container .bottom-line .buttons .btn-main {
   width: fit-content;
+  gap: 0.5em;
 }
 @media all and (max-width: 450px) {
   body main footer .footer-container .top-line,
