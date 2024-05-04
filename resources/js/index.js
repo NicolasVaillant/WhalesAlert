@@ -109,7 +109,7 @@ const fEdit_main = (data) => {
             $(this).addClass('selected');
         }
     })
-    if(variables.version === "2.0.0"){
+    if(variables.version > 1){
         const collapsible_body = document.querySelector('.collapsible-body')
         $('.search-bar-input').on('keyup change keypress', function () {
             setTimeout(() => {

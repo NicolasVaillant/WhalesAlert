@@ -52,7 +52,7 @@ const settings = {
 const variables = {
     refreshRate: ["30s", "1m", "10m"],
     arrayCryptoLabel: ["Amount", "Value", "Supply (%)", "Link"],
-    version: "1.0.0"
+    version: 1
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'

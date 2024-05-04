@@ -21,7 +21,7 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
-if(variables.version === "2.0.0"){
+if(variables.version > 1){
     const cleanLSConfirmButton = document.querySelector('.cleanLSConfirmButton')
     const cleanLSCancelButton = document.querySelector('.cleanLSCancelButton')
     cleanLSCancelButton.addEventListener('click', (e) => {
@@ -147,8 +147,8 @@ window.onload = function () {
     if(exact_type == "index"){
         const size = window.getComputedStyle(hamburger_menu).width
         i_foldable.parentElement.style.width = size
-        if(variables.version !== "2.0.0"){
-            wrapper_sb.classList.add('hidden')
+        if(variables.version > 1){
+            wrapper_sb.classList.remove('hidden')
         }        
     }
     sb.classList.add('hidden')
@@ -285,7 +285,7 @@ function setToast(type, text, timer){
 toggle_hamburger.addEventListener('click', () => {
     if(hb_container.classList.contains('hidden')){
         hb_container.classList.remove('hidden')
-        if(variables.version === "2.0.0"){
+        if(variables.version > 1){
             document.addEventListener('click', function(event) {
                 if (!hamburger_menu.contains(event.target)) {
                     hb_container.classList.add('hidden')

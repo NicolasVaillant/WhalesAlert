@@ -4,7 +4,7 @@ const name_c = document.querySelector('.name-crypto');
 const logo_crypto = document.querySelector('.logo_crypto');
 name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
 
-if(variables.version === "2.0.0"){
+if(variables.version > 1){
     const checkbox_fav_crypto = document.querySelector('#fav-crypto');
     const toggle_fav = document.querySelector('.toggle_fav')
     const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
@@ -94,7 +94,7 @@ fLoad_crypto_tx()
         const chart = document.querySelector('#chart-crypto')
         if(typeof r == 'object'){
             fLoad_table(r)
-            if(variables.version == "2.0.0"){
+            if(variables.version > 1){
                 createChart(r)
             } else {
                 chart.classList.add('hidden')
@@ -103,7 +103,7 @@ fLoad_crypto_tx()
             const cont = document.querySelector('.container-error')
             const redirect = document.querySelector('.suggest-crypto-redirect')
             const svg = document.querySelector('.container-error svg')
-            if(variables.version == "2.0.0"){
+            if(variables.version > 1){
                 redirect.href = `suggest-crypto.html?q=${query}`
             } else {
                 redirect.classList.add('hidden')
@@ -183,7 +183,7 @@ const setAsideInfo = (data) => {
             })
         }
     }
-    if(variables.version == "2.0.0"){
+    if(variables.version > 1){
         console.log(data, data.social);
         link.innerText = data.website
         link.href = data.website
@@ -220,7 +220,7 @@ const setAsideInfo = (data) => {
 }
 
 const suggestMoreCrypto = async () => {
-    if(variables.version === "2.0.0"){
+    if(variables.version > 1){
         const card = document.querySelector('.more-crypto-redirect')
         const grid = document.querySelector('.grid-elements')
         card.classList.remove('hidden')
