@@ -26,6 +26,24 @@
   padding: 1em;
   border: 1px solid var(--w);
 }
+@mixin user-trend-card{
+  &[data-value="init"]{display: none}
+  &.see-stats{background: var(--w)}
+  &:nth-child(2){background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)}
+  &:nth-child(3){background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)}
+  &:nth-child(4){background: radial-gradient(circle farthest-corner at 10% 20%, rgb(14, 174, 87) 0%, rgb(12, 116, 117) 90%)}
+  position: relative;
+  font-weight: bold;
+  min-width: var(--card-aside-user-trends);
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
+  border-radius: 20px;          
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  transition: all .2s;
+}
 .swal2-container{z-index: 99999}
 .swal2-popup{top: var(--height-header);}
 @mixin centerFlex{
@@ -116,13 +134,16 @@ body{
           label,
           a{
             &.tooltip-content{
+              display: grid;
+              grid-template-columns: 1em auto;
               @media all and (max-width: 550px) {
-                display: flex;
-                flex-wrap: wrap;
                 .texc{position: initial}
               }
             }
-            .texc{border: 1px solid var(--border)}
+            .texc{
+              border: 1px solid var(--border);
+              grid-column: span 2;
+            }
             &.tooltip-content{position: relative}
             span{
               cursor: default;
@@ -396,6 +417,9 @@ body{
           }
         }
       }
+      @media all and (max-width: 700px) {
+        color: var(--b);
+      }
     }
 
     .title-container{
@@ -607,29 +631,18 @@ body{
               gap: 1em;
               padding-bottom: .5em;
               .user-trend-card{
-                &[data-value="init"]{display: none}
-                position: relative;
-                font-weight: bold;
-                min-width: var(--card-aside-user-trends);
-                aspect-ratio: 1;
-                cursor: pointer;
-                background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-                border-radius: 6px;          
-                overflow: hidden;
-                display: flex;
-                align-items: flex-end;
+                @include user-trend-card;
                 .user-trend-card-nb{
                   position: absolute;
                   background: var(--w);
                   aspect-ratio: 1;
+                  font-size: 16em;
                   width: 100%;
-                  border-radius: 1000px;
                   display: flex;
                   align-items: center;
                   justify-content: center;
                   top: -30px;
                   right: -30px;
-                  font-size: 5em;
                   opacity: .2;
                 }
                 .user-trend-card-container{
@@ -637,8 +650,9 @@ body{
                   align-items: flex-start;
                   justify-content: flex-end;
                   flex-direction: column;
-                  margin: .5em;
+                  margin: 1em;
                   color: var(--w);
+                  z-index: 1;
                   .user-trend-card-name{
                     font-size: 1.8em;
                   }
@@ -659,6 +673,14 @@ body{
                     &.up{&::before{background: var(--up)}}
                     &.down{&::before{background: var(--down)}}
                   }
+                }
+                .opacity{
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  bottom: 0;
+                  z-index: 0;
+                  background: linear-gradient(0deg, #1f1f1f, transparent);
                 }
               }
             }
@@ -841,31 +863,26 @@ body{
                 display: flex;
                 flex-direction: row;
                 gap: 1em;
-                padding-bottom: .5em;
+                padding: 1em 0;
                 .user-trend-card{
-                  &[data-value="init"]{display: none}
-                  position: relative;
-                  font-weight: bold;
-                  min-width: var(--card-aside-user-trends);
-                  aspect-ratio: 1;
-                  cursor: pointer;
-                  background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-                  border-radius: 6px;          
-                  overflow: hidden;
-                  display: flex;
-                  align-items: flex-end;
+                  @include user-trend-card;
+                  @media (pointer: fine) {
+                    &:hover{
+                      scale: .99;
+                    }
+                  }
+
                   .user-trend-card-nb{
                     position: absolute;
                     background: var(--w);
                     aspect-ratio: 1;
+                    font-size: 22em;
                     width: 100%;
-                    border-radius: 1000px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     top: -30px;
                     right: -30px;
-                    font-size: 5em;
                     opacity: .2;
                   }
                   .user-trend-card-container{
@@ -873,8 +890,9 @@ body{
                     align-items: flex-start;
                     justify-content: flex-end;
                     flex-direction: column;
-                    margin: .5em;
+                    margin: 1em;
                     color: var(--w);
+                    z-index: 1;
                     .user-trend-card-name{
                       font-size: 1.8em;
                     }
@@ -895,6 +913,14 @@ body{
                       &.up{&::before{background: var(--up)}}
                       &.down{&::before{background: var(--down)}}
                     }
+                  }
+                  .opacity{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    bottom: 0;
+                    z-index: 0;
+                    background: linear-gradient(0deg, #1f1f1f, transparent);
                   }
                 }
               }

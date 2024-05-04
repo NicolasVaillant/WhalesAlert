@@ -110,6 +110,7 @@ const fEdit_main = (data) => {
         }
     })
     if(variables.version === "2.0.0"){
+        const collapsible_body = document.querySelector('.collapsible-body')
         $('.search-bar-input').on('keyup change keypress', function () {
             setTimeout(() => {
                 result_draw_cb.length = 0
@@ -117,6 +118,15 @@ const fEdit_main = (data) => {
                 child.forEach(e => {e.remove()})
                 leaderboard_table.search(this.value).draw()
             }, 100)
+        } );
+        $('.search-bar-input').on('keydown', function () {
+            const collapsible_hd = document.querySelector('.collapsible-header')
+            const collapsible_bd = document.querySelector('.collapsible-body')
+            if(window.getComputedStyle(collapsible_bd).display !== 'block'){
+                setTimeout(() => {
+                    collapsible_hd.click()
+                }, 200)
+            }
         } );
     }
 }
@@ -173,8 +183,9 @@ const displayResultSB = (elements) => {
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems);
+    M.Collapsible.init(elems);
 });
+
 
 li_foldable.addEventListener('click', () => {
     i_foldable.classList.toggle('fold')
@@ -193,8 +204,8 @@ const dockedDock = (dock, span) => {
 const fEdit_Trend_user = (data) => {
     const user_trends = document.querySelector('.user-trends')
     if(data !== 'error'){
+        const init = document.querySelector('.user-trend-card[data-value="init"]')
         data.forEach((e, i) => {
-            const init = document.querySelector('.user-trend-card[data-value="init"]')
             const element = init.cloneNode(true)
             element.setAttribute('data-value', false)
             element.href = `crypto.html?q=${e.urlPart}`
@@ -203,7 +214,18 @@ const fEdit_Trend_user = (data) => {
             element.querySelector('.user-trend-card-value').innerText = e.changeValue
             element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
             user_trends.appendChild(element)
-        })
+        });
+
+        // setCardMore()
+        const setCardMore = () => {
+            const more = init.cloneNode(true)
+            more.setAttribute('data-value', false)
+            more.classList.add('see-stats')
+            more.querySelector('.user-trend-card-nb').classList.add('hidden')
+            more.querySelector('.user-trend-card-name').innerText = "test"
+            user_trends.appendChild(more)
+        }
+
         const dup = document.querySelector('.duplicated-user-trends')
         const user_trends_node = user_trends.cloneNode(true)
         user_trends_node.classList.replace('user-trends', 'user-trends-dup')

@@ -135,13 +135,13 @@ body main header .hamburger-menu .hb-container a {
   flex-direction: row;
   gap: 1em;
 }
+body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
+body main header .hamburger-menu .hb-container label.tooltip-content,
+body main header .hamburger-menu .hb-container a.tooltip-content {
+  display: grid;
+  grid-template-columns: 1em auto;
+}
 @media all and (max-width: 550px) {
-  body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
-  body main header .hamburger-menu .hb-container label.tooltip-content,
-  body main header .hamburger-menu .hb-container a.tooltip-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
   body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content .texc,
   body main header .hamburger-menu .hb-container label.tooltip-content .texc,
   body main header .hamburger-menu .hb-container a.tooltip-content .texc {
@@ -152,6 +152,7 @@ body main header .hamburger-menu .hb-container li:not(.no-effect) .texc,
 body main header .hamburger-menu .hb-container label .texc,
 body main header .hamburger-menu .hb-container a .texc {
   border: 1px solid var(--border);
+  grid-column: span 2;
 }
 body main header .hamburger-menu .hb-container li:not(.no-effect).tooltip-content,
 body main header .hamburger-menu .hb-container label.tooltip-content,
@@ -498,6 +499,11 @@ body main .new .buttons .btn-main.box-dashed span {
   border-radius: 2px;
   background: var(--w);
 }
+@media all and (max-width: 700px) {
+  body main .new {
+    color: var(--b);
+  }
+}
 body main .title-container {
   color: var(--white);
 }
@@ -759,29 +765,41 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   position: relative;
   font-weight: bold;
   min-width: var(--card-aside-user-trends);
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   cursor: pointer;
   background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-  border-radius: 6px;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  transition: all 0.2s;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card[data-value=init] {
   display: none;
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card.see-stats {
+  background: var(--w);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card:nth-child(2) {
+  background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card:nth-child(3) {
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card:nth-child(4) {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgb(14, 174, 87) 0%, rgb(12, 116, 117) 90%);
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .user-trend-card-nb {
   position: absolute;
   background: var(--w);
   aspect-ratio: 1;
+  font-size: 16em;
   width: 100%;
-  border-radius: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
   top: -30px;
   right: -30px;
-  font-size: 5em;
   opacity: 0.2;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .user-trend-card-container {
@@ -792,8 +810,9 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  margin: 0.5em;
+  margin: 1em;
   color: var(--w);
+  z-index: 1;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .user-trend-card-container .user-trend-card-name {
   font-size: 1.8em;
@@ -818,6 +837,14 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .user-trend-card-container .user-trend-card-value.down::before {
   background: var(--down);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 0;
+  background: linear-gradient(0deg, #1f1f1f, transparent);
 }
 body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table {
   display: flex;
@@ -1027,35 +1054,52 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
   display: flex;
   flex-direction: row;
   gap: 1em;
-  padding-bottom: 0.5em;
+  padding: 1em 0;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card {
   position: relative;
   font-weight: bold;
   min-width: var(--card-aside-user-trends);
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   cursor: pointer;
   background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-  border-radius: 6px;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  transition: all 0.2s;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card[data-value=init] {
   display: none;
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card.see-stats {
+  background: var(--w);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card:nth-child(2) {
+  background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card:nth-child(3) {
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card:nth-child(4) {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgb(14, 174, 87) 0%, rgb(12, 116, 117) 90%);
+}
+@media (pointer: fine) {
+  body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card:hover {
+    scale: 0.99;
+  }
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-nb {
   position: absolute;
   background: var(--w);
   aspect-ratio: 1;
+  font-size: 22em;
   width: 100%;
-  border-radius: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
   top: -30px;
   right: -30px;
-  font-size: 5em;
   opacity: 0.2;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container {
@@ -1066,8 +1110,9 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  margin: 0.5em;
+  margin: 1em;
   color: var(--w);
+  z-index: 1;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-name {
   font-size: 1.8em;
@@ -1092,6 +1137,14 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-value.down::before {
   background: var(--down);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 0;
+  background: linear-gradient(0deg, #1f1f1f, transparent);
 }
 @media all and (max-width: 500px) {
   body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends {

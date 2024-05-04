@@ -131,6 +131,7 @@ const copyrightDate = () => {
     const date = new Date().getFullYear()
     element.innerText = `© ${date}`
 }
+
 window.onscroll = function () {
     if(exact_type == "index")
         modal.style.display = 'none';
