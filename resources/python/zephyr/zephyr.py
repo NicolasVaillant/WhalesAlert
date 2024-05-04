@@ -230,5 +230,3 @@ def job_zephyr():
 
     with open(tweet_json, "w") as f:
         json.dump(globals_data, f, indent=4)
-
-job_zephyr()

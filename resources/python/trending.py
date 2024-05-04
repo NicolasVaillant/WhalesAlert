@@ -35,7 +35,7 @@ class Scraper:
 
             soup = BeautifulSoup(content, 'html.parser')
 
-            elements = soup.select('.sc-b8460745-2.cOjIsr')
+            elements = soup.select('.sc-44b98da2-2.kjRmyt')
             extracted_data = []
 
             for element in elements[:3]:

@@ -149,14 +149,12 @@ def get_ethereum_price() -> float:
     return globals_data['price'], globals_data['supply']
 
 def on_message(ws, message):
-    print(type(message))
     data = json.loads(message)
     
     price, circulating_supply = get_ethereum_price()
 
     # Gérer les notifications de nouveau bloc
     if 'method' in data and data['method'] == 'eth_subscription':
-        print(type(data))
         params = data['params']
         
         # Pour les abonnements aux nouveaux blocs, 'result' contient les détails du bloc
@@ -229,5 +227,3 @@ def job_ethereum() -> None:
     logger_fonction_tx_analyze.info("Job ethereum")
 
     start_listening()
-
-job_ethereum()
