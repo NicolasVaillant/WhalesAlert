@@ -532,7 +532,7 @@ body main .header-name-fav label input {
   display: none;
 }
 body main .header-name-fav label input:checked ~ i {
-  color: #ffd700;
+  color: var(--star);
 }
 body main .link-crypto-header {
   color: var(--active-color);
@@ -835,6 +835,20 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   bottom: 0;
   z-index: 0;
   background: linear-gradient(0deg, #1f1f1f, transparent);
+}
+body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .liked {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+  background: rgba(244, 245, 247, 0.22);
+  aspect-ratio: 1;
+  color: var(--star);
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table {
   display: flex;
@@ -1140,6 +1154,20 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
   bottom: 0;
   z-index: 0;
   background: linear-gradient(0deg, #1f1f1f, transparent);
+}
+body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .liked {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 1;
+  background: rgba(244, 245, 247, 0.22);
+  aspect-ratio: 1;
+  color: var(--star);
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
 }
 @media all and (max-width: 500px) {
   body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends {

@@ -203,17 +203,32 @@ const dockedDock = (dock, span) => {
 
 const fEdit_Trend_user = (data) => {
     const user_trends = document.querySelector('.user-trends')
+    const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
     if(data !== 'error'){
         const init = document.querySelector('.user-trend-card[data-value="init"]')
         data.forEach((e, i) => {
-            const element = init.cloneNode(true)
-            element.setAttribute('data-value', false)
-            element.href = `crypto.html?q=${e.urlPart}`
-            element.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
-            element.querySelector('.user-trend-card-name').innerText = e.title
-            element.querySelector('.user-trend-card-value').innerText = e.changeValue
-            element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
-            user_trends.appendChild(element)
+            if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
+                const array = fav_crypto_load.data
+                const element = init.cloneNode(true)
+                element.setAttribute('data-value', false)
+                element.setAttribute('data-urlPart', e.urlPart)
+                element.href = `crypto.html?q=${e.urlPart}`
+                element.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
+                element.querySelector('.user-trend-card-name').innerText = e.title
+                element.querySelector('.user-trend-card-value').innerText = e.changeValue
+                element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
+                
+                if(variables.version > 1){
+                    array.forEach(a => {
+                        console.log(e.urlPart,a , a === e.urlPart);
+                        if(e.urlPart === a){
+                            element.querySelector('.liked').classList.remove('hidden')
+                        }
+                    })
+                }
+
+                user_trends.appendChild(element)
+            }
         });
 
         // setCardMore()

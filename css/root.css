@@ -68,6 +68,7 @@
     --card-g-l: #c6cfd9;
     --text-aside:var(--bg-color);
     --grey:#808080fa;
+    --star:#ffd700;
 }
 
 .toggle_dark_mode{
