@@ -69,6 +69,7 @@
     --text-aside:var(--bg-color);
     --grey:#808080fa;
     --star:#ffd700;
+    --blue_light:#cfe6ff;
 }
 
 .toggle_dark_mode{

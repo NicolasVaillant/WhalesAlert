@@ -28,13 +28,13 @@
     <script src="parameters/parameters.js" defer></script>
     <!-- JS FILE(S) -->
     <script src="resources/js/shared.js" defer></script>
-    <script src="resources/js/suggest-crypto.js" defer></script>
+    <script src="resources/js/roadmap.js" defer></script>
     <!-- CSS FILE(S) -->
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
-    <title>Suggestion | WhalesAlert</title>
+    <title>Roadmap | WhalesAlert</title>
 </head>
 <body>
 <main>
@@ -134,7 +134,7 @@
     <div class="container-split">
         <div class="col-more-info hidden">
             <div class="content-displayed">
-                <div class="w_bg"></div>
+                <div class="hint"></div>
                 <button class="btn-main backToTop hidden">
                     <i class="fa-solid fa-arrow-up"></i>
                     <text class="backToTop-Text"></text>
@@ -142,57 +142,126 @@
             </div>
         </div>
         <div class="col-content">
-            <div class="suggest-crypto-content">
-                <h1>Suggest Crypto</h1>
-                <form action="" method="GET" class="">
-                    <div class="container">
-                        <label for="sc-input-name">Name
-                            <input 
-                                type="text" 
-                                name="sc-input-name" 
-                                id="sc-input-name" 
-                                placeholder="Name of cryptocurrency" 
-                                class="btn-main" 
-                                required>
-                        </label>
-                        <label for="sc-input-symbol">Symbol
-                            <input 
-                                type="text" 
-                                name="sc-input-symbol" 
-                                id="sc-input-symbol" 
-                                placeholder="Symbol of cryptocurrency"
-                                class="btn-main"
-                                required>
-                        </label>
+            <div class="roadmap-content">
+                <h1>Roadmap</h1>
+                <div class="description-rm">
+                    <p>
+                        A roadmap page is like a sneak peek into the exciting journey ahead. It's where we outline our upcoming plans, features, and progress to keep you in the loop. Think of it as your guide to what's coming next, giving you a clear view of where we're headed and what you can expect along the way.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner-rm">
+        <div class="wrapper-banner">
+            <h2>Follow the project</h2>
+            <div class="keys">
+                <div class="icon">
+                    <i class="fa-solid fa-face-grin-stars"></i>
+                </div>
+                <div class="text-d">
+                    <h4>Upcoming Features</h4>
+                    <p>Introducing new features and improvements you can look forward to.</p>
+                </div>
+            </div>
+            <div class="keys">
+                <div class="icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div class="text-d">
+                    <h4>Development Milestones</h4>
+                    <p>Highlighting achievements or milestones in the project development timeline.</p>
+                </div>
+            </div>
+            <div class="keys">
+                <div class="icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <div class="text-d">
+                    <h4>Community Engagement</h4>
+                    <p>Interactions with you, solicitation of comments and involvement of the community in the development of the future of the project.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="roadmap-container">
+        <div class="rm-header">
+            <h2>New features</h2>
+            <a href="https://github.com/Charles-84/WhalesAlert_Site/issues/new" class="git btn-main box-dashed">
+                <span>
+                    <i class="fa-brands fa-github"></i>
+                    <text class="git-suggestion-text"></text>
+                </span>
+            </a>
+        </div>
+        
+        <div class="milestone-container">
+            <div class="rm-wip" data-empty="true">
+                <div class="header-el">
+                    <h3>Work In Progress</h3>
+                    <select class="sort-element">
+                        <option value="sort">Default Order</option>
+                        <option value="version">Sort by version</option>
+                    </select>
+                </div>
+                <div class="container-cards"></div>
+                <div class="nothing">
+                    <p>Nothing here for now.</p>
+                </div>
+            </div>
+            <div class="rm-soon" data-empty="true">
+                <div class="header-el">
+                    <h3>Not Ready Yet</h3>
+                    <select class="sort-element">
+                        <option value="sort">Default Order</option>
+                        <option value="version">Sort by version</option>
+                    </select>
+                </div>
+                <div class="container-cards"></div>
+                <div class="nothing">
+                    <p>Nothing here for now.</p>
+                </div>
+            </div>
+            <div class="rm-oneday" data-empty="true">
+                <div class="header-el">
+                    <h3>Maybe one day</h3>
+                    <select class="sort-element">
+                        <option value="sort">Default Order</option>
+                        <option value="version">Sort by version</option>
+                    </select>
+                </div>
+                <div class="container-cards"></div>
+                <div class="nothing">
+                    <p>Nothing here for now.</p>
+                </div>
+            </div>
+
+            <div class="rm-milestone" data-value="init">
+                <div class="cont-wrap">
+                    <div class="cosmetic"></div>
+                    <span class="text"></span>
+                    <span class="assign">
+                        <a class="img-el dev_1 hidden" href="https://github.com/NicolasVaillant">
+                            <img src="https://avatars.githubusercontent.com/u/77850354?v=4" alt="dev_1_img">
+                        </a>
+                        <a class="img-el dev_2 hidden" href="https://github.com/Charles-84">
+                            <img src="https://avatars.githubusercontent.com/u/84071141?v=4" alt="dev_2_img">
+                        </a>
+                    </span>
+                </div>
+                <div class="cont-wrap">
+                    <div class="wrapper-pb">
+                        <div class="progress-bar-check hidden">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <span class="progress-bar-container">
+                            <div class="progress-bar"></div>
+                        </span>
                     </div>
-                    <div class="container">
-                        <label for="sc-input-url">Url of cryptocurrency
-                            <input 
-                                type="text" 
-                                name="sc-input-url" 
-                                id="sc-input-url" 
-                                placeholder="Url of cryptocurrency" 
-                                class="btn-main"
-                                required>
-                        </label>
-                    </div>
-                    <div class="container">
-                        <label for="sc-input-img">Url of cryptocurrency icon
-                            <input 
-                                type="text" 
-                                name="sc-input-img" 
-                                id="sc-input-img" 
-                                placeholder="Url of cryptocurrency icon" 
-                                class="btn-main"
-                                required>
-                        </label>
-                    </div>
-                      
-                    <div class="container">
-                        <button class="btn-main" type="reset">Cancel</button>
-                        <button class="btn-main outline" type="submit">Submit</button>
-                    </div>
-                  </form>
+                    <span class="release"></span>
+                </div>
             </div>
         </div>
     </div>

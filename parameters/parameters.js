@@ -27,7 +27,9 @@ const settings = {
         'home-h2-transactions': 'Latest transactions',
         'top-trend-user': 'Top user trends',
         'latest-top': 'Top transactions',
-        'modal-text':'Open Crypto'
+        'modal-text':'Open Crypto',
+        'git-issue-text':'Open an issue',
+        'git-suggestion-text':'Make a suggestion'
     },
     PRIVACY_PAGE_text:{
         'privacy-aside':'Summary'
@@ -52,7 +54,7 @@ const settings = {
 const variables = {
     refreshRate: ["30s", "1m", "10m"],
     arrayCryptoLabel: ["Amount", "Value", "Supply (%)", "Link"],
-    version: 1
+    version: 2
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'

@@ -207,28 +207,27 @@ const fEdit_Trend_user = (data) => {
     if(data !== 'error'){
         const init = document.querySelector('.user-trend-card[data-value="init"]')
         data.forEach((e, i) => {
-            if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
-                const array = fav_crypto_load.data
-                const element = init.cloneNode(true)
-                element.setAttribute('data-value', false)
-                element.setAttribute('data-urlPart', e.urlPart)
-                element.href = `crypto.html?q=${e.urlPart}`
-                element.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
-                element.querySelector('.user-trend-card-name').innerText = e.title
-                element.querySelector('.user-trend-card-value').innerText = e.changeValue
-                element.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
-                
-                if(variables.version > 1){
+            const element_card = init.cloneNode(true)
+            element_card.setAttribute('data-value', false)
+            element_card.setAttribute('data-urlPart', e.urlPart)
+            element_card.href = `crypto.html?q=${e.urlPart}`
+            element_card.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
+            element_card.querySelector('.user-trend-card-name').innerText = e.title
+            element_card.querySelector('.user-trend-card-value').innerText = e.changeValue
+            element_card.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
+            
+            if(variables.version > 1){
+                if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
+                    const array = fav_crypto_load.data
                     array.forEach(a => {
-                        console.log(e.urlPart,a , a === e.urlPart);
                         if(e.urlPart === a){
-                            element.querySelector('.liked').classList.remove('hidden')
+                            element_card.querySelector('.liked').classList.remove('hidden')
                         }
                     })
                 }
-
-                user_trends.appendChild(element)
             }
+
+            user_trends.appendChild(element_card)
         });
 
         // setCardMore()

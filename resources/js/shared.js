@@ -153,6 +153,8 @@ window.onload = function () {
     }
     sb.classList.add('hidden')
 
+    checkGridPage()
+
     copyrightDate()
     setTextFromParameters()
     // storeDataUsers()
@@ -167,6 +169,15 @@ window.onload = function () {
 
 const storeDataUsers = () => {
     console.log('storage');
+}
+
+const checkGridPage = () => {
+    const l_col = document.querySelector('.col-more-info')
+    const r_col = document.querySelector('.col-content')
+
+    if(l_col.classList.contains('hidden')){
+        r_col.classList.add('span2')
+    }
 }
 
 const setSummary = () => {

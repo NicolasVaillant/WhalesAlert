@@ -20,6 +20,10 @@
   outline-offset: 2px;
 }
 
+*[data-value=init] {
+  display: none !important;
+}
+
 .swal2-container {
   z-index: 99999;
 }
@@ -764,9 +768,6 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   align-items: flex-end;
   transition: all 0.2s;
 }
-body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card[data-value=init] {
-  display: none;
-}
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card.see-stats {
   background: var(--w);
 }
@@ -903,9 +904,28 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
     cursor: pointer;
   }
 }
+body main .container-split .col-more-info .content-displayed .hint {
+  min-height: 40vh;
+  border-radius: var(--br);
+  background-image: url(/resources/img/hint.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body main .container-split .col-more-info .content-displayed .hint svg {
+  height: 100%;
+  width: 100%;
+}
 body main .container-split .col-content {
   width: 100%;
   height: 100%;
+}
+body main .container-split .col-content.span2 {
+  grid-column: span 2;
+}
+@media (max-width: 700px) {
+  body main .container-split .col-content.span2 {
+    grid-column: auto;
+  }
 }
 body main .container-split .col-content .info-crypto {
   color: var(--b);
@@ -1077,9 +1097,6 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
   display: flex;
   align-items: flex-end;
   transition: all 0.2s;
-}
-body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card[data-value=init] {
-  display: none;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card.see-stats {
   background: var(--w);
@@ -1612,11 +1629,18 @@ body main .container-split .col-content .wrapper-content .grid_crypto {
 body main .container-split .col-content .wrapper-content .grid_crypto.hidden {
   display: none;
 }
-body main .container-split .col-content .suggest-crypto-content {
+body main .container-split .col-content .suggest-crypto-content,
+body main .container-split .col-content .roadmap-content {
   color: var(--white);
   margin-bottom: 3em;
 }
-body main .container-split .col-content .suggest-crypto-content .container {
+body main .container-split .col-content .suggest-crypto-content .description-rm,
+body main .container-split .col-content .roadmap-content .description-rm {
+  margin-top: 1em;
+  text-align: justify;
+}
+body main .container-split .col-content .suggest-crypto-content .container,
+body main .container-split .col-content .roadmap-content .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1625,27 +1649,256 @@ body main .container-split .col-content .suggest-crypto-content .container {
   gap: 1em;
 }
 @media all and (max-width: 600px) {
-  body main .container-split .col-content .suggest-crypto-content .container {
+  body main .container-split .col-content .suggest-crypto-content .container,
+  body main .container-split .col-content .roadmap-content .container {
     flex-wrap: wrap;
   }
 }
-body main .container-split .col-content .suggest-crypto-content .container button {
+body main .container-split .col-content .suggest-crypto-content .container button,
+body main .container-split .col-content .roadmap-content .container button {
   width: fit-content;
 }
-body main .container-split .col-content .suggest-crypto-content .container button:first-child {
+body main .container-split .col-content .suggest-crypto-content .container button:first-child,
+body main .container-split .col-content .roadmap-content .container button:first-child {
   margin-left: auto;
 }
-body main .container-split .col-content .suggest-crypto-content .container button:not(:first-child) {
+body main .container-split .col-content .suggest-crypto-content .container button:not(:first-child),
+body main .container-split .col-content .roadmap-content .container button:not(:first-child) {
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
 }
-body main .container-split .col-content .suggest-crypto-content .container label {
+body main .container-split .col-content .suggest-crypto-content .container label,
+body main .container-split .col-content .roadmap-content .container label {
   width: 100%;
 }
-body main .container-split .col-content .suggest-crypto-content .container label input {
+body main .container-split .col-content .suggest-crypto-content .container label input,
+body main .container-split .col-content .roadmap-content .container label input {
   width: 100%;
   margin-top: 0.5em;
   cursor: text;
+}
+body main .banner-rm {
+  width: 100%;
+  background: var(--blue_light);
+}
+body main .banner-rm .wrapper-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: var(--width-page);
+  margin: auto;
+  min-height: 40vh;
+  align-items: flex-start;
+}
+body main .banner-rm .wrapper-banner h2 {
+  display: none;
+  width: 100%;
+  text-align: center;
+  margin: 1em 0;
+}
+body main .banner-rm .wrapper-banner .keys {
+  flex: 1;
+  padding: 1em;
+}
+body main .banner-rm .wrapper-banner .keys .icon {
+  font-size: 2em;
+  height: 2em;
+  color: var(--bg-color);
+}
+body main .banner-rm .wrapper-banner .keys .text-d h4 {
+  white-space: nowrap;
+}
+body main .banner-rm .wrapper-banner .keys .text-d p {
+  margin-top: 1em;
+}
+body main .roadmap-container {
+  color: var(--white);
+  padding: 1em 0;
+  width: var(--width-page);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+body main .roadmap-container .rm-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+body main .roadmap-container .rm-header h2 {
+  width: 100%;
+  margin: 1em 0;
+}
+body main .roadmap-container .rm-header a {
+  width: fit-content;
+  overflow: unset;
+}
+body main .roadmap-container .milestone-container {
+  margin: 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 1em;
+}
+body main .roadmap-container .milestone-container .rm-wip,
+body main .roadmap-container .milestone-container .rm-soon,
+body main .roadmap-container .milestone-container .rm-oneday {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--white);
+  border-radius: var(--br);
+}
+body main .roadmap-container .milestone-container .rm-wip .header-el,
+body main .roadmap-container .milestone-container .rm-soon .header-el,
+body main .roadmap-container .milestone-container .rm-oneday .header-el {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 1em;
+  color: var(--b);
+  background: var(--blue_light);
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+body main .roadmap-container .milestone-container .rm-wip .container-cards,
+body main .roadmap-container .milestone-container .rm-soon .container-cards,
+body main .roadmap-container .milestone-container .rm-oneday .container-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+body main .roadmap-container .milestone-container .rm-wip .nothing,
+body main .roadmap-container .milestone-container .rm-soon .nothing,
+body main .roadmap-container .milestone-container .rm-oneday .nothing {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+}
+body main .roadmap-container .milestone-container .rm-wip .nothing p,
+body main .roadmap-container .milestone-container .rm-soon .nothing p,
+body main .roadmap-container .milestone-container .rm-oneday .nothing p {
+  color: var(--error);
+}
+body main .roadmap-container .milestone-container .rm-wip[data-empty=true] .container-cards,
+body main .roadmap-container .milestone-container .rm-soon[data-empty=true] .container-cards,
+body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .container-cards {
+  display: none;
+}
+body main .roadmap-container .milestone-container .rm-wip[data-empty=true] .nothing,
+body main .roadmap-container .milestone-container .rm-soon[data-empty=true] .nothing,
+body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .nothing {
+  display: flex;
+}
+body main .roadmap-container .milestone-container .rm-milestone {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+@media all and (max-width: 550px) {
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap {
+    width: 100%;
+  }
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign, body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .release {
+    margin-left: auto;
+  }
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb {
+    width: 100%;
+  }
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb .progress-bar-container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap:last-child {
+  margin-left: auto;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .cosmetic {
+  background: var(--bg-color);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  width: 3em;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign .img-el {
+  display: flex;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign img {
+  width: 2em !important;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 1000px;
+  border: 1px solid var(--white);
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign.both .img-el:last-child {
+  margin-left: -0.8em;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb .progress-bar-container {
+  width: 20vw;
+  min-width: 50px;
+  max-width: 100px;
+  background: var(--hf-color-op);
+  border-radius: 1000px;
+  overflow: hidden;
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb .progress-bar-container .progress-bar {
+  width: 10%;
+  height: 5px;
+  background: var(--active-color);
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb .progress-bar-container .progress-bar.full {
+  background: var(--up);
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .wrapper-pb .progress-bar-check {
+  color: var(--up);
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .release {
+  padding: 0.2em 0.5em;
+  border-radius: var(--br);
 }
 body main footer {
   margin-top: auto;
@@ -1695,6 +1948,7 @@ body main footer .footer-container .bottom-line .buttons {
   flex-direction: row;
   gap: 1em;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 body main footer .footer-container .top-line .buttons .btn-main,
 body main footer .footer-container .bottom-line .buttons .btn-main {
@@ -1712,16 +1966,11 @@ body main footer .footer-container .bottom-line .buttons .bm-link {
   color: var(--active-color);
   width: fit-content;
 }
-body main footer .footer-container .top-line .buttons .pages-e,
-body main footer .footer-container .bottom-line .buttons .pages-e {
+body main footer .footer-container .top-line .buttons .pages-e.f,
+body main footer .footer-container .bottom-line .buttons .pages-e.f {
   margin-left: auto;
 }
 @media all and (max-width: 530px) {
-  body main footer .footer-container .top-line .buttons,
-  body main footer .footer-container .bottom-line .buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   body main footer .footer-container .top-line .buttons .pages-e,
   body main footer .footer-container .bottom-line .buttons .pages-e {
     margin: 0;
@@ -1774,7 +2023,6 @@ body main .btn-main {
   background-color: var(--w);
   border: 1px solid var(--btn-main-bg);
   border-radius: 6px;
-  box-shadow: rgba(226, 226, 226, 0.04) 0 1px 0, rgba(226, 226, 226, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
   color: var(--b);
   cursor: pointer;
