@@ -3,7 +3,7 @@ const dev_2 = 'Charles-84'
 const colors = ['#5e5eb775', '#5eb7ab9c', '#b75e92b5'];
 const roadmap = {
     'dark-mode':{
-        'title': 'Website Dark Mode',
+        'title': 'Better Dark Mode',
         'status': 'wip',
         'cosmetic':'<i class="fa-solid fa-circle-half-stroke"></i>',
         'release':'2',

@@ -204,31 +204,73 @@ const dockedDock = (dock, span) => {
 const fEdit_Trend_user = (data) => {
     const user_trends = document.querySelector('.user-trends')
     const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
+    const createCard = (element, c, i) => {
+        const dv = element.getAttribute('data-value')
+        const element_card = element.cloneNode(true)
+        if(dv == 'sep'){
+            console.log(element_card);
+            element_card.setAttribute('data-value', 'separator')
+            user_trends.appendChild(element_card)
+            return
+        }
+        element_card.setAttribute('data-value', false)
+        element_card.setAttribute('data-urlPart', ((i == -1)) ? c : c.urlPart)
+        element_card.setAttribute('data-colorized', ((i == -1)) ? true : false)
+        element_card.href = `crypto.html?q=${((i == -1)) ? c : c.urlPart}`
+        element_card.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
+        element_card.querySelector('.user-trend-card-name').innerText = ((i == -1)) ? c : c.title
+        if(i == -1){
+            element_card.querySelector('.user-trend-card-value').innerText = 'Saved by user'
+        } else {
+            element_card.querySelector('.user-trend-card-value').innerText = c.changeValue
+            element_card.querySelector('.user-trend-card-value').classList.add(`${c.changeDirection}`)
+        }
+        if(variables.version > 1){
+            if(i == -1){element_card.querySelector('.liked').classList.remove('hidden')}
+            if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
+                const array = fav_crypto_load.data
+                array.forEach(a => {
+                    if(c.urlPart === a){
+                        element_card.querySelector('.liked').classList.remove('hidden')
+                    }
+                })
+            }
+        }
+        user_trends.appendChild(element_card)
+    }
+
     if(data !== 'error'){
         const init = document.querySelector('.user-trend-card[data-value="init"]')
         data.forEach((e, i) => {
-            const element_card = init.cloneNode(true)
-            element_card.setAttribute('data-value', false)
-            element_card.setAttribute('data-urlPart', e.urlPart)
-            element_card.href = `crypto.html?q=${e.urlPart}`
-            element_card.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
-            element_card.querySelector('.user-trend-card-name').innerText = e.title
-            element_card.querySelector('.user-trend-card-value').innerText = e.changeValue
-            element_card.querySelector('.user-trend-card-value').classList.add(`${e.changeDirection}`)
-            
-            if(variables.version > 1){
-                if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
-                    const array = fav_crypto_load.data
-                    array.forEach(a => {
-                        if(e.urlPart === a){
-                            element_card.querySelector('.liked').classList.remove('hidden')
-                        }
-                    })
-                }
-            }
-
-            user_trends.appendChild(element_card)
+            createCard(init, e, i)
         });
+        
+        const fAdd_Favorite_user = () => {
+            const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
+            const fav = fav_crypto_load.data
+            const user_trends = document.querySelector('.user-trends')
+            const user_trends_dup = document.querySelector('.user-trends-dup')
+            let user_trends_arr = []
+            const childElements = Array.from(user_trends.children)
+            childElements.forEach(ut => {
+                const dataUrlPart = ut.getAttribute('data-urlPart');
+                if (dataUrlPart) {
+                    user_trends_arr.push(dataUrlPart);
+                }
+            })
+            const unique_in_fav = fav.filter(value => !user_trends_arr.includes(value));
+            return unique_in_fav
+        }
+
+
+        const value_unique = fAdd_Favorite_user()
+        if(value_unique.length !== 0){
+            const separator = document.querySelector('div[data-value="sep"]')
+            createCard(separator)
+            value_unique.forEach(e => {
+                createCard(init, e, -1)
+            })
+        }
 
         // setCardMore()
         const setCardMore = () => {

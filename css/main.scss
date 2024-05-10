@@ -32,6 +32,17 @@
   &:nth-child(2){background: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)}
   &:nth-child(3){background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)}
   &:nth-child(4){background: radial-gradient(circle farthest-corner at 10% 20%, rgb(14, 174, 87) 0%, rgb(12, 116, 117) 90%)}
+  &[data-colorized = "true"]{
+    background: linear-gradient(135deg, #d43d64 0%, #5b1b6c 100%);
+    .user-trend-card-value{
+      margin-left: 0!important;
+      font-size: initial!important;
+      background: var(--op);
+      border-radius: 1000px;
+      padding: .2em .5em;
+      &::before{display: none}
+    }
+  }
   position: relative;
   font-weight: bold;
   min-width: var(--card-aside-user-trends);
@@ -620,6 +631,13 @@ body{
               flex-direction: row;
               gap: 1em;
               padding-bottom: .5em;
+              div[data-value="sep"]{
+                display: none;
+              }
+              div[data-value="separator"]{
+                font-size: 5em;
+                margin: auto;
+              }
               .user-trend-card{
                 @include user-trend-card;
                 .user-trend-card-nb{
@@ -645,6 +663,7 @@ body{
                   z-index: 1;
                   .user-trend-card-name{
                     font-size: 1.8em;
+                    text-transform: capitalize;
                   }
                   .user-trend-card-value{
                     font-size: 1.2em;
@@ -891,6 +910,14 @@ body{
                 flex-direction: row;
                 gap: 1em;
                 padding: 1em 0;
+                div[data-value="sep"]{
+                  display: none;
+                }
+                div[data-value="separator"]{
+                  font-size: 5em;
+                  margin: auto;
+                }
+
                 .user-trend-card{
                   @include user-trend-card;
                   @media (pointer: fine) {
@@ -922,6 +949,7 @@ body{
                     z-index: 1;
                     .user-trend-card-name{
                       font-size: 1.8em;
+                      text-transform: capitalize;
                     }
                     .user-trend-card-value{
                       font-size: 1.2em;
