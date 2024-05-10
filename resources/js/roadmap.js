@@ -16,7 +16,7 @@ const roadmap = {
     'crypto-suggestion':{
         'title': 'Cryptocurrencies suggestions',
         'cosmetic':'<i class="fa-solid fa-magnifying-glass-chart"></i>',
-        'status': 'wip',
+        'status': 'done',
         'release':'2',
         'advancement': 1, 
         'assign': {

@@ -1797,7 +1797,8 @@ body main .roadmap-container .milestone-container {
 }
 body main .roadmap-container .milestone-container .rm-wip,
 body main .roadmap-container .milestone-container .rm-soon,
-body main .roadmap-container .milestone-container .rm-oneday {
+body main .roadmap-container .milestone-container .rm-oneday,
+body main .roadmap-container .milestone-container .rm-done {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -1810,7 +1811,8 @@ body main .roadmap-container .milestone-container .rm-oneday {
 }
 body main .roadmap-container .milestone-container .rm-wip .header-el,
 body main .roadmap-container .milestone-container .rm-soon .header-el,
-body main .roadmap-container .milestone-container .rm-oneday .header-el {
+body main .roadmap-container .milestone-container .rm-oneday .header-el,
+body main .roadmap-container .milestone-container .rm-done .header-el {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1824,7 +1826,8 @@ body main .roadmap-container .milestone-container .rm-oneday .header-el {
 }
 body main .roadmap-container .milestone-container .rm-wip .container-cards,
 body main .roadmap-container .milestone-container .rm-soon .container-cards,
-body main .roadmap-container .milestone-container .rm-oneday .container-cards {
+body main .roadmap-container .milestone-container .rm-oneday .container-cards,
+body main .roadmap-container .milestone-container .rm-done .container-cards {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -1832,7 +1835,8 @@ body main .roadmap-container .milestone-container .rm-oneday .container-cards {
 }
 body main .roadmap-container .milestone-container .rm-wip .nothing,
 body main .roadmap-container .milestone-container .rm-soon .nothing,
-body main .roadmap-container .milestone-container .rm-oneday .nothing {
+body main .roadmap-container .milestone-container .rm-oneday .nothing,
+body main .roadmap-container .milestone-container .rm-done .nothing {
   display: none;
   flex-direction: row;
   align-items: center;
@@ -1841,17 +1845,20 @@ body main .roadmap-container .milestone-container .rm-oneday .nothing {
 }
 body main .roadmap-container .milestone-container .rm-wip .nothing p,
 body main .roadmap-container .milestone-container .rm-soon .nothing p,
-body main .roadmap-container .milestone-container .rm-oneday .nothing p {
+body main .roadmap-container .milestone-container .rm-oneday .nothing p,
+body main .roadmap-container .milestone-container .rm-done .nothing p {
   color: var(--error);
 }
 body main .roadmap-container .milestone-container .rm-wip[data-empty=true] .container-cards,
 body main .roadmap-container .milestone-container .rm-soon[data-empty=true] .container-cards,
-body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .container-cards {
+body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .container-cards,
+body main .roadmap-container .milestone-container .rm-done[data-empty=true] .container-cards {
   display: none;
 }
 body main .roadmap-container .milestone-container .rm-wip[data-empty=true] .nothing,
 body main .roadmap-container .milestone-container .rm-soon[data-empty=true] .nothing,
-body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .nothing {
+body main .roadmap-container .milestone-container .rm-oneday[data-empty=true] .nothing,
+body main .roadmap-container .milestone-container .rm-done[data-empty=true] .nothing {
   display: flex;
 }
 body main .roadmap-container .milestone-container .rm-milestone {

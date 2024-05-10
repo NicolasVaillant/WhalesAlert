@@ -1431,7 +1431,8 @@ body{
         gap: 1em;
         .rm-wip,
         .rm-soon,
-        .rm-oneday{
+        .rm-oneday,
+        .rm-done{
           display: flex;
           justify-content: flex-start;
           align-items: stretch;
