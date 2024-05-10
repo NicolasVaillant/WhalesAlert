@@ -44,11 +44,16 @@ class CoinFetcher:
     def format_data(self, data):
         formatted_coins = []
         for coin in data:
+            coin['name'] = str(coin['name']).removeprefix("USDt")
+            if coin['name'] == "BNB":
+                coin['name'] = "binance_coin"
+            if coin['quote']['USD']['price'] > 0 :
+                coin['quote']['USD']['price'] = round(coin['quote']['USD']['price'],2)
             formatted_coin = {
                 "Rank": coin['cmc_rank'],
                 "Name": coin['name'],
                 "Symbol": coin['symbol'],
-                "Price": f"{coin['quote']['USD']['price']:.2f}",
+                "Price": f"{coin['quote']['USD']['price']}",
                 "Volume": f"{coin['quote']['USD']['volume_24h']:.2f}",
                 "1h": f"{coin['quote']['USD']['percent_change_1h']:.2f}%",
                 "24h": f"{coin['quote']['USD']['percent_change_24h']:.2f}%",
