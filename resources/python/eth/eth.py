@@ -1,35 +1,34 @@
 import json
-import requests
-from requests_oauthlib import OAuth1Session
 import datetime
 import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
 from pathlib import Path
 import websocket
+import traceback
+from decimal import Decimal
 
 # Version pc
 tweet_json = Path("resources", "config_python", "ethereum", "tweet.json")
 config_json = Path("resources", "config_python", "ethereum", "config.json")
-telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_ethereum.json")
+coins_json = Path("resources", "data_coins")
+tx_data_json = Path("resources", "data_tx")
 
 # Version serveur
 # tweet_json = Path("/home", "container", "webroot","resources", "config_python", "ethereum", "tweet.json")
 # config_json = Path("/home", "container", "webroot","resources", "config_python", "ethereum", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_ethereum.json")
+# coins_json = Path("/home", "container", "webroot","resources", "data_coins")
+# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx")
 
-logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
-if not logger_fonction_tx_analyze.handlers:
-    logger_fonction_tx_analyze.setLevel(logging.INFO)
-    filenamelog = Path("logs", "tx_analyze.log")
+logger_fonction_websocket_analyze = logging.getLogger('websockets')
+if not logger_fonction_websocket_analyze.handlers:
+    logger_fonction_websocket_analyze.setLevel(logging.INFO)
+    filenamelog = Path("logs", "websocket.log")
     handler = TimedRotatingFileHandler(filenamelog, when='midnight', interval=1, backupCount=7, encoding='utf-8')
-    handler.suffix = "%Y-%m-%d"  # suffixe le fichier de log avec la date du jour
+    handler.suffix = "%Y-%m-%d"
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-    logger_fonction_tx_analyze.addHandler(handler)
+    logger_fonction_websocket_analyze.addHandler(handler)
 
-# Charger les valeurs globales initiales
 with open(tweet_json, "r") as f:
     globals_data = json.load(f)
 
@@ -40,58 +39,9 @@ day = globals_data.get('day', datetime.datetime.now().day)
 post = globals_data.get('post', 0)
 price = globals_data.get('price', 0)
 
-def post_tweet(payload: dict) -> None:
-    global tweets_this_day
-    global day
+pending_transactions = {}
+f.close()
 
-    # Vérifiez si nous avons commencé un nouveau jour
-    if datetime.datetime.now().day != day:
-        tweets_this_day = 0
-        day = datetime.datetime.now().day
-
-    # Vérifiez si nous avons atteint la limite de tweets pour ce jour
-    if tweets_this_day >= 50:
-        logger_fonction_tx_analyze.warning("Reached the day limit of tweets.")
-        return
-
-    with open(config_json) as f:
-        config: dict = json.load(f)
-        consumer_key: str = config['CONSUMER_KEY']
-        consumer_secret: str = config['CONSUMER_SECRET']
-        access_token: str = config['ACCESS_TOKEN']
-        access_token_secret: str = config['ACCESS_TOKEN_SECRET']
-
-    # Get request token
-    request_token_url: str = "https://api.twitter.com/oauth/request_token?oauth_callback=oob&x_auth_access_type=write"
-    oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
-
-    try:
-        fetch_response = oauth.fetch_request_token(request_token_url)
-    except ValueError:
-        logger_fonction_tx_analyze.error(
-            "There may have been an issue with the consumer_key or consumer_secret you entered."
-        )
-
-    # Make the request
-    oauth = OAuth1Session(
-        consumer_key,
-        client_secret=consumer_secret,
-        resource_owner_key=access_token,
-        resource_owner_secret=access_token_secret,
-    )
-
-    try:
-        response = oauth.post("https://api.twitter.com/2/tweets", json=payload)
-
-        if response.status_code != 201:
-            raise Exception(f"Request returned an error: {response.status_code} {response.text}")
-
-        tweets_this_day += 1
-
-    except Exception as e:
-        logger_fonction_tx_analyze.info(f"Error occurred while posting tweet: {e}")
-
-# Fonction pour formater les nombres de manière lisible pour les humains
 def human_format(num):
     magnitude = 0
     while abs(num) >= 1000:
@@ -99,49 +49,68 @@ def human_format(num):
         num /= 1000.0
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
 
-def send_telegram_message(message):
-    with open(telegram_json) as f:
-        config: dict = json.load(f)
-    url = f"https://api.telegram.org/{config['key']}/sendMessage"
-    payload = {
-        "chat_id": "-1002081153394",
-        "message_thread_id" : "-",
-        "text": message
-    }
-    response = requests.post(url, data=payload)
-    return response.json()
+def get_token_price(token_name, token_value):
+    token_name = ''.join(c for c in token_name if c.isprintable()).strip()
+    token_file_name = token_name.replace(' ', '_').lower() + '.json'
+    folder_path = f"{coins_json}/{token_file_name}"
+    if os.path.exists(folder_path):
+        with open(folder_path, 'r') as f:
+            data = json.load(f)
+        token_volume = float(data.get('price_change_7D_percent', 0))
+        token_supply = int(data.get('supply', 0))
+        if token_volume > 0 :
+            token_price = float(data.get('last_price_usd', 0))
+            amount = token_price * float(round(token_value, 2))
+            return amount, token_supply
+        else :
+            return None, None
+    else :
+        return None, None
 
-def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
+def decode_erc20_data(data):
+    method_hash = data[:10]
+    if method_hash == '0xa9059cbb':
+        to_address = '0x' + data[34:74]
+        token_value = int(data[74:], 16)
+        return {'to': to_address, 'value': token_value}
+    return None
 
-    # S'assurer que le dossier existe, sinon le créer
-    directory = os.path.dirname(tx_data_json)
+def safe_decode(data):
+    encodings = ['utf-8', 'ascii', 'latin1']
+    for encoding in encodings:
+        try:
+            decoded_text = data.decode(encoding).strip()
+            if decoded_text.isprintable():
+                return decoded_text
+        except UnicodeDecodeError:
+            pass
+    return data.decode('utf-8', 'ignore').strip()
+
+def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash, token_file):
+    token_file = os.path.join(tx_data_json, token_file)
+    directory = os.path.dirname(token_file)
     if not os.path.exists(directory):
         os.makedirs(directory, exist_ok=True)
-    
-    # Essayer de lire les transactions existantes, sinon initialiser une liste vide
+
     try:
-        with open(tx_data_json, 'r') as file:
+        with open(token_file, 'r') as file:
             transactions = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         transactions = []
 
-    # Créer un dictionnaire pour la nouvelle transaction
     new_transaction = {
         'amount': total_out,
         'value': value,
         'porcentage_supply': tx_percentage_of_supply,
         'url': url_tx_hash,
-        'date': datetime.datetime.now().isoformat()  # Ajouter un horodatage pour la transaction
+        'date': datetime.datetime.now().isoformat()
     }
 
-    # Insérer la nouvelle transaction au début de la liste
     transactions.insert(0, new_transaction)
 
-    # Sauvegarder la liste mise à jour dans le fichier JSON
-    with open(tx_data_json, 'w') as file:
+    with open(token_file, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-# Obtenez le prix de DNX
 def get_ethereum_price() -> float:
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
@@ -153,55 +122,80 @@ def on_message(ws, message):
     
     price, circulating_supply = get_ethereum_price()
 
-    # Gérer les notifications de nouveau bloc
     if 'method' in data and data['method'] == 'eth_subscription':
         params = data['params']
-        
-        # Pour les abonnements aux nouveaux blocs, 'result' contient les détails du bloc
-        if isinstance(data, dict):
 
+        if isinstance(data, dict):
             if 'subscription' in params and params['subscription']:
                 result = params['result']
                 block_hash = str(result['hash'])
                 request_transactions = json.dumps({
                     "jsonrpc": "2.0",
                     "method": "eth_getBlockByHash",
-                    "params": [block_hash, True],  # True pour obtenir les transactions complètes
+                    "params": [block_hash, True],
                     "id": 1
                 })
                 ws.send(request_transactions)
 
-    elif 'result' in data and 'transactions' in data['result']:
+    elif 'result' in data and data['result'] is not None and 'transactions' in data['result']:
         transactions = data['result']['transactions']
         for tx in transactions:
-            amount = int(tx['value'], 16) / 10**18
+            if tx['input'].startswith('0xa9059cbb'):
+                erc20_data = decode_erc20_data(tx['input'])
+                if erc20_data is not None :
+                    erc20_data["value"] = Decimal(erc20_data['value']) / Decimal('1e18')
+                    if float(erc20_data["value"]) > 10000.0:
+                        pending_transactions[tx['hash']] = erc20_data
+                        request_token_name = json.dumps({
+                                "jsonrpc": "2.0",
+                                "method": "eth_call",
+                                "params": [{
+                                    "to": tx['to'],
+                                    "data": "0x06fdde03"
+                                }, "latest"],
+                                "id": tx['hash']
+                        })
+                        ws.send(request_token_name)
+
+            amount = float(int(tx['value'], 16)) / 10**18
             if amount > 10000.0: 
                 tx_percentage_of_supply = (float(amount) / float(circulating_supply)) * 100
                 url_tx_hash = f"https://etherscan.io/tx/{tx['hash']}"
-
                 total_out_str = human_format(amount)
-                amount_price = float(price) * float(amount)
-                message = "🐋 Whale Alert! 🚨\n"
-                message += f"A transaction of {total_out_str} $BTC "
-                message += f"(💵 ${amount_price:.2f}) has been detected. \n"
-                message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
-                message += f"🔗 Transaction details: {url_tx_hash}\n"
-                message += "--------------------------------\n"
-                message += "Stay tuned for more updates!\n"
-                message += "https://linktr.ee/whales_alert"
+                token_file_name = "tx_ethereum.json"
 
-                payload = {"text": message}
+                save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash, token_file_name)
 
-                # save_tx(total_out_str,round(float(price) * amount, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+    elif 'result' in data and 'id' in data:
+        result = data['result']
+        if result is not None and len(result) > 2 :
+            token_info = str(safe_decode(bytes.fromhex(result[2:]))).strip()
+            if pending_transactions == {}:
+                return
+            tx_info = pending_transactions[data['id']]
+            token_info = ''.join(c for c in token_info if c.isprintable()).strip()
+            token_price, supply = get_token_price(token_info, tx_info['value'])
+            if token_price is not None and supply is not None:
+                if supply > 0 : 
+                    tx_percentage_of_supply = (float(tx_info['value']) / float(supply)) * 100
+                else : 
+                    tx_percentage_of_supply = 0
+                if token_price > 10000:
+                    token_price = float(token_price)
+                    total_out_str = human_format(token_price)
+                    url_tx_hash = f"https://etherscan.io/tx/{data['id']}"
 
-                # post_tweet(payload)
-                # send_telegram_message(payload['text'])
+                    token_name = ''.join(c for c in token_info if c.isprintable()).strip()
+                    token_file_name = 'tx_' + token_name.replace(' ', '_').lower() + '.json'
+                    save_tx(total_out_str,round(float(token_price), 2) , round(tx_percentage_of_supply,4), url_tx_hash, token_file_name)
+    else:
+        return
 
 def on_error(ws, error):
-    logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
+    logger_fonction_websocket_analyze.error(f"WebSocket error: {error}")
 
 def on_close(ws, close_status_code, close_msg):
-    print("### Connexion fermée ###")
+    print(f"### Connexion fermée ### : {close_status_code} / {close_msg}")
 
 def on_open(ws):
     print("Connection opened ETH")
@@ -214,7 +208,6 @@ def on_open(ws):
     ws.send(subscribe_request)
 
 def start_listening():
-    websocket.enableTrace(False)
     ws = websocket.WebSocketApp("wss://ethereum-rpc.publicnode.com",
                                 on_open=on_open,
                                 on_message=on_message,
@@ -224,6 +217,5 @@ def start_listening():
     ws.run_forever()
 
 def job_ethereum() -> None:
-    logger_fonction_tx_analyze.info("Job ethereum")
-
+    logger_fonction_websocket_analyze.info("Job ethereum")
     start_listening()
