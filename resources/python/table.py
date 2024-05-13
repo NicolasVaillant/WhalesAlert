@@ -44,11 +44,20 @@ class CoinFetcher:
     def format_data(self, data):
         formatted_coins = []
         for coin in data:
-            coin['name'] = str(coin['name']).removeprefix("USDt")
-            if coin['name'] == "BNB":
-                coin['name'] = "binance_coin"
-            if coin['quote']['USD']['price'] > 0 :
-                coin['quote']['USD']['price'] = round(coin['quote']['USD']['price'],2)
+            coin_name = coin['name']
+            if coin_name == "BNB":
+                coin_name = "Binance_coin"
+            elif coin_name == "Tether USDt":
+                coin_name = "Tether"
+            
+            price = float(coin['quote']['USD']['price'])
+            # Format fixe pour tous les prix avec 8 décimales
+            price = f"{price:.8f}"
+            if float(price) >= 0.1:
+                price = str(round(float(price),2))
+            else :
+                price = price.rstrip('0').rstrip('.') if '.' in price else price
+            
             formatted_coin = {
                 "Rank": coin['cmc_rank'],
                 "Name": coin['name'],
