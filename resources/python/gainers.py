@@ -3,19 +3,20 @@ import asyncio
 import aiohttp
 import json
 from pathlib import Path
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from os import name, system
 
-# Version pc
-gainers_jaon = Path("resources", "data_scrap", "gainers.json")
-
-# Version serveur
-# gainers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "gainers.json")
+if name == "nt":
+    # Version pc
+    gainers_jaon = Path("resources", "data_scrap", "gainers.json")
+else :
+    # Version serveur
+    gainers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "gainers.json")
 
 #----------------------------------------------------
 # Logging
 #----------------------------------------------------
-import logging
-from logging.handlers import TimedRotatingFileHandler
-
 logger_fonction_scrap = logging.getLogger('scraping')
 if not logger_fonction_scrap.handlers:
     logger_fonction_scrap.setLevel(logging.INFO)

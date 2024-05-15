@@ -4,14 +4,16 @@ from logging.handlers import TimedRotatingFileHandler
 import os
 from pathlib import Path
 import websocket
+from os import name, system
 
-# Version pc
-search_bar = Path("resources", "data_scrap", "coins_list.json")
-data_coin = Path("resources", "data_coins")
-
-# Version serveur
-# search_bar = Path("/home", "container", "webroot","resources", "data_scrap", "coins_list.json")
-# data_coin = Path("/home", "container", "webroot","resources", "data_coins")
+if name == "nt":
+    # Version pc
+    search_bar = Path("resources", "data_scrap", "coins_list.json")
+    data_coin = Path("resources", "data_coins")
+else:
+    # Version serveur
+    search_bar = Path("/home", "container", "webroot","resources", "data_scrap", "coins_list.json")
+    data_coin = Path("/home", "container", "webroot","resources", "data_coins")
 
 logger_fonction_websocket = logging.getLogger('websockets')
 if not logger_fonction_websocket.handlers:
@@ -53,9 +55,9 @@ def process_and_update_data(received_data, comparison_table):
                     target_data['price_change_5Y_percent'] = str(received_data['data'][key]['price_change_5Y_percent'])
                     target_data['price_change_ALL_percent'] = received_data['data'][key]['price_change_ALL_percent']
                     target_data['price_change_YTD_percent'] = str(received_data['data'][key]['price_change_YTD_percent'])
-
-                    with open(file_name, 'w') as file:
-                        json.dump(target_data, file, indent=4)
+                    if target_data['symbol'] == symbol :
+                        with open(file_name, 'w') as file:
+                            json.dump(target_data, file, indent=4)
 
                     break
 
@@ -86,7 +88,7 @@ def on_open(ws):
     # print(f"Souscription envoyée: {subscribe_message}")
 
 def start_listening():
-    ws_app = websocket.WebSocketApp("wss://ws3.coincodex.com/subscriptions?transport=websocket&compression=false",
+    ws_app = websocket.WebSocketApp("wss://ws1.coincodex.com/subscriptions?transport=websocket&compression=false",
                                     on_open=on_open,
                                     on_message=on_message,
                                     on_error=on_error,

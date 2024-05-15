@@ -1,18 +1,20 @@
 import requests
 import json
 from pathlib import Path
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from os import name, system
 
-# Version pc
-table_jaon = Path("resources", "data_scrap", "main.json")
-
-# Version serveur
-# table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
+if name == "nt":
+    # Version pc
+    table_jaon = Path("resources", "data_scrap", "main.json")
+else :
+    # Version serveur
+    table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
 
 #----------------------------------------------------
 # Logging
 #----------------------------------------------------
-import logging
-from logging.handlers import TimedRotatingFileHandler
 
 logger_fonction_scrap = logging.getLogger('scraping')
 if not logger_fonction_scrap.handlers:

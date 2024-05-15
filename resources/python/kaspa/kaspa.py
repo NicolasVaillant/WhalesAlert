@@ -220,7 +220,7 @@ def on_open(ws):
 
 def start_listening():
     websocket.enableTrace(False)
-    ws = websocket.WebSocketApp("wss://apieco.kaspa.network/",
+    ws = websocket.WebSocketApp("wss://api.kaspa.org/ws/socket.io/?EIO=4&transport=websocket&compression=false",
                                 on_open=on_open,
                                 on_message=on_message,
                                 on_error=lambda ws, error: print("Error:", error),
@@ -231,4 +231,4 @@ def start_listening():
 def job_kaspa() -> None:
     logger_fonction_tx_analyze.info("Job kaspa")
 
-    start_listening()
+start_listening()

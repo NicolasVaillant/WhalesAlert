@@ -1,6 +1,4 @@
 import json
-import requests
-from requests_oauthlib import OAuth1Session
 import datetime
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -12,15 +10,15 @@ from os import name, system
 if name == "nt":
     # Version pc
     telegram_json = Path("resources", "config_python", "telegram.json")
-    tx_data_json = Path("resources", "data_tx", "tx_warthog.json")
+    tx_data_json = Path("resources", "data_tx", "tx_bitcoin.json")
     data_coins = Path("resources", "data_coins")
 else :
     # Version serveur
     telegram_json = Path("/home", "container", "config_python", "telegram.json")
-    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_warthog.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_bitcoin.json")
     data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
-crypto_name = "warthog"
+crypto_name = "bitcoin"
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -31,6 +29,15 @@ if not logger_fonction_tx_analyze.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
+# Obtenez le prix
+def get_bitcoin_price() -> float:
+    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
+    with open(crypto_file, "r") as f:
+        globals_data = json.load(f)
+    f.close()
+
+    return globals_data['last_price_usd'], globals_data['supply']
+
 # Fonction pour formater les nombres de manière lisible pour les humains
 def human_format(num):
     magnitude = 0
@@ -38,18 +45,6 @@ def human_format(num):
         magnitude += 1
         num /= 1000.0
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
-
-def send_telegram_message(message):
-    with open(telegram_json) as f:
-        config: dict = json.load(f)
-    url = f"https://api.telegram.org/{config['key']}/sendMessage"
-    payload = {
-        "chat_id": "-1002081153394",
-        "message_thread_id" : "2178",
-        "text": message
-    }
-    response = requests.post(url, data=payload)
-    return response.json()
 
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
 
@@ -81,62 +76,44 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-# Obtenez le prix
-def get_warthog_price() -> float:
-    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
-    with open(crypto_file, "r") as f:
-        globals_data = json.load(f)
-    f.close()
-
-    return globals_data['last_price_usd'], globals_data['supply']
-
 def on_message(ws, message):
     global tweets_this_day, day, price
 
-    price, circulating_supply = get_warthog_price()
+    price, circulating_supply = get_bitcoin_price()
     
     try:
         data = json.loads(message)
-        if data.get('type') == 'blockAppend':
-            transactions = data.get('data', {}).get('body', {}).get('transfers', [])
-            for tx in transactions:
-                amount = float(tx.get('amount'))
-                if amount > 500: 
+        if data['op'] == 'utx':
+            transactions = data['x']
+            for tx in transactions['out']:
+                amount = float(tx['value'])/ 100000000
+                if amount > 10.0: 
                     tx_percentage_of_supply = (amount / float(circulating_supply)) * 100
-                    url_tx_hash = "https://wartscan.io/tx/" + tx.get('txHash')
+                    url_tx_hash = "https://bitaps.com/" + transactions['hash']
 
                     total_out_str = human_format(amount)
 
-                    message = "🐋 Whale Alert! 🚨\n"
-                    message += f"A transaction of {total_out_str} $WART "
-                    message += f"(💵 ${float(price) * amount:.2f}) has been detected. \n"
-                    message += f"📊 This represents {tx_percentage_of_supply:.4f}% of the current supply. \n"
-                    message += f"🔗 Transaction details: {url_tx_hash}\n"
-                    message += "--------------------------------\n"
-                    message += "Stay tuned for more updates!\n"
-                    message += "https://linktr.ee/whales_alert"
-
-                    payload = {"text": message}
-
                     value = round(float(price) * amount, 2)
-                    save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
+                    save_tx(total_out_str, value, round(tx_percentage_of_supply,4), url_tx_hash)
 
-                    send_telegram_message(payload['text'])
 
     except json.JSONDecodeError:
         print("Received non-JSON message:", message)
-
-def on_open(ws): 
-    print("Connection opened WART")
 
 def on_error(ws, error):
     logger_fonction_tx_analyze.error(f"WebSocket error: {error}")
 
 def on_close(ws, close_status_code, close_msg):
-    logger_fonction_tx_analyze.info(f"WebSocket closed with code: {close_status_code}, message: {close_msg}")   
+    print("### Connexion fermée ###")
+
+def on_open(ws):
+    print("Connection opened BTC")
+    sub_request = json.dumps({"op": "unconfirmed_sub"})
+    ws.send(sub_request)
 
 def start_listening():
-    ws = websocket.WebSocketApp("ws://192.168.1.73:3000/ws/chain_delta",
+    websocket.enableTrace(False)
+    ws = websocket.WebSocketApp("wss://ws.blockchain.info/inv",
                                 on_open=on_open,
                                 on_message=on_message,
                                 on_error=on_error,
@@ -144,7 +121,7 @@ def start_listening():
 
     ws.run_forever()
 
-def job_warthog() -> None:
-    logger_fonction_tx_analyze.info("Job warthog")
+def job_bitcoin() -> None:
+    logger_fonction_tx_analyze.info("Job bitcoin")
 
     start_listening()
