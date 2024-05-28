@@ -1,18 +1,20 @@
 import requests
 import json
 from pathlib import Path
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from os import name, system
 
-# Version pc
-table_jaon = Path("resources", "data_scrap", "main.json")
-
-# Version serveur
-# table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
+if name == "nt":
+    # Version pc
+    table_jaon = Path("resources", "data_scrap", "main.json")
+else :
+    # Version serveur
+    table_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "main.json")
 
 #----------------------------------------------------
 # Logging
 #----------------------------------------------------
-import logging
-from logging.handlers import TimedRotatingFileHandler
 
 logger_fonction_scrap = logging.getLogger('scraping')
 if not logger_fonction_scrap.handlers:
@@ -44,11 +46,25 @@ class CoinFetcher:
     def format_data(self, data):
         formatted_coins = []
         for coin in data:
+            coin_name = coin['name']
+            if coin_name == "BNB":
+                coin_name = "Binance_coin"
+            elif coin_name == "Tether USDt":
+                coin_name = "Tether"
+            
+            price = float(coin['quote']['USD']['price'])
+            # Format fixe pour tous les prix avec 8 décimales
+            price = f"{price:.8f}"
+            if float(price) >= 0.1:
+                price = str(round(float(price),2))
+            else :
+                price = price.rstrip('0').rstrip('.') if '.' in price else price
+            
             formatted_coin = {
                 "Rank": coin['cmc_rank'],
                 "Name": coin['name'],
                 "Symbol": coin['symbol'],
-                "Price": f"{coin['quote']['USD']['price']:.2f}",
+                "Price": f"{coin['quote']['USD']['price']}",
                 "Volume": f"{coin['quote']['USD']['volume_24h']:.2f}",
                 "1h": f"{coin['quote']['USD']['percent_change_1h']:.2f}%",
                 "24h": f"{coin['quote']['USD']['percent_change_24h']:.2f}%",

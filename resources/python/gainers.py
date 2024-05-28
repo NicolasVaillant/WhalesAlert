@@ -3,19 +3,20 @@ import asyncio
 import aiohttp
 import json
 from pathlib import Path
+import logging
+from logging.handlers import TimedRotatingFileHandler
+from os import name, system
 
-# Version pc
-gainers_jaon = Path("resources", "data_scrap", "gainers.json")
-
-# Version serveur
-# gainers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "gainers.json")
+if name == "nt":
+    # Version pc
+    gainers_jaon = Path("resources", "data_scrap", "gainers.json")
+else :
+    # Version serveur
+    gainers_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "gainers.json")
 
 #----------------------------------------------------
 # Logging
 #----------------------------------------------------
-import logging
-from logging.handlers import TimedRotatingFileHandler
-
 logger_fonction_scrap = logging.getLogger('scraping')
 if not logger_fonction_scrap.handlers:
     logger_fonction_scrap.setLevel(logging.INFO)
@@ -38,17 +39,38 @@ class ScraperG:
             rows = soup.select('.table-wrap tbody tr')
             extracted_data = []
 
-            for row in rows[:3]:
-                link_element = row.select_one('td:nth-child(2) a.cmc-link')
-                if link_element:
-                    href = link_element['href']
-                    specific_part_of_href = href.split('/')[2]
-                    extracted_data.append({
-                        'href': href,
-                        'text': link_element.text.strip(),
-                        'specific_part_of_href': specific_part_of_href
-                    })
+            for row in rows[:3]:  # Adjust this slice if you want more or fewer results
+                # Extract the cryptocurrency name
+                name_element = row.select_one('td:nth-child(2) .linSVB .kKpPOn')
+                name = name_element.text.strip() if name_element else None
 
+                # Extract the cryptocurrency symbol
+                symbol_element = row.select_one('td:nth-child(2) .linSVB .coin-item-symbol')
+                symbol = symbol_element.text.strip() if symbol_element else None
+
+                # Extract the price change percentage
+                price_change_element = row.select_one('td:nth-child(4) .YXxPZ')
+                price_change = price_change_element.text.strip() if price_change_element else None
+
+                # Extract the market cap
+                market_cap_element = row.select('td')[-1]
+                market_cap = market_cap_element.text.strip() if market_cap_element else None
+
+                # Extract href to detail page
+                link_element = row.select_one('td:nth-child(2) a')
+                href = link_element['href'] if link_element else None
+                specific_part_of_href = href.split('/')[2] if href else None
+
+                extracted_data.append({
+                    'name': name,
+                    'symbol': symbol,
+                    'price_change': price_change,
+                    'market_cap': market_cap,
+                    'href': href,
+                    'specific_part_of_href': specific_part_of_href
+                })
+
+            # If detailed scrape is needed:
             details = await asyncio.gather(*[self.scrape_specific_info(entry['specific_part_of_href']) for entry in extracted_data])
 
             return details
@@ -96,9 +118,7 @@ async def main():
     with open(gainers_jaon, "r") as f:
         globals_data = json.load(f)
     f.close()
-
     globals_data = results
 
     with open(gainers_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
-

@@ -7,18 +7,24 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 import os
+from os import name, system
 
-# Version pc
-tweet_json = Path("resources", "config_python", "dynex", "tweet.json")
-config_json = Path("resources", "config_python", "dynex", "config.json")
-telegram_json = Path("resources", "config_python", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_dynex.json")
+if name == "nt":
+    # Version pc
+    tweet_json = Path("resources", "config_python", "dynex", "tweet.json")
+    config_json = Path("resources", "config_python", "dynex", "config.json")
+    telegram_json = Path("resources", "config_python", "telegram.json")
+    tx_data_json = Path("resources", "data_tx", "tx_dynex.json")
+    data_coins = Path("resources", "data_coins")
+else :
+    # Version serveur
+    tweet_json = Path("/home", "container", "webroot", "resources", "config_python", "dynex", "tweet.json")
+    config_json = Path("/home", "container", "webroot","resources", "config_python", "dynex", "config.json")
+    telegram_json = Path("/home", "container", "config_python", "telegram.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_dynex.json")
+    data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
-# Version serveur
-# tweet_json = Path("/home", "container", "webroot", "resources", "config_python", "dynex", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "dynex", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_dynex.json")
+crypto_name = "dynex"
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -38,12 +44,14 @@ last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
 
+# Obtenez le prix
 def get_dynex_price() -> float:
-    with open(tweet_json, "r") as f:
+    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
+    with open(crypto_file, "r") as f:
         globals_data = json.load(f)
     f.close()
 
-    return globals_data['price']
+    return globals_data['last_price_usd']
 
 def get_transaction_info():
     global last_transaction_value
@@ -79,55 +87,42 @@ def get_transaction_info():
         logger_fonction_tx_analyze.error(f"Error occurred while getting transaction info: {e}")
         return []
 
+# Fonction pour poster un tweet
 def post_tweet(payload: dict) -> None:
     global tweets_this_day
     global day
 
-    # Vérifiez si nous avons commencé un nouveau jour
+    # Vérifier si un nouveau jour a commencé
     if datetime.datetime.now().day != day:
         tweets_this_day = 0
         day = datetime.datetime.now().day
 
-    # Vérifiez si nous avons atteint la limite de tweets pour ce jour
+    # Vérifier si la limite quotidienne est atteinte
     if tweets_this_day >= 50:
-        print("Reached the day limit of tweets.")
+        logger_fonction_tx_analyze.warning("Reached the daily limit of tweets.")
         return
 
+    # Charger les informations d'authentification
     with open(config_json) as f:
-        config: dict = json.load(f)
-        consumer_key: str = config['CONSUMER_KEY']
-        consumer_secret: str = config['CONSUMER_SECRET']
-        access_token: str = config['ACCESS_TOKEN']
-        access_token_secret: str = config['ACCESS_TOKEN_SECRET']
+        config = json.load(f)
 
-    # Get request token
-    request_token_url: str = "https://api.twitter.com/oauth/request_token?oauth_callback=oob&x_auth_access_type=write"
-    oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
-
-    try:
-        fetch_response = oauth.fetch_request_token(request_token_url)
-    except ValueError:
-        print(
-            "There may have been an issue with the consumer_key or consumer_secret you entered."
-        )
-
-    # Make the request
+    # Authentification OAuth1 avec Twitter
     oauth = OAuth1Session(
-        consumer_key,
-        client_secret=consumer_secret,
-        resource_owner_key=access_token,
-        resource_owner_secret=access_token_secret,
+        client_key=config['CONSUMER_KEY'],
+        client_secret=config['CONSUMER_SECRET'],
+        resource_owner_key=config['ACCESS_TOKEN'],
+        resource_owner_secret=config['ACCESS_TOKEN_SECRET']
     )
 
     try:
         response = oauth.post("https://api.twitter.com/2/tweets", json=payload)
+
         if response.status_code != 201:
             raise Exception(f"Request returned an error: {response.status_code} {response.text}")
 
         tweets_this_day += 1
-
     except Exception as e:
-        print(f"Error occurred while posting tweet: {e}")
+        logger_fonction_tx_analyze.error(f"Error occurred while posting tweet: {e}")
 
 def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
 
@@ -159,7 +154,6 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
 
-
 def human_format(num):
     magnitude = 0
     while abs(num) >= 1000:
@@ -182,7 +176,7 @@ def send_telegram_message(message):
     return response.json()
 
 def job_dynex():
-    print("Job Dynex")
+    logger_fonction_tx_analyze.info("Job Dynex")
 
     with open(tweet_json, "r") as f:
         globals_data = json.load(f)
@@ -207,11 +201,12 @@ def job_dynex():
         message += "https://linktr.ee/whales_alert"
 
         payload = {"text": message}
-        
-        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
 
-        post_tweet(payload)
-        send_telegram_message(payload['text'])
+        value = round(float(price) * total_out, 2)
+        save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
+
+        # post_tweet(payload)
+        # send_telegram_message(payload['text'])
 
     # Sauvegarder les valeurs globales après les modifications
     globals_data['last_known_block_index'] = last_known_block_index

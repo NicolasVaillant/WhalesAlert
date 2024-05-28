@@ -3,19 +3,21 @@ import aiohttp
 import json
 from bs4 import BeautifulSoup
 from pathlib import Path
+import logging
+from logging.handlers import TimedRotatingFileHandler
 
-# Version pc
-trends_jaon = Path("resources", "data_scrap", "trends.json")
+from os import name, system
 
-# Version serveur
-# trends_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "trends.json")
+if name == "nt":
+    # Version pc
+    trends_jaon = Path("resources", "data_scrap", "trends.json")
+else :
+    # Version serveur
+    trends_jaon = Path("/home", "container", "webroot","resources", "data_scrap", "trends.json")
 
 #----------------------------------------------------
 # Logging
 #----------------------------------------------------
-import logging
-from logging.handlers import TimedRotatingFileHandler
-
 logger_fonction_scrap = logging.getLogger('scraping')
 if not logger_fonction_scrap.handlers:
     logger_fonction_scrap.setLevel(logging.INFO)

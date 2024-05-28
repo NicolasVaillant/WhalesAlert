@@ -2,14 +2,16 @@ import requests
 import os
 import json
 from pathlib import Path
+from os import name, system
 
-# Version pc
-chemin_base = Path("resources", "data_coins")
-coin_list_file = Path("resources", "data_scrap", "coins_list.json")
-
-# Version serveur
-# chemin_base = Path("/home", "container", "webroot","resources", "data_coins")
-# coin_list_file = Path("/home", "container", "webroot","resources", "data_scrap", "coins_list.json")
+if name == "nt":
+    # Version pc
+    chemin_base = Path("resources", "data_coins")
+    coin_list_file = Path("resources", "data_scrap", "coins_list.json")
+else :
+    # Version serveur
+    chemin_base = Path("/home", "container", "webroot","resources", "data_coins")
+    coin_list_file = Path("/home", "container", "webroot","resources", "data_scrap", "coins_list.json")
 
 # S'assurer que le chemin de base existe
 if not os.path.exists(chemin_base):

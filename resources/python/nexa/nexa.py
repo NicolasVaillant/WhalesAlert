@@ -6,18 +6,20 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 import os
+from os import name, system
 
-# Version pc
-tweet_json = Path("resources", "config_python", "nexa", "tweet.json")
-config_json = Path("resources", "config_python", "nexa", "config.json")
-telegram_json = Path("resources", "config_python", "nexa", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_nexa.json")
+if name == "nt":
+    # Version pc
+    telegram_json = Path("resources", "config_python", "telegram.json")
+    tx_data_json = Path("resources", "data_tx", "tx_nexa.json")
+    data_coins = Path("resources", "data_coins")
+else : 
+    # Version serveur
+    telegram_json = Path("/home", "container", "config_python", "telegram.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_nexa.json")
+    data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
-# Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "nexa", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "nexa", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "nexa", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_nexa.json")
+crypto_name = "nexa"
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -28,32 +30,20 @@ if not logger_fonction_tx_analyze.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_tx_analyze.addHandler(handler)
 
-
-# Charger les valeurs globales initiales
-with open(tweet_json, "r") as f:
-    globals_data = json.load(f)
-
-last_transaction_value: float = 0.0
-last_known_block_index = globals_data.get('last_known_block_index', 0)
-tweets_this_day = globals_data.get('tweets_this_day', 0)
-day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
-
 # Variable globale pour les transactions déjà vues
 seen_transactions: set = set()
 
-# Obtenez le prix de DNX
+# Obtenez le prix
 def get_nexa_price() -> float:
-    with open(tweet_json, "r") as f:
+    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
+    with open(crypto_file, "r") as f:
         globals_data = json.load(f)
     f.close()
 
-    return globals_data['price']
+    return globals_data['last_price_usd']
 
 # Récupérez les informations sur les transactions
 def get_transaction_info():
-    global last_transaction_value
-    global last_known_block_index
     global seen_transactions  # Ajout de la variable globale
 
     # Get the total circulating supply
@@ -85,64 +75,12 @@ def get_transaction_info():
                     if amount > 5000000:
                         tx_percentage_of_supply: float = (amount / circulating_supply) * 100
                         transactions.append((amount, tx_percentage_of_supply, url_tx + block_hash))
-                        last_transaction_value = amount
                 seen_transactions.add(tx)  # Add the transaction hash to our set of seen transactions
         return transactions
     
     except Exception as e:
         logger_fonction_tx_analyze.error(f"Error occurred while getting transaction info: {e}")
         return []
-
-def post_tweet(payload: dict) -> None:
-    global tweets_this_day
-    global day
-
-    # Vérifiez si nous avons commencé un nouveau jour
-    if datetime.datetime.now().day != day:
-        tweets_this_day = 0
-        day = datetime.datetime.now().day
-
-    # Vérifiez si nous avons atteint la limite de tweets pour ce jour
-    if tweets_this_day >= 50:
-        logger_fonction_tx_analyze.warning("Reached the day limit of tweets.")
-        return
-
-    with open(config_json) as f:
-        config: dict = json.load(f)
-        consumer_key: str = config['CONSUMER_KEY']
-        consumer_secret: str = config['CONSUMER_SECRET']
-        access_token: str = config['ACCESS_TOKEN']
-        access_token_secret: str = config['ACCESS_TOKEN_SECRET']
-
-    # Get request token
-    request_token_url: str = "https://api.twitter.com/oauth/request_token?oauth_callback=oob&x_auth_access_type=write"
-    oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)
-
-    try:
-        fetch_response = oauth.fetch_request_token(request_token_url)
-    except ValueError:
-        logger_fonction_tx_analyze.error(
-            "There may have been an issue with the consumer_key or consumer_secret you entered."
-        )
-
-    # Make the request
-    oauth = OAuth1Session(
-        consumer_key,
-        client_secret=consumer_secret,
-        resource_owner_key=access_token,
-        resource_owner_secret=access_token_secret,
-    )
-
-    try:
-        response = oauth.post("https://api.twitter.com/2/tweets", json=payload)
-
-        if response.status_code != 201:
-            raise Exception(f"Request returned an error: {response.status_code} {response.text}")
-
-        tweets_this_day += 1
-
-    except Exception as e:
-        logger_fonction_tx_analyze.info(f"Error occurred while posting tweet: {e}")
 
 def send_telegram_message(message):
     with open(telegram_json) as f:
@@ -195,11 +133,7 @@ def human_format(num):
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
 
 def job_nexa() -> None:
-    global tweets_this_day, day
     logger_fonction_tx_analyze.info("Job nexa")
-
-    with open(tweet_json, "r") as f:
-        globals_data = json.load(f)
 
     # Récupérez le prix NEXA
     price: float = get_nexa_price()
@@ -222,14 +156,8 @@ def job_nexa() -> None:
         message += "https://linktr.ee/whales_alert"
 
         payload = {"text": message}
-        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
-        # post_tweet(payload)
+
+        value = round(float(price) * total_out, 2)
+        save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
+
         send_telegram_message(payload['text'])
-
-    # Sauvegarder les valeurs globales après les modifications
-    globals_data['last_known_block_index'] = last_known_block_index
-    globals_data['tweets_this_day'] = tweets_this_day
-    globals_data['day'] = day
-
-    with open(tweet_json, "w") as f:
-        json.dump(globals_data, f, indent=4)

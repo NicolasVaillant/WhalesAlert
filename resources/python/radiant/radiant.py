@@ -6,18 +6,24 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
 import os
+from os import name, system
 
-# Version pc
-tweet_json = Path("resources", "config_python", "radiant", "tweet.json")
-config_json = Path("resources", "config_python", "radiant", "config.json")
-telegram_json = Path("resources", "config_python", "radiant", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_radiant.json")
+if name == "nt":
+    # Version pc
+    tweet_json = Path("resources", "config_python", "radiant", "tweet.json")
+    config_json = Path("resources", "config_python", "radiant", "config.json")
+    telegram_json = Path("resources", "config_python", "telegram.json")
+    tx_data_json = Path("resources", "data_tx", "tx_radiant.json")
+    data_coins = Path("resources", "data_coins")
+else : 
+    # Version serveur
+    tweet_json = Path("/home", "container", "webroot","resources", "config_python", "radiant", "tweet.json")
+    config_json = Path("/home", "container", "webroot","resources", "config_python", "radiant", "config.json")
+    telegram_json = Path("/home", "container", "config_python", "telegram.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_radiant.json")
+    data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
-# Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "radiant", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "radiant", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "radiant", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_radiant.json")
+crypto_name = "radiant"
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -33,18 +39,18 @@ with open(tweet_json, "r") as f:
     globals_data = json.load(f)
 
 # Initialiser les variables globales
-last_transaction_value = globals_data.get('last_transaction_value', 0.0)
 last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
 
-# Get the price of RXD
+# Obtenez le prix
 def get_radiant_price() -> float:
-    with open(tweet_json, "r") as f:
+    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
+    with open(crypto_file, "r") as f:
         globals_data = json.load(f)
     f.close()
-    return globals_data['price']
+
+    return globals_data['last_price_usd']
 
 # Get the money supply
 def get_money_supply() -> float:
@@ -59,7 +65,6 @@ def get_money_supply() -> float:
 
 # Fonction pour obtenir les informations de transaction
 def get_transaction_info(money_supply: float) -> list:
-    global last_transaction_value
     global last_known_block_index
 
     url = "https://radiantexplorer.com/ext/getlasttxs/100/0/100"
@@ -79,7 +84,6 @@ def get_transaction_info(money_supply: float) -> list:
 
             # Si la transaction est supérieure à un certain montant, elle est considérée
             if output_amount > 10000000.0:
-                last_transaction_value = output_amount
                 percentage_of_total_supply = (output_amount / money_supply) * 100
                 transaction_list.append((output_amount, transaction['txid'], percentage_of_total_supply))
                 # Mettre à jour last_known_block_index pour le nouveau bloc
@@ -176,6 +180,7 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
     # Sauvegarder la liste mise à jour dans le fichier JSON
     with open(tx_data_json, 'w') as file:
         json.dump(transactions, file, indent=4)
+
 # Tâche planifiée pour exécuter la routine
 def job_radiant():
     global last_known_block_index
@@ -208,10 +213,11 @@ def job_radiant():
 
         payload = {"text": message}
         
-        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
+        value = round(float(price) * total_out, 2)
+        save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
 
-        post_tweet(payload)
-        send_telegram_message(payload['text'])
+        # post_tweet(payload)
+        # send_telegram_message(payload['text'])
 
     # Sauvegarder les valeurs globales
     globals_data['last_known_block_index'] = last_known_block_index

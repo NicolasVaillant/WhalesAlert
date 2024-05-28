@@ -6,18 +6,24 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 import os
 from pathlib import Path
+from os import name, system
 
-# Version pc
-tweet_json = Path("resources", "config_python", "kylacoin", "tweet.json")
-config_json = Path("resources", "config_python", "kylacoin", "config.json")
-telegram_json = Path("resources", "config_python", "kylacoin", "telegram.json")
-tx_data_json = Path("resources", "data_tx", "tx_kylacoin.json")
+if name == "nt":
+    # Version pc
+    tweet_json = Path("resources", "config_python", "kylacoin", "tweet.json")
+    config_json = Path("resources", "config_python", "kylacoin", "config.json")
+    telegram_json = Path("resources", "config_python", "telegram.json")
+    tx_data_json = Path("resources", "data_tx", "tx_kylacoin.json")
+    data_coins = Path("resources", "data_coins")
+else : 
+    # Version serveur
+    tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
+    config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
+    telegram_json = Path("/home", "container", "config_python", "telegram.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
+    data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
-# Version serveur
-# tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
-# config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
-# telegram_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "telegram.json")
-# tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
+crypto_name = "kylacoin"
 
 logger_fonction_tx_analyze = logging.getLogger('tx_analyze')
 if not logger_fonction_tx_analyze.handlers:
@@ -32,26 +38,22 @@ if not logger_fonction_tx_analyze.handlers:
 with open(tweet_json, "r") as f:
     globals_data = json.load(f)
 
-last_transaction_value: float = 0.0
-last_known_block_index = globals_data.get('last_known_block_index', 0)
 tweets_this_day = globals_data.get('tweets_this_day', 0)
 day = globals_data.get('day', datetime.datetime.now().day)
-post = globals_data.get('post', 0)
 
 # Variable globale pour les transactions déjà vues
 seen_transactions: set = set()
 
-# Obtenez le prix de DNX
 def get_kylacoin_price() -> float:
-    with open(tweet_json, "r") as f:
+    crypto_file = Path.joinpath(data_coins, crypto_name + ".json")
+    with open(crypto_file, "r") as f:
         globals_data = json.load(f)
     f.close()
-    return globals_data['price']
+
+    return globals_data['last_price_usd']
 
 # Récupérez les informations sur les transactions
 def get_transaction_info():
-    global last_transaction_value
-    global last_known_block_index
     global seen_transactions  # Ajout de la variable globale
 
     # Get the total circulating supply
@@ -80,7 +82,6 @@ def get_transaction_info():
                         if amount > 10:
                             tx_percentage_of_supply: float = (amount / circulating_supply) * 100
                             transactions.append((amount, tx_percentage_of_supply, url_tx + block_hash))
-                            last_transaction_value = amount
                     seen_transactions.add(tx['hash'])  # Add the transaction hash to our set of seen transactions
 
         return transactions
@@ -217,12 +218,14 @@ def job_kylacoin() -> None:
         message += "https://linktr.ee/whales_alert"
 
         payload = {"text": message}
-        save_tx(total_out_str,round(float(price) * total_out, 2) , round(tx_percentage_of_supply,4), url_tx_hash)
-        post_tweet(payload)
-        send_telegram_message(payload['text'])
+
+        value = round(float(price) * total_out, 2)
+        save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
+
+        # post_tweet(payload)
+        # send_telegram_message(payload['text'])
 
     # Sauvegarder les valeurs globales après les modifications
-    globals_data['last_known_block_index'] = last_known_block_index
     globals_data['tweets_this_day'] = tweets_this_day
     globals_data['day'] = day
 
