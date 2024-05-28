@@ -41,6 +41,7 @@
     cursor: pointer;
 }
 .settings-bar-table::-webkit-scrollbar-thumb,
+.dataTables_scrollBody::-webkit-scrollbar-thumb,
 .suggested-currency::-webkit-scrollbar-thumb,
 .user-trends::-webkit-scrollbar-thumb{
     background-color: var(--card-g-l);
@@ -60,6 +61,7 @@
     --w: rgba(var(--rgb) / 100%);
     --b: rgba(var(--rgb_alt) / 100%);
     --error: rgba(var(--error-color) / 100%);
+    --error-op: rgba(var(--error-color) / 50%);
     --dark:#2f2f2f;
     --white: #ececec;
     --rgb_border_nc: 27 31 35;
@@ -87,4 +89,5 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--height-header) + var(--margin-from-header));
+    background: var(--bg-color);
 }

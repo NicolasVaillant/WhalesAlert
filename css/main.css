@@ -33,7 +33,10 @@
 }
 
 body {
-  font-family: "Noto Sans Mende Kikakui", sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
 }
 @media all and (min-width: 1400px) {
   body {
@@ -507,6 +510,11 @@ body main .title-container.max {
   align-items: baseline;
   gap: 0.5em;
   overflow: auto;
+  align-items: center;
+}
+body main .title-container.max button {
+  margin-left: auto;
+  width: fit-content;
 }
 body main .title-container.logo {
   align-items: center;
@@ -907,7 +915,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
   justify-content: space-evenly;
   padding: 0.2em;
   padding-right: 0.5em !important;
-  gap: 0.5em;
+  gap: 0;
   white-space: nowrap;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .settings-bar-table .col-left-sc .card-sh span {
@@ -925,16 +933,86 @@ body main .container-split .col-more-info .content-displayed .w_bg .settings-bar
     cursor: pointer;
   }
 }
-body main .container-split .col-more-info .content-displayed .hint {
-  min-height: 40vh;
+body main .container-split .col-more-info .content-displayed .hints {
   border-radius: var(--br);
-  background-image: url(/resources/img/hint.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 1em;
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  border: 1px solid #444444;
+  position: relative;
+  overflow: hidden;
 }
-body main .container-split .col-more-info .content-displayed .hint svg {
-  height: 100%;
-  width: 100%;
+body main .container-split .col-more-info .content-displayed .hints .title_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+body main .container-split .col-more-info .content-displayed .hints .title_header h4 {
+  display: flex;
+  gap: 0.5em;
+}
+body main .container-split .col-more-info .content-displayed .hints .title_header h4 i {
+  filter: drop-shadow(0 0 0 var(--star)) drop-shadow(0 0 0 var(--down)) drop-shadow(0 0 0 var(--down));
+  transition: 0.2s;
+}
+body main .container-split .col-more-info .content-displayed .hints .title_header .close-hints {
+  cursor: pointer;
+  border-radius: 1000px;
+  aspect-ratio: 1;
+  width: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+@media (pointer: fine) {
+  body main .container-split .col-more-info .content-displayed .hints .title_header .close-hints:hover {
+    background: var(--hf-color-op);
+    color: var(--b);
+  }
+}
+body main .container-split .col-more-info .content-displayed .hints .hints_text {
+  color: #8B949E;
+}
+body main .container-split .col-more-info .content-displayed .hints .title_header,
+body main .container-split .col-more-info .content-displayed .hints .hints_text {
+  z-index: 1;
+  position: relative;
+}
+body main .container-split .col-more-info .content-displayed .hints:after, body main .container-split .col-more-info .content-displayed .hints:before {
+  position: absolute;
+  top: 60%;
+  left: 60%;
+  content: "";
+  background: #24f512;
+  width: 50px;
+  height: 50px;
+  z-index: 0;
+  translate: -50% -50%;
+  box-shadow: 0px 0px 20px 60px #24f512;
+  border-radius: 1000px;
+  opacity: 0.2;
+  transition: 0.8s;
+}
+body main .container-split .col-more-info .content-displayed .hints:before {
+  background: var(--up);
+  box-shadow: 0px 0px 20px 80px var(--up);
+  top: 10%;
+  left: 30%;
+}
+body main .container-split .col-more-info .content-displayed .hints:hover:after {
+  top: 100%;
+  left: 20%;
+}
+body main .container-split .col-more-info .content-displayed .hints:hover:before {
+  top: 30%;
+  left: 90%;
 }
 body main .container-split .col-content {
   width: 100%;
@@ -1488,6 +1566,8 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper {
+  background: var(--w);
+  border-radius: var(--br);
   display: flex;
   flex-direction: column;
 }
@@ -1499,6 +1579,7 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_paginate {
   position: relative;
   display: flex;
+  margin: 1em;
   justify-content: space-between;
   background: var(--hf-color);
   color: var(--b);
@@ -1557,7 +1638,6 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info {
   text-align: end;
-  margin: 0 0 1em;
   padding: 0;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper label select,
@@ -1572,22 +1652,6 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   justify-content: space-between;
   align-items: center;
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter {
-  color: var(--white);
-}
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info label,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter label {
-  color: var(--white);
-}
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length label input,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info label input,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_filter label input,
@@ -1597,9 +1661,17 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   background: var(--w);
   color: var(--b);
 }
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_length,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length {
+  padding: 1em 1em 0;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_info,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info {
+  padding: 0 1em 0;
+}
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll {
-  background: var(--hf-color-op);
+  background: var(--w);
   margin: 1em 0;
   border-radius: var(--br);
   overflow: hidden;
@@ -1608,6 +1680,13 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll .row_table_def,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll .row_table_def {
   background: var(--w);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll .dataTables_scrollHead,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll .dataTables_scrollFoot,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll .dataTables_scrollHead,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll .dataTables_scrollFoot {
+  font-variant: all-small-caps;
+  font-weight: bolder;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody .dataTables_empty,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody .dataTables_empty {
@@ -1622,16 +1701,39 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr:hover {
   background: var(--w);
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr.selected *,
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr.selected * {
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody tr.selected *:not(button):not(i),
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody tr.selected *:not(button):not(i) {
   box-shadow: inset 0 0 0 9999px var(--active-color) !important;
   background: var(--active-color) !important;
 }
-body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper {
-  background: var(--hf-color-op);
-  border-radius: var(--br);
-  padding: 1em;
-  border: 1px solid var(--w);
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td {
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td img,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td img {
+  width: 1.2em;
+  margin: auto 0.5em 0 0;
+  vertical-align: text-bottom;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td button,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td button {
+  width: fit-content;
+  display: inline;
+  border: 1px solid var(--border);
+  padding: 0.2em 0.5em;
+  margin-left: 0.5em;
+  color: var(--b);
+  background: var(--w) !important;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td span,
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td span {
+  color: var(--card-g-l);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length {
+  margin-left: auto;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info,
@@ -1653,7 +1755,7 @@ body main .container-split .col-content .wrapper-content .array-content table tf
   white-space: nowrap;
 }
 body main .container-split .col-content .wrapper-content .array-content table tfoot th {
-  padding: 1em;
+  padding: 10px;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_filter {
   display: none;
@@ -1676,6 +1778,20 @@ body main .container-split .col-content .roadmap-content {
   color: var(--white);
   margin-bottom: 3em;
 }
+body main .container-split .col-content .suggest-crypto-content .result-post-form,
+body main .container-split .col-content .roadmap-content .result-post-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1em;
+  justify-content: flex-start;
+  margin-top: 1em;
+  background: var(--error-op);
+  padding: 1em;
+  border-radius: var(--br);
+  border: 1px solid var(--error);
+}
 body main .container-split .col-content .suggest-crypto-content .description-rm,
 body main .container-split .col-content .roadmap-content .description-rm {
   margin-top: 1em;
@@ -1687,13 +1803,21 @@ body main .container-split .col-content .roadmap-content .container {
   justify-content: center;
   align-items: center;
   align-content: center;
+  align-items: flex-end;
   margin-top: 1em;
   gap: 1em;
+}
+body main .container-split .col-content .suggest-crypto-content .container:last-child,
+body main .container-split .col-content .roadmap-content .container:last-child {
+  margin-top: 2em;
+  border-top: 2px solid;
+  padding: 1em 0;
 }
 @media all and (max-width: 600px) {
   body main .container-split .col-content .suggest-crypto-content .container,
   body main .container-split .col-content .roadmap-content .container {
     flex-wrap: wrap;
+    justify-content: flex-end;
   }
 }
 body main .container-split .col-content .suggest-crypto-content .container button,
@@ -1704,9 +1828,14 @@ body main .container-split .col-content .suggest-crypto-content .container butto
 body main .container-split .col-content .roadmap-content .container button:first-child {
   margin-left: auto;
 }
-body main .container-split .col-content .suggest-crypto-content .container button:not(:first-child),
-body main .container-split .col-content .roadmap-content .container button:not(:first-child) {
+body main .container-split .col-content .suggest-crypto-content .container button:not(:first-child):not(.no-outline),
+body main .container-split .col-content .roadmap-content .container button:not(:first-child):not(.no-outline) {
   outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+body main .container-split .col-content .suggest-crypto-content .container button.no-outline,
+body main .container-split .col-content .roadmap-content .container button.no-outline {
+  outline: 2px solid var(--btn-main-bg);
   outline-offset: 2px;
 }
 body main .container-split .col-content .suggest-crypto-content .container label,
@@ -1722,6 +1851,9 @@ body main .container-split .col-content .roadmap-content .container label input 
 body main .banner-rm {
   width: 100%;
   background: var(--blue_light);
+  opacity: 0.8;
+  background-image: linear-gradient(rgba(166, 209, 255, 0.5098039216) 1px, transparent 1px), linear-gradient(to right, rgba(166, 209, 255, 0.5098039216) 1px, var(--blue_light) 1px);
+  background-size: 20px 20px;
 }
 body main .banner-rm .wrapper-banner {
   display: flex;

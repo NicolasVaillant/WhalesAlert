@@ -64,7 +64,10 @@
   align-content: center;
 }
 body{
-  font-family: 'Noto Sans Mende Kikakui', sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
   @media all and (min-width: 1400px) {
     --width-page:70%;
   }
@@ -424,7 +427,14 @@ body{
     }
 
     .title-container{
-      &.max{@include h2title}
+      &.max{
+        @include h2title;
+        align-items: center;
+        button{
+          margin-left: auto;
+          width: fit-content;
+        }
+      }
       &.logo{
         align-items: center;
         img{
@@ -738,7 +748,7 @@ body{
                   justify-content: space-evenly;
                   padding: .2em;
                   padding-right: 0.5em!important;
-                  gap: 0.5em;
+                  gap: 0;
                   white-space: nowrap;
                   span{
                     background: var(--w);
@@ -763,15 +773,83 @@ body{
               }
             }
           }
-          .hint{
-            min-height: 40vh;
+          .hints{
             border-radius: var(--br);
-            background-image: url(/resources/img/hint.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            svg{
-              height: 100%;
-              width: 100%;
+            // background-image: url(/resources/img/hint.svg);
+            // background-repeat: no-repeat;
+            // background-position: center;
+            padding: 1em;
+            background: #000;
+            color: #fff;
+            padding: 1em;
+            border: 1px solid #444444;
+            position: relative;
+            overflow: hidden;
+            .title_header{
+              @include centerFlex;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: .5em;
+              h4{
+                display: flex;
+                gap: .5em;
+                i{
+                  filter: drop-shadow(0 0 0 var(--star)) drop-shadow(0 0 0 var(--down)) drop-shadow(0 0 0 var(--down));
+                  transition: .2s;
+                }
+              }
+              .close-hints{
+                cursor: pointer;
+                border-radius: 1000px;
+                aspect-ratio: 1;
+                width: 1.5em;
+                @include centerFlex;
+                @media (pointer: fine) {
+                  &:hover{
+                    background: var(--hf-color-op);
+                    color: var(--b);
+                  }
+                }
+              }
+            }
+            .hints_text{color: #8B949E;}
+            .title_header,
+            .hints_text{
+              z-index: 1;
+              position: relative;
+            }
+            &:after,
+            &:before{
+              position: absolute;
+              top: 60%;
+              left: 60%;
+              content: "";
+              background: #24f512;
+              width: 50px;
+              height: 50px;
+              z-index: 0;
+              translate: -50% -50%;
+              box-shadow: 0px 0px 20px 60px #24f512;
+              border-radius: 1000px;
+              opacity: .2;
+              transition: .8s;
+            }
+            &:before{
+              background: var(--up);
+              box-shadow: 0px 0px 20px 80px var(--up);
+              top: 10%;
+              left: 30%;
+            }
+            &:hover{
+              &:after{
+                top: 100%;
+                left: 20%;
+              }
+              &:before{
+                top: 30%;
+                left: 90%;
+              }
             }
           }
         }
@@ -1189,6 +1267,8 @@ body{
             }
             #table_crypto_wrapper,
             #table_crypto_unique_wrapper{
+              background: var(--w);
+              border-radius: var(--br);
               display: flex;
               flex-direction: column;
               tr:has(.dataTables_empty){
@@ -1197,6 +1277,7 @@ body{
               .dataTables_paginate{
                 position: relative;
                 display: flex;
+                margin: 1em;
                 justify-content: space-between;
                 background: var(--hf-color);
                 color: var(--b);
@@ -1239,7 +1320,6 @@ body{
               }
               .dataTables_info{
                 text-align: end;
-                margin: 0 0 1em;
                 padding: 0;            
               }
               label{
@@ -1258,42 +1338,71 @@ body{
               .dataTables_info,
               .dataTables_filter{
                 label{
-                  color: var(--white);
+                  // color: var(--white);
                   input{
                     background: var(--w);
                     color: var(--b);
                   }
                 }
-                color: var(--white);
+                // color: var(--white);
               }
+              .dataTables_length{padding: 1em 1em 0;}
+              .dataTables_info{padding: 0 1em 0;}
               .dataTables_scroll{
-                background: var(--hf-color-op);
+                background: var(--w);
                 margin: 1em 0;
                 border-radius: var(--br);
                 overflow: hidden;
                 border: 1px solid var(--btn-main-bg);
-                .row_table_def{
-                  background: var(--w);
+                .row_table_def{background: var(--w);}
+                .dataTables_scrollHead,
+                .dataTables_scrollFoot{
+                  font-variant: all-small-caps;
+                  font-weight: bolder;
                 }
                 table.dataTable tbody{
                   .dataTables_empty{color: var(--error)}
-                  tr {
+                  tr{
                     background-color: transparent;
                     cursor: pointer;
                     &:hover{
                       background: var(--w);
                     }
-                    &.selected *{
+                    &.selected *:not(button):not(i){
                       box-shadow: inset 0 0 0 9999px var(--active-color)!important;
                       background: var(--active-color)!important;
                     }   
+                  }
+                  td{
+                    border-bottom: 1px solid var(--border);
+                    white-space: nowrap;
+                    font-size: .9em;
+                    img{
+                      width: 1.2em;
+                      margin: auto .5em 0 0;
+                      vertical-align: text-bottom;
+                    }
+                    button{
+                      width: fit-content;
+                      display: inline;
+                      border: 1px solid var(--border);
+                      padding: .2em .5em;
+                      margin-left: .5em;
+                      color: var(--b);
+                      background: var(--w) !important;
+                    }
+                    span{
+                      // margin: auto 0 auto auto;
+                      color: var(--card-g-l);
+                    }
                   }
                 }
               }
             }
 
             #table_crypto_unique_wrapper{
-              @include card;
+              // @include card;
+              .dataTables_length{margin-left: auto;}
               .dataTables_length,
               .dataTables_info,
               .dataTables_filter{
@@ -1314,7 +1423,7 @@ body{
                 th{white-space: nowrap}
               }
               tfoot{
-                th{padding: 1em;}
+                th{padding: 10px;}
               }
             }
             #table_crypto_filter{display: none}
@@ -1333,20 +1442,41 @@ body{
         .roadmap-content{
           color: var(--white);
           margin-bottom: 3em;
+          .result-post-form{
+            @include centerFlex;
+            gap: 1em;
+            justify-content: flex-start;
+            margin-top: 1em;
+            background: var(--error-op);
+            padding: 1em;
+            border-radius: var(--br);
+            border: 1px solid var(--error);
+          }
           .description-rm{
             margin-top: 1em;
             text-align: justify;
           }
           .container{
             @include centerFlex;
+            align-items: flex-end;
             margin-top: 1em;
             gap: 1em;
+            &:last-child{
+              margin-top: 2em;
+              border-top: 2px solid;
+              padding: 1em 0;
+            }
             @media all and (max-width: 600px) {
               flex-wrap: wrap;
+              justify-content: flex-end;
             }
             button{
               &:first-child{margin-left: auto}
-              &:not(:first-child){@include outline;}
+              &:not(:first-child):not(.no-outline){@include outline;}
+              &.no-outline{
+                outline: 2px solid var(--btn-main-bg);
+                outline-offset: 2px;
+              }
               width: fit-content;
             }
             label{
@@ -1365,6 +1495,9 @@ body{
     .banner-rm{
       width: 100%;
       background: var(--blue_light);
+      opacity: 0.8;
+      background-image: linear-gradient(#a6d1ff82 1px, transparent 1px), linear-gradient(to right, #a6d1ff82 1px, var(--blue_light) 1px);
+      background-size: 20px 20px;
       .wrapper-banner{
         @include centerFlex;
         flex-direction: row;

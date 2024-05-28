@@ -2,6 +2,8 @@ const getIP = "https://api.ipify.org?format=json"
 const getVersion = "https://whales-alert.fr/version_upd.php?ip=__IP__"
 const toggle_hamburger = document.querySelector('.info-more')
 const aside = document.querySelector('.content-displayed')
+const l_col = document.querySelector('.col-more-info')
+const r_col = document.querySelector('.col-content')
 const backToTop = document.querySelector('.backToTop')
 const sb = document.querySelector('.search-bar')
 const wrapper_sb = document.querySelector('.wrapper-sub-header-sb')
@@ -13,7 +15,7 @@ const LS = document.querySelector("#toggle-ls")
 const tog_dm_icon = document.querySelectorAll(".tog_dm_icon")
 const li_foldable = document.querySelector('.collapsible .collapsible-header')
 const i_foldable = document.querySelector('.collapsible .foldable')
-
+let toggle_icon = false
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
 let refreshRateUserSelect = 'default'
@@ -21,6 +23,62 @@ const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
     closer_banner.closest('.new').classList.add('hidden')
 })
+
+const changeIconButton = (e) => {
+    if(toggle_icon){
+        toggle_icon = false
+        e.querySelector('i').classList.replace('fa-down-left-and-up-right-to-center', 'fa-up-right-and-down-left-from-center')
+    } else{
+        toggle_icon = true
+        e.querySelector('i').classList.replace('fa-up-right-and-down-left-from-center','fa-down-left-and-up-right-to-center')
+    }
+}
+
+function setToast(type, text, timer){
+    let options_toast, toast_text, showButton, debug_text
+    if(timer !== 0){
+        options_toast = {
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: timer,
+            timerProgressBar: true,
+            showCloseButton: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        }
+    }else{
+        options_toast = {
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            showCloseButton: false,
+        }
+    }
+    if (type !== "error") {
+        showButton = false
+        toast_text = text
+    } else {
+        showButton = false //TBM & TBD
+        toast_text = `Error when copying value`
+    }
+    const Toast = Swal.mixin(options_toast)
+    Toast.fire({
+        icon: type,
+        title: toast_text,
+        showConfirmButton: showButton,
+        confirmButtonText: 'Copy error'
+    })
+}
+
+const expandView = (e) => {
+    l_col.classList.toggle('hidden')
+    checkGridPage()
+    changeIconButton(e, )
+}
+
 if(variables.version > 1){
     const cleanLSConfirmButton = document.querySelector('.cleanLSConfirmButton')
     const cleanLSCancelButton = document.querySelector('.cleanLSCancelButton')
@@ -172,11 +230,24 @@ const storeDataUsers = () => {
 }
 
 const checkGridPage = () => {
-    const l_col = document.querySelector('.col-more-info')
-    const r_col = document.querySelector('.col-content')
-
     if(l_col.classList.contains('hidden')){
         r_col.classList.add('span2')
+        let element = document.querySelector('th');
+        if(element){
+            element.click();
+            element.click();
+        }
+    } else {
+        r_col.classList.remove('span2')
+    }
+}
+
+const fLoad_cryptoIMG = async(input) => {
+    try {
+        const response = await fetch(`resources/logos/${input}.png`);
+        return await response.blob();
+    } catch (error) {
+        return error.message
     }
 }
 
@@ -237,61 +308,6 @@ const setTextFromParameters = () => {
     })
 }
 
-function setToast(type, text, timer){
-    let options_toast, toast_text, showButton, debug_text
-    if(timer !== 0){
-        options_toast = {
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: timer,
-            timerProgressBar: true,
-            showCloseButton: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        }
-    }else{
-        options_toast = {
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            showCloseButton: false,
-        }
-    }
-    if (type !== "error") {
-        showButton = false
-        toast_text = text
-    } else {
-        showButton = true
-        toast_text = `No URL to copy`
-    }
-    const Toast = Swal.mixin(options_toast)
-    Toast.fire({
-        icon: type,
-        title: toast_text,
-        showConfirmButton: showButton,
-        confirmButtonText: 'Copy error'
-    })
-    // .then((result) => {
-    //     if (result.isConfirmed) {
-    //         navigator.clipboard.writeText(debug_text).then(
-    //             () => {
-    //                 setToast('success',
-    //                     translation[languageSelect].content_page.toast.gToastSuccess.replace(
-    //                         '__RESULT__',
-    //                         'Error'
-    //                     ),
-    //                     5000)
-    //             },
-    //             () => {
-    //                 setToast('error',translation[languageSelect].content_page.toast.gToastError,  5000)
-    //             }
-    //         )
-    //     }
-    // })
-}
 
 toggle_hamburger.addEventListener('click', () => {
     if(hb_container.classList.contains('hidden')){
@@ -317,14 +333,14 @@ refreshRate.addEventListener('click', () => {
   currentIndex = (currentIndex + 1) % variables.refreshRate.length;
 });
 
-const contextMenuCreation = (text, x, y, url = false) => {
+const contextMenuCreation = (display, text, x, y, url = false) => {
     const modal = document.getElementById('modal');
     const actionButton = document.getElementById('open_crypto_from_table');
     const text_modal = document.querySelector('.text_modal');
     modal.style.top = y + 'px';
     modal.style.left = x + 'px';
     modal.style.display = 'flex';
-    actionButton.innerText = (url) ? `Open URL` : `Open ${text}`
+    actionButton.innerText = (url) ? `Open URL` : `Open ${display}`
     actionButton.addEventListener('click', function() {
         if(url){
             window.open(text, "_self")
@@ -342,4 +358,44 @@ if(exact_type === 'crypto' || exact_type === 'index'){
         $('#table_crypto tbody tr').removeClass('selected');
         $('#table_crypto_unique tbody tr').removeClass('selected');
     });
+}
+
+function changeImageTable(crypto, table){
+    table.querySelectorAll('img').forEach(async a => {
+        //Avoiding unnecessary calls
+        if(a.dataset.type !== 'default') return
+        let img_url
+        const filteredCrypto = crypto.filter(crypto => crypto.Name === a.dataset.name);
+        const uniqueCrypto = filteredCrypto.find(crypto => crypto.Name === a.dataset.name);
+        await fLoad_cryptoIMG(uniqueCrypto.Name).then(r => {
+            if(r !== undefined && r.type == 'image/png'){
+                img_url = `resources/logos/${uniqueCrypto.Name}.png`
+            } else{
+                img_url = null
+            }
+        })
+        if(img_url !== null){a.src = img_url}
+        a.dataset.type = 'crypto'
+    })
+}
+
+const copy2Clipboard = (value, name, type) => {
+    navigator.clipboard.writeText(value).then(
+        () => {
+            setToast('success', `${name} ${type} copied successfully`, 5000)
+        },
+        () => {
+            setToast('error', "", 5000)
+        }
+    )
+}
+
+const openPage = (value) => {
+    let res = null
+    if(value.includes(' ')){
+        res = value.replace(/ /g, '_').toLowerCase()
+    } else {
+        res = value.toLowerCase()
+    }
+    window.open(`crypto.html?q=${res}`, "_self")
 }

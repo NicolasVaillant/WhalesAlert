@@ -1,6 +1,11 @@
 const gain_lose_content = document.querySelector('.gain-lose-content')
 const wp_search_bar_result = document.querySelector('.wp-search-bar-result')
 const wp_search_bar_result_ex = document.querySelector('.extend-suggestion')
+const closer_h = document.querySelector('.close-hints')
+closer_h.addEventListener('click', () => {
+    closer_h.closest('.hints').classList.add('hidden')
+})
+
 const fLoad_main = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__main);
@@ -28,10 +33,22 @@ const fLoad_trends_user = async() => {
     }
 }
 
-const fEdit_main = (data) => {
+const fEdit_main = async (data) => {
     const cryptocurrencies = data.cryptocurrencies
+    let name
+    for (let i = 0; i < cryptocurrencies.length; i++) {
+        const crypto = cryptocurrencies[i]
+        if(crypto.Name.length > 10){
+            name = crypto.Name.slice(0, 10) + "...";
+        } else {
+            name = crypto.Name
+        }
+        crypto.Name_mod = `<img class="img" data-name="${crypto.Name}"  data-type="default" src="resources/img/logo.png" alt="crypto_logo"> ${name} <span>${crypto.Symbol}</span> <button class="btn-main" onclick="openPage(this.parentElement.querySelector('img').getAttribute('data-name'))"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>`
+        crypto.Price_mod = `${crypto.Price} <button class="btn-main" data-type="price" onclick="copy2Clipboard(this.parentElement.innerText.trim(), this.closest('tr').querySelector('img').getAttribute('data-name'), this.getAttribute('data-type'))"><i class="fa-regular fa-copy"></i></button>`
+        crypto.Volume_mod = `${crypto.Volume} <button class="btn-main" data-type="volume" onclick="copy2Clipboard(this.parentElement.innerText.trim(), this.closest('tr').querySelector('img').getAttribute('data-name'), this.getAttribute('data-type'))"><i class="fa-regular fa-copy"></i></button>`
+    }
 
-    const result = data.cryptocurrencies.filter(obj => obj.Rank === 1 || obj.Rank === 2 || obj.Rank === 3);
+    const result = cryptocurrencies.filter(obj => obj.Rank === 1 || obj.Rank === 2 || obj.Rank === 3);
 
     const location = document.querySelector('.col-left-sc')
     result.forEach((e, i) => {
@@ -49,17 +66,20 @@ const fEdit_main = (data) => {
 
     let result_draw_cb = []
     let leaderboard_table = $('#table_crypto').DataTable({
-        data: data.cryptocurrencies,
+        data: cryptocurrencies,
         lengthMenu: [
             [10, 25, 50],
             [10, 25, 50],
         ],
         columns: [
             { data: 'Rank'},
-            { data: 'Name' },
-            { data: 'Symbol' },
-            { data: 'Price' },
-            { data: 'Volume' },
+            // { data: 'Name' },
+            { data: 'Name_mod' },
+            // { data: 'Symbol' },
+            // { data: 'Price' },
+            { data: 'Price_mod' },
+            // { data: 'Volume' },
+            { data: 'Volume_mod' },
             { data: '1h' },
             { data: '24h' },
             { data: '7d' }
@@ -84,6 +104,7 @@ const fEdit_main = (data) => {
             displayResultSB(result_draw_cb)
         },
         initComplete: function (settings) {
+            changeImageTable(cryptocurrencies, this[0].querySelector('tbody'))
             const dock = document.querySelector('.dataTables_paginate')
             // dock.classList.add('pin-dock')
             const element = document.createElement('span')
@@ -97,16 +118,20 @@ const fEdit_main = (data) => {
     });
 
     $('#table_crypto tbody').on('click', 'tr', function (e) {
-        const crypto = $(this)[0].querySelectorAll('td')[1].innerText
-        const cryptoDef = crypto.includes(' ') ? crypto.replace(/ /g, '_').toLowerCase() : crypto.toLowerCase()
-        
-        if ($(this).hasClass('selected')) {
+        if (!$(e.target).is('button') && !$(e.target).is('i')) {
+            // const crypto = $(this)[0].querySelectorAll('td')[1].querySelector('img').getAttribute('data-name')
+            // const cryptoDef = crypto.includes(' ') ? crypto.replace(/ /g, '_').toLowerCase() : crypto.toLowerCase()
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                // modal.style.display = 'none';
+            } else {
+                leaderboard_table.$('tr.selected').removeClass('selected');
+                // contextMenuCreation(crypto, cryptoDef, e.clientX, e.clientY)
+                $(this).addClass('selected');
+            }
+        } else{
             $(this).removeClass('selected');
-            modal.style.display = 'none';
-        } else {
-            leaderboard_table.$('tr.selected').removeClass('selected');
-            contextMenuCreation(cryptoDef, e.clientX, e.clientY)
-            $(this).addClass('selected');
+            // modal.style.display = 'none';
         }
     })
     if(variables.version > 1){
@@ -128,6 +153,15 @@ const fEdit_main = (data) => {
                 }, 200)
             }
         } );
+        $('#table_crypto_length').on('change', function (){
+            changeImageTable(cryptocurrencies, $('#table_crypto').find('tbody')[0])
+        })
+        $('.row_table_def').on('click', function (){
+            changeImageTable(cryptocurrencies, $('#table_crypto').find('tbody')[0])
+        })
+        $('#table_crypto_paginate').on('click', function (){
+            changeImageTable(cryptocurrencies, $('#table_crypto').find('tbody')[0])
+        })
     }
 }
 
@@ -208,7 +242,6 @@ const fEdit_Trend_user = (data) => {
         const dv = element.getAttribute('data-value')
         const element_card = element.cloneNode(true)
         if(dv == 'sep'){
-            console.log(element_card);
             element_card.setAttribute('data-value', 'separator')
             user_trends.appendChild(element_card)
             return
@@ -247,26 +280,27 @@ const fEdit_Trend_user = (data) => {
         
         const fAdd_Favorite_user = () => {
             const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
-            const fav = fav_crypto_load.data
-            const user_trends = document.querySelector('.user-trends')
-            const user_trends_dup = document.querySelector('.user-trends-dup')
-            let user_trends_arr = []
-            const childElements = Array.from(user_trends.children)
-            childElements.forEach(ut => {
-                const dataUrlPart = ut.getAttribute('data-urlPart');
-                if (dataUrlPart) {
-                    user_trends_arr.push(dataUrlPart);
-                }
-            })
-            const unique_in_fav = fav.filter(value => !user_trends_arr.includes(value));
-            return unique_in_fav
+            if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
+                const fav = fav_crypto_load.data
+                const user_trends = document.querySelector('.user-trends')
+                const user_trends_dup = document.querySelector('.user-trends-dup')
+                let user_trends_arr = []
+                const childElements = Array.from(user_trends.children)
+                childElements.forEach(ut => {
+                    const dataUrlPart = ut.getAttribute('data-urlPart');
+                    if (dataUrlPart) {
+                        user_trends_arr.push(dataUrlPart);
+                    }
+                })
+                const unique_in_fav = fav.filter(value => !user_trends_arr.includes(value));
+                return unique_in_fav
+            } else return []
         }
-
 
         const value_unique = fAdd_Favorite_user()
         if(value_unique.length !== 0){
             const separator = document.querySelector('div[data-value="sep"]')
-            createCard(separator)
+            // createCard(separator)
             value_unique.forEach(e => {
                 createCard(init, e, -1)
             })
@@ -327,6 +361,16 @@ const fLoad_gainers = async() => {
         return error.message
     }
 }
+
+const fLoad_hints = async() => {
+    try {
+        const response = await fetch(LINK_TO_DATA__hints);
+        return await response.json()
+    } catch (error) {
+        return error.message
+    }
+}
+
 const fEdit_GL = (data, loc) => {
     if(data === "error"){
         if(loc.includes('losers')){
@@ -398,7 +442,6 @@ const toggle_table = document.querySelector('.type-table-toggle')
 const table_crypto = document.querySelector('.array-content')
 const grid_crypto = document.querySelector('.grid_crypto')
 toggle_table.addEventListener('click', () => {
-    console.log(toggle_table.classList);
     if(toggle_table.querySelector('i').classList.contains('fa-list')){
         toggle_table.querySelector('i').classList.replace('fa-list', 'fa-table-cells-large')
         table_crypto.classList.remove('hidden')
@@ -409,6 +452,13 @@ toggle_table.addEventListener('click', () => {
         toggle_table.querySelector('i').classList.replace('fa-table-cells-large', 'fa-list')
     }
 })
+
+const displayHints = (data) => {
+    const valuesArray = Object.values(data);
+    const obj = valuesArray[Math.floor(Math.random() * valuesArray.length)];
+    document.querySelector('.hints_title').innerText = obj.title
+    document.querySelector('.hints_text').innerHTML = obj.text
+}
 
 fLoad_main()
     .then(r => {
@@ -432,6 +482,12 @@ fLoad_gainers()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
         fEdit_GL(data, "card-content-gainers")
+    })
+    
+    fLoad_hints()
+    .then(r => {
+        const data = (typeof r === 'object') ? r : "error"
+        displayHints(data)
     })
     
 fLoad_losers()

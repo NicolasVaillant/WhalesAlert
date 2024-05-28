@@ -6,6 +6,7 @@ const LINK_TO_DATA__trends_user = "resources/php/data/trends_user.json"
 const LINK_TO_DATA__coin = "resources/data_coins/__COIN__.json"
 const LINK_TO_DATA__tx = "resources/data_tx/tx___COIN__.json"
 const LINK_TO_DATA__Files = "resources/php/data/getFiles_coin.json"
+const LINK_TO_DATA__hints = "resources/php/data/hints.json"
 
 const settings = {
     ERROR:{
@@ -24,7 +25,7 @@ const settings = {
         'backToTop-Text': 'Back to Top'
     },
     HOMEPAGE_text:{
-        'home-h2-transactions': 'Latest transactions',
+        'home-h2-transactions': 'Live Crypto Prices',
         'top-trend-user': 'Top user trends',
         'latest-top': 'Top transactions',
         'modal-text':'Open Crypto',
@@ -48,6 +49,10 @@ const settings = {
         'info-crypto-text': 'Description',
         'more-crypto-redirect-text':'Discover other cryptocurrencies',
         'fav-crypto-label':'Set as favorite'
+    },
+    SUGGESTION_PAGE_text:{
+        'text-explanation-suggestion': "Didn't find the cryptocurrency you were looking for? Fill out this form to tell us!<br><br>Try to fill out the form completely so that we can process your request as quickly as possible.",
+        'no-data': 'No data'
     }
 }
 

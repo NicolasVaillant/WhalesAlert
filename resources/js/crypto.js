@@ -79,15 +79,6 @@ const fLoad_crypto_coin = async() => {
     }
 }
 
-const fLoad_cryptoIMG = async(input) => {
-    try {
-        const response = await fetch(`resources/logos/${input}.png`);
-        return await response.blob()
-    } catch (error) {
-        return error.message
-    }
-}
-
 fLoad_crypto_tx()
     .then(r => {
         createLabelArray()
@@ -123,7 +114,6 @@ fLoad_crypto_coin()
 
 fLoad_cryptoIMG(query)
     .then(r => {
-        const data = (r.type === 'image/png') ? r : "null"
         if(r.type == 'image/png'){
             logo_crypto.src = `resources/logos/${query}.png`
         }
