@@ -8,6 +8,10 @@
 }
 *.hidden{display: none!important}
 *.grey{color: var(--grey)}
+.error-loading-data-text{
+  margin: auto;
+  color: var(--error);
+}
 @mixin h2title{
   margin-top: 0;
   display: flex;
@@ -54,6 +58,49 @@
   display: flex;
   align-items: flex-end;
   transition: all .2s;
+}
+@mixin sb-result-m{
+  @include centerFlex;
+  display: flex;
+  flex-direction: row;
+  gap: .5em;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--hf-color-op);
+  padding: .5em;
+  border-radius: var(--br);
+  p:last-child{
+    margin-left: auto;
+    background: var(--w);
+    padding: .2em;
+    border-radius: 4px;
+  }
+  p:nth-child(odd){color: var(--grey)}
+}
+@mixin btns-sb{
+  .error_no_data{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    background: var(--error);
+    width: 100%;
+    border-radius: var(--br);
+    padding: .5em;
+  }
+  .extend-suggestion{
+    @include centerFlex;
+    width: 100%;
+    gap: .5em;
+    .fallback-crypto{
+      @include outline;
+      justify-content: center
+    }
+    .suggest-crypto{
+      justify-content: center
+    }
+  }
 }
 .swal2-container{z-index: 99999}
 .swal2-popup{top: var(--height-header);}
@@ -252,8 +299,37 @@ body{
           display: flex;
           flex-direction: row;
           gap: .5em;
-          label.search-bar{
-            @media all and (max-width: 550px) {display: none}
+          .sb-container{
+            label.search-bar{
+              position: relative;
+              @media all and (max-width: 550px) {display: none}
+              input:focus ~ .res-sb-top{display: flex}
+              .res-sb-top{
+                @include btns-sb;
+                display: none;
+                &:hover{display: flex}
+                position: absolute;
+                top: 100%;
+                right: 0;
+                padding: .5em;
+                margin-top: .5em;
+                border-radius: var(--br);
+                flex-direction: column;
+                gap: .5em;
+                background: var(--w);
+                border: 1px solid var(--border);
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                .sb-result{
+                  &:hover{@include outline}
+                  @include sb-result-m;
+                  p{white-space: nowrap;}
+                  background: var(--w);
+                  img{
+                    width: 1.5em;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -327,53 +403,18 @@ body{
           @media all and (min-width: 550px) {display: none}
           background: var(--bg-color);
           @include centerFlex;
+          @include btns-sb;
           width: 100%;
           // padding: .5em calc((100% - var(--width-page)) / 2) 1em calc((100% - var(--width-page)) / 2);
           align-items: flex-start;
           flex-direction: column;
           gap: .5em;
           color: var(--b);
-          .error_no_data{
-            display: flex;
-            flex-direction: row;
-            gap: 1em;
-            align-items: center;
-            background: var(--error);
-            width: 100%;
-            border-radius: var(--br);
-            padding: .5em;
-          }
-          .extend-suggestion{
-            @include centerFlex;
-            width: 100%;
-            gap: .5em;
-            .fallback-crypto{
-              @include outline;
-              justify-content: center
-            }
-            .suggest-crypto{
-              justify-content: center
-            }
-          }
-
           .sb-result{
-            @include centerFlex;
-            display: flex;
-            flex-direction: row;
-            gap: .5em;
-            width: 100%;
-            cursor: pointer;
-            border: 1px solid var(--border);
-            background: var(--hf-color-op);
-            padding: .5em;
-            border-radius: var(--br);
-            p:last-child{
-              margin-left: auto;
-              background: var(--w);
-              padding: .2em;
-              border-radius: 4px;
+            @include sb-result-m;
+            img{
+              width: 1.5em;
             }
-            p:nth-child(even){color: var(--grey)}
           }
         }
         &:not(.show){
@@ -1085,6 +1126,7 @@ body{
               i.fa-fire{color: #FBE5A2}
               .line-content-trend{
                 @include centerFlex;
+                min-height: 5vh;
                 width: 100%;
                 border: 1px solid transparent;
                 justify-content: flex-start;
@@ -1094,6 +1136,19 @@ body{
                 background: var(--card-g-l);
                 border: 1px solid var(--btn-main-bg);
                 color: var(--b);
+                position: relative;
+                .shimmer {
+                  background: linear-gradient(to right, transparent, var(--border), transparent);
+                  background-size: 200% 100%;
+                  animation: shimmer 1.5s infinite reverse;
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                }
+                @keyframes shimmer {
+                  0% { background-position: -200% 0; }
+                  100% { background-position: 200% 0; }
+                }
                 .container-overflow{
                   overflow-y: auto;
                   display: inline-flex;

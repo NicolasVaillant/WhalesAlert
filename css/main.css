@@ -15,6 +15,11 @@
   color: var(--grey);
 }
 
+.error-loading-data-text {
+  margin: auto;
+  color: var(--error);
+}
+
 *.active:not(.collapsible li) {
   outline: 2px solid var(--active-color);
   outline-offset: 2px;
@@ -295,10 +300,94 @@ body main header .wrapper-header .wp-r {
   flex-direction: row;
   gap: 0.5em;
 }
+body main header .wrapper-header .wp-r .sb-container label.search-bar {
+  position: relative;
+}
 @media all and (max-width: 550px) {
-  body main header .wrapper-header .wp-r label.search-bar {
+  body main header .wrapper-header .wp-r .sb-container label.search-bar {
     display: none;
   }
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar input:focus ~ .res-sb-top {
+  display: flex;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border-radius: var(--br);
+  flex-direction: column;
+  gap: 0.5em;
+  background: var(--w);
+  border: 1px solid var(--border);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .error_no_data {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  background: var(--error);
+  width: 100%;
+  border-radius: var(--br);
+  padding: 0.5em;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .extend-suggestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  gap: 0.5em;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .extend-suggestion .fallback-crypto {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+  justify-content: center;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .extend-suggestion .suggest-crypto {
+  justify-content: center;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top:hover {
+  display: flex;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--hf-color-op);
+  padding: 0.5em;
+  border-radius: var(--br);
+  background: var(--w);
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result:hover {
+  outline: 2px solid var(--active-color);
+  outline-offset: 2px;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result p:last-child {
+  margin-left: auto;
+  background: var(--w);
+  padding: 0.2em;
+  border-radius: 4px;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result p:nth-child(odd) {
+  color: var(--grey);
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result p {
+  white-space: nowrap;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result img {
+  width: 1.5em;
 }
 body main label.search-bar {
   display: flex;
@@ -440,8 +529,11 @@ body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:last
   padding: 0.2em;
   border-radius: 4px;
 }
-body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:nth-child(even) {
+body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:nth-child(odd) {
   color: var(--grey);
+}
+body main .collapsible .collapsible-body .wp-search-bar-result .sb-result img {
+  width: 1.5em;
 }
 body main .collapsible .collapsible-body:not(.show) {
   display: none;
@@ -1329,6 +1421,7 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
   justify-content: center;
   align-items: center;
   align-content: center;
+  min-height: 5vh;
   width: 100%;
   border: 1px solid transparent;
   justify-content: flex-start;
@@ -1338,6 +1431,23 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
   background: var(--card-g-l);
   border: 1px solid var(--btn-main-bg);
   color: var(--b);
+  position: relative;
+}
+body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .shimmer {
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite reverse;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .container-overflow {
   overflow-y: auto;

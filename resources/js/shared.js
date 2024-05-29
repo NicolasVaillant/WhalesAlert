@@ -21,7 +21,7 @@ exact_type.length === 0 ? exact_type = 'index' : exact_type;
 let refreshRateUserSelect = 'default'
 const closer_banner = document.querySelector('.close-banner')
 closer_banner.addEventListener('click', () => {
-    closer_banner.closest('.new').classList.add('hidden')
+    hide(closer_banner.closest('.new'))
 })
 
 const changeIconButton = (e) => {
@@ -85,7 +85,7 @@ if(variables.version > 1){
     cleanLSCancelButton.addEventListener('click', (e) => {
         LS.checked = false
         LS.closest('label').classList.remove('active')
-        tooltip_content.querySelector('span').classList.add('hidden')
+        hide(tooltip_content.querySelector('span'))
     })
     cleanLSConfirmButton.addEventListener('click', (e) => {
         const checkbox_fav_crypto = document.querySelector('#fav-crypto');
@@ -96,7 +96,7 @@ if(variables.version > 1){
             LS.checked = false
             btn.innerText = 'Confirm'
             LS.closest('label').classList.remove('active')
-            tooltip_content.querySelector('span').classList.add('hidden')
+            hide(tooltip_content.querySelector('span'))
             btn.setAttribute('btn-clean', 'false')
         } else {
             if(checkbox_fav_crypto){
@@ -125,7 +125,7 @@ if(variables.version > 1){
             tooltip_content.querySelector('span').classList.remove('hidden')
         }else{
             LS.closest('label').classList.remove('active')
-            tooltip_content.querySelector('span').classList.add('hidden')
+            hide(tooltip_content.querySelector('span'))
         }
     })
 }
@@ -197,19 +197,25 @@ window.onscroll = function () {
     if(window.scrollY > 200){
         backToTop.classList.remove('hidden')
     } else{
-        backToTop.classList.add('hidden')
+        hide(backToTop)
     }
-    hb_container.classList.add('hidden')
+    hide(hb_container)
 }
 window.onload = function () {
     if(exact_type == "index"){
         const size = window.getComputedStyle(hamburger_menu).width
         i_foldable.parentElement.style.width = size
+        const size_sb = window.getComputedStyle(sb).height
+        if(size_sb === "auto"){
+            document.querySelector('.info-more').style.width = size
+        } else {
+            document.querySelector('.info-more').style.width = size_sb
+        }
+
         if(variables.version > 1){
             wrapper_sb.classList.remove('hidden')
         }        
     }
-    sb.classList.add('hidden')
 
     checkGridPage()
 
@@ -315,12 +321,12 @@ toggle_hamburger.addEventListener('click', () => {
         if(variables.version > 1){
             document.addEventListener('click', function(event) {
                 if (!hamburger_menu.contains(event.target)) {
-                    hb_container.classList.add('hidden')
+                    hide(hb_container)
                 }
             });
         }
     }else{
-        hb_container.classList.add('hidden')
+        hide(hb_container)
     }
 })
 
@@ -360,8 +366,8 @@ if(exact_type === 'crypto' || exact_type === 'index'){
     });
 }
 
-function changeImageTable(crypto, table){
-    table.querySelectorAll('img').forEach(async a => {
+function changeImageTable(crypto, container){
+    container.querySelectorAll('img').forEach(async a => {
         //Avoiding unnecessary calls
         if(a.dataset.type !== 'default') return
         let img_url
@@ -398,4 +404,8 @@ const openPage = (value) => {
         res = value.toLowerCase()
     }
     window.open(`crypto.html?q=${res}`, "_self")
+}
+
+const hide = (element) => {
+    element.classList.add('hidden')
 }

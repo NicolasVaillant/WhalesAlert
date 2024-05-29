@@ -36,7 +36,7 @@ const no_data_btn_img = document.querySelector('.btn-sc-input-img')
 const no_data_btn_url = document.querySelector('.btn-sc-input-url')
 
 const noData = (element) => {
-    console.log(element);
+    // console.log(element);
 }
 
 no_data_btn_img.addEventListener('click', noData(this))

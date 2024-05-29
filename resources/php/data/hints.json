@@ -18,5 +18,9 @@
     {
         "title": "Clean LocalStorage",
         "text": "You can clear your browser's site cache by going to the menu at the top right."
+    },
+    {
+        "title": "Search bar",
+        "text": "Use the search bar to navigate to the desired currency page."
     }
 ]

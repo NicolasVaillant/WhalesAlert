@@ -1,9 +1,11 @@
 const gain_lose_content = document.querySelector('.gain-lose-content')
 const wp_search_bar_result = document.querySelector('.wp-search-bar-result')
-const wp_search_bar_result_ex = document.querySelector('.extend-suggestion')
+const wp_search_bar_result_top = document.querySelector('.res-sb-top')
+const wp_search_bar_result_ex = wp_search_bar_result.querySelector('.extend-suggestion')
+const wp_search_bar_result_ex_top = wp_search_bar_result_top.querySelector('.extend-suggestion')
 const closer_h = document.querySelector('.close-hints')
 closer_h.addEventListener('click', () => {
-    closer_h.closest('.hints').classList.add('hidden')
+    hide(closer_h.closest('.hints'))
 })
 
 const fLoad_main = async() => {
@@ -102,6 +104,8 @@ const fEdit_main = async (data) => {
                 result_draw_cb.push(result[i])   
             }
             displayResultSB(result_draw_cb)
+            changeImageTable(cryptocurrencies, wp_search_bar_result_top)
+            changeImageTable(cryptocurrencies, wp_search_bar_result)
         },
         initComplete: function (settings) {
             changeImageTable(cryptocurrencies, this[0].querySelector('tbody'))
@@ -135,13 +139,16 @@ const fEdit_main = async (data) => {
         }
     })
     if(variables.version > 1){
-        const collapsible_body = document.querySelector('.collapsible-body')
         $('.search-bar-input').on('keyup change keypress', function () {
             setTimeout(() => {
                 result_draw_cb.length = 0
                 const child = wp_search_bar_result.querySelectorAll('.sb-result')
+                const child_top = wp_search_bar_result_top.querySelectorAll('.sb-result')
                 child.forEach(e => {e.remove()})
+                child_top.forEach(e => {e.remove()})
                 leaderboard_table.search(this.value).draw()
+                changeImageTable(cryptocurrencies, wp_search_bar_result_top)
+                changeImageTable(cryptocurrencies, wp_search_bar_result)
             }, 100)
         } );
         $('.search-bar-input').on('keydown', function () {
@@ -173,27 +180,38 @@ btn_clear_sb.addEventListener('click', () => {
     })
 })
 
-const fallback_crypto = document.querySelector('.fallback-crypto')
-const suggest_crypto = document.querySelector('.suggest-crypto')
+const fallback_crypto = document.querySelectorAll('.fallback-crypto')
+const suggest_crypto = document.querySelectorAll('.suggest-crypto')
 const displayResultSB = (elements) => {
-    const error_no_data = document.querySelector('.error_no_data')
+    const error_no_data = wp_search_bar_result.querySelector('.error_no_data')
+    const error_no_data_top = wp_search_bar_result_top.querySelector('.error_no_data')
     elements.forEach(e => {
         if(e !== undefined){
             const line = document.createElement('a')
+            const line_img = document.createElement('img')
             const line_text = document.createElement('p')
             const line_sb = document.createElement('p')
             const line_tt = document.createElement('p')
             line.classList.add('sb-result')
+            line_img.src = "resources/img/logo.png"
+            line_img.setAttribute('data-type', "default")
+            line_img.setAttribute('data-name', e.Name)
             line_text.innerText = e.Name
             line_sb.innerText = e.Symbol
             line_tt.innerText = `${e["1h"]} (1h)`
+            line.appendChild(line_img)
             line.appendChild(line_text)
             line.appendChild(line_sb)
             line.appendChild(line_tt)
             line.onclick = () => {
                 window.open(`crypto.html?q=${e.Name}`, '_self')
             }
-            wp_search_bar_result.appendChild(line)
+            const lineClone = line.cloneNode(true);
+            lineClone.onclick = () => {
+                window.open(`crypto.html?q=${e.Name}`, '_self')
+            }
+            wp_search_bar_result_top.appendChild(line)
+            wp_search_bar_result.appendChild(lineClone)
         }
     })
     function isArrayOnlyNull(arr) {
@@ -202,16 +220,22 @@ const displayResultSB = (elements) => {
 
     if(isArrayOnlyNull(elements)){
         error_no_data.classList.remove('hidden')
+        error_no_data_top.classList.remove('hidden')
         wp_search_bar_result_ex.classList.remove('hidden')
-        if (window.matchMedia("(max-width: 550px)").matches) {
-            fallback_crypto.innerText = `Go to ${input_sb[1].value} page`
-            suggest_crypto.innerText = `Suggest ${input_sb[1].value}`
-            fallback_crypto.href = `crypto.html?q=${input_sb[1].value}`
-            suggest_crypto.href = `suggest-crypto.html?q=${input_sb[1].value}`
-        }
+        wp_search_bar_result_ex_top.classList.remove('hidden')
+        fallback_crypto.forEach((e, i) => {
+            e.innerText = `Go to ${input_sb[i].value} page`
+            e.href = `crypto.html?q=${input_sb[i].value}`
+        })
+        suggest_crypto.forEach((e, i) => {
+            e.innerText = `Suggest ${input_sb[i].value}`
+            e.href = `suggest-crypto.html?q=${input_sb[i].value}`
+        })
     } else {
-        error_no_data.classList.add('hidden')
-        wp_search_bar_result_ex.classList.add('hidden')
+        hide(error_no_data)
+        hide(error_no_data_top)
+        hide(wp_search_bar_result_ex)
+        hide(wp_search_bar_result_ex_top)
     }
 }
 
@@ -311,7 +335,7 @@ const fEdit_Trend_user = (data) => {
             const more = init.cloneNode(true)
             more.setAttribute('data-value', false)
             more.classList.add('see-stats')
-            more.querySelector('.user-trend-card-nb').classList.add('hidden')
+            hide(more.querySelector('.user-trend-card-nb'))
             more.querySelector('.user-trend-card-name').innerText = "test"
             user_trends.appendChild(more)
         }
@@ -351,6 +375,7 @@ const fEdit_Trend = (data) => {
         element.appendChild(text)
         location.appendChild(element)
     })
+    return true
 }
 
 const fLoad_gainers = async() => {
@@ -374,9 +399,9 @@ const fLoad_hints = async() => {
 const fEdit_GL = (data, loc) => {
     if(data === "error"){
         if(loc.includes('losers')){
-            gain_lose_content.querySelector('.col:last-child').classList.add('hidden')
+            hide(gain_lose_content.querySelector('.col:last-child'))
         } else{
-            gain_lose_content.querySelector('.col:first-child').classList.add('hidden')
+            hide(gain_lose_content.querySelector('.col:first-child'))
         } 
         return
     }
@@ -445,9 +470,9 @@ toggle_table.addEventListener('click', () => {
     if(toggle_table.querySelector('i').classList.contains('fa-list')){
         toggle_table.querySelector('i').classList.replace('fa-list', 'fa-table-cells-large')
         table_crypto.classList.remove('hidden')
-        grid_crypto.classList.add('hidden')
+        hide(grid_crypto)
     }else{
-        table_crypto.classList.add('hidden')
+        hide(table_crypto)
         grid_crypto.classList.remove('hidden')
         toggle_table.querySelector('i').classList.replace('fa-table-cells-large', 'fa-list')
     }
@@ -464,14 +489,22 @@ fLoad_main()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
         fEdit_main(data)
-    })
+    });
+
 
 fLoad_trends()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
-        fEdit_Trend(data)
+        if(data === "error"){
+            document.querySelector('.error-loading-data-text').classList.remove('hidden')
+        } else {
+            const fct = fEdit_Trend(data);
+            if(fct){
+                hide(document.querySelector('.line-content-trend .shimmer'))
+            }
+        }
     })
-
+    
 fLoad_trends_user()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
@@ -484,7 +517,7 @@ fLoad_gainers()
         fEdit_GL(data, "card-content-gainers")
     })
     
-    fLoad_hints()
+fLoad_hints()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
         displayHints(data)

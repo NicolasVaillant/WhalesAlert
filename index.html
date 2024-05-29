@@ -55,9 +55,21 @@
                 <h2>WhalesAlert</h2>
             </a>
             <div class="wp-r">
-                <label for="search-bar-input" class="search-bar">
-                    <input type="text" class="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
-                </label>
+                <div class="sb-container">
+                    <label for="search-bar-input" class="search-bar">
+                        <input type="text" class="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
+                        <div class="res-sb-top">
+                            <div class="error_no_data hidden">
+                                <i class="fa-solid fa-warning"></i>
+                                <p>No data found</p>
+                            </div>
+                            <div class="extend-suggestion">
+                                <a class="btn-main fallback-crypto"></a>
+                                <a class="btn-main suggest-crypto"></a>
+                            </div>
+                        </div>
+                    </label>
+                </div>
                 <div class="hamburger-menu">
                     <span class="info-more">
                         <i class="fa-solid fa-bars"></i>
@@ -244,6 +256,8 @@
                             Trending
                         </h2>
                         <div class="line-content-trend">
+                            <div class="error-loading-data-text hidden"></div>
+                            <div class="shimmer"></div>
                             <div class="container-overflow"></div>
                         </div>
                     </div>
