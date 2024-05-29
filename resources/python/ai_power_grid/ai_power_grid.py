@@ -156,6 +156,8 @@ def job_aipg() -> None:
         message += "Stay tuned for more updates!\n"
         message += "https://linktr.ee/whales_alert"
 
+        payload = {"text": message}
+
         value = round(float(price) * total_out, 2)
         save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
 

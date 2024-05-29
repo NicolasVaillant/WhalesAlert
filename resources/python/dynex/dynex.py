@@ -78,7 +78,7 @@ def get_transaction_info():
 
             output_amount = int(transaction['amount'][0],16)/pow(10, 9)
             tx_percentage_of_supply: float = (output_amount / already_generated_coins) * 100
-            if total_out != last_transaction_value and output_amount > 5.0:
+            if total_out != last_transaction_value and output_amount > 100000.0:
                 last_transaction_value = total_out
                 transaction_list.append((output_amount, tx_percentage_of_supply, url_tx_hash))
 

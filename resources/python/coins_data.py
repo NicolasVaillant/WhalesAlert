@@ -41,16 +41,17 @@ def fetch_coin_details(symbol, name):
         response = requests.get(url)
         if response.status_code == 200:
             coin_details = response.json()
-            # Créer un nom de fichier valide et spécifique pour chaque cryptomonnaie
-            filename = f"{name.replace('/', '_').replace(' ', '_').lower()}.json"
-            chemin_fichier = os.path.join(chemin_base, filename)
-            with open(chemin_fichier, 'w') as file:
-                json.dump(coin_details, file, indent=4)
-            logger_fonction_scrap.info(f"Details for {symbol} saved to {filename}.")
+            if float(coin_details['volume_24_usd']) > 1000:
+                # Créer un nom de fichier valide et spécifique pour chaque cryptomonnaie
+                filename = f"{name.replace('/', '_').replace(' ', '_').lower()}.json"
+                chemin_fichier = os.path.join(chemin_base, filename)
+                with open(chemin_fichier, 'w') as file:
+                    json.dump(coin_details, file, indent=4)
+                logger_fonction_scrap.info(f"Details for {symbol} saved to {filename}.")
         else:
-            logger_fonction_scrap.error(f"Failed to fetch data for {symbol}. Status code:", response.status_code)
+            logger_fonction_scrap.error(f"Failed to fetch data for {symbol}. Status code:{response.status_code}")
     except Exception as e:
-        logger_fonction_scrap.error(f"An error occurred while fetching data for {symbol}:", e)
+        logger_fonction_scrap.error(f"An error occurred while fetching data for {symbol}: {e}")
 
 def fetch_and_save_coins_data():
     """
@@ -65,9 +66,9 @@ def fetch_and_save_coins_data():
                 json.dump(coins, json_file, indent=4)
             logger_fonction_scrap.info("Data successfully fetched and saved.")
         else:
-            logger_fonction_scrap.error("Failed to fetch data from CoinPaprika API. Status code:", response.status_code)
+            logger_fonction_scrap.error(f"Failed to fetch data from CoinPaprika API. Status code: {response.status_code}")
     except Exception as e:
-        logger_fonction_scrap.error("An error occurred:", e)
+        logger_fonction_scrap.error(f"An error occurred: {e}")
 
 def process_coins_and_fetch_details():
     """
@@ -82,4 +83,5 @@ def process_coins_and_fetch_details():
     except FileNotFoundError:
         logger_fonction_scrap.error("File 'coins_data.json' not found. Please run fetch_and_save_coins_data() first.")
     except Exception as e:
-        logger_fonction_scrap.error("An error occurred:", e)
+        logger_fonction_scrap.error(f"An error occurred: {e}")
+        

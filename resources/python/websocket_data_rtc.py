@@ -5,6 +5,11 @@ import os
 from pathlib import Path
 import websocket
 from os import name, system
+import ssl
+import certifi
+
+ssl_context = ssl.create_default_context()
+ssl_context.load_verify_locations(certifi.where())
 
 if name == "nt":
     # Version pc
@@ -42,7 +47,7 @@ def process_and_update_data(received_data, comparison_table):
 
                     target_data['last_price_usd'] = received_data['data'][key]['value']
                     if received_data['data'][key]['supply'] != "null":
-                        target_data['supply'] = int(received_data['data'][key]['supply'])
+                        target_data['supply'] = float(received_data['data'][key]['supply'])
 
                     target_data['price_change_1H_percent'] = str(received_data['data'][key]['price_change_1H_percent'])
                     target_data['price_change_1D_percent'] = str(received_data['data'][key]['price_change_1D_percent'])
@@ -88,13 +93,13 @@ def on_open(ws):
     # print(f"Souscription envoyée: {subscribe_message}")
 
 def start_listening():
-    ws_app = websocket.WebSocketApp("wss://ws1.coincodex.com/subscriptions?transport=websocket&compression=false",
+    ws_app = websocket.WebSocketApp("wss://ws2.coincodex.com/subscriptions?transport=websocket&compression=false",
                                     on_open=on_open,
                                     on_message=on_message,
                                     on_error=on_error,
-                                    on_close=on_close)
-    
-    ws_app.run_forever(reconnect=10)
+                                    on_close=on_close
+                                    )
+    ws_app.run_forever(reconnect=10, sslopt={"cert_reqs": ssl.CERT_NONE, "check_hostname": False, "ssl_context": ssl_context})
 
 def job_data_rtc():
     logger_fonction_websocket.info("Job websocket coincodex")
