@@ -1,17 +1,346 @@
 [
     {
-        "amount": "24.52",
-        "value": 1611280.05,
-        "porcentage_supply": 0.0001,
-        "url": "https://bitaps.com/fa13ebd17423547ead5c37b1bae4ac272f10f733fd02af3c4d9c132daf095aff",
-        "date": "2024-05-15T21:00:13.284559"
+        "amount": "38.99",
+        "value": 42.54,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/e91a8234939fc4559f8eb3ce8a0606d66ce32b4c653357278bc11496698d1102",
+        "date": "2024-05-15T19:31:34.263740"
     },
     {
-        "amount": "21.96",
-        "value": 1487569.59,
+        "amount": "15.76",
+        "value": 17.19,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/e91a8234939fc4559f8eb3ce8a0606d66ce32b4c653357278bc11496698d1102",
+        "date": "2024-05-15T19:31:34.260241"
+    },
+    {
+        "amount": "291.49",
+        "value": 318.0,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/7fe177816dec5485f34364a0464f610565079730b6df8d8314946702bab277ae",
+        "date": "2024-05-15T19:30:43.059052"
+    },
+    {
+        "amount": "13.58",
+        "value": 14.82,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/c983c7e1a9d4957e70510abc984f587100cdc3e8b20357ce4b4dfd4d0a2274bb",
+        "date": "2024-05-15T19:30:30.839630"
+    },
+    {
+        "amount": "13.70",
+        "value": 14.94,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/c3cfbc9bd64378ad704dc62bb0dc9222c19818032a148a786a0efe0784f4c1e2",
+        "date": "2024-05-15T19:30:12.450128"
+    },
+    {
+        "amount": "27.61",
+        "value": 30.12,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/1b61104e4595a4e34b4f36cea5a43bf7a2d31aa87729f4ff6b00b21b1eb7976e",
+        "date": "2024-05-15T19:29:50.284980"
+    },
+    {
+        "amount": "291.51",
+        "value": 318.02,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/7fbb11642dae5b7c4ed792230a8d2e1723ac488e8c6522c6fc955a094c7c99fb",
+        "date": "2024-05-15T19:29:50.266368"
+    },
+    {
+        "amount": "17.19",
+        "value": 18.75,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/7471339638f1925bd496d80c5be9e0b68d383899457d0887a054440359ba4290",
+        "date": "2024-05-15T19:29:28.516124"
+    },
+    {
+        "amount": "17.21",
+        "value": 18.78,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/eacea719fa614a907ba67ea37369aec2a6b3cfe2313ede545f4ecd63806fe26d",
+        "date": "2024-05-15T19:29:21.035349"
+    },
+    {
+        "amount": "16.34",
+        "value": 17.83,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/e781d63f11c77eba639a8aa3f53baaf43dc19cc9da8c9b7a4da4e4e22fbcf591",
+        "date": "2024-05-15T19:28:42.818428"
+    },
+    {
+        "amount": "33.00",
+        "value": 36.0,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/53686fb4782fe2f13e308fd222a8bf4f26830d4209e8484381c1080536df705e",
+        "date": "2024-05-15T19:28:28.032498"
+    },
+    {
+        "amount": "15.90",
+        "value": 17.35,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/3648266dbec3a49b5af8d7f37a59ae45466249c76594725f245e637004537694",
+        "date": "2024-05-15T19:28:10.532732"
+    },
+    {
+        "amount": "57.63",
+        "value": 62.87,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/31b56377b7681850a3f5f217c99e60d20ac2be83b4b573513deff7fa6fce56ce",
+        "date": "2024-05-15T19:27:43.956124"
+    },
+    {
+        "amount": "29.80",
+        "value": 32.51,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/6a13fe3acdf19a3c0ce695c3533d94841e48f5f305645827040488d78a8b3c51",
+        "date": "2024-05-15T19:27:31.649367"
+    },
+    {
+        "amount": "13.00",
+        "value": 14.18,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/6a13fe3acdf19a3c0ce695c3533d94841e48f5f305645827040488d78a8b3c51",
+        "date": "2024-05-15T19:27:31.646169"
+    },
+    {
+        "amount": "20.10",
+        "value": 21.93,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/5816e743392909f06797c484a23aa249e05d3aa80e2586936675b163fca3a8cb",
+        "date": "2024-05-15T19:27:22.669145"
+    },
+    {
+        "amount": "20.00",
+        "value": 21.82,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/5816e743392909f06797c484a23aa249e05d3aa80e2586936675b163fca3a8cb",
+        "date": "2024-05-15T19:27:22.665994"
+    },
+    {
+        "amount": "15.92",
+        "value": 17.37,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/5a65903216b547065db99e888eaf58c7ef5612119ecfa8233f264a77d8fe10dc",
+        "date": "2024-05-15T19:27:16.480405"
+    },
+    {
+        "amount": "122.61",
+        "value": 133.76,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/9ec62122f5c9ea360353303f21eb61437597cb0292227fa1bdc69a00d7edbdee",
+        "date": "2024-05-15T19:27:07.406136"
+    },
+    {
+        "amount": "49.70",
+        "value": 54.22,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/9ec62122f5c9ea360353303f21eb61437597cb0292227fa1bdc69a00d7edbdee",
+        "date": "2024-05-15T19:27:07.402901"
+    },
+    {
+        "amount": "12.56",
+        "value": 13.71,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/a5a75eda95a3fcf86e1267b362c655ac8beb2c55bf3932d86f99d4c5127be61e",
+        "date": "2024-05-15T19:26:43.882879"
+    },
+    {
+        "amount": "291.52",
+        "value": 318.03,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/992c9cb7e7c85c9d5f54b004b541b02733c86f926a87a62b8803847dfbc4bdaa",
+        "date": "2024-05-15T19:26:29.313048"
+    },
+    {
+        "amount": "12.17",
+        "value": 13.28,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/6bba0155b86a815eabdf4885446ca99863b53b2541b6f89058726030be7923f6",
+        "date": "2024-05-15T19:26:29.156327"
+    },
+    {
+        "amount": "15.97",
+        "value": 17.42,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/ca72c1034d53bd06fa85958eed99c22ed59a1cfbdc6438a6049dd0ce0d0ddb57",
+        "date": "2024-05-15T19:26:17.456322"
+    },
+    {
+        "amount": "42.01",
+        "value": 45.83,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/0e8c6fb12023b2aeec3376270e0aeed6af09207953fd95e2a6762d7b8d20def4",
+        "date": "2024-05-15T19:26:01.872187"
+    },
+    {
+        "amount": "28.79",
+        "value": 31.41,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/42f1840693ecf2dd34c356ca9d74fbcc46a85819c5c4eac2cd9ea1d647fbf470",
+        "date": "2024-05-15T19:25:13.389121"
+    },
+    {
+        "amount": "27.86",
+        "value": 30.4,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/a0bc7fb211d6199a4cffccb6653a2c61f22d34ad74f815d0b438777bafd4f9ac",
+        "date": "2024-05-15T19:24:53.402353"
+    },
+    {
+        "amount": "32.54",
+        "value": 35.5,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/30d463009ddf09773f9e8d55c4bf2c734ec4d82b852d4261954fe3d347b1276e",
+        "date": "2024-05-15T19:24:43.787140"
+    },
+    {
+        "amount": "13.87",
+        "value": 15.13,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/91ec4f6e7b64f6393d04ea89ac402f279fbae644afc356e39fce7ffd36e6b1a7",
+        "date": "2024-05-15T19:24:40.429275"
+    },
+    {
+        "amount": "59.12",
+        "value": 64.5,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/1d92f531782fa98cc4e5ffa88e1b21005295c52c95638105973a1969fdc45719",
+        "date": "2024-05-15T19:24:20.253428"
+    },
+    {
+        "amount": "19.75",
+        "value": 21.55,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/3dd95e58205bdc220549081f1428d7457a3cf2729c7bdec7f8c598fd654f1296",
+        "date": "2024-05-15T19:23:49.455781"
+    },
+    {
+        "amount": "291.52",
+        "value": 318.03,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/7f707e7d652197aa486bed915356ec5de5e6a1b769daf509709cef8af90b71c0",
+        "date": "2024-05-15T19:23:04.146140"
+    },
+    {
+        "amount": "37.87",
+        "value": 41.31,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/0cb114157b9e6f7acd71d09d1bf007237485ab4a6ff4161d01ab23c12779b7e5",
+        "date": "2024-05-15T19:22:20.846961"
+    },
+    {
+        "amount": "169.00",
+        "value": 184.37,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/bbb6948bc8fc7d8fb33a6e2476556e381763be3d2d541bb0afd9daf3b6821b9b",
+        "date": "2024-05-15T19:22:17.721097"
+    },
+    {
+        "amount": "20.56",
+        "value": 22.43,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/bbb6948bc8fc7d8fb33a6e2476556e381763be3d2d541bb0afd9daf3b6821b9b",
+        "date": "2024-05-15T19:22:17.718313"
+    },
+    {
+        "amount": "12.35",
+        "value": 13.48,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/428e8fc6b2185a8a2e4b4cab4ff7d30ac751c6e6c89080df9428ac2b79add926",
+        "date": "2024-05-15T19:22:08.964801"
+    },
+    {
+        "amount": "12.50",
+        "value": 13.64,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/1733c997f3bec105a7ea64bcfe755c3c7a5e13b000db732bcf0bfeb04a1cb792",
+        "date": "2024-05-15T19:21:38.771152"
+    },
+    {
+        "amount": "12.10",
+        "value": 13.2,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/e5c1d7015c04bb3781b82618b1a523151cbfcf65e7eacd01eda0395f402d0caa",
+        "date": "2024-05-15T19:21:30.562217"
+    },
+    {
+        "amount": "18.27",
+        "value": 19.94,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/812aa0cee60a58604c86fc0d293349ccec6d565f22c3afdca0e299723e00cce8",
+        "date": "2024-05-15T19:20:59.920904"
+    },
+    {
+        "amount": "291.54",
+        "value": 318.05,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/250b7632c8e11d0a236a7c25179d5547009298b4674894ad3fc3c730f0e6006e",
+        "date": "2024-05-15T19:20:50.548450"
+    },
+    {
+        "amount": "21.45",
+        "value": 23.4,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/134abf6b3840020f08a61b8521857d9c50edf3e0149fcc7aa6c9f04e9e8a35c9",
+        "date": "2024-05-15T19:20:35.234257"
+    },
+    {
+        "amount": "23.59",
+        "value": 25.73,
+        "porcentage_supply": 0.0,
+        "url": "https://bitaps.com/9460b156019f792c9d031e2aaa86dfca4962300708e3018cc2f299a6cc95e344",
+        "date": "2024-05-15T19:20:31.838701"
+    },
+    {
+        "amount": "13.87",
+        "value": 939981.71,
         "porcentage_supply": 0.0001,
-        "url": "https://bitaps.com/a200b3855c46a1bc11f1feacfd80607c02065cda082d2976ad6cc745c4144bea",
-        "date": "2024-05-15T21:00:03.996313"
+        "url": "https://bitaps.com/a1d8a7a9e90eb60268443312e4681e81fa9ad08e95caa3062b9645c79423a561",
+        "date": "2024-05-15T19:20:03.714704"
+    },
+    {
+        "amount": "66.78",
+        "value": 4523947.74,
+        "porcentage_supply": 0.0003,
+        "url": "https://bitaps.com/b6ffdb9a48b0a2f879da30b9f3ea883d35a42d4723e2521806cac320b160946d",
+        "date": "2024-05-15T19:19:41.376335"
+    },
+    {
+        "amount": "74.83",
+        "value": 5069341.31,
+        "porcentage_supply": 0.0004,
+        "url": "https://bitaps.com/13ccf1382c8a180573149532715c2bba0f310883b2a5daf2cd66d2d3ed9c9ddc",
+        "date": "2024-05-15T19:19:35.321130"
+    },
+    {
+        "amount": "12.22",
+        "value": 828079.93,
+        "porcentage_supply": 0.0001,
+        "url": "https://bitaps.com/9e26c6f5444d081a137dee2caef48ebb841d27e45dd5e379a21a9899d918a741",
+        "date": "2024-05-15T19:19:31.873601"
+    },
+    {
+        "amount": "17.69",
+        "value": 1198232.53,
+        "porcentage_supply": 0.0001,
+        "url": "https://bitaps.com/6911ee8dd8ce5b51feed2a798f376e91101aaab6e8983915f7483fe2cd5119db",
+        "date": "2024-05-15T19:19:19.985387"
+    },
+    {
+        "amount": "19.99",
+        "value": 1354013.71,
+        "porcentage_supply": 0.0001,
+        "url": "https://bitaps.com/5f2f878ac722105315067f9db3b18a6a2b6921e3a483e03b9181b835efdeb58f",
+        "date": "2024-05-15T19:19:11.277545"
+    },
+    {
+        "amount": "15.01",
+        "value": 1016638.15,
+        "porcentage_supply": 0.0001,
+        "url": "https://bitaps.com/933704c235a8de980d3de57193a797d5d39db50b53c241edb5aa67918408d8d8",
+        "date": "2024-05-15T19:18:42.397950"
     },
     {
         "amount": "19.80",

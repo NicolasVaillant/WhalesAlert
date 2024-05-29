@@ -297,16 +297,16 @@ const fEdit_Trend_user = (data) => {
     }
 
     if(data !== 'error'){
+        const user_trends = document.querySelector('.user-trends')
         const init = document.querySelector('.user-trend-card[data-value="init"]')
         data.forEach((e, i) => {
-            createCard(init, e, i)
+            // createCard(init, e, i) //disable for now
         });
         
         const fAdd_Favorite_user = () => {
             const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
             if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
                 const fav = fav_crypto_load.data
-                const user_trends = document.querySelector('.user-trends')
                 const user_trends_dup = document.querySelector('.user-trends-dup')
                 let user_trends_arr = []
                 const childElements = Array.from(user_trends.children)
@@ -328,6 +328,9 @@ const fEdit_Trend_user = (data) => {
             value_unique.forEach(e => {
                 createCard(init, e, -1)
             })
+        } else {
+            hide(user_trends)
+            hide(user_trends.parentElement.querySelector('h3'))
         }
 
         // setCardMore()

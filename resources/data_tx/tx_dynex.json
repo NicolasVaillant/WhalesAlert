@@ -1,0 +1,30 @@
+[
+    {
+        "amount": "15.73",
+        "value": 8.68,
+        "porcentage_supply": 0.0,
+        "url": "https://blockexplorer.dynexcoin.org/?tx=e86de823a686c8dd6c2fa59b859e0c8dc1e87f664f7e2ed7777210f6f4914fe1",
+        "date": "2024-05-15T19:31:46.352940"
+    },
+    {
+        "amount": "78.06",
+        "value": 43.08,
+        "porcentage_supply": 0.0001,
+        "url": "https://blockexplorer.dynexcoin.org/?tx=f637fa8c53a5097be3a8001442d8127c6f6ed9a884e4a3ab287e9d3dfe175e6b",
+        "date": "2024-05-15T19:31:46.352685"
+    },
+    {
+        "amount": "78.02",
+        "value": 43.05,
+        "porcentage_supply": 0.0001,
+        "url": "https://blockexplorer.dynexcoin.org/?tx=cdedd28a89c215b87a08f482b5ab6c1c0f2f3b9fbe1d0ab14ad1fe700634bce6",
+        "date": "2024-05-15T19:28:46.155680"
+    },
+    {
+        "amount": "78.02",
+        "value": 43.05,
+        "porcentage_supply": 0.0001,
+        "url": "https://blockexplorer.dynexcoin.org/?tx=3fd31028a6b054bfa8e788445fe37155611639be300d158996dcdd2418891f77",
+        "date": "2024-05-15T19:21:45.878683"
+    }
+]

@@ -26,7 +26,7 @@ const settings = {
     },
     HOMEPAGE_text:{
         'home-h2-transactions': 'Live Crypto Prices',
-        'top-trend-user': 'Top user trends',
+        'top-trend-user': 'Favorite',
         'latest-top': 'Top transactions',
         'modal-text':'Open Crypto',
         'git-issue-text':'Open an issue',
