@@ -32,7 +32,7 @@ if not logger_fonction_scrap.handlers:
     handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
     logger_fonction_scrap.addHandler(handler)
 
-def fetch_coin_details(symbol, name):
+def fetch_coin_details(symbol, name, active):
     """
     Fonction pour récupérer les détails d'une cryptomonnaie depuis CoinCodex et les enregistrer dans un fichier JSON dans le chemin spécifié.
     """
@@ -41,7 +41,7 @@ def fetch_coin_details(symbol, name):
         response = requests.get(url)
         if response.status_code == 200:
             coin_details = response.json()
-            if float(coin_details['volume_24_usd']) > 1000:
+            if active == "true" and float(coin_details['volume_24_usd']) > 1000:
                 # Créer un nom de fichier valide et spécifique pour chaque cryptomonnaie
                 filename = f"{name.replace('/', '_').replace(' ', '_').lower()}.json"
                 chemin_fichier = os.path.join(chemin_base, filename)
@@ -79,7 +79,7 @@ def process_coins_and_fetch_details():
             coins = json.load(json_file)
         
         for coin in coins:  # Limiter pour cet exemple
-            fetch_coin_details(coin['symbol'], coin['name'])
+            fetch_coin_details(coin['symbol'], coin['name'], coin['is_active'])
     except FileNotFoundError:
         logger_fonction_scrap.error("File 'coins_data.json' not found. Please run fetch_and_save_coins_data() first.")
     except Exception as e:

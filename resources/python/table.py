@@ -48,9 +48,9 @@ class CoinFetcher:
         for coin in data:
             coin_name = coin['name']
             if coin_name == "BNB":
-                coin_name = "Binance_coin"
-            elif coin_name == "Tether USDt":
-                coin_name = "Tether"
+                coin['name'] = "Binance Coin"
+            elif coin_name == "Tether USDt" or coin_name == "Tether_USDt":
+                coin['name'] = "Tether"
             
             price = float(coin['quote']['USD']['price'])
             # Format fixe pour tous les prix avec 8 décimales
@@ -87,5 +87,3 @@ def update_global_data(new_data):
     # Sauvegarde des données mises à jour dans le fichier
     with open(table_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
-
-
