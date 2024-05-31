@@ -56,9 +56,9 @@ class CoinFetcher:
             # Format fixe pour tous les prix avec 8 décimales
             price = f"{price:.8f}"
             if float(price) >= 0.1:
-                price = str(round(float(price),2))
+                coin['quote']['USD']['price'] = str(round(float(price),2))
             else :
-                price = price.rstrip('0').rstrip('.') if '.' in price else price
+                coin['quote']['USD']['price'] = price.rstrip('0').rstrip('.') if '.' in price else price
             
             formatted_coin = {
                 "Rank": coin['cmc_rank'],
@@ -80,7 +80,6 @@ def update_global_data(new_data):
             globals_data = json.load(f)
     except FileNotFoundError:
         globals_data = {}
-
     # Mise à jour ou ajout de nouvelles données
     globals_data.update(new_data)
 
