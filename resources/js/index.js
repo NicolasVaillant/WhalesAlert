@@ -417,11 +417,16 @@ const fEdit_GL = (data, loc) => {
         const first_col = document.createElement('div')
         first_col.classList.add('left')
         const name = document.createElement('p')
+        const img = document.createElement('img')
+        img.src = "resources/img/logo.png"
+        img.setAttribute('data-type', "default")
+        img.setAttribute('data-name', urlPart)
         name.innerText = `${index+1}. ${urlPart.charAt(0).toUpperCase() + urlPart.slice(1)}`
         name.classList.add('stock-name')
         const sh = document.createElement('p')
         sh.classList.add('stock-title')
         sh.innerText = title.trim()
+        first_col.appendChild(img)
         first_col.appendChild(name)
         first_col.appendChild(sh)
 
@@ -446,6 +451,7 @@ const fEdit_GL = (data, loc) => {
         line.appendChild(sec_col)
         document.querySelector(`.${loc}`).appendChild(line)
     })
+    changeImageTable(JSON.parse(localStorage.getItem(label__stored)).data.cryptocurrencies, document.querySelector(`.${loc}`))
 }
 const fLoad_losers = async() => {
     try {
@@ -488,10 +494,18 @@ const displayHints = (data) => {
     document.querySelector('.hints_text').innerHTML = obj.text
 }
 
+const saveData = (data) => {
+    sessionStorage.setItem(label__stored, JSON.stringify({
+        status: 'success',
+        data: data
+    }));
+}
+
 fLoad_main()
     .then(r => {
         const data = (typeof r === 'object') ? r : "error"
         fEdit_main(data)
+        saveData(data)
     });
 
 

@@ -64,3 +64,4 @@ const variables = {
 
 const label__darkMode = 'dark-mode-WhalesAlert'
 const label__favorite_elements = "fav-c"
+const label__stored = "data"

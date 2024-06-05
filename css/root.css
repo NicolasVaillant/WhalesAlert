@@ -73,6 +73,7 @@
     --star:#ffd700;
     --blue_light:#cfe6ff;
     --op:#efefef36;
+    --border:#e2e2e2;
 }
 
 .toggle_dark_mode{
@@ -84,6 +85,7 @@
     --rgb_border: rgba(var(--border-of-elements-light-color) / 100%); 
     --card-g-l: #293848;
     --text-aside:#86d1eb;
+    --border:#1a1a1a;
 }
 
 html {

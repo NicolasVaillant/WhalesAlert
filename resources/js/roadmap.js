@@ -38,9 +38,9 @@ const roadmap = {
     'hint':{
         'title': 'Hint for users in website',
         'cosmetic':'<i class="fa-solid fa-lightbulb"></i>',
-        'status': 'wip',
+        'status': 'done',
         'release':'X',
-        'advancement': 0, 
+        'advancement': 1, 
         'assign': {
             'dev_1': true,
             'dev_2': false
@@ -147,10 +147,10 @@ const roadmap = {
     },
     'social_eng':{
         'title': 'Delete the names from the footer (advice to avoid social engineering)',
-        'status': 'oneday',
+        'status': 'done',
         'cosmetic':'<i class="fa-solid fa-triangle-exclamation"></i>',
         'release':'X',
-        'advancement': 0, 
+        'advancement': 1, 
         'assign': {
             'dev_1': true,
             'dev_2': true

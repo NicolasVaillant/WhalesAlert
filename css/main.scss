@@ -136,8 +136,6 @@ body{
       color: inherit;
     }
 
-    --border:#e2e2e2;
-
     @media all and (max-width: 500px) {--height-header: 8vh}
 
     header{
@@ -345,6 +343,8 @@ body{
         border-radius: 1000px;
         outline: none;
         width: 100%;
+        background: var(--btn-main-bg);
+        color: var(--b);
         &:focus{
           @include outline;
         }
@@ -710,7 +710,7 @@ body{
                   justify-content: flex-end;
                   flex-direction: column;
                   margin: 1em;
-                  color: var(--w);
+                  color: var(--white);
                   z-index: 1;
                   .user-trend-card-name{
                     font-size: 1.8em;
@@ -907,7 +907,7 @@ body{
         }
         .info-crypto{
           color: var(--b);
-          margin-bottom: 2em;
+          margin-bottom: 3em;
           @include card;
           h2{
             margin-bottom: 1em;
@@ -1064,7 +1064,7 @@ body{
                     justify-content: flex-end;
                     flex-direction: column;
                     margin: 1em;
-                    color: var(--w);
+                    color: var(--white);
                     z-index: 1;
                     .user-trend-card-name{
                       font-size: 1.8em;
@@ -1217,6 +1217,7 @@ body{
                     padding: 6px 14px;
                     position: relative;
                     .stock-title{color: #939393}
+                    img{width: 1.5em;}
                     & .right{
                       margin-left: auto;
                       position: absolute;
@@ -1432,6 +1433,7 @@ body{
                     border-bottom: 1px solid var(--border);
                     white-space: nowrap;
                     font-size: .9em;
+                    font-variant-numeric: tabular-nums;
                     img{
                       width: 1.2em;
                       margin: auto .5em 0 0;
@@ -1448,13 +1450,21 @@ body{
                     }
                     span{
                       // margin: auto 0 auto auto;
-                      color: var(--card-g-l);
+                      color: var(--grey);
                     }
                   }
                 }
               }
             }
-
+            #table_crypto_wrapper{
+              tbody{
+                td{
+                  text-align: end;
+                  &:first-child{text-align: center;}
+                  &:nth-child(2){text-align: left;}
+                }
+              }
+            }
             #table_crypto_unique_wrapper{
               // @include card;
               .dataTables_length{margin-left: auto;}
@@ -1469,6 +1479,11 @@ body{
             }
 
             table{
+              tbody{
+                td{
+                  &:nth-child(3){text-align: center}
+                }
+              }
               thead,
               tfoot{
                 .row_table_def{
@@ -1516,6 +1531,24 @@ body{
             align-items: flex-end;
             margin-top: 1em;
             gap: 1em;
+            &.missing{
+              flex-wrap: wrap;
+              justify-content: flex-start;
+              h4{
+                margin-right: auto;
+                white-space: nowrap;
+              }
+              .missing-checkbox{
+                width: fit-content;
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                gap: 1em;
+                white-space: nowrap;
+                justify-content: flex-start;
+                input{margin: 0;}
+              }
+            }
             &:last-child{
               margin-top: 2em;
               border-top: 2px solid;
@@ -1864,11 +1897,10 @@ body{
           background: var(--w);
         }
       }
+      border: 1px solid var(--border);
       width: 100%;
       appearance: none;
       background-color: var(--w);
-      // border: 1px solid rgba(226 226 226 / 100%);
-      border: 1px solid var(--btn-main-bg);
       border-radius: 6px;
       // box-shadow: rgba(226 226 226 / 4%) 0 1px 0, rgba(226 226 226 / 25%) 0 1px 0 inset;
       box-sizing: border-box;

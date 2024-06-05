@@ -371,17 +371,19 @@ function changeImageTable(crypto, container){
         //Avoiding unnecessary calls
         if(a.dataset.type !== 'default') return
         let img_url
-        const filteredCrypto = crypto.filter(crypto => crypto.Name === a.dataset.name);
-        const uniqueCrypto = filteredCrypto.find(crypto => crypto.Name === a.dataset.name);
-        await fLoad_cryptoIMG(uniqueCrypto.Name).then(r => {
-            if(r !== undefined && r.type == 'image/png'){
-                img_url = `resources/logos/${uniqueCrypto.Name}.png`
-            } else{
-                img_url = null
-            }
-        })
-        if(img_url !== null){a.src = img_url}
-        a.dataset.type = 'crypto'
+        const filteredCrypto = crypto.filter(crypto => crypto.Name.toLowerCase() === a.dataset.name.toLowerCase());
+        const uniqueCrypto = filteredCrypto.find(crypto => crypto.Name.toLowerCase() === a.dataset.name.toLowerCase());
+        if(uniqueCrypto !== undefined){
+            await fLoad_cryptoIMG(uniqueCrypto.Name).then(r => {
+                if(r !== undefined && r.type == 'image/png'){
+                    img_url = `resources/logos/${uniqueCrypto.Name}.png`
+                } else{
+                    img_url = null
+                }
+            })
+            if(img_url !== null){a.src = img_url}
+            a.dataset.type = 'crypto'
+        }
     })
 }
 

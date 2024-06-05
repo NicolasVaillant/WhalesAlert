@@ -1,5 +1,5 @@
 const table_coin = document.querySelector('.array-content')
-const query = decodeURIComponent(window.location.search.split("?q=")[1])
+const query = decodeURIComponent(window.location.search.split("?q=")[1]).toLowerCase()
 const name_c = document.querySelector('.name-crypto');
 const logo_crypto = document.querySelector('.logo_crypto');
 name_c.innerHTML = `${query.charAt(0).toUpperCase() + query.slice(1)}`
@@ -71,7 +71,7 @@ const fLoad_crypto_tx = async() => {
 const fLoad_crypto_coin = async() => {
     try {
         const response = await fetch(
-            LINK_TO_DATA__coin.replace('__COIN__', query.toLowerCase())
+            LINK_TO_DATA__coin.replace('__COIN__', query)
         );
         return await response.json()
     } catch (error) {
@@ -174,7 +174,7 @@ const setAsideInfo = (data) => {
         }
     }
     if(variables.version > 1){
-        console.log(data, data.social);
+        // console.log(data, data.social);
         link.innerText = data.website
         link.href = data.website
     }
@@ -260,7 +260,6 @@ const createLabelArray = () => {
 }
 
 const fLoad_table = async(r) => {
-
     let leaderboard_table = $('#table_crypto_unique').DataTable({
         data: r,
         lengthMenu: [
@@ -282,23 +281,17 @@ const fLoad_table = async(r) => {
         "ordering": false,
         "autoWidth": false,
         "responsive": false,
-        pagingType: 'simple',
-        // initComplete: function (settings) {
-        //     const dataTables_length = document.querySelector('.dataTables_length')
-        //     const dataTables_info = document.querySelector('.dataTables_info')
-        //     dataTables_info.appendChild(dataTables_length)
-        // }
+        pagingType: 'simple'
     });
 
-    $('#table_crypto_unique tbody').on('click', 'tr', function (e) {
+    $('#table_crypto_unique tbody').on('click', 'tr', function () {
         const url = $(this)[0].querySelectorAll('td')[3].innerText
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
-            modal.style.display = 'none';
         } else {
-            leaderboard_table.$('tr.selected').removeClass('selected');
-            contextMenuCreation(url, e.clientX, e.clientY, true)
+            $(this).addClass('selected');
         }
+        window.open(url, '_self')
     })
 }
 

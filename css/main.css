@@ -63,7 +63,6 @@ body main {
   align-content: center;
   flex-direction: column;
   background-image: radial-gradient(circle, var(--bg-color), #0a4070, #0e497d, #12518a, #155a97);
-  --border:#e2e2e2;
 }
 body main a {
   text-decoration: none;
@@ -399,6 +398,8 @@ body main label.search-bar input {
   border-radius: 1000px;
   outline: none;
   width: 100%;
+  background: var(--btn-main-bg);
+  color: var(--b);
 }
 body main label.search-bar input:focus {
   outline: 2px solid var(--active-color);
@@ -922,7 +923,7 @@ body main .container-split .col-more-info .content-displayed .w_bg .user-trends 
   justify-content: flex-end;
   flex-direction: column;
   margin: 1em;
-  color: var(--w);
+  color: var(--white);
   z-index: 1;
 }
 body main .container-split .col-more-info .content-displayed .w_bg .user-trends .user-trend-card .user-trend-card-container .user-trend-card-name {
@@ -1120,7 +1121,7 @@ body main .container-split .col-content.span2 {
 }
 body main .container-split .col-content .info-crypto {
   color: var(--b);
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   background: var(--hf-color-op);
   border-radius: var(--br);
   padding: 1em;
@@ -1348,7 +1349,7 @@ body main .container-split .col-content .wrapper-content .top-content .duplicate
   justify-content: flex-end;
   flex-direction: column;
   margin: 1em;
-  color: var(--w);
+  color: var(--white);
   z-index: 1;
 }
 body main .container-split .col-content .wrapper-content .top-content .duplicated-user-trends .user-trends-dup .user-trend-card .user-trend-card-container .user-trend-card-name {
@@ -1543,6 +1544,10 @@ body main .container-split .col-content .wrapper-content .top-content .gain-lose
 body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line .stock-title,
 body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line .stock-title {
   color: #939393;
+}
+body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line img,
+body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line img {
+  width: 1.5em;
 }
 body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-gainers .line .right,
 body main .container-split .col-content .wrapper-content .top-content .gain-lose-content .col .card-content-losers .line .right {
@@ -1821,6 +1826,7 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
   font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td img,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td img {
@@ -1840,7 +1846,16 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper .dataTables_scroll table.dataTable tbody td span,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_scroll table.dataTable tbody td span {
-  color: var(--card-g-l);
+  color: var(--grey);
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper tbody td {
+  text-align: end;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper tbody td:first-child {
+  text-align: center;
+}
+body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper tbody td:nth-child(2) {
+  text-align: left;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_length {
   margin-left: auto;
@@ -1854,6 +1869,9 @@ body main .container-split .col-content .wrapper-content .array-content #table_c
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_info label,
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_unique_wrapper .dataTables_filter label {
   color: var(--b);
+}
+body main .container-split .col-content .wrapper-content .array-content table tbody td:nth-child(3) {
+  text-align: center;
 }
 body main .container-split .col-content .wrapper-content .array-content table thead .row_table_def,
 body main .container-split .col-content .wrapper-content .array-content table tfoot .row_table_def {
@@ -1916,6 +1934,30 @@ body main .container-split .col-content .roadmap-content .container {
   align-items: flex-end;
   margin-top: 1em;
   gap: 1em;
+}
+body main .container-split .col-content .suggest-crypto-content .container.missing,
+body main .container-split .col-content .roadmap-content .container.missing {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+body main .container-split .col-content .suggest-crypto-content .container.missing h4,
+body main .container-split .col-content .roadmap-content .container.missing h4 {
+  margin-right: auto;
+  white-space: nowrap;
+}
+body main .container-split .col-content .suggest-crypto-content .container.missing .missing-checkbox,
+body main .container-split .col-content .roadmap-content .container.missing .missing-checkbox {
+  width: fit-content;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1em;
+  white-space: nowrap;
+  justify-content: flex-start;
+}
+body main .container-split .col-content .suggest-crypto-content .container.missing .missing-checkbox input,
+body main .container-split .col-content .roadmap-content .container.missing .missing-checkbox input {
+  margin: 0;
 }
 body main .container-split .col-content .suggest-crypto-content .container:last-child,
 body main .container-split .col-content .roadmap-content .container:last-child {
@@ -2309,10 +2351,10 @@ body main footer .sub-footer .wrapper-sf a {
   width: fit-content;
 }
 body main .btn-main {
+  border: 1px solid var(--border);
   width: 100%;
   appearance: none;
   background-color: var(--w);
-  border: 1px solid var(--btn-main-bg);
   border-radius: 6px;
   box-sizing: border-box;
   color: var(--b);
