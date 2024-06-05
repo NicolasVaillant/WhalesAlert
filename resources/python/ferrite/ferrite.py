@@ -92,7 +92,7 @@ def human_format(num):
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
 
 def send_telegram_message(message):
-    with open("./resources/config_python/telegram.json") as f:
+    with open(telegram_json) as f:
         config: dict = json.load(f)
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     

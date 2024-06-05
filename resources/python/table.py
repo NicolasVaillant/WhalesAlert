@@ -48,17 +48,17 @@ class CoinFetcher:
         for coin in data:
             coin_name = coin['name']
             if coin_name == "BNB":
-                coin_name = "Binance_coin"
-            elif coin_name == "Tether USDt":
-                coin_name = "Tether"
+                coin['name'] = "Binance Coin"
+            elif coin_name == "Tether USDt" or coin_name == "Tether_USDt":
+                coin['name'] = "Tether"
             
             price = float(coin['quote']['USD']['price'])
             # Format fixe pour tous les prix avec 8 décimales
             price = f"{price:.8f}"
             if float(price) >= 0.1:
-                price = str(round(float(price),2))
+                coin['quote']['USD']['price'] = str(round(float(price),2))
             else :
-                price = price.rstrip('0').rstrip('.') if '.' in price else price
+                coin['quote']['USD']['price'] = price.rstrip('0').rstrip('.') if '.' in price else price
             
             formatted_coin = {
                 "Rank": coin['cmc_rank'],
@@ -80,12 +80,9 @@ def update_global_data(new_data):
             globals_data = json.load(f)
     except FileNotFoundError:
         globals_data = {}
-
     # Mise à jour ou ajout de nouvelles données
     globals_data.update(new_data)
 
     # Sauvegarde des données mises à jour dans le fichier
     with open(table_jaon, "w") as f:
         json.dump(globals_data, f, indent=4)
-
-

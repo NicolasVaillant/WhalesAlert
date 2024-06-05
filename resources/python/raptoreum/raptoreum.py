@@ -134,7 +134,7 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
         json.dump(transactions, file, indent=4)
 
 def job_raptoreum() -> None:
-    logger_fonction_tx_analyze.info("Job FEC")
+    logger_fonction_tx_analyze.info("Job RTM")
 
     # Récupérez le prix FEC
     price: float = get_raptoreum_price()

@@ -10,17 +10,17 @@ from os import name, system
 
 if name == "nt":
     # Version pc
-    tweet_json = Path("resources", "config_python", "kylacoin", "tweet.json")
-    config_json = Path("resources", "config_python", "kylacoin", "config.json")
+    tweet_json = Path("resources", "config_python", "lyncoin", "tweet.json")
+    config_json = Path("resources", "config_python", "lyncoin", "config.json")
     telegram_json = Path("resources", "config_python", "telegram.json")
-    tx_data_json = Path("resources", "data_tx", "tx_kylacoin.json")
+    tx_data_json = Path("resources", "data_tx", "tx_lyncoin.json")
     data_coins = Path("resources", "data_coins")
 else :
     # Version serveur
-    tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
-    config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
+    tweet_json = Path("/home", "container", "webroot","resources", "config_python", "lyncoin", "tweet.json")
+    config_json = Path("/home", "container", "webroot","resources", "config_python", "lyncoin", "config.json")
     telegram_json = Path("/home", "container", "config_python", "telegram.json")
-    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
+    tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_lyncoin.json")
     data_coins = Path("/home", "container", "webroot","resources", "data_coins")
 
 crypto_name = "lyncoin"

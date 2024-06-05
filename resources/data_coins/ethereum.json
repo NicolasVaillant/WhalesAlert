@@ -6,55 +6,54 @@
     "display_symbol": "ETH",
     "display": "true",
     "release_date": "2015-07-30",
-    "ico_price": "0.311420000",
-    "today_open": 3813.9995,
+    "ico_price": 0.31142,
+    "today_open": 0,
     "market_cap_rank": 2,
     "volume_rank": 5,
     "description": "<p>Ethereum is a decentralized, Layer 1 smart-contract blockchain network that was launched in July of 2015. The open-source cryptocurrency project was initially proposed by a Russian Canadian programmer <a href=\"https://coincodex.com/article/2995/top-10-facts-you-didnt-know-about-vitalik-buterin/\" target=\"_blank\">Vitalik Buterin</a>. In order to fund the early stages of development, the Ethereum team sold ETH tokens in an <a href=\"https://coincodex.com/article/2520/what-is-an-ico/\" target=\"_blank\">initial token offering (ICO)</a> that took place between June and August of 2014. The digital currency used by the participants to purchase ETH was <a href=\"https://coincodex.com/crypto/bitcoin/\" target=\"_blank\">Bitcoin</a>. The Ethereum team raised approximately $16 million worth of BTC during the ICO campaign.</p>\n\n<p>While Bitcoin can be credited with kickstarting the cryptocurrency revolution, Ethereum can be credited with taking the concept of a distributed public ledger to new heights. Beyond immutable, transparent and secure value transfers, the Ethereum platform can facilitate the operation of additional blockchain-powered products and services thanks to its <a href=\"https://coincodex.com/article/2637/what-is-a-smart-contract/\" target=\"_blank\">smart contract</a> functionality, and support for fungible and <a href=\"https://coincodex.com/article/2354/what-are-non-fungible-tokens-nfts/\" target=\"_blank\">non-fungible tokens (NFTs)</a>.&nbsp;</p>\n\n<p>These properties allow Ethereum to facilitate decentralized trading of digital assets via decentralized exchanges, allow the gaming sector to make use of unique digital items in the form of NFTs, and lay the foundation for various borrowing, lending and trading applications that aim to challenge offerings of their traditional finance counterparts.</p>\n\n<p><strong>Here&rsquo;s a quick overview of key facts about Ethereum and its core blockchain features:</strong></p>\n\n<ul>\n\t<li>Mainnet launched in 2015 after a successful ICO campaign during which $16 million in BTC was raised</li>\n\t<li>Leading smart contract and dApp platform, enabling users to participate in DeFi and NFT sectors</li>\n\t<li>Users can create custom tokens that run on top of Ethereum</li>\n\t<li>Ethereum currently uses Proof-of-Work but will transition to an energy-efficient Proof-of-Stake consensus mechanism in the future</li>\n</ul>\n\n<h3>What is Ethereum and how does it work?</h3>\n\n<p>Ethereum, like all other cryptocurrencies, uses blockchain technology and operates through a decentralized network of nodes that communicate with each other in order to maintain the network and provide decentralized services for its users. According to <a href=\"https://ethernodes.org/?synced=1\" rel=\"nofollow noopener\" target=\"_blank\">ethernodes.org</a>, there are more than 5600 active synced Ethereum nodes in operation as of May 2022.</p>\n\n<p>Ethereum makes it possible for users to create smart contracts and <a href=\"https://coincodex.com/article/2174/what-are-dapps/\" target=\"_blank\">decentralized applications</a> (<a href=\"https://coincodex.com/article/2174/what-are-dapps/\" target=\"_blank\">dApps</a>). Once these apps and contracts are deployed on the Ethereum network, they are executed exactly as programmed, ensuring that no third-party entity can tamper with smart contract data.</p>\n\n<p>Ethereum&rsquo;s native digital asset ETH&ndash;called Ether&ndash;is used to pay for transaction fees and to interact with dApps on the platform. New ETH is issued via cryptocurrency mining - a computational procedure that verifies transactions and adds new transactions to the blockchain through the <a href=\"https://coincodex.com/article/2469/what-is-proof-of-work-pow/\" target=\"_blank\">Proof-of-Work (PoW) method</a>. Miners are incentivized to use powerful hardware to solve complex mathematical problems involved in PoW mining with ETH rewards, which successful miners receive as a reward for generating a new Ethereum block.</p>\n\n<p>ETH is not the only asset that can be sent through the Ethereum network - users can create custom tokens and set the token parameters (such as the maximum supply, for instance) to their liking. In fact, new token issuance was one of the features that enabled Ethereum to get a lot of traction within the cryptocurrency community. Ethereum&rsquo;s unique properties enabled teams to run <a href=\"https://coincodex.com/ico-calendar/\" target=\"_blank\">ICOs</a>, which gave numerous crypto projects the opportunity to raise funds to launch their products and services.</p>\n\n<p>On Ethereum, users can also create non-fungible tokens, which is a unique use-case enabled by blockchain technology &ndash; NFTs are verifiably scarce digital objects, which is why they&rsquo;re often called &ldquo;crypto collectibles.&rdquo; CryptoKitties is an example of a dApp that leverages NFTs.</p>\n\n<p>One of the major emerging trends in the Ethereum ecosystem is <a href=\"https://coincodex.com/article/7954/what-is-decentralized-finance-defi/\" target=\"_blank\">decentralized finance</a>, commonly referred to with the abbreviation &ldquo;DeFi&rdquo;. This term refers to the numerous protocols built on top of Ethereum that allow users to lend, borrow, buy and sell their cryptocurrency without having to trust an intermediary in the process.</p>\n\n<h3>Ethereum Price History</h3>\n\n<p>As mentioned above, ETH tokens first entered circulation via an ICO and started trading in August 2015. While the initial public sale price of ETH was just $0.31 per coin, ETH price reached $2.77 on its first trading day. After the initial rally, ETH had dropped to $0.81 on its second trading day and didn&rsquo;t break the $1 mark until the start of 2016. In subsequent years, the value of each ETH coin reached as high as $4,867 in November 2021, a massive, 15,700x increase compared to its ICO price.</p>\n\n<p>Here are some key milestones in Ethereum&rsquo;s <a href=\"https://coincodex.com/crypto/ethereum/historical-data/\" target=\"_blank\">price history</a>:</p>\n\n<ul>\n\t<li>$0.31 - Initial investors were able to purchase ETH for $0.31 worth of BTC during 2014&rsquo;s ICO campaign</li>\n\t<li>$1 - ETH surpassed the $1 mark on its first trading day in August 2015&nbsp;&nbsp; &nbsp;</li>\n\t<li>$10 - The first time that the ETH price climbed over $10 was in March 2016&nbsp;&nbsp; &nbsp;</li>\n\t<li>$100 - The first time that ETH was worth more than $100 was in May 2017&nbsp;&nbsp; &nbsp;</li>\n\t<li>$1,000 - ETH surpassed $1,000 for the first time ever in January 2018</li>\n\t<li>$4,867 - Ethereum price reached its all-time high of $4,867 in November 2021</li>\n</ul>\n\n<p>As a vehicle to transfer value on the Ethereum networks, ETH price is heavily correlated to supply and demand dynamics and thus directly influenced by network user numbers, the popularity of dApps, and overall health of the blockchain ecosystem.</p>\n\n<p>In addition, the price of each ETH is also largely dependent on the total number of tokens in circulation. Unlike Bitcoin, which has an artificially set max supply of 21 million coins, Ethereum has no cap on its supply. However, the number of tokens in circulation is in part regulated by the Ethereum mining process, which regulates the rate at which new tokens enter circulation, and ETH burning, a deflationary process launched via 2021&rsquo;s <a href=\"https://coincodex.com/article/9921/what-is-eip-1559-and-how-it-will-lower-ethereum-gas-fees-and-make-eth-more-scarce/\" target=\"_blank\">EIP-1559</a> that transfers a part of every ETH transactions&rsquo; fee to a dead wallet (a blockchain wallet with no access key).</p>\n\n<p>On CoinCodex, you can stay up to date with the latest information regarding Ethereum and check algorithmically generated <a href=\"https://coincodex.com/crypto/ethereum/price-prediction/\" target=\"_blank\">Ethereum price predictions</a> to gain a sense of where its price is likely headed in the near term.</p>\n\n<h3>Ethereum Supply</h3>\n\n<p>Ethereum supply is uncapped, which means there is no maximum amount of tokens that can be in circulation at the same time. This comes as a stark contrast to a cryptocurrency like Bitcoin, which has a hard cap of 21 million coins.</p>\n\n<p>New ETH tokens enter circulation via a process known as mining. As of May 2022, there are over 120 million ETH in circulation. Per Etherscan data, the supply of ETH has grown at an approximately 10% yearly pace since 2016. It is worth noting that the supply growth rate has decreased in recent years, mostly due to EIP-1559, which introduced <a href=\"https://coincodex.com/article/12180/the-impact-of-eip-1559-continues-as-eth-sees-its-first-deflationary-day/\" target=\"_blank\">deflationary pressure</a> on the cryptocurrency via real-time ETH burns.</p>\n\n<p>With the price of Ethereum skyrocketing in recent years, most investors cannot afford to buy a whole Ethereum coin. However, this doesn&rsquo;t prevent investors from gaining exposure to ETH with only a small amount of funds. Investors can buy a fraction of ETH for as little as $1, or even less, using various <a href=\"https://coincodex.com/article/13761/3-simple-ways-to-buy-ethereum/\" target=\"_blank\">simple methods to buy Ethereum</a>. &nbsp;&nbsp;</p>\n\n<p>New ETH tokens enter circulation as a block mining reward. As of the time of writing, the block reward is <a href=\"https://eth.wiki/fundamentals/mining#:~:text=Mining%20Rewards&amp;text=A%20static%20block%20reward%20for,compensated%20for%20by%20the%20senders.\" rel=\"nofollow noopener\" target=\"_blank\">set to exactly 3 ETH</a>. Since 2019, 13,000 ETH are, on average, distributed each day to successful miners, according to <a href=\"https://ycharts.com/indicators/ethereum_block_rewards_per_day\" rel=\"nofollow noopener\" target=\"_blank\">data</a> curated by YCharts.</p>\n\n<h3>Ethereum Market Cap</h3>\n\n<p>Ethereum claimed the second largest market cap in the industry in its early days, second only to Bitcoin. Since then, Ethereum never relinquished its relative market position. Thanks to its widespread popularity and high market cap, Ethereum regularly sits near the top of the 24 hours crypto market trading volume charts.&nbsp;</p>\n\n<p>Ethereum reached its highest market cap value in November 2021, which was the first time in history that the combined value of all digital assets hit $3 trillion. At the time, Ethereum&rsquo;s market cap skyrocketed to almost $550 billion. You can follow up to date <a href=\"https://coincodex.com/crypto/ethereum/exchanges/\" target=\"_blank\">ETH markets</a> and the current activity on the <a href=\"https://coincodex.com/crypto/ethereum/exchanges/\" target=\"_blank\">cryptocurrency exchanges</a> across hundreds of trading pairs on CoinCodex.</p>\n\n<p>Here&rsquo;s what the ETH price chart tells us about the most notable Ethereum market cap milestones:</p>\n\n<ul>\n\t<li>$100 million - Ethereum surpassed a 100$ million market cap shortly after its mainnet launch in August 2015</li>\n\t<li>$1 billion - Ethereum reaches unicorn status and surpasses the $1 billion market cap milestone in May 2016</li>\n\t<li>$20 billion - Ethereum reached $100 price point for the first time in May 2017, which pushed its total market cap beyond $20 billion</li>\n\t<li>$100 billion - The market cap of Ethereum reached hectocorn levels in January 2018</li>\n\t<li>$200 billion - After more than a two-year long crypto winter, Ethereum surpassed a $200 billion market cap in May 2021</li>\n\t<li>$500 billion - ETH market cap reached a half-trillion dollar valuation in October 2021</li>\n</ul>\n\n<h3>The most important Ethereum milestones</h3>\n\n<p>Ethereum has experienced numerous notable milestones in its roughly decade-long history. Here is a list of important dates and events that have shaped Ethereum and the broader crypto community since its inception:</p>\n\n<ul>\n\t<li>December 2013 - Vitalik Buterin publishes the Ethereum white paper</li>\n\t<li>June 2014 - The Ethereum team looks to raise $16 million in an ICO campaign</li>\n\t<li>August 2014 - Roughly 51 million ETH were sold in the two month long initial public sale</li>\n\t<li>July 2015 - Ethereum mainnet launches</li>\n\t<li>August 2015 - ETH starts trading</li>\n\t<li>July 2016 - Ethereum forks into two blockchains&ndash;Ethereum and <a href=\"https://coincodex.com/crypto/ethereum-classic/\" target=\"_blank\">Ethereum Classic</a>&ndash;as a result of a smart contract hack</li>\n\t<li>February 2018 - Ethereum controls over 80% market share of ICOs, with most new tokens based on the ERC-20 standard</li>\n\t<li>December 2019 - Istanbul hard fork takes place and sets the stage for the Proof-of-Stake transition</li>\n\t<li>December 2020 - The <a href=\"https://coincodex.com/article/10114/ethereum-20-beacon-chain-launches-visa-looks-to-integrate-usdc-stablecoin-the-top-5-crypto-news-of-the-week/\" target=\"_blank\">Beacon Chain goes live</a> and kicks off &ldquo;Phase 0&rdquo; of the Ethereum 2.0 rollout</li>\n\t<li>August 2021 - The London upgrade goes live and introduces real-time ETH burning</li>\n\t<li>September 2022 - Ethereum <a href=\"/article/19178/the-merge-completes-successfullyethereum-mainnet-officially-adopts-proof-of-stake/\" target=\"_blank\">transitions from PoW to PoS</a> after a successful Merge;&nbsp;a&nbsp;part of the Ethereum community protests the transition, which results in a split and subsequent launch of <a href=\"https://coincodex.com/crypto/ethereum-pow/\" target=\"_blank\">Ethereum PoW (ETHW)</a></li>\n</ul>\n\n<h3>Creation of Ethereum</h3>\n\n<p>Ethereum <a href=\"https://ethereum.org/en/whitepaper/\" rel=\"nofollow noopener\" target=\"_blank\">white paper</a> was published in 2014 by a then 19-year-old Vitalik Buterin, who envisioned a platform that uses blockchain technology to keep immutable transaction history data, like Bitcoin, while housing decentralized self-executing programs that later became known as dApps.&nbsp;</p>\n\n<p>Two years after the white paper was published, the Ethereum platform was launched by Buterin and Joseph Lubin, a Canadian-American entrepreneur and founder of ConsenSys. In addition to Buterin and Lubin, additional Ethereum co-founders include Gavin Wood (creator of smart contract programming language Solidity and creator of <a href=\"https://coincodex.com/crypto/polkadot/\" target=\"_blank\">Polkadot</a> and <a href=\"https://coincodex.com/crypto/kusama/\" target=\"_blank\">Kusama</a>), Charles Hoskinson (American entrepreneur and founder of <a href=\"https://coincodex.com/crypto/cardano/\" target=\"_blank\">Cardano</a>), and Anthony Di Iorio (early Bitcoin investor and CEO of Decentral).</p>\n\n<p>Since the initial launch, the Ethereum platform has undergone several protocol updates (commonly referred to as hard forks), with each introducing new functionality, changes to incentives, and security upgrades. The last protocol upgrade, called <a href=\"https://coincodex.com/article/11869/ethereum-s-london-hard-fork-is-now-live-over-4000-eth-already-burned/\" target=\"_blank\">London hard fork</a>, took place in August 2021.</p>\n\n<p>In 2016, Ethereum suffered a $150 million hack of a decentralized autonomous organization that was designed to raise funds for project development. In the hack&#39;s aftermath, Ethereum was <a href=\"https://coincodex.com/article/5514/what-is-ethereum-classic/\" target=\"_blank\">split into two blockchains</a>: Ethereum, which reimbursed stolen funds, and <a href=\"https://coincodex.com/crypto/ethereum-classic/\" target=\"_blank\">Ethereum Classic</a>, which continued on the original chain.</p>\n\n<h3>Ethereum Token Types</h3>\n\n<p>Ethereum makes it possible for multiple token types to be issued and take advantage of the smart contract characteristics of the network. To ensure smart contact compatibility, Ethereum uses <a href=\"https://coincodex.com/article/2129/ethereum-token-standards-erc20-erc721-erc223-and-more/\" target=\"_blank\">token standards</a>, a set of rules that define various blockchain parameters such as token creation, transaction properties, spending, etc. Here are the four most important and popular Ethereum token standards:</p>\n\n<ul>\n\t<li>ERC-20: Fungible token interface with six primary functions that allow the creation of tokens that can be used by dApps&nbsp;</li>\n\t<li>ERC-721: Non-fungible token interface that defines parameters of NFTs on the Ethereum blockchain. In contrast to <a href=\"https://coincodex.com/article/56/what-are-erc-20-tokens/\" target=\"_blank\">ERC-20 tokens</a>, NFTs are unique, which makes them a great option to represent ownership records on-chain</li>\n\t<li>ERC-777: Allows users to issue privacy-focused tokens that take advantage of functions such as a mixer contract</li>\n\t<li>ERC-1155: A standard for both NFTs and fungible tokens that introduces cost saving features via transaction bundling</li>\n</ul>\n\n<h3>Ethereum Gas Fees</h3>\n\n<p>ETH tokens are used to pay transaction fees, also referred as gas, on the Ethereum network. Gas is measured in Gwei, which represents 0.000000001 ETH. Each transaction needs many operations to complete, which spends a certain amount of gas.</p>\n\n<p>In its current iteration, Ethereum can process roughly 30 transactions per second (TPS). Due to a rising number of DeFi use cases and the explosive growth of NFTs, network congestion is a significant problem for Ethereum because it leads to high transaction costs.&nbsp;</p>\n\n<p>Several Layer 2 solutions have emerged in recent years to reduce the problems associated with high transaction costs on the platform. Layer 2 scaling solutions, like <a href=\"https://coincodex.com/crypto/matic-network/\" target=\"_blank\">Polygon</a> and Arbitrum, allow transactions to be processed at a lower cost and greater speed away from the Ethereum mainnet. Although the full rollout of the Ethereum 2.0 upgrade will increase the throughput of the mainnnet and make transactions way cheaper, it probably won&#39;t make <a href=\"https://coincodex.com/article/13691/will-layer-2-solutions-become-obsolete-once-ethereum-20-is-live/\" target=\"_blank\">Layer 2 scaling solutions obsolete</a>.</p>\n\n<h3>Ethereum 2.0 upgrade</h3>\n\n<p>To alleviate the problems of high transaction costs and network congestion, the Ethereum team plans to increase the TPS figure to up to 100,000 as a part of the <a href=\"https://coincodex.com/article/5748/what-exactly-is-ethereum-20/\" target=\"_blank\">Ethereum 2.0 upgrade</a>. In addition to facilitating a higher number of transactions, the upgrade will also see Ethereum transition from a power-hungry Proof-of-Work to an up to 99% more energy-efficient <a href=\"https://coincodex.com/cryptocurrencies/sector/proof-of-stake/\" target=\"_blank\">Proof-of-Stake consensus mechanism</a>.&nbsp;</p>\n\n<p>The transition from the PoW to PoS picked up steam in August 2021, with the launch of the London hard fork. The exact release date for a PoS-compatible Ethereum mainnet is currently not yet known. However, the team does have its sights set on the second half of 2022 and recently revealed that the PoW on Ethereum is in its &ldquo;final chapter.&rdquo;</p>\n\n<p>It is worth noting that the Ethereum team has moved away from the &ldquo;Eth2&rdquo; terminology, citing clarity and correct representation of the Ethereum road map as the main reasons.&nbsp;</p>\n\n<p>The new Ethereum upgrade will not only help make transactions cheaper and faster, but will also significantly increase the scalability of the platform and lay the groundwork for a Web3 future. The full rollout of Proof-of-Stake supporting Ethereum, called &ldquo;<a href=\"https://coincodex.com/article/14234/dont-expect-the-merge-in-june-but-developer-says-pow-on-ethereum-is-in-its-final-chapter/\" target=\"_blank\">The Merge</a>&rdquo;, will take place in the following phases:</p>\n\n<ul>\n\t<li>Phase 0: Started with the launch of the Beacon Chain in 2020.&nbsp;</li>\n\t<li>Phase 1: The launch of shard chains&ndash;proof-of-stake blockchains that use validators to confirm transactions&ndash;is expected in 2022. At this stage, shards won&rsquo;t be supporting smart contracts.</li>\n\t<li>Phase 1.5: In this phase, the legacy Ethereum chain will transition to a Proof-of-Stake consensus and will be connected to the Ethereum 2 chain&nbsp;</li>\n\t<li>Phase 2: Shard chains will be able to communicate with one another and make use of smart contracts.</li>\n</ul>\n\n<h4>Ethereum 2.0 Staking</h4>\n\n<p>Instead of relying on miners to secure the network&ndash;as is currently the case&ndash;after the Merge is completed, transaction validation and the general upkeep of the network will be performed by network validators who will be able to <a href=\"https://coincodex.com/article/12228/stake-ethereum-2/\" target=\"_blank\">earn ETH staking rewards</a>.</p>\n",
-    "price_high_24_usd": 2872.913810622,
-    "price_low_24_usd": 2095.48,
+    "price_high_24_usd": 3813.0002,
+    "price_low_24_usd": 3744.5133,
     "start": "2014-07-22 00:00:00",
     "end": "2014-09-02 23:59:00",
-    "is_promoted": "false",
+    "is_promoted": null,
     "message": "<p class=\"message\">Ethereum is featured as the #1 altcoin to buy. <a target=\"_blank\" href=\"https://coincodex.com/article/22819/best-altcoins-to-buy/\">Read more &raquo;</a>",
     "website": "https://www.ethereum.org/",
     "whitepaper": "https://coincodex.com/article/20982/ethereum-whitepaper-explained/",
-    "total_supply": null,
-    "supply": 120116737,
+    "total_supply": "0",
+    "supply": 120136768,
     "platform": "ETH",
     "how_to_buy_url": null,
-    "last_price_usd": 3006.7488,
-    "price_change_1H_percent": "0.6086",
-    "price_change_1D_percent": "3.959",
-    "price_change_7D_percent": "-0.3686",
-    "price_change_30D_percent": "-3.9362",
-    "price_change_90D_percent": "6.095",
-    "price_change_180D_percent": "55.1297",
-    "price_change_365D_percent": "64.9344",
-    "price_change_3Y_percent": "-15.2674",
-    "price_change_5Y_percent": "1199.4033",
-    "price_change_ALL_percent": 87050.8761,
-    "price_change_YTD_percent": "30.029",
-    "volume_24_usd": 25371652096,
-    "trading_since": "2015-08-07 14:55:00",
+    "last_price_usd": 3798.8725,
+    "price_change_1H_percent": 0.205,
+    "price_change_1D_percent": 0.8591,
+    "price_change_7D_percent": -1.0105,
+    "price_change_30D_percent": 19.0298,
+    "price_change_90D_percent": 0.782,
+    "price_change_180D_percent": 59.5324,
+    "price_change_365D_percent": 109.109,
+    "price_change_3Y_percent": 41.8164,
+    "price_change_5Y_percent": 1426.01,
+    "price_change_ALL_percent": 110011,
+    "price_change_YTD_percent": 65.5437,
+    "volume_24_usd": 17323065344,
+    "trading_since": "2024-06-05 07:53:46",
     "stages_start": "2014-07-22 00:00:00",
     "stages_end": "2014-09-02 23:59:00",
     "include_supply": "true",
     "use_volume": "true",
-    "ath_usd": "4867.17",
+    "ath_usd": 4867.17,
     "ath_date": "2021-11-10 16:05:00",
-    "not_trading_since": null,
-    "last_update": "2024-03-07 19:02:29",
+    "not_trading_since": "2024-06-05 07:53:46",
+    "last_update": "2024-06-05 07:52:33",
     "cycle_low_usd": 897.011,
-    "cycle_high_usd": 3897.51,
+    "cycle_high_usd": 4094.18,
     "cycle_low_date": "2022-06-18 20:55:00",
-    "cycle_high_date": "2024-03-06 12:05:00",
+    "cycle_high_date": "2024-03-12 00:20:00",
     "image_id": "6e6e4e74-e3de-43b5-6b30-ed41e9b95c00",
-    "cover_image_id": "959d1acc-568c-4de0-50a2-813207ca2b00",
-    "image_t": 1635175785,
-    "total_total_supply": "120114025",
+    "image_t": "6e6e4e74-e3de-43b5-6b30-ed41e9b95c00",
+    "total_total_supply": "120136768",
     "initial_data": {
-        "date": "2015-08-07 14:55:00",
+        "date": "2024-06-05 07:53:46",
         "price_usd": "3.45005",
         "price_btc": "0.0123583",
         "price_eth": "1"
@@ -65,7 +64,7 @@
         "ath_btc": 0.153698,
         "ath_btc_date": "2017-06-13 01:40:00",
         "ath_eth": 1,
-        "ath_eth_date": "2024-03-07 17:00:00"
+        "ath_eth_date": "2024-06-04 21:55:00"
     },
     "atl_data": {
         "atl_usd": 0.420897,
@@ -73,130 +72,94 @@
         "atl_btc": 0.00147174,
         "atl_btc_date": "2015-11-04 13:35:00",
         "atl_eth": 1,
-        "atl_eth_date": "2024-03-07 17:00:00"
+        "atl_eth_date": "2024-06-04 21:55:00"
     },
     "social": {
-        "Explorer": "https://etherscan.io/",
+        "Explorer": "https://coincodex.enjinx.io/eth/transactions",
         "Bitcointalk": "https://bitcointalk.org/index.php?topic=428589.0",
-        "Message Board": "https://forum.ethereum.org/",
-        "Twitter": "https://twitter.com/ethereum",
-        "Reddit": "https://www.reddit.com/r/ethereum",
-        "GitHub": "https://github.com/ethereum",
         "Chat": "https://gitter.im/orgs/ethereum/rooms",
-        "Explorer1": "https://www.etherchain.org/",
-        "Explorer2": "https://blockchair.com/ethereum",
-        "Explorer3": "https://coincodex.enjinx.io/eth/transactions",
+        "Explorer1": "https://etherscan.io/",
+        "Explorer2": "https://www.etherchain.org/",
+        "Explorer3": "https://blockchair.com/ethereum",
         "Explorer4": "https://nearblocks.io/token/aurora",
-        "Explorer5": "https://eth.tokenview.io"
+        "Explorer5": "https://eth.tokenview.io",
+        "GitHub": "https://github.com/ethereum",
+        "Message Board": "https://forum.ethereum.org/",
+        "Reddit": "https://www.reddit.com/r/ethereum",
+        "Twitter": "https://twitter.com/ethereum"
     },
     "socials": [
         {
             "name": "Explorer",
-            "id": "519674",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
-            "value": "https://etherscan.io/",
-            "label": "Etherscan",
-            "order_by": "0"
+            "value": "https://coincodex.enjinx.io/eth/transactions",
+            "label": "CoinCodex",
+            "coincodex_socials_id": 13
         },
         {
             "name": "Bitcointalk",
-            "id": "519677",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "8",
             "value": "https://bitcointalk.org/index.php?topic=428589.0",
             "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "Message Board",
-            "id": "519680",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "14",
-            "value": "https://forum.ethereum.org/",
-            "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "Twitter",
-            "id": "519683",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "3",
-            "value": "https://twitter.com/ethereum",
-            "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "Reddit",
-            "id": "519686",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "2",
-            "value": "https://www.reddit.com/r/ethereum",
-            "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "GitHub",
-            "id": "519689",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "9",
-            "value": "https://github.com/ethereum",
-            "label": "",
-            "order_by": "0"
+            "coincodex_socials_id": 8
         },
         {
             "name": "Chat",
-            "id": "519692",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "15",
             "value": "https://gitter.im/orgs/ethereum/rooms",
             "label": "",
-            "order_by": "0"
+            "coincodex_socials_id": 15
         },
         {
             "name": "Explorer",
-            "id": "519695",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
+            "value": "https://etherscan.io/",
+            "label": "Etherscan",
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Explorer",
             "value": "https://www.etherchain.org/",
             "label": "Etherchain",
-            "order_by": "0"
+            "coincodex_socials_id": 13
         },
         {
             "name": "Explorer",
-            "id": "519698",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
             "value": "https://blockchair.com/ethereum",
             "label": "Blockchair",
-            "order_by": "0"
+            "coincodex_socials_id": 13
         },
         {
             "name": "Explorer",
-            "id": "519701",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
-            "value": "https://coincodex.enjinx.io/eth/transactions",
-            "label": "CoinCodex",
-            "order_by": "-1"
-        },
-        {
-            "name": "Explorer",
-            "id": "519704",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
             "value": "https://nearblocks.io/token/aurora",
             "label": "nearblocks",
-            "order_by": "0"
+            "coincodex_socials_id": 13
         },
         {
             "name": "Explorer",
-            "id": "519707",
-            "coincodex_coin_symbol": "ETH",
-            "coincodex_socials_id": "13",
             "value": "https://eth.tokenview.io",
             "label": "Tokenview",
-            "order_by": "0"
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "GitHub",
+            "value": "https://github.com/ethereum",
+            "label": "",
+            "coincodex_socials_id": 9
+        },
+        {
+            "name": "Message Board",
+            "value": "https://forum.ethereum.org/",
+            "label": "",
+            "coincodex_socials_id": 14
+        },
+        {
+            "name": "Reddit",
+            "value": "https://www.reddit.com/r/ethereum",
+            "label": "",
+            "coincodex_socials_id": 2
+        },
+        {
+            "name": "Twitter",
+            "value": "https://twitter.com/ethereum",
+            "label": "",
+            "coincodex_socials_id": 3
         }
     ]
 }
