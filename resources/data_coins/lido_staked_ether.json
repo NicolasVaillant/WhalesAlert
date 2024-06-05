@@ -1,0 +1,116 @@
+{
+    "symbol": "STETH",
+    "coin_name": "StakeHound Staked Ether",
+    "shortname": "stakehound-staked-ether",
+    "slug": "stakehound-staked-ether",
+    "display_symbol": "STETH",
+    "display": "not_trading_anymore",
+    "release_date": "Invalid Date",
+    "ico_price": null,
+    "today_open": 0,
+    "market_cap_rank": null,
+    "volume_rank": 1588,
+    "description": "<p>Staked Ether is a wrapped version of the original Ethereum token. The Staked Ether&nbsp;gives token holders an extended usability compared to the original Ethereum.</p>\n",
+    "price_high_24_usd": null,
+    "price_low_24_usd": null,
+    "start": null,
+    "end": null,
+    "is_promoted": null,
+    "message": "",
+    "website": "https://stakehound.com/",
+    "whitepaper": "",
+    "total_supply": "0",
+    "supply": 0,
+    "platform": "ETH",
+    "how_to_buy_url": null,
+    "last_price_usd": 1910.615,
+    "price_change_1H_percent": -0.12,
+    "price_change_1D_percent": 0.55,
+    "price_change_7D_percent": 2.14,
+    "price_change_30D_percent": 10.47,
+    "price_change_90D_percent": 0.3,
+    "price_change_180D_percent": 28.87,
+    "price_change_365D_percent": 21.89,
+    "price_change_3Y_percent": 51.04,
+    "price_change_5Y_percent": 51.04,
+    "price_change_ALL_percent": 51.04,
+    "price_change_YTD_percent": 61.62,
+    "volume_24_usd": 437564,
+    "trading_since": "2024-06-05 07:53:47",
+    "stages_start": null,
+    "stages_end": null,
+    "include_supply": "true",
+    "use_volume": "true",
+    "ath_usd": 4818.52,
+    "ath_date": "2021-11-10 17:05:00",
+    "not_trading_since": "2024-06-05 07:53:47",
+    "last_update": "2023-07-20 14:15:58",
+    "cycle_low_usd": 832.478,
+    "cycle_high_usd": 2099.38,
+    "cycle_low_date": "2022-06-18 20:55:00",
+    "cycle_high_date": "2023-04-14 05:50:00",
+    "image_id": "78d49ee0-6294-484a-43a9-1d5cdf1dbb00",
+    "image_t": "78d49ee0-6294-484a-43a9-1d5cdf1dbb00",
+    "total_total_supply": "0",
+    "initial_data": {
+        "date": "2024-06-05 07:53:47",
+        "price_usd": "1264.96",
+        "price_btc": "0.0414422",
+        "price_eth": "0.999046"
+    },
+    "ath_data": {
+        "ath_usd": 4818.52,
+        "ath_usd_date": "2021-11-10 17:05:00",
+        "ath_btc": 0.0879282,
+        "ath_btc_date": "2021-12-09 02:10:00",
+        "ath_eth": 1.11543,
+        "ath_eth_date": "2022-11-14 20:10:00"
+    },
+    "atl_data": {
+        "atl_usd": 832.478,
+        "atl_usd_date": "2022-06-18 20:55:00",
+        "atl_btc": 0.0228568,
+        "atl_btc_date": "2021-07-28 12:20:00",
+        "atl_eth": 0.379749,
+        "atl_eth_date": "2021-08-05 14:10:00"
+    },
+    "social": {
+        "Explorer": "https://etherscan.io/token/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+        "Explorer1": "https://ethplorer.io/address/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+        "Explorer2": "https://eth.tokenview.io/en/address/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+        "Telegram": "https://t.me/stakehound",
+        "Twitter": "https://twitter.com/stakedTokens"
+    },
+    "socials": [
+        {
+            "name": "Explorer",
+            "value": "https://etherscan.io/token/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+            "label": "Etherscan",
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Explorer",
+            "value": "https://ethplorer.io/address/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+            "label": "Ethplorer",
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Explorer",
+            "value": "https://eth.tokenview.io/en/address/0xdfe66b14d37c77f4e9b180ceb433d1b164f0281d",
+            "label": "Tokenview",
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Telegram",
+            "value": "https://t.me/stakehound",
+            "label": "",
+            "coincodex_socials_id": 6
+        },
+        {
+            "name": "Twitter",
+            "value": "https://twitter.com/stakedTokens",
+            "label": "",
+            "coincodex_socials_id": 3
+        }
+    ]
+}

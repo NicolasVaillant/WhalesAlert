@@ -7,56 +7,55 @@
     "display": "true",
     "release_date": "2013-12-12",
     "ico_price": null,
-    "today_open": 0.157831576,
+    "today_open": 0,
     "market_cap_rank": 9,
-    "volume_rank": 10,
+    "volume_rank": 4,
     "description": "<p>Dogecoin is an open source peer-to-peer (P2P) cryptocurrency launched in December 2013 by software engineers Billy Markus and Jackson Palmer. Dogecoin was initially launched as a parody project, poking fun at the wild speculation and grandiose plans permeating the crypto sector in the early 2010s. Staying true to its &ldquo;meme&rdquo; origins, the first meme coin adopted the image of a Shiba Inu dog breed from a widely popular <a href=\"https://en.wikipedia.org/wiki/Doge_(meme)\" rel=\"nofollow noopener\" target=\"_blank\">internet joke</a> from 2013 as its logo.</p>\n\n<p>Although the founders of Dogecoin launched the crypto as a &ldquo;joke&rdquo;, the meme-inspired digital currency amassed quite a following on social media and in the blockchain community, which helped the Dogecoin ecosystem grow past its humble beginnings. The cryptocurrency also caught the attention of tech billionaire and Tesla CEO Elon Musk, who played a large part in popularizing Dogecoin over the years. In addition, <a href=\"https://coincodex.com/article/13408/dogecoin-jumps-over-10-after-tesla-starts-accepting-doge-payments-for-merch/\" target=\"_blank\">Tesla started accepting DOGE</a> in its online stores in early 2022.&nbsp;</p>\n\n<p>Like <a href=\"https://coincodex.com/crypto/bitcoin/\" target=\"_blank\">Bitcoin</a>, Dogecoin uses the <a href=\"https://coincodex.com/article/2469/what-is-proof-of-work-pow/\" target=\"_blank\">Proof-of-Work (PoW)</a> consensus algorithm to verify transactions, produce new blockchain blocks, and reward cryptocurrency miners with DOGE tokens. Dogecoin doesn&rsquo;t offer all the bells and whistles&ndash;like smart contracts, decentralized exchanges, NFTs, etc.&ndash;many other cryptocurrency platforms do. However, the original meme coin excels in providing a secure and low-cost platform for cryptocurrency transactions.</p>\n\n<p>In the years since Dogecoin&rsquo;s launch, many other cryptocurrency projects have tried to replicate the market success of the original memecoin. Over time, the <a href=\"https://coincodex.com/cryptocurrencies/sector/meme/\" target=\"_blank\">meme coins</a> sector has given birth to a number of popular digital currencies, including <a href=\"https://coincodex.com/crypto/shiba-inu/\" target=\"_blank\">Shiba Inu</a> and <a href=\"https://coincodex.com/crypto/magic-internet-money/\" target=\"_blank\">Magic Internet Money</a>.</p>\n\n<p>Here&rsquo;s a quick overview of Dogecoin&rsquo;s key facts and core blockchain features:</p>\n\n<ul>\n\t<li>Dogecoin launched in December 2013 as the first memecoin, poking fun at grandiose plans of certain blockchain projects at the time</li>\n\t<li>Dogecoin is an open source peer-to-peer (P2P) digital currency allowing users to transfer funds across borders with low fees</li>\n\t<li>Dogecoin was the brainchild of IBM&rsquo;s software engineer Billy Markus and Adobe Systems&rsquo; marketing expert Jackson Palmer</li>\n\t<li>Similar to Bitcoin, Dogecoin uses Proof-of-Work consensus mechanics and offers no advanced blockchain features such as smart contracts</li>\n\t<li>Dogecoin is the third largest PoW coin by market cap, trailing only Bitcoin and Ethereum</li>\n\t<li>Tesla and SpaceX CEO Elon Musk is a major proponent of Dogecoin, having mentioned the coin in his TIME Magazine&rsquo;s Person of the Year Interview and during his Saturday Night Live (SNL) appearance</li>\n\t<li>The original meme coin and the reason behind the rise of the meme cryptocurrencies and popular cryptocurrencies such as Shiba Inu and Magic Internet Money</li>\n</ul>\n\n<h3>What is Dogecoin and how does it work?</h3>\n\n<p>Dogecoin is a Proof-of-Work digital currency launched in late 2013 as a parody of the widely speculative crypto sector at the time. The meme coin features an image of the Shiba Inu&ndash;a breed of hunting dog from Japan&ndash;from an internet meme that went viral in 2013.</p>\n\n<p>At its core, Dogecoin is a Proof-of-Work cryptocurrency, which means that it relies on a network of cryptocurrency miners to verify transactions and ensure all network participants are in agreement on the state of the distributed ledger. In return for employing their computational power to secure the network and verify on-chain data, Dogecoin miners are compensated with DOGE tokens.</p>\n\n<p>In this sense, Dogecoin is a lot like Bitcoin, as both blockchain networks natively support a very limited array of use cases - namely, a secure and decentralized platform for cryptocurrency transactions. Despite their similarities, there are considerable differences in how the two coins approach their monetary policy. Contrary to Bitcoin which has a capped token supply of 21 million, Dogecoin employs an inflationary monetary model with no maximum supply.&nbsp;</p>\n\n<p>Since Dogecoin launched as a fork of Luckcycoin, a fork of a popular digital currency <a href=\"https://coincodex.com/crypto/litecoin/\" target=\"_blank\">Litecoin</a>, Dogecoin can be merge-mined alongside LTC. The sharing of the mining infrastructure provides stability and legacy support for the Dogecoin network.</p>\n\n<p>Thanks to its Scrypt-based hash function, Dogecoin miners have a chance to earn <a href=\"https://coincodex.com/convert/dogecoin/usd/10000/\" target=\"_blank\">10,000 DOGE</a> via each block reward. For context, Dogecoin has a block time of 1 minute. It is worth noting that Scrypt technology prohibits the use of SHA-256 Bitcoin mining equipment. The block reward distribution process is randomized, the same as in Bitcoin.</p>\n\n<p>Dogecoin, the third largest Proof-of-Work cryptocurrency in terms of market cap, is slated to transition from Proof-of-Work to <a href=\"https://coincodex.com/article/7142/what-is-proof-of-stake/\" target=\"_blank\">Proof-of-Stake (PoS)</a> consensus mechanism in the future. Ethereum co-founder <a href=\"https://coincodex.com/article/2995/top-10-facts-you-didnt-know-about-vitalik-buterin/\" target=\"_blank\">Vitalik Buterin</a> joined the Dogecoin Foundation in mid-2021 and <a href=\"https://indianexpress.com/article/technology/crypto/heres-why-dogecoin-is-migrating-to-proof-of-stake-consensus-mechanism-7756973/\" rel=\"nofollow noopener\" target=\"_blank\">confirmed</a> he is helping the project move away from the energy-intensive PoW.</p>\n\n<h3>Creation of Dogecoin</h3>\n\n<p>Dogecoin was the brainchild of two software engineers &ndash; Billy Markus, who was working at IBM&#39;s Oregon branch, and Jackson Palmer, a former marketing specialist at Adobe Systems. The two programmers launched Dogecoin on December 6, 2013. As mentioned above, Dogecoin was inspired by the viral &ldquo;Doge&rdquo; meme that took the world by storm in the mid-2010s.&nbsp;</p>\n\n<p>From a technical standpoint, Dogecoin originated as a fork of Luckycoin, which is itself a fork of Litecoin, one of the oldest and most trusted cryptocurrencies in the sector. In its early days, this blockchain design component allowed Dogecoin to take advantage of the legacy and well-established crypto like Litecoin to solidify its status among the largest cryptocurrencies.&nbsp;</p>\n\n<p>In 2014, the <a href=\"https://foundation.dogecoin.com/about/\" rel=\"nofollow noopener\" target=\"_blank\">Dogecoin Foundation</a> was launched by the members of the Dogecoin team to provide governance and support for the memecoin project. One of the Foundation&rsquo;s main goals is to pursue the development of Dogecoin as a libertarian-like alternative to fiat currencies.</p>\n\n<p>Since its inception, Dogecoin has always been marketed as the &ldquo;fun and friendly internet currency&rdquo; and has heavily relied on the support of its vibrant community for its ecosystem growth and adoption. In 2019, Tesla CEO and one of the richest people in the world, Elon Musk, <a href=\"https://twitter.com/elonmusk/status/1113173498384441344?lang=en\" rel=\"nofollow noopener\" target=\"_blank\">tweeted</a> &ldquo;Dogecoin rulz,&rdquo; thus showcasing his support for the meme coin and its online community. Since then, the tech billionaire has reiterated his support for Dogecoin on numerous occasions and even went so far as to proclaim it a <a href=\"https://coincodex.com/article/13149/dogecoin-rallies-over-20-after-elon-musk-says-tesla-will-be-accepting-doge-payments-for-merch/\" target=\"_blank\">better digital currency than Bitcoin</a> in his TIME Magazine&rsquo;s Person of the Year Interview in December 2021.</p>\n\n<h3>Dogecoin Price History</h3>\n\n<p>Dogecoin tokens first entered circulation at the tail end of 2013. Our <a href=\"https://coincodex.com/crypto/dogecoin/historical-data/\" target=\"_blank\">historical Dogecoin chart data</a> shows that the price of DOGE was $0.000204 on December 15, 2013. Since then, the memecoin has experienced a turbulent ride consisting of immense price swings. Case in point, in the first seven days, the price of Dogecoin rallied by over 650% to $0.001520 only to plunge by 80% in the next week.</p>\n\n<p>Roughly eight years since it first started trading, Dogecoin experienced a massive spike in its value, which sent DOGE price to its then all-time high of $0.738595 in May 2021, a near 4000x increase compared to its initial price.&nbsp;</p>\n\n<p>The popularity of Dogecoin led to listings on most top cryptocurrency exchanges, which allows each blockchain enthusiast that invests in cryptocurrencies easy access to Dogecoin markets. Cryptocurrency traders can <a href=\"https://coincodex.com/article/3952/how-to-buy-dogecoin-doge-on-binance/\" target=\"_blank\">buy DOGE on Binance</a> and <a href=\"https://coincodex.com/exchange/kucoin/\" target=\"_blank\">Kucoin</a> as well as on virtually every other digital asset trading platform.&nbsp;</p>\n\n<p>To see a glimpse into a potential future doge coin price movement in addition to the Dogecoin price today, you can follow our algorithmically generated Dogecoin price live predictions that take into account the Dogecoin current price and a number of market indicators, including Fear &amp; Greed Index, market sentiment, overall volatility, and more.</p>\n\n<h3>Dogecoin Market Cap</h3>\n\n<p>Over the years, Dogecoin has become one of the largest market cap cryptocurrencies in the world. There are more than 100 billion DOGE tokens in circulation. The project&rsquo;s design envisions that the DOGE circulating supply will continue to grow to infinity as Dogecoin has no maximum supply. This monetary characteristic is putting inflationary pressure on the Dogecoin value, which in turn favors its use case as a method of payment instead of it being primarily a store of value asset.</p>\n\n<p>Here&rsquo;s what the DOGE historical price charts tell us about the most notable Dogecoin market cap milestones:</p>\n\n<ul>\n\t<li>$10 million - Dogecoin surpassed a $10 million market cap in December 2013, weeks after its launch</li>\n\t<li>$100 million - The Dogecoin token market cap surpassed $100 million in December 2017</li>\n\t<li>$1 billion - Dogecoin first claimed the unicorn status in January 2018</li>\n\t<li>$10 billion - The value of all DOGE tokens in circulation reached $10 billion in February 2018</li>\n\t<li>$50 billion - In April 2021, Dogecoin surpassed the $50 billion market cap milestone</li>\n</ul>\n\n<h3>The most important Dogecoin milestones</h3>\n\n<p>Dogecoin can be characterized as one of the biggest success stories in the cryptocurrency space, especially considering its humble and parody-inspired origins. Here&rsquo;s a list of important dates and events that helped solidify Dogecoin as one of the largest decentralized blockchain networks:</p>\n\n<ul>\n\t<li>December 2013 - Dogecoin launches as a parody of the cryptocurrency sector inspired by a vital &ldquo;Doge&rdquo; meme; the prince of DOGE surges over 600% in the first two weeks</li>\n\t<li>December 2013 - Digital wallet <a href=\"https://www.theverge.com/2013/12/26/5244604/millions-of-dogecoin-stolen-in-christmas-hack\" rel=\"nofollow noopener\" target=\"_blank\">Dogewallet gets hacked</a> on Christmas leading to million of stolen coins. However, the spike in social media activity makes Dogecoin the most mentioned altcoin on Twitter at the time</li>\n\t<li>January 2014 - Thanks to a community-led effort, enough DOGE tokens are raised to <a href=\"https://www.digitaltrends.com/cool-tech/dogecoin-dogewallet-hack-save-dogemas/\" rel=\"nofollow noopener\" target=\"_blank\">reimburse</a> all the losses incurred by Dogecoin owners in the Dogecoin wallet hack</li>\n\t<li>January 2014 - Dogecoin.com surpasses one million unique visitors, showcasing the broader crypto community&rsquo;s interest in the project</li>\n\t<li>July 2015 - Co-founder Jackson Palmer leaves the company, saying that Dogecoin is fundamentally flawed and built to enrich its top proponents</li>\n\t<li>January 2018 - Dogecoin surpasses $1 billion market capitalization amidst a prolonged cryptocurrency market pullback</li>\n\t<li>July 2020 - TikTok users start a <a href=\"https://coincodex.com/article/8838/dogecoin-gains-50-in-1-day-thanks-to-viral-campaign-attempting-to-get-doge-to-1/\" target=\"_blank\">trend aiming to get Dogecoin to $1</a>, which leads to DOGE rallying by more than 50% in the span of 24 hours</li>\n\t<li>May 2021 - Dogecoin is showing a year to date (YTD) profit of more than 20,000%</li>\n\t<li>August 2021 - The Dogecoin Foundation re-launches to support the Dogecoin ecosystem; Ethereum co-creator Vitalik Buterin <a href=\"https://markets.businessinsider.com/news/currencies/vitalik-buterin-dogecoin-foundation-elon-musk-cryptocurrency-crypto-2021-8\" rel=\"nofollow noopener\" target=\"_blank\">joins</a> the organization as blockchain and crypto advisor</li>\n\t<li>January 2022 - Electronic vehicle manufacturer Tesla announces Dogecoin as one of the supported payment methods on its online store</li>\n\t<li>April 2022 - Buterin <a href=\"https://www.binance.com/en/news/top/6912062\" rel=\"nofollow noopener\" target=\"_blank\">confirms</a> Dogecoin will migrate from PoW to PoS consensus algorithm&nbsp;</li>\n</ul>\n\n<p><br />\n&nbsp;</p>\n",
-    "price_high_24_usd": 0.133832054,
-    "price_low_24_usd": 0.0884478,
+    "price_high_24_usd": 0.165163,
+    "price_low_24_usd": 0.15671653505112845,
     "start": null,
     "end": null,
     "is_promoted": null,
     "message": "",
     "website": "http://dogecoin.com/",
     "whitepaper": "https://resource.bnbstatic.com/books/20190809/1565347600097.pdf",
-    "total_supply": null,
-    "supply": 144302836384,
+    "total_supply": "0",
+    "supply": 144457886384,
     "platform": "DOGE",
     "how_to_buy_url": null,
-    "last_price_usd": 0.15307297207478734,
-    "price_change_1H_percent": "1.828",
-    "price_change_1D_percent": "4.2581",
-    "price_change_7D_percent": "2.745",
-    "price_change_30D_percent": "0.2782",
-    "price_change_90D_percent": "80.1994",
-    "price_change_180D_percent": "85.7436",
-    "price_change_365D_percent": "112.058",
-    "price_change_3Y_percent": "-70.6592",
-    "price_change_5Y_percent": "5095.9032",
-    "price_change_ALL_percent": 28062.5903,
-    "price_change_YTD_percent": "69.133",
-    "volume_24_usd": 5937461760,
-    "trading_since": "2013-12-15 14:50:00",
+    "last_price_usd": 0.1639253657397805,
+    "price_change_1H_percent": -0.2019,
+    "price_change_1D_percent": 3.6324,
+    "price_change_7D_percent": -3.3448,
+    "price_change_30D_percent": 0.3723,
+    "price_change_90D_percent": 9.9612,
+    "price_change_180D_percent": 68.2729,
+    "price_change_365D_percent": 145.974,
+    "price_change_3Y_percent": -56.6305,
+    "price_change_5Y_percent": 4814.72,
+    "price_change_ALL_percent": 30059.2,
+    "price_change_YTD_percent": 81.8448,
+    "volume_24_usd": 59060703232,
+    "trading_since": "2024-06-05 07:53:47",
     "stages_start": null,
     "stages_end": null,
     "include_supply": "true",
     "use_volume": "true",
-    "ath_usd": "0.738595",
+    "ath_usd": 0.738595,
     "ath_date": "2021-05-08 05:00:00",
-    "not_trading_since": null,
-    "last_update": "2024-03-07 19:02:29",
+    "not_trading_since": "2024-06-05 07:53:47",
+    "last_update": "2024-06-05 07:52:33",
     "cycle_low_usd": 0.0497006,
-    "cycle_high_usd": 0.20332,
+    "cycle_high_usd": 0.227362,
     "cycle_low_date": "2022-06-18 20:55:00",
-    "cycle_high_date": "2024-03-05 02:05:00",
+    "cycle_high_date": "2024-03-28 20:00:00",
     "image_id": "7d91b8c0-7d85-4647-a4d0-ba4af086d700",
-    "cover_image_id": "6c02df38-7ccf-4e07-b7d8-90686e040000",
-    "image_t": 1654670385,
-    "total_total_supply": "143371606384",
+    "image_t": "7d91b8c0-7d85-4647-a4d0-ba4af086d700",
+    "total_total_supply": "144457886384",
     "initial_data": {
-        "date": "2013-12-15 14:50:00",
+        "date": "2024-06-05 07:53:47",
         "price_usd": "0.000543533",
-        "price_btc": "0.00000064",
+        "price_btc": "6.4e-7",
         "price_eth": "0"
     },
     "ath_data": {
@@ -76,107 +75,77 @@
         "atl_eth_date": "2017-11-01 12:35:00"
     },
     "social": {
-        "Explorer": "http://dogechain.info/chain/Dogecoin",
         "Bitcointalk": "https://bitcointalk.org/index.php?topic=361813.0",
-        "Twitter": "https://twitter.com/dogecoin",
-        "Reddit": "https://www.reddit.com/r/dogecoin",
-        "GitHub": "https://github.com/dogecoin/dogecoin",
         "Chat": "https://discord.me/dogecoin/",
+        "Explorer": "http://dogechain.info/chain/Dogecoin",
         "Explorer1": "https://doge.tokenview.com",
         "Explorer2": "https://blockchair.com/dogecoin",
+        "Explorer3": "https://doge.tokenview.io",
         "Facebook": "https://www.facebook.com/738700972824847",
-        "Explorer3": "https://doge.tokenview.io"
+        "GitHub": "https://github.com/dogecoin/dogecoin",
+        "Reddit": "https://www.reddit.com/r/dogecoin",
+        "Twitter": "https://twitter.com/dogecoin"
     },
     "socials": [
         {
-            "name": "Explorer",
-            "id": "477130",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "13",
-            "value": "http://dogechain.info/chain/Dogecoin",
-            "label": "DogeChain",
-            "order_by": "0"
-        },
-        {
             "name": "Bitcointalk",
-            "id": "477133",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "8",
             "value": "https://bitcointalk.org/index.php?topic=361813.0",
             "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "Twitter",
-            "id": "477136",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "3",
-            "value": "https://twitter.com/dogecoin",
-            "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "Reddit",
-            "id": "477139",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "2",
-            "value": "https://www.reddit.com/r/dogecoin",
-            "label": "",
-            "order_by": "0"
-        },
-        {
-            "name": "GitHub",
-            "id": "477142",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "9",
-            "value": "https://github.com/dogecoin/dogecoin",
-            "label": "",
-            "order_by": "0"
+            "coincodex_socials_id": 8
         },
         {
             "name": "Chat",
-            "id": "477145",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "15",
             "value": "https://discord.me/dogecoin/",
             "label": "",
-            "order_by": "0"
+            "coincodex_socials_id": 15
         },
         {
             "name": "Explorer",
-            "id": "477148",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "13",
+            "value": "http://dogechain.info/chain/Dogecoin",
+            "label": "DogeChain",
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Explorer",
             "value": "https://doge.tokenview.com",
             "label": "TokenView",
-            "order_by": "0"
+            "coincodex_socials_id": 13
         },
         {
             "name": "Explorer",
-            "id": "477151",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "13",
             "value": "https://blockchair.com/dogecoin",
             "label": "Blockchair",
-            "order_by": "0"
+            "coincodex_socials_id": 13
+        },
+        {
+            "name": "Explorer",
+            "value": "https://doge.tokenview.io",
+            "label": "Tokenview",
+            "coincodex_socials_id": 13
         },
         {
             "name": "Facebook",
-            "id": "477154",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "7",
             "value": "https://www.facebook.com/738700972824847",
             "label": "",
-            "order_by": "0"
+            "coincodex_socials_id": 7
         },
         {
-            "name": "Explorer",
-            "id": "477157",
-            "coincodex_coin_symbol": "DOGE",
-            "coincodex_socials_id": "13",
-            "value": "https://doge.tokenview.io",
-            "label": "Tokenview",
-            "order_by": "0"
+            "name": "GitHub",
+            "value": "https://github.com/dogecoin/dogecoin",
+            "label": "",
+            "coincodex_socials_id": 9
+        },
+        {
+            "name": "Reddit",
+            "value": "https://www.reddit.com/r/dogecoin",
+            "label": "",
+            "coincodex_socials_id": 2
+        },
+        {
+            "name": "Twitter",
+            "value": "https://twitter.com/dogecoin",
+            "label": "",
+            "coincodex_socials_id": 3
         }
     ]
 }
