@@ -90,7 +90,7 @@ def human_format(num):
     return '%.2f%s' % (num, ['', 'K', 'M', 'B', 'T', 'P'][magnitude])
 
 def send_telegram_message(message):
-    with open("./resources/config_python/telegram.json") as f:
+    with open(telegram_json) as f:
         config: dict = json.load(f)
     url = f"https://api.telegram.org/{config['key']}/sendMessage"
     
@@ -136,7 +136,7 @@ def save_tx(total_out, value, tx_percentage_of_supply, url_tx_hash):
 def job_raptoreum() -> None:
     logger_fonction_tx_analyze.info("Job RTM")
 
-    # Récupérez le prix FEC
+    # Récupérez le prix RTM
     price: float = get_raptoreum_price()
 
     # Récupérez les informations sur les transactions
@@ -160,4 +160,4 @@ def job_raptoreum() -> None:
         value = round(float(price) * total_out, 2)
         save_tx(total_out_str, value , round(tx_percentage_of_supply,4), url_tx_hash)
 
-        # send_telegram_message(payload['text'])
+        send_telegram_message(payload['text'])
