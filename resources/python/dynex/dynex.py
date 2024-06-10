@@ -1,7 +1,6 @@
 import json
 import requests
 from requests_oauthlib import OAuth1Session
-from typing import Tuple
 import datetime
 import logging
 from logging.handlers import TimedRotatingFileHandler
@@ -19,7 +18,7 @@ if name == "nt":
 else :
     # Version serveur
     tweet_json = Path("/home", "container", "webroot", "resources", "config_python", "dynex", "tweet.json")
-    config_json = Path("/home", "container", "webroot","resources", "config_python", "dynex", "config.json")
+    config_json = Path("/home", "container", "config_python", "dynex", "config.json")
     telegram_json = Path("/home", "container", "config_python", "telegram.json")
     tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_dynex.json")
     data_coins = Path("/home", "container", "webroot","resources", "data_coins")
