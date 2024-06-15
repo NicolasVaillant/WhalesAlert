@@ -55,6 +55,7 @@
     /* HEADER */
     --hf-color: rgba(var(--tinted-second-light-color) / 98%);
     --active-color: rgba(var(--rgb_active) / 100%);
+    --active-color-op: rgba(var(--rgb_active) / 20%);
     --hf-color-op:rgba(var(--tinted-second-light-color) / 80%);
     --margin-from-header: 2em;
     /* --- */
@@ -93,3 +94,5 @@ html {
     scroll-padding-top: calc(var(--height-header) + var(--margin-from-header));
     background: var(--bg-color);
 }
+
+.fa-solid{text-align: center}

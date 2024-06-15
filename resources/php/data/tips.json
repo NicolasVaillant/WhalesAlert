@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Favorite cryptocurrencies",
+        "text": "On the pages of each cryptocurrency, click on the 'favorite' button to add the currency to the home page."
+    },
+    {
+        "title": "Help the project",
+        "text": "Participate in the development of the project by adding comments to the Github project."
+    },
+    {
+        "title": "Copy your favorite items",
+        "text": "In the table on the home page, the volumes and prices of each currency can be copied independently of each other by clicking on the button <i class=\"fa-regular fa-copy\"></i>."
+    },
+    {
+        "title": "Suggest missing coins",
+        "text": "If you cannot find your currency, you can request its addition by going to the suggestion page. This is available if your search leads nowhere."
+    },
+    {
+        "title": "Clean LocalStorage",
+        "text": "You can clear your browser's site cache by going to the menu at the top right."
+    },
+    {
+        "title": "Search bar",
+        "text": "Use the search bar to navigate to the desired currency page."
+    },
+    {
+        "title": "Refresh Page",
+        "text": "You can refresh the page data by pulling down the menu at the top right and clicking on 'Force refresh'."
+    },
+    {
+        "title": "Refresh Table",
+        "text": "You can refresh the table data by clicking the refresh button above the table."
+    }
+]

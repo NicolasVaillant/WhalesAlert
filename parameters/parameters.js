@@ -6,23 +6,25 @@ const LINK_TO_DATA__trends_user = "resources/php/data/trends_user.json"
 const LINK_TO_DATA__coin = "resources/data_coins/__COIN__.json"
 const LINK_TO_DATA__tx = "resources/data_tx/tx___COIN__.json"
 const LINK_TO_DATA__Files = "resources/php/data/getFiles_coin.json"
-const LINK_TO_DATA__hints = "resources/php/data/hints.json"
+const LINK_TO_DATA__hints = "resources/php/data/tips.json"
 
 const settings = {
     ERROR:{
         'error-loading-data-text':'No data loaded'
     },
     HAMBURGER:{
-        'menu-2':'Force refresh',
+        'menu-2':'Force refresh (entire page)',
         'menu-3':'Mode',
         'menu-4':'Clean Localstorage',
         'menu-4-explanation':'We use LocalStorage of your browser to store information such as favorite cryptocurrencies. <b>By clearing this storage, you may lose some of your preferences.</b>',
+        'menu-5':'Toggle tips',
         'seperator-default':"Tools",
         'seperator-links':"Links"
     },
     GENERAL_text:{
         'intro-banner': 'Get to know us and stay informed by subscribing to the following links.',
-        'backToTop-Text': 'Back to Top'
+        'backToTop-Text': 'Back to Top',
+        'next-tips': 'Next tip'
     },
     HOMEPAGE_text:{
         'home-h2-transactions': 'Live Crypto Prices',
@@ -59,7 +61,8 @@ const settings = {
 const variables = {
     refreshRate: ["30s", "1m", "10m"],
     arrayCryptoLabel: ["Amount", "Value", "Supply (%)", "Link"],
-    version: 2
+    version: 2,
+    suggestionPage: false
 }
 
 const label__darkMode = 'dark-mode-WhalesAlert'

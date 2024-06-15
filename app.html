@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Whales-Alert.fr offers real-time cryptocurrency transaction tracking, market trends, and analytics focused on significant blockchain activity and low market cap gems. Join our community to stay ahead with timely alerts and detailed crypto statistics."/>
+    <meta name="author" content="Whales Alert"/>
+    <meta property="og:title" content="Whales Alert"/>
+    <meta property="og:image" content="https://whales-alert.fr/thumbnail.png"/>
+    <meta property="og:url" content="https://whales-alert.fr"/>
+    <meta property="og:site_name" content="Whales Alert"/>
+    <meta property="og:description" content="Whales-Alert.fr offers real-time cryptocurrency transaction tracking, market trends, and analytics focused on significant blockchain activity and low market cap gems. Join our community to stay ahead with timely alerts and detailed crypto statistics."/>
+    <link type="image/png" sizes="16x16" rel="icon" href="resources/ico/def_16.png">
+    <link type="image/png" sizes="32x32" rel="icon" href="resources/ico/def_32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="resources/ico/def_96.png">
+    <!-- Toast with sweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
+    <!-- Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <!-- icon from fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Parameters files -->
+    <link rel="stylesheet" href="parameters/parameters.css">
+    <script src="parameters/parameters.js" defer></script>
+    <!-- JS FILE(S) -->
+    <script src="resources/js/shared.js" defer></script>
+    <script src="resources/js/app.js" defer></script>
+    <!-- CSS FILE(S) -->
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- css style used to correctly display data tables -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap4.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <!-- script used to correctly display data tables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" defer></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js" defer></script> -->
+    <!-- <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js" defer></script> -->
+    <!-- //cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css -->
+    <title>App | WhalesAlert</title>
+</head>
+<body>
+<main>
+    <header>
+        <div class="wrapper-header">
+            <a class="brand-container" href="index.html">
+                <img src="resources/img/logo.png" alt="Website's logo">
+                <h2>WhalesAlert</h2>
+            </a>
+            <div class="wp-r">
+                <div class="sb-container">
+                    <label for="search-bar-input" class="search-bar">
+                        <input type="text" class="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
+                        <div class="res-sb-top">
+                            <div class="error_no_data hidden">
+                                <i class="fa-solid fa-warning"></i>
+                                <p>No data found</p>
+                            </div>
+                            <div class="extend-suggestion">
+                                <a class="btn-main fallback-crypto"></a>
+                                <a class="btn-main suggest-crypto"></a>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <div class="hamburger-menu">
+                    <span class="info-more">
+                        <i class="fa-solid fa-bars"></i>
+                    </span>
+                    <ul class="hb-container hidden">
+                        <li class="seperator-refresh no-effect"></li>
+                        <li class="refreshRate hidden">
+                            <i class="fa-solid fa-clock"></i>
+                            <text class="menu-1"></text>
+                        </li>
+                        <li class="refreshForce">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <text class="menu-2"></text>
+                        </li>
+                        <li class="seperator-default no-effect"></li>
+                        <li class="">
+                            <label for="darkMode-input">
+                                <i class="fa-solid fa-circle-half-stroke tog_dm_icon"></i>
+                                <text class="menu-3"></text>
+                                <input type="checkbox" id="darkMode-input">
+                            </label>
+                        </li>
+                        <li>
+                            <label for="toggle-ls" class="tooltip-content">
+                                <i class="fa-solid fa-trash-can"></i>
+                                <text class="menu-4"></text>
+                                <span class="texc hidden">
+                                    <text class="menu-4-explanation"></text>
+                                    <div class="row">
+                                        <button 
+                                            class="btn-main confirm cleanLSConfirmButton" 
+                                            btn-clean='false'>Confirm</button>
+                                        <button class="btn-main cancel cleanLSCancelButton">Cancel</button>
+                                    </div>
+                                </span>
+                                <input type="checkbox" id="toggle-ls">
+                            </label>
+                        </li>
+                        <li>
+                            <label for="toggle-tips" class="switch">
+                                <i class="fa-solid fa-toggle-off"></i>
+                                <text class="menu-5"></text>
+                                <input type="checkbox" id="toggle-tips">
+                            </label>
+                        </li>
+                        <li class="seperator-links no-effect"></li>
+                        <li>
+                            <a href="https://t.me/Whales_Alert_info">
+                                <i class="fa-brands fa-telegram"></i>
+                                <text>Telegram channel</text>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linktr.ee/whales_alert">
+                                <i class="fa-solid fa-paperclip"></i>
+                                <text>Linktr.ee</text>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Charles-84/WhalesAlert_Site">
+                                <i class="fa-brands fa-github"></i>
+                                <text>GitHub</text>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper-sub-header-sb hidden">
+        <ul class="collapsible">
+            <li class="">
+                <div class="header-top">
+                    <div class="collapsible-header btn-main">
+                        <i class="fa-solid fa-angle-right foldable"></i>
+                    </div>
+                    <div class="header-visible">
+                        <label for="search-bar-input" class="search-bar">
+                            <input type="text" class="search-bar-input" aria-controls="table_crypto" placeholder="Search for stocks">
+                        </label>
+                        <button class="btn-main clear-input-sb">Clear</button>
+                    </div>
+                </div>
+                <div class="collapsible-body">
+                    <div class="wp-search-bar-result">
+                        <div class="error_no_data hidden">
+                            <i class="fa-solid fa-warning"></i>
+                            <p>No data found</p>
+                        </div>
+                        <div class="extend-suggestion">
+                            <a class="btn-main fallback-crypto"></a>
+                            <a class="btn-main suggest-crypto"></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="new">
+        <div class="top-line">
+            <h3 class="intro-banner"></h3>
+            <div class="close-banner">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <div class="buttons">
+            <a href="https://t.me/Whales_Alert_info" class="telegram btn-main">
+                <i class="fa-brands fa-telegram"></i>
+                <text>Telegram channel</text>
+            </a>
+            <a href="https://linktr.ee/whales_alert" class="x-com btn-main">
+                <i class="fa-solid fa-paperclip"></i>
+                <text>Linktr.ee</text>
+            </a>
+            <a href="https://github.com/Charles-84/WhalesAlert_Site/issues" class="git btn-main box-dashed">
+                <span>
+                    <i class="fa-brands fa-github"></i>
+                    <text class="git-issue-text"></text>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="container-split">
+        <div class="col-more-info">
+            <div class="content-displayed">
+                <div class="w_bg">
+                    <h3>
+                        <i class="fa-solid fa-star"></i>
+                        <text class="top-trend-user"></text>
+                    </h3>
+                    <div class="user-trends">
+                        <a class="user-trend-card" data-value="init">
+                            <span class="user-trend-card-nb"></span>
+                            <div class="user-trend-card-container">
+                                <p class="user-trend-card-name"></p>
+                                <p class="user-trend-card-value"></p>
+                            </div>
+                            <span class="opacity"></span>
+                            <span class="liked hidden">
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </a>
+                        <div data-value="sep">⋅</div>
+                    </div>
+                    <h3>
+                        <i class="fa-solid fa-ranking-star"></i>
+                        <text class="latest-top"></text>
+                    </h3>
+                    <div class="settings-bar-table">
+                        <div class="col-left-sc"></div>
+                        <div class="col-right-sc">
+                            <select name="select_table" id="select_table">
+                                <option value="1000">All</option>
+                            </select>
+                            <button class="type-table-toggle btn-main">
+                                <!-- <i class="fa-solid fa-list"></i> -->
+                                <i class="fa-solid fa-table-cells-large"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips">
+                    <div class="title_header">
+                        <h4>
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <text class="hints_title"></text>
+                        </h4>
+                        <div class="close-tips">
+                            <i class="fa-solid fa-times"></i>
+                        </div>
+                    </div>
+                    <p class="hints_text"></p>
+                    <button class="btn-main" onclick="loadTips()">
+                        <i class="fa-solid fa-forward-step"></i>
+                        <text class="next-tips"></text>
+                    </button>
+                </div>
+                <button class="btn-main backToTop hidden">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <text class="backToTop-Text"></text>
+                </button>
+            </div>
+        </div>
+        <div class="col-content">
+            <div class="wrapper-content top">
+                <div class="top-content">
+                    <div class="duplicated-user-trends">
+                        <h2>
+                            <i class="fa-solid fa-star"></i>
+                            <text class="top-trend-user"></text>
+                        </h3>
+                    </div>
+                    <div class="trending-content">
+                        <h2 class="title-container max">
+                            <i class="fa-solid fa-fire"></i>
+                            Trending
+                        </h2>
+                        <div class="line-content-trend">
+                            <div class="error-loading-data-text hidden"></div>
+                            <div class="shimmer"></div>
+                            <div class="container-overflow"></div>
+                        </div>
+                    </div>
+                    <div class="gain-lose-content">
+                        <div class="col">
+                            <h3 class="title-container">
+                                <i class="fa-solid fa-circle-arrow-up"></i>
+                                Gainers
+                            </h3>
+                            <div class="card-content-gainers"></div>
+                        </div>
+                        <div class="col">
+                            <h3 class="title-container">
+                                <i class="fa-solid fa-circle-arrow-down"></i>
+                                Losers
+                            </h3>
+                            <div class="card-content-losers"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-content title">
+                <h2 class="title-container max">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <text class="home-h2-transactions"></text>
+                    <button class="btn-main" onclick="">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button class="btn-main" onclick="expandView(this)">
+                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                    </button>
+                </h2>
+            </div>
+            <div class="wrapper-content table">
+                <div class="array-content">
+                    <table id="table_crypto" class="table table-bordered order-column" style="width:100%">
+                        <thead>
+                        <tr class="row_table_def">
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <!-- <th>Symbol</th> -->
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>1h</th>
+                            <th>24h</th>
+                            <th>7d</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        <tr class="row_table_def">
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <!-- <th>Symbol</th> -->
+                            <th>Price</th>
+                            <th>Volume</th>
+                            <th>1h</th>
+                            <th>24h</th>
+                            <th>7d</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="grid_crypto hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="top-line">
+                <div class="col-left-footer">
+                    <div class="brand-container">
+                        <img src="resources/img/logo.png" alt="Website's logo">
+                        <h2>WhalesAlert</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-line">
+                <h3>About us</h3>
+                <p>🔍 LowCap Crypto Watch | 💰 Large Transactions | 📈 Insights & More</p>
+                <p>Whales-Alert.fr offers real-time cryptocurrency transaction tracking, market trends, and analytics focused on significant blockchain activity and low market cap gems. Join our community to stay ahead with timely alerts and detailed crypto statistics.</p>
+                <h3>Important Links</h3>
+                <div class="buttons">
+                    <div class="telegram btn-main">
+                        <i class="fa-brands fa-telegram"></i>
+                        <a href="https://t.me/Whales_Alert_info">Telegram channel</a>
+                    </div>
+                    <div class="x-com btn-main">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <a href="https://linktr.ee/whales_alert">Linktr.ee</a>
+                    </div>
+                    <div class="github btn-main">
+                        <i class="fa-brands fa-github"></i>
+                        <a href="https://github.com/Charles-84/WhalesAlert_Site">GitHub</a>
+                    </div>
+                    <a href="roadmap.html" class="pages-e btn-main bm-link f">
+                        <i class="fa-solid fa-layer-group"></i>
+                        Roadmap
+                    </a>
+                    <a href="privacy.html" class="pages-e btn-main bm-link">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Privacy
+                    </a>
+                </div>
+                <h3>Contact</h3>
+                <div class="buttons">
+                    <a href="https://github.com/Charles-84/WhalesAlert_Site/issues" class="git btn-main box-dashed">
+                        <span>
+                            <i class="fa-brands fa-github"></i>
+                            <text class="git-issue-text"></text>
+                        </span>
+                    </a>
+                    <a href="mailto:contact@whales-alert.fr" class="btn-main bm-link">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="sub-footer">
+            <div class="wrapper-sf">
+                <p>Made by <a href="https://github.com/NicolasVaillant">@NicolasVaillant</a> & <a href="https://github.com/Charles-84">@Charles-84</a></p>
+                <p>All Rights Reserved <span class="copyright-date"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal" style="display: none;">
+        <div class="container-header">
+            <p class="modal-text"></p>
+            <div class="close-btn">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <div class="container-content">
+            <button id="open_crypto_from_table" class="btn-main"></button>
+        </div>
+    </div>
+</main>
+</body>
+</html>

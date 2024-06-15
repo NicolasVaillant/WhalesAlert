@@ -18,8 +18,38 @@ const i_foldable = document.querySelector('.collapsible .foldable')
 let toggle_icon = false
 let exact_type = window.location.pathname.split("/").at(-1).split('.')[0]
 exact_type.length === 0 ? exact_type = 'index' : exact_type;
-let refreshRateUserSelect = 'default'
 const closer_banner = document.querySelector('.close-banner')
+let refreshRateUserSelect = 'default'
+
+// ===================
+// Refresh State
+// ===================
+const refreshForce = document.querySelector('.refreshForce');
+if(refreshForce !== null){
+    const refreshForce_icon = refreshForce.querySelector('i');
+    if(refreshForce_icon !== null){
+        refreshForce.addEventListener('click', () => {
+            if(!refreshForce_icon.classList.contains('spin')){
+                refreshForce_icon.classList.add('spin')
+                setTimeout(() => {
+                    refreshForce_icon.classList.remove('spin')
+                }, 900)
+        
+                if ($.fn.dataTable.isDataTable('#table_crypto')){
+                    table = $('#table_crypto').DataTable();
+                } else {
+                    table = $('#table_crypto').DataTable( {
+                        ajax: 'data/arrays.txt'
+                    });
+                }
+                table.clear().draw()
+                callFunctions()
+            }
+        })
+    }
+}
+// ===================
+
 closer_banner.addEventListener('click', () => {
     hide(closer_banner.closest('.new'))
 })
@@ -82,34 +112,38 @@ const expandView = (e) => {
 if(variables.version > 1){
     const cleanLSConfirmButton = document.querySelector('.cleanLSConfirmButton')
     const cleanLSCancelButton = document.querySelector('.cleanLSCancelButton')
-    cleanLSCancelButton.addEventListener('click', (e) => {
-        LS.checked = false
-        LS.closest('label').classList.remove('active')
-        hide(tooltip_content.querySelector('span'))
-    })
-    cleanLSConfirmButton.addEventListener('click', (e) => {
-        const checkbox_fav_crypto = document.querySelector('#fav-crypto');
-        const toggle_fav = document.querySelector('.toggle_fav')
-        const btn = e.target
-        const status = btn.getAttribute('btn-clean')
-        if(status === 'true'){
+    if(cleanLSCancelButton !== null){
+        cleanLSCancelButton.addEventListener('click', (e) => {
             LS.checked = false
-            btn.innerText = 'Confirm'
             LS.closest('label').classList.remove('active')
             hide(tooltip_content.querySelector('span'))
-            btn.setAttribute('btn-clean', 'false')
-        } else {
-            if(checkbox_fav_crypto){
-                checkbox_fav_crypto.checked = false
-                toggle_fav.classList.replace('fa-solid', 'fa-regular')
+        })
+    }
+    if(cleanLSConfirmButton !== null){
+        cleanLSConfirmButton.addEventListener('click', (e) => {
+            const checkbox_fav_crypto = document.querySelector('#fav-crypto');
+            const toggle_fav = document.querySelector('.toggle_fav')
+            const btn = e.target
+            const status = btn.getAttribute('btn-clean')
+            if(status === 'true'){
+                LS.checked = false
+                btn.innerText = 'Confirm'
+                LS.closest('label').classList.remove('active')
+                hide(tooltip_content.querySelector('span'))
+                btn.setAttribute('btn-clean', 'false')
+            } else {
+                if(checkbox_fav_crypto){
+                    checkbox_fav_crypto.checked = false
+                    toggle_fav.classList.replace('fa-solid', 'fa-regular')
+                }
+                localStorage.removeItem(label__favorite_elements)
+                btn.innerText = 'Done!'
+                btn.setAttribute('btn-clean', 'true')
             }
-            localStorage.removeItem(label__favorite_elements)
-            btn.innerText = 'Done!'
-            btn.setAttribute('btn-clean', 'true')
-        }
-    })
-
-    document.querySelector('.tooltip-content').classList.remove('hidden')
+        })
+    }
+    const ttc = document.querySelector('.tooltip-content')
+    if(ttc !== null){ttc.classList.remove('hidden')}
     LS.addEventListener('change', (e) => {
         const stored_fav = JSON.parse(localStorage.getItem(label__favorite_elements))
         if(e.target.checked){
@@ -191,7 +225,7 @@ const copyrightDate = () => {
 }
 
 window.onscroll = function () {
-    if(exact_type == "index")
+    if(exact_type == "app")
         modal.style.display = 'none';
     
     if(window.scrollY > 200){
@@ -202,7 +236,7 @@ window.onscroll = function () {
     hide(hb_container)
 }
 window.onload = function () {
-    if(exact_type == "index"){
+    if(exact_type == "app"){
         const size = window.getComputedStyle(hamburger_menu).width
         i_foldable.parentElement.style.width = size
         const size_sb = window.getComputedStyle(sb).height
@@ -214,7 +248,10 @@ window.onload = function () {
 
         if(variables.version > 1){
             wrapper_sb.classList.remove('hidden')
+            setTimeRefresh()
         }        
+    } else if(exact_type == "crypto"){
+        setTimeRefresh()
     }
 
     checkGridPage()
@@ -229,6 +266,33 @@ window.onload = function () {
     fLoadIP().then(r => {
         fLoadVersionFromServer(r.ip);
     })
+}
+
+const dateFct = (type) => {
+    const date = new Date()
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear().toString().slice(-2);
+    const day_in_week = date.toLocaleString('fr-FR', { weekday: 'long' })
+    if(type === "full"){
+        return {
+            'full': `${day}/${month}/${year}`,
+            'date_day': `${day_in_week} ${day}`,
+            'day': day,
+            'month': month,
+            'year': year,
+            'day_in_week': day_in_week,
+            'hour': `${hours}:${minutes}`
+        }
+    } else {
+        return `${day}/${month}/${year}`
+    }
+}
+
+const setTimeRefresh = () => {
+    document.querySelector('.seperator-refresh').innerText = `Last refresh at ${dateFct("full").hour}`
 }
 
 const storeDataUsers = () => {
@@ -314,7 +378,6 @@ const setTextFromParameters = () => {
     })
 }
 
-
 toggle_hamburger.addEventListener('click', () => {
     if(hb_container.classList.contains('hidden')){
         hb_container.classList.remove('hidden')
@@ -333,10 +396,10 @@ toggle_hamburger.addEventListener('click', () => {
 let currentIndex = 0;
 const refreshRate = document.querySelector('.refreshRate');
 refreshRate.addEventListener('click', () => {
-  const duration = variables.refreshRate[currentIndex];
-  refreshRate.querySelector('text').innerHTML = duration
-  refreshRateUserSelect = duration
-  currentIndex = (currentIndex + 1) % variables.refreshRate.length;
+//   const duration = variables.refreshRate[currentIndex];
+//   refreshRate.querySelector('text').innerHTML = duration
+//   refreshRateUserSelect = duration
+//   currentIndex = (currentIndex + 1) % variables.refreshRate.length;
 });
 
 const contextMenuCreation = (display, text, x, y, url = false) => {
@@ -357,7 +420,7 @@ const contextMenuCreation = (display, text, x, y, url = false) => {
     });
 }
 
-if(exact_type === 'crypto' || exact_type === 'index'){
+if(exact_type === 'crypto' || exact_type === 'app'){
     const close_btn = document.querySelector('.close-btn');
     close_btn.addEventListener('click', function() {
         modal.style.display = 'none';
@@ -408,6 +471,10 @@ const openPage = (value) => {
     window.open(`crypto.html?q=${res}`, "_self")
 }
 
-const hide = (element) => {
-    element.classList.add('hidden')
+const hide = (element, value = false) => {
+    if(value){
+        element.classList.remove('hidden')
+    } else {
+        element.classList.add('hidden')
+    }
 }

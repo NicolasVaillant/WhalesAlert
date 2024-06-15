@@ -96,8 +96,13 @@ fLoad_crypto_tx()
             const svg = document.querySelector('.container-error svg')
             if(variables.version > 1){
                 redirect.href = `suggest-crypto.html?q=${query}`
+                if(!settings.suggestionPage){
+                    redirect.classList.add('hidden')
+                }
             } else {
-                redirect.classList.add('hidden')
+                if(!settings.suggestionPage){
+                    redirect.classList.add('hidden')
+                }
                 svg.classList.add('hidden')
             }
             chart.classList.add('hidden')
@@ -205,7 +210,11 @@ const setAsideInfo = (data) => {
     }else{
         max_supply.classList.add('max-supply-no-info')
     }
-    circulating_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
+    try{
+        circulating_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: data.symbol})
+    } catch (error){
+        circulating_supply.innerText = data.supply.toLocaleString("us-US", {style: "currency", currency: 'USD'})
+    }
     refresh_date.innerText = new Date(data.last_update).toLocaleString()
 }
 
@@ -359,4 +368,8 @@ const createChart = (r) => {
     }
     var chart = new ApexCharts(document.querySelector("#chart-crypto"), options);
     chart.render();
+}
+
+const callFunctions = () => {
+    setTimeRefresh()
 }
