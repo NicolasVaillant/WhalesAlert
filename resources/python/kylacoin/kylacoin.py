@@ -18,7 +18,7 @@ if name == "nt":
 else : 
     # Version serveur
     tweet_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "tweet.json")
-    config_json = Path("/home", "container", "webroot","resources", "config_python", "kylacoin", "config.json")
+    config_json = Path("/home", "container", "config_python", "kylacoin", "config.json")
     telegram_json = Path("/home", "container", "config_python", "telegram.json")
     tx_data_json = Path("/home", "container", "webroot","resources", "data_tx", "tx_kylacoin.json")
     data_coins = Path("/home", "container", "webroot","resources", "data_coins")
