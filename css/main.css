@@ -290,6 +290,9 @@ body main header .wrapper-header {
   padding: 0;
   justify-content: space-between;
 }
+body main header .wrapper-header a.btn-main {
+  width: fit-content;
+}
 body main header .wrapper-header .brand-container {
   display: flex;
   justify-content: center;
@@ -405,6 +408,9 @@ body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-to
 }
 body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result img {
   width: 1.5em;
+}
+body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top a.btn-main {
+  width: 100%;
 }
 body main label.search-bar {
   display: flex;

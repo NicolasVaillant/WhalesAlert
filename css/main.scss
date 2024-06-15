@@ -290,7 +290,7 @@ body{
         margin: auto;
         padding: 0;
         justify-content: space-between;
-        // a.btn-main{width: fit-content} //NOT USED FN
+        a.btn-main{width: fit-content}
         .brand-container{
           @include centerFlex;
           flex-direction: row;
@@ -337,6 +337,7 @@ body{
                     width: 1.5em;
                   }
                 }
+                a.btn-main{width: 100%;}
               }
             }
           }
