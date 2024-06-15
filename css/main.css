@@ -290,9 +290,6 @@ body main header .wrapper-header {
   padding: 0;
   justify-content: space-between;
 }
-body main header .wrapper-header a.btn-main {
-  width: fit-content;
-}
 body main header .wrapper-header .brand-container {
   display: flex;
   justify-content: center;
@@ -672,7 +669,7 @@ body main .head-layout-crypto {
 }
 body main .head-layout-crypto .backToHome {
   margin-bottom: 1em;
-  color: var(--w);
+  color: var(--white);
 }
 body main .head-layout-crypto .backToHome a {
   display: flex;
@@ -2468,12 +2465,32 @@ body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .cosm
   border-radius: 1000px;
   width: 3em;
 }
+@media all and (max-width: 550px) {
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .cosmetic {
+    flex: 1;
+  }
+}
+body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media all and (max-width: 550px) {
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .text {
+    flex: 5;
+  }
+}
 body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   flex-direction: row;
+}
+@media all and (max-width: 550px) {
+  body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign {
+    flex: 1;
+  }
 }
 body main .roadmap-container .milestone-container .rm-milestone .cont-wrap .assign .img-el {
   display: flex;

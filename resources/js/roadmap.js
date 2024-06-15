@@ -6,7 +6,7 @@ const roadmap = {
         'title': 'Better Dark Mode',
         'status': 'wip',
         'cosmetic':'<i class="fa-solid fa-circle-half-stroke"></i>',
-        'release':'2',
+        'release':'3',
         'advancement': 0.5, 
         'assign': {
             'dev_1': true,
@@ -35,11 +35,11 @@ const roadmap = {
             'dev_2': false
         }
     },
-    'hint':{
-        'title': 'Hint for users in website',
+    'tips':{
+        'title': 'Tips for users in website',
         'cosmetic':'<i class="fa-solid fa-lightbulb"></i>',
         'status': 'done',
-        'release':'X',
+        'release':'2',
         'advancement': 1, 
         'assign': {
             'dev_1': true,
@@ -94,7 +94,7 @@ const roadmap = {
         'title': 'Advanced search bar website integration',
         'status': 'wip',
         'cosmetic':'<i class="fa-solid fa-magnifying-glass"></i>',
-        'release':'2',
+        'release':'3',
         'advancement': 0.75, 
         'assign': {
             'dev_1': true,
@@ -114,10 +114,10 @@ const roadmap = {
     },
     'icon_table':{
         'title': 'Add cryptocurrencies icons in table',
-        'status': 'soon',
+        'status': 'done',
         'cosmetic':'<i class="fa-solid fa-icons"></i>',
-        'release':'X',
-        'advancement': 0, 
+        'release':'2',
+        'advancement': 1, 
         'assign': {
             'dev_1': true,
             'dev_2': false
@@ -149,7 +149,7 @@ const roadmap = {
         'title': 'Delete the names from the footer (advice to avoid social engineering)',
         'status': 'done',
         'cosmetic':'<i class="fa-solid fa-triangle-exclamation"></i>',
-        'release':'X',
+        'release':'2',
         'advancement': 1, 
         'assign': {
             'dev_1': true,
@@ -171,7 +171,7 @@ const roadmap = {
         'title': "Added a cryptocurrency suggestion page",
         'status': 'wip',
         'cosmetic':'<i class="fa-solid fa-coins"></i>',
-        'release':'X',
+        'release':'2',
         'advancement': 0.75, 
         'assign': {
             'dev_1': true,

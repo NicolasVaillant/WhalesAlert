@@ -42,7 +42,7 @@ if(refreshForce !== null){
                         ajax: 'data/arrays.txt'
                     });
                 }
-                table.clear().draw()
+                // table.clear().draw()
                 callFunctions()
             }
         })

@@ -569,9 +569,9 @@ fLoad_trends_user()
 const callFunctions = () => {
     setTimeRefresh()
     loadTips()
-    loadMain()
     loadLosers()
     loadGainers()
 }
 
+loadMain()
 callFunctions()

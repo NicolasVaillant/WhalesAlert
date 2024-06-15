@@ -290,7 +290,7 @@ body{
         margin: auto;
         padding: 0;
         justify-content: space-between;
-        a.btn-main{width: fit-content}
+        // a.btn-main{width: fit-content} //NOT USED FN
         .brand-container{
           @include centerFlex;
           flex-direction: row;
@@ -526,7 +526,7 @@ body{
       margin: 2em 0;
       .backToHome{
         margin-bottom: 1em;
-        color: var(--w);
+        color: var(--white);
         a{
           display: flex;
           gap: 1em;
@@ -1945,10 +1945,18 @@ body{
               justify-content: center;
               border-radius: 1000px;
               width: 3em;
+              @media all and (max-width: 550px) {flex: 1}
+            }
+            .text{
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              @media all and (max-width: 550px) {flex: 5}
             }
             .assign{
               @include centerFlex;
               flex-direction: row;
+              @media all and (max-width: 550px) {flex: 1}
               .img-el{display: flex}
               img{
                 width: 2em!important;
