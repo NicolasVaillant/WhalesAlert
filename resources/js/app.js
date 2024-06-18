@@ -75,9 +75,10 @@ const loadLosers = async () => {
     try {
         const response = await fetch(LINK_TO_DATA__losers);
         const result = await response.json();
-        const data = (typeof result === 'object' && result.length !== 0) ? result : "error";
+        const data = (Array.isArray(result) && result.length !== 0) ? result : "error";
         fEdit_GL(data, "card-content-losers");
     } catch (error) {
+        console.log(error)
         fEdit_GL("error", "card-content-losers");
     }
 };
@@ -86,12 +87,14 @@ const loadGainers = async() => {
     try {
         const response = await fetch(LINK_TO_DATA__gainers);
         const result = await response.json();
-        const data = (typeof result === 'object' && result.length !== 0) ? result : "error";
+        const data = (Array.isArray(result) && result.length !== 0) ? result : "error";
         fEdit_GL(data, "card-content-gainers")
     } catch (error) {
+        console.log(error)
         fEdit_GL("error", "card-content-gainers");
     }
 }
+
 
 const fEdit_main = async (data) => {
     const cryptocurrencies = data.cryptocurrencies
@@ -451,7 +454,6 @@ const fEdit_GL = (data, loc) => {
             parent.removeChild(parent.firstChild);
         }
     }
-
     if(data === "error"){
         if(loc.includes('losers')){
             hide(gain_lose_content.querySelector('.col:last-child'))
@@ -503,14 +505,17 @@ const fEdit_GL = (data, loc) => {
         line.appendChild(sec_col)
         parent.appendChild(line)
     })
-    changeImageTable(JSON.parse(localStorage.getItem(label__stored)).data.cryptocurrencies, document.querySelector(`.${loc}`))
+    let storedData = localStorage.getItem(label__stored);
+    if (storedData !== null) {
+        changeImageTable(JSON.parse(storedData).data.cryptocurrencies, document.querySelector(`.${loc}`));
+    }
 }
 
 const fEdit_losers = (data) => {
     // console.log(data)
     const location = document.querySelector('.card-content-losers')
     const dataEdited = data
-    // fShow_GL(location, dataEdited)
+    fShow_GL(location, dataEdited)
 }
 
 const fShow_GL = (parent, data) => {
