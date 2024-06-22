@@ -180,7 +180,7 @@ const fLoadVersionFromServer = async(r) => {
                 '__IP__', r
             )
         );
-        return await response.json();
+        return await response.text();
     } catch (error) {
         console.log(error.message);
     }
@@ -264,7 +264,10 @@ window.onload = function () {
         setSummary()
 
     fLoadIP().then(r => {
-        fLoadVersionFromServer(r.ip);
+        fLoadVersionFromServer(r.ip)
+            .then(v => {
+                console.log("Server's version ", v);
+            })
     })
 }
 
