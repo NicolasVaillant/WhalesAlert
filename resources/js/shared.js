@@ -314,7 +314,7 @@ const checkGridPage = () => {
 
 const fLoad_cryptoIMG = async(input) => {
     try {
-        const response = await fetch(`resources/logos/${input}.png`);
+        const response = await fetch(`resources/logos/${input.toLowerCase().replace(/ /g, '_')}.png`);
         return await response.blob();
     } catch (error) {
         return error.message
@@ -439,7 +439,7 @@ function changeImageTable(crypto, container){
         if(uniqueCrypto !== undefined){
             await fLoad_cryptoIMG(uniqueCrypto.Name).then(r => {
                 if(r !== undefined && r.type == 'image/png'){
-                    img_url = `resources/logos/${uniqueCrypto.Name}.png`
+                    img_url = `resources/logos/${uniqueCrypto.Name.toLowerCase().replace(/ /g, '_')}.png`
                 } else{
                     img_url = null
                 }
