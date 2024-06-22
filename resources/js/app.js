@@ -505,7 +505,7 @@ const fEdit_GL = (data, loc) => {
         line.appendChild(sec_col)
         parent.appendChild(line)
     })
-    let storedData = localStorage.getItem(label__stored);
+    let storedData = sessionStorage.getItem(label__stored);
     if (storedData !== null) {
         changeImageTable(JSON.parse(storedData).data.cryptocurrencies, document.querySelector(`.${loc}`));
     }
