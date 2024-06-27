@@ -432,6 +432,18 @@ if(exact_type === 'crypto' || exact_type === 'app'){
     });
 }
 
+const changeColorText = (td) => {
+    td.forEach(e => {
+        if(e.innerText.includes('%')){
+            if(e.innerText.includes('-')){
+                e.style.color = 'var(--down)'
+            } else {
+                e.style.color = 'var(--up)'
+            }
+        }
+    })
+}
+
 function changeImageTable(crypto, container){
     container.querySelectorAll('img').forEach(async a => {
         //Avoiding unnecessary calls

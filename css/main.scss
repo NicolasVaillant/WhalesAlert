@@ -484,7 +484,8 @@ body{
         @include h2title;
         align-items: center;
         button{
-          &:first-of-type{margin-left: auto}
+          // &:first-of-type{margin-left: auto}
+          &.mla{margin-left: auto}
           width: fit-content;
         }
       }

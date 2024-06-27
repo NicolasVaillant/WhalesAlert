@@ -1,7 +1,11 @@
 const gain_lose_content = document.querySelector('.gain-lose-content')
 const tips = document.querySelector('.tips')
+
+// sb mobile
 const wp_search_bar_result = document.querySelector('.wp-search-bar-result')
+//sb desktop
 const wp_search_bar_result_top = document.querySelector('.res-sb-top')
+
 const wp_search_bar_result_ex = wp_search_bar_result.querySelector('.extend-suggestion')
 const wp_search_bar_result_ex_top = wp_search_bar_result_top.querySelector('.extend-suggestion')
 const fallback_crypto = document.querySelectorAll('.fallback-crypto')
@@ -167,9 +171,11 @@ const fEdit_main = async (data) => {
             displayResultSB(result_draw_cb)
             changeImageTable(cryptocurrencies, wp_search_bar_result_top)
             changeImageTable(cryptocurrencies, wp_search_bar_result)
+            changeColorText(this[0].querySelectorAll('tbody td'))
         },
         initComplete: function (settings) {
             changeImageTable(cryptocurrencies, this[0].querySelector('tbody'))
+            changeColorText(this[0].querySelectorAll('tbody td'))
             const dock = document.querySelector('.dataTables_paginate')
             // dock.classList.add('pin-dock')
             const element = document.createElement('span')
@@ -248,6 +254,7 @@ btn_clear_sb.addEventListener('click', () => {
 const displayResultSB = (elements) => {
     const error_no_data = wp_search_bar_result.querySelector('.error_no_data')
     const error_no_data_top = wp_search_bar_result_top.querySelector('.error_no_data')
+    
     elements.forEach(e => {
         if(e !== undefined){
             const line = document.createElement('a')
@@ -273,8 +280,9 @@ const displayResultSB = (elements) => {
             lineClone.onclick = () => {
                 window.open(`crypto.html?q=${e.Name}`, '_self')
             }
-            wp_search_bar_result_top.appendChild(line)
+
             wp_search_bar_result.appendChild(lineClone)
+            wp_search_bar_result_top.appendChild(line)
         }
     })
     function isArrayOnlyNull(arr) {
@@ -300,6 +308,21 @@ const displayResultSB = (elements) => {
         hide(wp_search_bar_result_ex)
         hide(wp_search_bar_result_ex_top)
     }
+
+
+    const child = wp_search_bar_result.querySelectorAll('.sb-result')
+    const child_top = wp_search_bar_result_top.querySelectorAll('.sb-result')
+
+    if(child.length > 5)
+        child.forEach((e, i) => {
+            if(i >= 5){e.remove()}
+        })
+
+    if(child_top.length > 5)
+        child_top.forEach((e, i) => {
+            if(i >= 5){e.remove()}
+        })
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -392,6 +415,8 @@ const fEdit_Trend_user = (data) => {
                 createCard(init, e, -1)
             })
         } else {
+            const dup = document.querySelector('.duplicated-user-trends')
+            hide(dup)
             hide(user_trends)
             hide(user_trends.parentElement.querySelector('h3'))
         }

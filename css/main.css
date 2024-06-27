@@ -631,7 +631,7 @@ body main .title-container.max {
 body main .title-container.max button {
   width: fit-content;
 }
-body main .title-container.max button:first-of-type {
+body main .title-container.max button.mla {
   margin-left: auto;
 }
 body main .title-container.logo {
@@ -1960,7 +1960,6 @@ body main .container-split .col-content .wrapper-content .more-crypto-redirect .
 }
 body main .container-split .col-content .wrapper-content .array-content {
   width: 100%;
-  min-height: 60vh;
 }
 body main .container-split .col-content .wrapper-content .array-content #table_crypto_wrapper td:first-child {
   text-align: center;
