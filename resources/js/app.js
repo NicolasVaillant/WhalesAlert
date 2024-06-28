@@ -348,7 +348,7 @@ const dockedDock = (dock, span) => {
 const fEdit_Trend_user = (data) => {
     const user_trends = document.querySelector('.user-trends')
     const fav_crypto_load = JSON.parse(localStorage.getItem(label__favorite_elements))
-    const createCard = (element, c, i) => {
+    const createCard = (element, c, i, last = false) => {
         const dv = element.getAttribute('data-value')
         const element_card = element.cloneNode(true)
         if(dv == 'sep'){
@@ -357,19 +357,19 @@ const fEdit_Trend_user = (data) => {
             return
         }
         element_card.setAttribute('data-value', false)
-        element_card.setAttribute('data-urlPart', ((i == -1)) ? c : c.urlPart)
-        element_card.setAttribute('data-colorized', ((i == -1)) ? true : false)
-        element_card.href = `crypto.html?q=${((i == -1)) ? c : c.urlPart}`
+        element_card.setAttribute('data-urlPart', ((last)) ? c : c.urlPart)
+        element_card.setAttribute('data-colorized', ((last)) ? true : false)
+        element_card.href = `crypto.html?q=${((last)) ? c : c.urlPart}`
         element_card.querySelector('.user-trend-card-nb').innerText = (i+1).toString()
-        element_card.querySelector('.user-trend-card-name').innerText = ((i == -1)) ? c : c.title
-        if(i == -1){
+        element_card.querySelector('.user-trend-card-name').innerText = ((last)) ? c : c.title
+        if(last){
             element_card.querySelector('.user-trend-card-value').innerText = 'Saved by user'
         } else {
             element_card.querySelector('.user-trend-card-value').innerText = c.changeValue
             element_card.querySelector('.user-trend-card-value').classList.add(`${c.changeDirection}`)
         }
         if(variables.version > 1){
-            if(i == -1){element_card.querySelector('.liked').classList.remove('hidden')}
+            if(last){element_card.querySelector('.liked').classList.remove('hidden')}
             if(fav_crypto_load !== null && fav_crypto_load.data.length !== 0){
                 const array = fav_crypto_load.data
                 array.forEach(a => {
@@ -411,8 +411,8 @@ const fEdit_Trend_user = (data) => {
         if(value_unique.length !== 0){
             const separator = document.querySelector('div[data-value="sep"]')
             // createCard(separator)
-            value_unique.forEach(e => {
-                createCard(init, e, -1)
+            value_unique.forEach((e, i) => {
+                createCard(init, e, i, true)
             })
         } else {
             const dup = document.querySelector('.duplicated-user-trends')
@@ -440,7 +440,7 @@ const fEdit_Trend_user = (data) => {
 
 const fEdit_Trend = (data) => {
     const location = document.querySelector('.container-overflow')
-    data.forEach(e => {
+    data.forEach(e=> {
         const {urlPart, changeValue, changeDirection} = e 
         const element = document.createElement('a')
         element.classList.add('trends-e')

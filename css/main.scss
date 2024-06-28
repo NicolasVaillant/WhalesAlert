@@ -52,7 +52,7 @@
   aspect-ratio: 3/4;
   cursor: pointer;
   background: linear-gradient(135deg, #7bbfdd 0%, #1b346c 100%);
-  border-radius: 20px;          
+  border-radius: calc(var(--br) * 2.5);          
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -476,6 +476,7 @@ body{
       }
       @media all and (max-width: 700px) {
         color: var(--b);
+        margin-top: 1em;
       }
     }
 
@@ -496,6 +497,7 @@ body{
           width: 1.4em;
           border-radius: var(--br);
         }
+        .name-crypto{white-space: nowrap}
       }
       color: var(--white);
     }
@@ -546,7 +548,7 @@ body{
           .duplicated-info-card{
             @include centerFlex();
             gap:.5em;
-            background: var(--card-g-l);
+            background: var(--blue_light);
             border-radius: 1000px;
             padding: .2em .5em;
             border: 1px solid var(--btn-main-bg);
@@ -556,6 +558,9 @@ body{
       }
       @media all and (min-width: 700px) {
         .duplicated-info{display: none}
+      }
+      @media all and (max-width: 700px) {
+        margin-bottom: .5em;
       }
     }
     .container-index-all{
@@ -768,6 +773,7 @@ body{
       width: var(--width-page);
       @media all and (max-width: 700px) {
         grid-template-columns:100%;
+        margin-top: 1em;
         .col-more-info{display: none}
       }
       .col-more-info{
@@ -1131,7 +1137,10 @@ body{
         }
         .info-crypto{
           color: var(--b);
-          margin-bottom: 3em;
+          margin-bottom: 1em;
+          @media all and (min-width: 700px) {
+            margin-bottom: 3em;
+          }
           @include card;
           h2{
             margin-bottom: 1em;
@@ -1221,14 +1230,21 @@ body{
             .description-array-crypto{display: none;}
             p:not(.error-loading-data-text){color: var(--white)}
             margin-top: 0;
-            margin-bottom: 3em;
+            margin-bottom: 1em;
           }
           &.title{
             border-top: 1px solid var(--w);
             margin-bottom: 0;
             h2{margin-top: 1em}
+            @media all and (max-width: 700px) {
+              margin-top: 0;
+              border-top: 0;
+            }
           }
-          &.table{margin-top: 1em}
+          &.table{
+            margin-top: 1em;
+            @media all and (max-width: 700px) {margin-bottom: 1em}
+          }
           margin: 3em 0;
           display: flex;
           flex-direction: column;
@@ -1237,6 +1253,10 @@ body{
             gap: 2em;
             flex-direction: column;
             margin-bottom: 1em;
+            @media all and (max-width: 700px) {
+              gap: 1em;
+              margin-bottom: .5em;
+            }
             .duplicated-user-trends{
               display: none;
               width: 100%;
@@ -1246,6 +1266,7 @@ body{
                 gap: 0.5em;
                 color: var(--white);
                 margin-bottom: .5em;
+                @media all and (max-width: 700px) {margin-bottom: 0}
               }
               .user-trends-dup{
                 overflow-y: auto;
@@ -1253,6 +1274,7 @@ body{
                 flex-direction: row;
                 gap: 1em;
                 padding: 1em 0;
+                @media all and (max-width: 700px) {padding: .5em 0}
                 div[data-value="sep"]{
                   display: none;
                 }
@@ -1347,6 +1369,9 @@ body{
               gap: 1em;
               align-items: flex-start;
               width: 100%;
+              @media all and (max-width: 550px) {
+                gap: .5em;
+              }
               i.fa-fire{color: #FBE5A2}
               .line-content-trend{
                 @include centerFlex;
@@ -1361,7 +1386,14 @@ body{
                 border: 1px solid var(--btn-main-bg);
                 color: var(--b);
                 position: relative;
+                @media all and (max-width: 550px) {
+                  border-radius: 0;
+                  border: none;
+                  background: none;
+                  padding: 0;
+                }
                 .shimmer {
+                  @media all and (max-width: 550px) {display: none}
                   background: linear-gradient(to right, transparent, var(--border), transparent);
                   background-size: 200% 100%;
                   animation: shimmer 1.5s infinite reverse;
@@ -1374,10 +1406,15 @@ body{
                   100% { background-position: 200% 0; }
                 }
                 .container-overflow{
-                  overflow-y: auto;
                   display: inline-flex;
                   gap: 2em;
                   padding: .5em;
+                  flex-wrap: wrap;
+                  @media all and (max-width: 550px) {
+                    padding: 0 0 .5em 0;
+                    gap: 1em;
+                    width: 100%;
+                  }
                 }
                 .trends-e{
                   @include centerFlex;
@@ -1386,6 +1423,20 @@ body{
                   border: 1px solid transparent;
                   padding: .2em;
                   border-radius: 1000px;
+                  @media all and (max-width: 550px) {
+                    background: var(--blue_light);
+                    border-radius: calc(var(--br)*2.5);
+                    flex-direction: column-reverse;
+                    padding: 1em;
+                    align-items: flex-start;
+                    position: relative;
+                    font-weight: bold;
+                    flex: 1;
+                    cursor: pointer;
+                    overflow: hidden;
+                    display: flex;
+                    min-width: 120px;
+                  }
                   .col{
                     @include centerFlex;
                     white-space: nowrap;
@@ -1418,6 +1469,7 @@ body{
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
+                @media all and (max-width: 550px) {gap: .5em}
                 i.fa-circle-arrow-up{color: var(--up)}
                 i.fa-circle-arrow-down{color: var(--down)}
                 .card-content-gainers,
@@ -1516,6 +1568,9 @@ body{
             border-radius: var(--br);
             max-height: 70vh;
             border: 1px solid var(--btn-main-bg);
+            @media all and (min-width: 700px) {
+              margin-bottom: 2em;
+            }
             .grid-elements{
               margin-top: 1em;
               display: grid;
@@ -2068,6 +2123,25 @@ body{
             }
             @media all and (max-width: 530px) {
               .pages-e{margin: 0}
+            }
+            @media all and (max-width: 550px) {
+              flex-direction: column;
+              gap: .5em;
+              flex-wrap: wrap;
+              &.row{
+                flex-direction: row;
+                .btn-main{
+                  min-width: 150px;
+                  flex: 1;
+                  text-align: center;
+                  justify-content: center;
+                  &:first-child{flex: 2}
+                  span{width: 100%}
+                }
+              }
+              .btn-main{
+                width: 100%;
+              }
             }
           }
         }
