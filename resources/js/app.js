@@ -289,6 +289,11 @@ const displayResultSB = (elements) => {
             line_text.innerText = e.Name
             line_sb.innerText = e.Symbol
             line_tt.innerText = `${e["1h"]} (1h)`
+            if(`${e["1h"]}`.includes('-')){
+                line_tt.style.color = 'var(--down)'
+            } else {
+                line_tt.style.color = 'var(--up)'
+            }
             line.appendChild(line_img)
             line.appendChild(line_text)
             line.appendChild(line_sb)

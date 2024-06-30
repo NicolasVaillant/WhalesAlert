@@ -348,9 +348,11 @@ body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-to
 body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .error_no_data {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: 0.5em;
   align-items: center;
   background: var(--error);
+  color: var(--w);
+  justify-content: center;
   width: 100%;
   border-radius: var(--br);
   padding: 0.5em;
@@ -385,7 +387,7 @@ body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-to
   width: 100%;
   cursor: pointer;
   border: 1px solid var(--border);
-  background: var(--hf-color-op);
+  background: linear-gradient(to right, var(--w), var(--hf-color-op));
   padding: 0.5em;
   border-radius: var(--br);
   background: var(--w);
@@ -396,7 +398,6 @@ body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-to
 }
 body main header .wrapper-header .wp-r .sb-container label.search-bar .res-sb-top .sb-result p:last-child {
   margin-left: auto;
-  background: var(--w);
   padding: 0.2em;
   border-radius: 4px;
 }
@@ -495,6 +496,7 @@ body main .collapsible .header-top .header-visible button {
 body main .collapsible .header-top .header-visible button:hover {
   outline: none;
   background: var(--blue_light);
+  color: var(--w);
 }
 body main .collapsible .collapsible-body {
   margin-top: 0.5em;
@@ -519,9 +521,11 @@ body main .collapsible .collapsible-body .wp-search-bar-result {
 body main .collapsible .collapsible-body .wp-search-bar-result .error_no_data {
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: 0.5em;
   align-items: center;
   background: var(--error);
+  color: var(--w);
+  justify-content: center;
   width: 100%;
   border-radius: var(--br);
   padding: 0.5em;
@@ -553,13 +557,12 @@ body main .collapsible .collapsible-body .wp-search-bar-result .sb-result {
   width: 100%;
   cursor: pointer;
   border: 1px solid var(--border);
-  background: var(--hf-color-op);
+  background: linear-gradient(to right, var(--w), var(--hf-color-op));
   padding: 0.5em;
   border-radius: var(--br);
 }
 body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:last-child {
   margin-left: auto;
-  background: var(--w);
   padding: 0.2em;
   border-radius: 4px;
 }
@@ -576,10 +579,6 @@ body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:firs
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-body main .collapsible .collapsible-body .wp-search-bar-result .sb-result p:last-of-type {
-  width: 30%;
-  text-align: center;
 }
 body main .collapsible .collapsible-body:not(.show) {
   display: none;
@@ -1844,6 +1843,7 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
 }
 @media all and (max-width: 550px) {
   body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .trends-e {
+    color: var(--dark);
     background: var(--blue_light);
     border-radius: calc(var(--br) * 2.5);
     flex-direction: column-reverse;
@@ -1875,7 +1875,7 @@ body main .container-split .col-content .wrapper-content .top-content .trending-
 body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .trends-e .col.down {
   background: var(--down) !important;
 }
-@media (pointer: fine) {
+@media (pointer: fine) and (min-width: 700px) {
   body main .container-split .col-content .wrapper-content .top-content .trending-content .line-content-trend .trends-e:hover {
     background: var(--w);
     cursor: pointer;
