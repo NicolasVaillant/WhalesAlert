@@ -156,14 +156,15 @@ body{
         position: relative;
         .info-more{
           width: 2em;
-          border: 1px solid var(--border);
+          // border: 1px solid var(--border);
           cursor: pointer;
           border-radius: 1000px;
           aspect-ratio: 1;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: var(--btn-main-bg);
+          // background: var(--btn-main-bg);
+          font-size: larger;
           @media (pointer: fine) {
             &:hover{@include outline}
           }
@@ -307,6 +308,7 @@ body{
           margin-left: auto;
           display: flex;
           flex-direction: row;
+          align-items: center;
           gap: .5em;
           .sb-container{
             label.search-bar{
@@ -358,7 +360,7 @@ body{
         background: var(--btn-main-bg);
         color: var(--b);
         &:focus{
-          @include outline;
+          // @include outline;
         }
       }
     }
@@ -391,6 +393,7 @@ body{
           aspect-ratio: 1;
           align-items: center;
           justify-content: center;
+          &.btn-main{display: none}
           &:hover{@include outline}
           i{
             rotate: 180deg;
@@ -401,12 +404,25 @@ body{
         .header-visible{
           display: flex;
           flex-direction: row;
-          gap: 1em;
           width: 100%;
+          gap: 0;
+          // outline: 2px solid rebeccapurple;
+          // border-radius: 1000px;
+          // outline-offset: 2px;
           label{
             width: 100%;
+            input{&.btn-on{border-radius: 1000px 0 0 1000px}}
           }
-          button{width: fit-content;}
+          button{
+            width: fit-content;
+            line-height: normal;
+            border-radius: 0 1000px 1000px 0;
+            border-left: 0;
+            &:hover{
+              outline: none;
+              background: var(--blue_light);
+            }
+          }
         }
       }
       .collapsible-body{
@@ -424,8 +440,18 @@ body{
           color: var(--b);
           .sb-result{
             @include sb-result-m;
-            img{
-              width: 1.5em;
+            img{width: 1.5em}
+            p{
+              white-space: nowrap;
+              &:first-of-type{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              &:last-of-type{
+                width: 30%;
+                text-align: center;
+              }
             }
           }
         }

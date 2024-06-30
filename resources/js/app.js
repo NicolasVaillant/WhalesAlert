@@ -1,5 +1,6 @@
 const gain_lose_content = document.querySelector('.gain-lose-content')
 const tips = document.querySelector('.tips')
+const btn_clear_sb = document.querySelector('.clear-input-sb')
 
 // sb mobile
 const wp_search_bar_result = document.querySelector('.wp-search-bar-result')
@@ -219,10 +220,17 @@ const fEdit_main = async (data) => {
                 } else {
                     changeImageTable(cryptocurrencies, wp_search_bar_result_top)
                 }
+                if(this.value.length !== 0){
+                    btn_clear_sb.classList.remove('hidden')
+                    this.classList.add('btn-on')
+                } else {
+                    btn_clear_sb.classList.add('hidden')
+                    this.classList.remove('btn-on')
+                }
                 return
             }, 200)
         } );
-        $('.search-bar-input').on('keydown', function () {
+        $('.search-bar-input').on('click', function () {
             const collapsible_hd = document.querySelector('.collapsible-header')
             const collapsible_bd = document.querySelector('.collapsible-body')
             if(window.getComputedStyle(collapsible_bd).display !== 'block'){
@@ -243,7 +251,19 @@ const fEdit_main = async (data) => {
     }
 }
 
-const btn_clear_sb = document.querySelector('.clear-input-sb')
+document.addEventListener('click' , (e) => {
+    const collapsible_hd = document.querySelector('.collapsible-header')
+    const collapsible_bd = document.querySelector('.collapsible-body')
+    var isInsideWrapper = e.target.closest('.wrapper-sub-header-sb');
+    if (!isInsideWrapper) {
+        if(window.getComputedStyle(collapsible_bd).display == 'block'){
+            setTimeout(() => {
+                collapsible_hd.click()
+            }, 200)
+        }
+    }
+})
+
 const input_sb = document.querySelectorAll('.search-bar-input')
 btn_clear_sb.addEventListener('click', () => {
     input_sb.forEach(e => {
